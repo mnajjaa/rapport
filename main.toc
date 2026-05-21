@@ -1,0 +1,18 @@
+\contentsline {section}{Summary}{6}{Doc-Start}%
+\contentsline {section}{Acknowledgments}{7}{Doc-Start}%
+\contentsline {section}{Introduction}{9}{Doc-Start}%
+\contentsline {section}{\numberline {1}General Context}{10}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Introduction}{10}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Host Company}{10}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Area of Expertise}{10}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Delivery}{10}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Advisory}{11}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}Project Overview}{11}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Problem Statement}{11}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Objectives}{12}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Methodology}{12}{subsection.1.7}%
+\contentsline {subsubsection}{\numberline {1.7.1}Choice of the Methodology}{12}{subsubsection.1.7.1}%
+\contentsline {subsubsection}{\numberline {1.7.2}IBM Master Plan}{13}{subsubsection.1.7.2}%
+\contentsline {subsubsection}{\numberline {1.7.3}Adaptation of the IBM Master Plan to the VIP Project}{13}{subsubsection.1.7.3}%
+\contentsline {subsubsection}{\numberline {1.7.4}Application of the Methodology to the Project}{14}{subsubsection.1.7.4}%
+\contentsline {subsection}{\numberline {1.8}Project Timeline}{15}{subsection.1.8}%

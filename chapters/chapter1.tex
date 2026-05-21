@@ -1,0 +1,177 @@
+% !TEX root = ../main.tex
+
+% --- General Context ---
+\newpage
+\section{General Context}
+
+\subsection{Introduction}
+
+This chapter presents the general context of the internship and introduces the environment in which the project was carried out. It begins with a presentation of the host company and its main areas of expertise, followed by an overview of the project context and the problem addressed throughout this internship. The chapter also introduces the methodological approach adopted during the different phases of the project in order to ensure a structured and progressive development process.
+
+\vspace{1em}
+
+\subsection{Host Company}
+
+\textbf{Value Digital Services} is a Tunisian company specialized in digital transformation and information technology consulting. Founded in 2019, the company has positioned itself as an innovation-driven and AI-oriented organization, focusing on the development of modern digital solutions adapted to evolving business needs.
+
+The company supports clients operating in various sectors by providing services related to software engineering, artificial intelligence, data analytics, cloud technologies, and digital strategy. Through its expertise, Value Digital Services aims to assist organizations in accelerating their digital transformation and improving operational efficiency through innovative technological solutions.
+
+\vspace{1em}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{value_logo_transparent.png}
+    \caption{Logo of Value Digital Services}
+    \label{fig:logo_value}
+\end{figure}
+
+\vspace{1em}
+
+\subsection{Area of Expertise}
+
+Value Digital Services structures its activities around multiple areas of expertise combining both technical implementation and strategic support. The company relies on multidisciplinary teams working collaboratively to design, develop, and deploy innovative digital solutions.
+
+\subsubsection{Delivery}
+
+The Delivery pole brings together the technical teams responsible for the implementation and deployment of digital solutions. It is composed of several specialized units:
+
+\begin{itemize}
+
+    \item \textbf{Digital Factory:} This unit is responsible for software development and digital product delivery. It includes developers, DevOps engineers, QA engineers, business analysts, UX/UI designers, and project managers working across the entire software development lifecycle.
+
+    \item \textbf{Data Factory:} Specialized in data engineering and analytics, this unit supports organizations in managing, processing, and valorizing their data through modern data platforms and decision-support solutions.
+
+    \item \textbf{AI Factory:} Dedicated to artificial intelligence solutions, this unit focuses on the design and deployment of AI-driven applications based on technologies such as machine learning, deep learning, generative AI, and intelligent automation systems.
+
+\end{itemize}
+
+    \subsubsection{Advisory}
+        The Advisory department is tasked with supporting organizations through strategic reflection and transformation projects. It operates across several domains, including digital strategy, marketing, finance, governance, and process optimization. The goal is to provide companies with the necessary insights to make informed decisions and to effectively structure their transformation initiatives.
+
+
+\subsection{Project Overview}
+
+The project, entitled \textbf{VIP -- Value Intelligent Platform}, aims to design and implement an enterprise-grade AI agent orchestration platform capable of building, deploying, and managing intelligent applications through a modular multi-agent architecture. Unlike traditional monolithic AI systems, the platform follows an \textit{Agent-as-a-Service} approach where specialized agents are dynamically generated from declarative configurations and deployed as independent containerized services.
+
+The platform provides a unified environment for agent creation, workflow orchestration, observability, and lifecycle management. Users can configure agents by selecting models, prompts, schemas, providers, and tools without directly modifying the source code. The generated agents can then be integrated into multi-agent execution pipelines coordinated through an orchestration layer and monitored through observability services.
+
+The proposed solution also emphasizes scalability, flexibility, and provider independence by supporting multiple LLM providers and open-source models through a unified interface. In addition, the use of containerization and centralized configuration management enables easier deployment, maintenance, and extensibility of intelligent systems.
+
+\vspace{1em}
+
+\subsection{Problem Statement}
+
+Despite the rapid evolution of AI agents and Large Language Models, the deployment of agentic systems in enterprise environments remains complex. Many existing solutions are either expensive to operate, difficult to scale, or too dependent on proprietary LLM providers. In addition, they often lack the infrastructure required to monitor, orchestrate, and deploy agents in a reliable and controlled way.
+
+The main challenges addressed by this project can be summarized as follows:
+
+\begin{itemize}
+
+    \item \textbf{Cost and Scalability Limitations:} Existing AI agent solutions can be expensive to operate at scale, especially when relying heavily on large proprietary models or external APIs. This makes large-scale deployment difficult and limits their accessibility for enterprise use cases.
+
+    \item \textbf{Poor Observability:} Many current systems lack sufficient traceability, monitoring, and execution tracking. This makes it difficult to understand agent behavior, detect errors, evaluate performance, and audit workflow execution.
+
+    \item \textbf{Dependence on External LLM APIs:} Several solutions are strongly tied to proprietary AI providers. This creates vendor dependency, increases operational costs, and reduces flexibility when switching between OpenAI, Groq, Azure, or open-source models.
+
+    \item \textbf{Absence of Automated Deployment:} Creating and deploying new agents is often a manual and time-consuming process. Without automated deployment mechanisms, it becomes difficult to rapidly generate, configure, and launch agents in a consistent way.
+
+    \item \textbf{Lack of Orchestration and Modularity:} Existing approaches often do not provide strong workflow orchestration capabilities. Agents are not always designed as reusable and modular components, which limits workflow composition and makes multi-agent collaboration harder to manage.
+
+\end{itemize}
+
+Based on these limitations, the central problem of this project can be formulated as follows:
+
+\begin{quote}
+How can we design a modular, secure, observable, and cost-optimized AI agent orchestration platform that enables dynamic and fast agent creation, deployment, and workflow composition, while maintaining high performance comparable to large proprietary models?
+\end{quote}.
+
+\subsection{Objectives}
+
+The main objectives of this project are:
+
+\subsection{Methodology}
+
+\subsubsection{Choice of the Methodology}
+
+The methodology adopted for this project is based on the \textbf{IBM Master Plan}, also known as the \textbf{IBM Data Science Methodology}. This methodology was selected because it provides a structured and iterative framework that guides a project from problem understanding to deployment and feedback.
+
+However, the VIP project does not correspond to a traditional data science project focused only on data collection, preparation, and predictive modeling. It is an agentic AI platform centered on dynamic agent creation, workflow orchestration, deployment, observability, and continuous improvement. For this reason, the IBM Master Plan was adapted to the nature of the project and enriched with the \textbf{IBM Agent Development Lifecycle (ADLC)} perspective.
+
+\subsubsection{IBM Master Plan}
+
+The IBM Master Plan is an iterative methodology designed to structure data-driven and artificial intelligence projects. It organizes the project lifecycle into several phases, starting from business understanding and ending with deployment and feedback. Its iterative nature allows teams to return to previous phases when new requirements, constraints, or improvements are identified.
+
+\begin{figure}[H]
+    \centering
+    % Add the original IBM Master Plan illustration here.
+    % Suggested file name when available: ibm_master_plan_original.png
+    \fbox{
+        \begin{minipage}[c][5cm][c]{0.85\textwidth}
+            \centering
+            Illustration placeholder\\
+            Add the original IBM Master Plan lifecycle diagram here.
+        \end{minipage}
+    }
+    \caption{Original IBM Master Plan lifecycle}
+    \label{fig:ibm_master_plan_original}
+\end{figure}
+
+\subsubsection{Adaptation of the IBM Master Plan to the VIP Project}
+
+Although the IBM Master Plan provides a strong methodological foundation, it was adapted to better fit the specific nature of the VIP platform. In this project, the focus is not limited to building a predictive model, but extends to designing, deploying, orchestrating, monitoring, and improving AI agents.
+
+For this reason, the original phases were reinterpreted according to the needs of an enterprise-grade agentic AI platform. The IBM Agent Development Lifecycle perspective was used to complement the methodology, especially for the phases related to agent design, deployment, observability, and continuous improvement.
+
+\begin{figure}[H]
+    \centering
+    % Add the adapted IBM Master Plan illustration for VIP here.
+    % Suggested file name when available: ibm_master_plan_adapted_vip.png
+    \fbox{
+        \begin{minipage}[c][5cm][c]{0.9\textwidth}
+            \centering
+            Illustration placeholder\\
+            Add the adapted IBM Master Plan for the VIP project here.
+        \end{minipage}
+    }
+    \caption{Adapted IBM Master Plan applied to the VIP project}
+    \label{fig:ibm_master_plan_adapted_vip}
+\end{figure}
+
+\subsubsection{Application of the Methodology to the Project}
+
+The adapted methodology was applied throughout the project in order to ensure a structured progression from the initial problem definition to the implementation and evaluation of the VIP platform. Each phase contributed to a specific part of the project lifecycle.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\hline
+\rowcolor{gray!20}
+\textbf{Adapted Phase} & \textbf{Application in the VIP Project} \\
+\hline
+Business Understanding & Identification of the need for a modular, secure, observable, and cost-optimized AI agent orchestration platform. \\
+\hline
+Requirements Analysis & Definition of the functional and non-functional requirements, including dynamic agent creation, deployment automation, provider flexibility, scalability, and observability. \\
+\hline
+Architecture Design & Design of the global architecture, including the builder, generated agents, orchestration layer, semantic adapter, MLflow governance, and observability components. \\
+\hline
+Agent Design and Generation & Implementation of configurable agents generated from declarative configurations, prompts, schemas, tools, and model parameters. \\
+\hline
+Workflow Orchestration & Coordination of multiple agents through structured workflows and management of schema transformations between agents. \\
+\hline
+Deployment & Deployment of agents and platform services as containerized components using Docker. \\
+\hline
+Observability and Evaluation & Monitoring of traces, execution flow, latency, token usage, and system behavior in order to assess reliability and maintainability. \\
+\hline
+Feedback and Improvement & Iterative refinement of the architecture, orchestration logic, schema management, and provider integration based on testing and project evolution. \\
+\hline
+\end{tabularx}
+\caption{Application of the adapted methodology to the VIP project}
+\label{tab:methodology_application_vip}
+\end{table}
+
+\subsection{Project Timeline}
+The project was executed over a 22-week period, structured into several critical phases. The timeline began with a three-week onboarding phase focused on Django REST Framework and web scraping. This was followed by a research and design phase (Weeks 6-10). The core infrastructure and agent factory development took place between Weeks 11 and 16. The final weeks (17-22) were dedicated to engineering specialized actuarial logic, implementing the global orchestrator, and integrating the distributed tracing system for observability and final testing.
+\begin{mydefinition}
+    \textbf{Agentic Hub:} A centralized platform capable of programmatically spawning and managing specialized AI units to execute complex workflows.
+\end{mydefinition}
