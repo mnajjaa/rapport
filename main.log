@@ -1,10 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.21)  21 MAY 2026 23:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.21)  25 MAY 2026 13:53
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/BRHN/Desktop/rapport/main.tex
-(c:/Users/BRHN/Desktop/rapport/main.tex
+**./main.tex
+(main.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 (C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -800,7 +799,20 @@ File: pppdftex.def 2026/03/30 v0.6h Pdfpages driver for pdfTeX (AM)
 \AM@lof@heading=\toks51
 \c@AM@survey=\count346
 \AM@templatesizebox=\box87
-)) (C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibra
+ryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen303
+\pgfarrowlength=\dimen304
+\pgfarrowwidth=\dimen305
+\pgfarrowlinewidth=\dimen306
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
 
 (C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
@@ -828,7 +840,7 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count347
 )
-\@linkdim=\dimen303
+\@linkdim=\dimen307
 \Hy@linkcounter=\count348
 \Hy@pagecounter=\count349
  (C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
@@ -860,7 +872,7 @@ Package hyperref Info: Bookmarks ON on input line 4462.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen304
+\XeTeXLinkMargin=\dimen308
 
 (C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -871,8 +883,8 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count352
-\Field@Width=\dimen305
-\Fld@charsize=\dimen306
+\Field@Width=\dimen309
+\Fld@charsize=\dimen310
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -953,7 +965,7 @@ LaTeX Font Info:    ... okay on input line 6.
 * \oddsidemargin=-1.1381pt
 * \evensidemargin=-1.1381pt
 * \topmargin=-38.1381pt
-* \headheight=12.0pt
+* \headheight=15.0pt
 * \headsep=25.0pt
 * \topskip=12.0pt
 * \footskip=30.0pt
@@ -975,13 +987,13 @@ LaTeX Font Info:    ... okay on input line 6.
 i
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count359
-\scratchdimen=\dimen307
+\scratchdimen=\dimen311
 \scratchbox=\box88
 \nofMPsegments=\count360
 \nofMParguments=\count361
 \everyMPshowfont=\toks52
 \MPscratchCnt=\count362
-\MPscratchDim=\dimen308
+\MPscratchDim=\dimen312
 \MPnumerator=\count363
 \makeMPintoPDFobject=\count364
 \everyMPtoPDFconversion=\toks53
@@ -1018,13 +1030,13 @@ Package hyperref Info: Link coloring OFF on input line 6.
 \openout4 = `main.out'.
 
  (title.tex
-<Page Garde Rapport Stage(Ang).pdf, id=112, 598.235pt x 845.1575pt>
+<Page Garde Rapport Stage(Ang).pdf, id=306, 598.235pt x 845.1575pt>
 File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
 <use Page Garde Rapport Stage(Ang).pdf>
 Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf  used on input line 
 10.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
-<Page Garde Rapport Stage(Ang).pdf, id=114, page=1, 598.235pt x 845.1575pt>
+<Page Garde Rapport Stage(Ang).pdf, id=308, page=1, 598.235pt x 845.1575pt>
 File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
 <use Page Garde Rapport Stage(Ang).pdf, page 1>
 Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf , page1 used on inpu
@@ -1057,7 +1069,7 @@ t line 10.
  [2
 
  <./Page Garde Rapport Stage(Ang).pdf>]
-<Page Garde Rapport Stage(Ang).pdf, id=145, page=2, 598.235pt x 845.1575pt>
+<Page Garde Rapport Stage(Ang).pdf, id=338, page=2, 598.235pt x 845.1575pt>
 File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
 <use Page Garde Rapport Stage(Ang).pdf, page 2>
 Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf , page2 used on inpu
@@ -1076,7 +1088,7 @@ t line 10.
  [3
 
  <./Page Garde Rapport Stage(Ang).pdf>]
-<Page Garde Rapport Stage(Ang).pdf, id=152, page=3, 598.235pt x 845.1575pt>
+<Page Garde Rapport Stage(Ang).pdf, id=345, page=3, 598.235pt x 845.1575pt>
 File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
 <use Page Garde Rapport Stage(Ang).pdf, page 3>
 Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf , page3 used on inpu
@@ -1097,56 +1109,131 @@ t line 10.
  <./Page Garde Rapport Stage(Ang).pdf>])
 (frontmatter.tex [5]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
-3.
+4.
 
 (C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Overfull \hbox (15.72649pt too wide) in paragraph at lines 37--38
+Overfull \hbox (15.72649pt too wide) in paragraph at lines 38--39
 []\T1/ptm/b/n/12 Centralized Gov-er-nance and Ver-sion-ing: \T1/ptm/m/n/12 In-t
 e-grated MLflow to man-age prompts, schemas,
  []
 
 
-Overfull \hbox (10.13484pt too wide) in paragraph at lines 37--38
+Overfull \hbox (10.13484pt too wide) in paragraph at lines 38--39
 \T1/ptm/m/n/12 and con-fig-u-ra-tion ar-ti-facts, en-abling trace-abil-ity, ver
 -sion con-trol, and a ``Zero Code Change''
  []
 
-[6] [7] (main.toc)
+[6] [7] (main.toc [8
+
+])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
-) (chapters/introduction.tex [8]) (chapters/chapter1.tex
-[9]
-<value_logo_transparent.png, id=213, 345.29pt x 128.48pt>
+ [9] (main.lof)
+\tf@lof=\write6
+\openout6 = `main.lof'.
+
+ [10
+
+] (main.lot)
+\tf@lot=\write7
+\openout7 = `main.lot'.
+
+ [11
+
+])
+(chapters/introduction.tex [12
+
+]) (chapters/chapter1.tex [1
+
+]
+<value_logo_transparent.png, id=508, 345.29pt x 128.48pt>
 File: value_logo_transparent.png Graphic file (type png)
 <use value_logo_transparent.png>
-Package pdftex.def Info: value_logo_transparent.png  used on input line 23.
+Package pdftex.def Info: value_logo_transparent.png  used on input line 21.
 (pdftex.def)             Requested size: 227.62206pt x 84.69707pt.
- [10 <./value_logo_transparent.png>] [11] [12]
-Overfull \hbox (2.4765pt too wide) in paragraph at lines 123--124
-[]\T1/ptm/m/n/12 For this rea-son, the orig-i-nal phases were rein-ter-preted a
-c-cord-ing to the needs of an enterprise-
- []
+ [2 <./value_logo_transparent.png>] [3] [4]
+<fastapi_logo.png, id=524, 1275.93932pt x 459.78673pt>
+File: fastapi_logo.png Graphic file (type png)
+<use fastapi_logo.png>
+Package pdftex.def Info: fastapi_logo.png  used on input line 120.
+(pdftex.def)             Requested size: 81.9406pt x 29.52235pt.
+<nextjs_logo.png, id=525, 225.84375pt x 225.84375pt>
+File: nextjs_logo.png Graphic file (type png)
+<use nextjs_logo.png>
+Package pdftex.def Info: nextjs_logo.png  used on input line 132.
+(pdftex.def)             Requested size: 81.9406pt x 81.94121pt.
+<langchain_logo.png, id=526, 546.04pt x 92.345pt>
+File: langchain_logo.png Graphic file (type png)
+<use langchain_logo.png>
+Package pdftex.def Info: langchain_logo.png  used on input line 143.
+(pdftex.def)             Requested size: 81.9406pt x 13.85678pt.
+ [5 <./fastapi_logo.png> <./nextjs_logo.png>]
+<langgraph_logo.png, id=534, 319.1925pt x 159.59625pt>
+File: langgraph_logo.png Graphic file (type png)
+<use langgraph_logo.png>
+Package pdftex.def Info: langgraph_logo.png  used on input line 155.
+(pdftex.def)             Requested size: 81.9406pt x 40.97046pt.
+<jupyter_logo.png, id=535, 1405.25pt x 379.4175pt>
+File: jupyter_logo.png Graphic file (type png)
+<use jupyter_logo.png>
+Package pdftex.def Info: jupyter_logo.png  used on input line 167.
+(pdftex.def)             Requested size: 81.9406pt x 22.12143pt.
+<openai_logo.png, id=536, 432.61626pt x 117.43875pt>
+File: openai_logo.png Graphic file (type png)
+<use openai_logo.png>
+Package pdftex.def Info: openai_logo.png  used on input line 180.
+(pdftex.def)             Requested size: 81.9406pt x 22.2437pt.
+<groq_logo.png, id=537, 373.395pt x 136.51pt>
+File: groq_logo.png Graphic file (type png)
+<use groq_logo.png>
+Package pdftex.def Info: groq_logo.png  used on input line 192.
+(pdftex.def)             Requested size: 81.9406pt x 29.95522pt.
+<phi4_logo.png, id=538, 312.16624pt x 162.6075pt>
+File: phi4_logo.png Graphic file (type png)
+<use phi4_logo.png>
+Package pdftex.def Info: phi4_logo.png  used on input line 204.
+(pdftex.def)             Requested size: 81.9406pt x 42.68138pt.
+ [6 <./langchain_logo.png> <./langgraph_logo.png> <./jupyter_logo.png> <./opena
+i_logo.png> <./groq_logo.png>]
+<llama4_logo.png, id=548, 224.84pt x 224.84pt>
+File: llama4_logo.png Graphic file (type png)
+<use llama4_logo.png>
+Package pdftex.def Info: llama4_logo.png  used on input line 216.
+(pdftex.def)             Requested size: 81.9406pt x 81.94069pt.
+<postgresql_logo.png, id=549, 333.245pt x 152.57pt>
+File: postgresql_logo.png Graphic file (type png)
+<use postgresql_logo.png>
+Package pdftex.def Info: postgresql_logo.png  used on input line 233.
+(pdftex.def)             Requested size: 81.9406pt x 37.51382pt.
+<mlflow_logo.png, id=550, 372.39125pt x 136.51pt>
+File: mlflow_logo.png Graphic file (type png)
+<use mlflow_logo.png>
+Package pdftex.def Info: mlflow_logo.png  used on input line 245.
+(pdftex.def)             Requested size: 81.9406pt x 30.03645pt.
+<docker_logo.png, id=551, 472.76625pt x 107.40125pt>
+File: docker_logo.png Graphic file (type png)
+<use docker_logo.png>
+Package pdftex.def Info: docker_logo.png  used on input line 259.
+(pdftex.def)             Requested size: 81.9406pt x 18.61522pt.
+ [7 <./phi4_logo.png> <./llama4_logo.png> <./postgresql_logo.png> <./mlflow_log
+o.png>]
+<docker_compose_logo.png, id=561, 298.11375pt x 170.6375pt>
+File: docker_compose_logo.png Graphic file (type png)
+<use docker_compose_logo.png>
+Package pdftex.def Info: docker_compose_logo.png  used on input line 271.
+(pdftex.def)             Requested size: 81.9406pt x 46.90071pt.
+<laminar_logo.png, id=562, 233.673pt x 57.816pt>
+File: laminar_logo.png Graphic file (type png)
+<use laminar_logo.png>
+Package pdftex.def Info: laminar_logo.png  used on input line 284.
+(pdftex.def)             Requested size: 81.9406pt x 20.27382pt.
+ [8 <./docker_logo.png> <./docker_compose_logo.png> <./laminar_logo.png>] [9] [
+10] [11] [12]) (chapters/chapter2.tex [13] [14]
+[15] [16] [17] [18]) [19] [20]
 
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 168--168
-[]|\T1/ptm/m/n/12 Business Un-der-stand-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 168--168
-[]|\T1/ptm/m/n/12 Workflow Or-ches-tra-
- []
-
-
-Underfull \hbox (badness 2626) in paragraph at lines 168--168
-[]|\T1/ptm/m/n/12 Iterative re-fine-ment of the ar-chi-tec-ture, or-ches-tra-ti
-on logic,
- []
-
-[14]) [15] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (main.aux)
  ***********
@@ -1154,23 +1241,25 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 283A67F2A8AD3B16BD268AD9E7D2E2AC;2685.
+(rerunfilecheck)             Checksum: 1177C3C91E64D98AF10CCB8CFCF29A34;13950.
  ) 
 Here is how much of TeX's memory you used:
- 29048 strings out of 467871
- 587897 string characters out of 5418860
- 1018097 words of memory out of 5000000
- 57381 multiletter control sequences out of 15000+600000
- 656160 words of font info for 71 fonts, out of 8000000 for 9000
+ 29982 strings out of 467871
+ 608854 string characters out of 5418860
+ 1037367 words of memory out of 5000000
+ 58197 multiletter control sequences out of 15000+600000
+ 688948 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 121i,17n,124p,799b,639s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb
-><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
-<C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-
-Output written on main.pdf (15 pages, 356212 bytes).
+ 121i,17n,124p,771b,879s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+msy10.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/ut
+mb8a.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utm
+bi8a.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utm
+r8a.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr
+i8a.pfb>
+Output written on main.pdf (32 pages, 627287 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
- 35 named destinations out of 1000 (max. 500000)
- 331 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 687 PDF objects out of 1000 (max. 8388607)
+ 127 named destinations out of 1000 (max. 500000)
+ 785 words of extra memory for PDF output out of 10000 (max. 10000000)
 

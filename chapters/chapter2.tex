@@ -1,3 +1,161 @@
 % !TEX root = ../main.tex
 
-% Chapter 2 content will be added here.
+% --- State of the Art ---
+\newpage
+\section{State of the Art}
+
+\subsection*{Introduction}
+
+This chapter presents the main theoretical and technical concepts related to the VIP project. It introduces Large Language Models, generative AI, AI agents, multi-agent workflows, orchestration mechanisms, configuration-driven agent platforms, observability, governance, evaluation, and the development and deployment tools used to build modern agentic AI systems.
+
+\subsection{Large Language Models and Generative AI}
+
+\subsubsection{Overview of Large Language Models}
+
+Large Language Models (LLMs) are deep learning models trained on large textual corpora to understand, generate, summarize, translate, and reason over natural language. In modern AI systems, they act as the core reasoning component that transforms user instructions and contextual information into useful outputs.
+
+\subsubsection{Prompt Engineering}
+
+Prompt engineering refers to the design of clear and structured instructions that guide an LLM toward the expected behavior. It includes task framing, context selection, examples, constraints, and output formatting rules.
+
+\subsubsection{Structured Outputs and Schema-Guided Generation}
+
+Structured output generation makes model responses predictable by requiring formats such as JSON or predefined schemas. This is important for agent platforms because outputs often need to be validated, stored, or passed to another component.
+
+\subsubsection{LLM Providers and Open-Source Models}
+
+LLM-based applications may rely on proprietary providers, cloud-hosted APIs, or open-source models deployed locally or privately. The choice of provider affects cost, latency, data governance, model quality, and deployment flexibility.
+
+\subsection{AI Agents}
+
+\subsubsection{Definition of an AI Agent}
+
+An AI agent is a software entity that uses an AI model to interpret a goal, decide on actions, use tools when needed, and return a result. Unlike a simple chatbot, an agent can interact with external systems and execute multi-step tasks.
+
+\subsubsection{Components of an AI Agent}
+
+An AI agent is generally composed of a model, instructions, tools, memory or context, input and output schemas, and execution logic. These components define how the agent receives a request, reasons about it, acts, and produces a response.
+
+\subsubsection{Tools, Memory, Prompts and Schemas}
+
+Tools allow agents to call external services, memory provides contextual continuity, prompts define behavior, and schemas constrain exchanged data. Together, these elements make agent behavior more controllable and reusable.
+
+\subsubsection{From LLM Applications to Agentic Applications}
+
+Traditional LLM applications usually generate responses from a single prompt, while agentic applications coordinate reasoning, tool usage, validation, and execution steps. This shift makes it possible to build systems that solve operational tasks rather than only answer questions.
+
+\subsection{Multi-Agent Systems and Agentic Workflows}
+
+\subsubsection{Principles of Multi-Agent Systems}
+
+Multi-agent systems divide a complex problem into specialized responsibilities handled by several agents. Each agent focuses on a specific role, while the overall system coordinates their collaboration toward a common objective.
+
+\subsubsection{Agent Specialization}
+
+Agent specialization consists of assigning a clear domain, task, or behavior to each agent. This improves modularity, simplifies maintenance, and makes workflows easier to understand and extend.
+
+\subsubsection{Workflow-Based Collaboration}
+
+Workflow-based collaboration organizes agent interactions as a sequence or graph of execution steps. This approach helps define dependencies, control data flow, and ensure that each agent receives the appropriate input.
+
+\subsubsection{Communication Between Agents}
+
+Communication between agents requires clear payloads, compatible schemas, and reliable handoff mechanisms. Without these elements, outputs from one agent may be difficult for another agent to interpret or reuse.
+
+\subsection{Agent Orchestration}
+
+\subsubsection{Role of the Orchestrator}
+
+The orchestrator is responsible for coordinating the execution of agents and workflows. It determines which agent should run, in which order, with which input, and how the produced output should be handled.
+
+\subsubsection{Workflow Execution}
+
+Workflow execution consists of running multiple steps according to a predefined process. In an agentic platform, this may include sequential execution, branching logic, conditional routing, and aggregation of intermediate results.
+
+\subsubsection{Direct Agent Execution}
+
+Direct agent execution allows a user or system to call a single agent independently from a complete workflow. This is useful for testing, debugging, and using specialized agents as standalone services.
+
+\subsubsection{Schema Validation and Payload Adaptation}
+
+Schema validation ensures that inputs and outputs respect the expected structure before being processed. Payload adaptation transforms data between incompatible schemas so that agents can communicate reliably.
+
+\subsection{Configuration-Driven Agent Platforms}
+
+\subsubsection{Low-Code and No-Code Agent Creation}
+
+Low-code and no-code approaches allow users to create agents through forms, templates, or configuration files instead of manually writing complete services. This reduces development effort and makes agent creation more accessible.
+
+\subsubsection{YAML-Based Configuration}
+
+YAML-based configuration is commonly used to describe agent metadata, prompts, models, tools, input schemas, and output schemas in a readable format. It supports declarative agent creation and simplifies version control.
+
+\subsubsection{Reusable Agent Runtime}
+
+A reusable agent runtime provides a common execution environment shared by generated agents. This avoids duplicating infrastructure code and ensures that agents follow the same operational standards.
+
+\subsubsection{Prompt and Schema Versioning}
+
+Prompt and schema versioning makes it possible to track changes in agent behavior and data contracts over time. This supports reproducibility, rollback, auditing, and controlled experimentation.
+
+\subsection{Observability, Governance and Evaluation}
+
+\subsubsection{Traceability and Auditability}
+
+Traceability makes it possible to follow the execution path of an agent or workflow, while auditability ensures that actions and decisions can be reviewed later. These capabilities are essential for reliable enterprise AI systems.
+
+\subsubsection{Monitoring Latency, Tokens and Costs}
+
+Monitoring latency, token usage, and execution cost helps evaluate the operational performance of an agentic platform. These indicators are important for scalability, optimization, and cost control.
+
+\subsubsection{Prompt and Artifact Management}
+
+Prompt and artifact management centralizes elements such as prompts, schemas, model parameters, and execution metadata. This improves governance and makes system behavior easier to reproduce.
+
+\subsubsection{Evaluation of Agent Outputs}
+
+Evaluation of agent outputs measures whether generated responses meet expected quality, correctness, safety, and formatting criteria. Evaluation can be manual, automated, or based on predefined benchmarks.
+
+\subsection{Development and Deployment Tools}
+
+\subsubsection{Backend and API Frameworks}
+
+This part covers backend technologies used to expose and manage agent services, including FastAPI, REST APIs, microservice communication, and dedicated agent endpoints.
+
+\subsubsection{Frontend and Dashboard Frameworks}
+
+This part focuses on frontend technologies such as Next.js or Angular, which can be used to build dashboards for agents, workflows, schemas, prompts, and container status.
+
+\subsubsection{Databases and Vector Storage}
+
+This part introduces database and storage components such as PostgreSQL for metadata management, including agents, workflows, tools, and possible vector storage through pgvector for embeddings.
+
+\subsubsection{Containerization with Docker}
+
+This part presents Docker and Docker Compose as tools for packaging agents into independent containers, generating Dockerfiles, and connecting services through shared networks.
+
+\subsubsection{Continuous Integration and Continuous Delivery}
+
+This part introduces CI/CD principles used to automate build, test, and deployment pipelines during the development and release process.
+
+\subsection{Existing Agentic AI Platforms and Tools}
+
+\subsubsection{Workflow Automation Platforms}
+
+Workflow automation platforms provide visual or configurable environments for designing and executing business processes. In the context of agentic AI, they help compare how workflows can be modeled, triggered, and monitored.
+
+\subsubsection{Agent Development Frameworks}
+
+Agent development frameworks offer abstractions for building agents, connecting tools, managing memory, and composing multi-step reasoning flows. They are useful references for understanding common design patterns in agentic systems.
+
+\subsubsection{Cloud-Based Agent Platforms}
+
+Cloud-based agent platforms provide managed services for creating, deploying, and monitoring AI agents. They often include built-in integrations, governance features, and scalable runtime environments.
+
+\subsubsection{Comparative Analysis}
+
+The comparative analysis highlights the strengths and limitations of existing tools in relation to the needs of the VIP project. This makes it possible to identify the specific contribution of a configuration-driven, observable, and containerized agent platform.
+
+\subsection{Conclusion}
+
+This chapter reviewed the main concepts and tools required to understand the design of the VIP platform. The next chapters build on this state of the art to present the proposed architecture and implementation choices.

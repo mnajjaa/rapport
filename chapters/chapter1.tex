@@ -2,19 +2,17 @@
 
 % --- General Context ---
 \newpage
-\section{General Context}
+\section{Introduction and Project Context}
 
 \subsection{Introduction}
 
-This chapter presents the general context of the internship and introduces the environment in which the project was carried out. It begins with a presentation of the host company and its main areas of expertise, followed by an overview of the project context and the problem addressed throughout this internship. The chapter also introduces the methodological approach adopted during the different phases of the project in order to ensure a structured and progressive development process.
+The rapid adoption of AI agents and generative language models, including large language models (LLMs) and small language models (SLMs), is creating new opportunities for enterprise automation while increasing the need for reliable orchestration, deployment, and observability. In this context, my internship at \textbf{Value Digital Services} focused on building a modular, config-driven platform for agent generation and management, alongside the evaluation of small language models through SLM-evals. This chapter introduces the host company, clarifies the project goals and problem context, and presents the methodology followed throughout the internship.
 
 \vspace{1em}
 
-\subsection{Host Company}
+\subsection{Host Company and Areas of Expertise}
 
-\textbf{Value Digital Services} is a Tunisian company specialized in digital transformation and information technology consulting. Founded in 2019, the company has positioned itself as an innovation-driven and AI-oriented organization, focusing on the development of modern digital solutions adapted to evolving business needs.
-
-The company supports clients operating in various sectors by providing services related to software engineering, artificial intelligence, data analytics, cloud technologies, and digital strategy. Through its expertise, Value Digital Services aims to assist organizations in accelerating their digital transformation and improving operational efficiency through innovative technological solutions.
+\textbf{Value Digital Services} is a Tunisian company founded in 2019 and specialized in digital transformation and AI consulting. Its activities combine software engineering, data engineering, artificial intelligence, and strategic consulting, which made it an appropriate environment for an internship focused on building an enterprise AI agent platform and evaluating small language models.
 
 \vspace{1em}
 
@@ -27,51 +25,43 @@ The company supports clients operating in various sectors by providing services 
 
 \vspace{1em}
 
-\subsection{Area of Expertise}
-
-Value Digital Services structures its activities around multiple areas of expertise combining both technical implementation and strategic support. The company relies on multidisciplinary teams working collaboratively to design, develop, and deploy innovative digital solutions.
-
-\subsubsection{Delivery}
-
-The Delivery pole brings together the technical teams responsible for the implementation and deployment of digital solutions. It is composed of several specialized units:
-
 \begin{itemize}
 
-    \item \textbf{Digital Factory:} This unit is responsible for software development and digital product delivery. It includes developers, DevOps engineers, QA engineers, business analysts, UX/UI designers, and project managers working across the entire software development lifecycle.
+    \item \textbf{Digital Factory:} software engineers, DevOps engineers, QA engineers, business analysts, and UX/UI designers build and deliver modern digital products.
 
-    \item \textbf{Data Factory:} Specialized in data engineering and analytics, this unit supports organizations in managing, processing, and valorizing their data through modern data platforms and decision-support solutions.
+    \item \textbf{Data Factory:} data engineers and data analysts design data pipelines, analytics workflows, and data platforms that support decision-making.
 
-    \item \textbf{AI Factory:} Dedicated to artificial intelligence solutions, this unit focuses on the design and deployment of AI-driven applications based on technologies such as machine learning, deep learning, generative AI, and intelligent automation systems.
+    \item \textbf{AI Factory:} AI researchers and machine learning engineers design and deploy AI-driven solutions, including generative AI and intelligent automation systems.
+
+    \item \textbf{Advisory:} consultants support clients in structuring digital transformation initiatives, aligning technical choices with business and governance needs.
 
 \end{itemize}
 
-    \subsubsection{Advisory}
-        The Advisory department is tasked with supporting organizations through strategic reflection and transformation projects. It operates across several domains, including digital strategy, marketing, finance, governance, and process optimization. The goal is to provide companies with the necessary insights to make informed decisions and to effectively structure their transformation initiatives.
-
+These poles work together to deliver modern digital solutions, from consulting and design to data infrastructure, AI implementation, deployment, and operational support.
 
 \subsection{Project Overview}
 
-The project, entitled \textbf{VIP -- Value Intelligent Platform}, aims to design and implement an enterprise-grade AI agent orchestration platform capable of building, deploying, and managing intelligent applications through a modular multi-agent architecture. Unlike traditional monolithic AI systems, the platform follows an \textit{Agent-as-a-Service} approach where specialized agents are dynamically generated from declarative configurations and deployed as independent containerized services.
+The project, entitled \textbf{VIP -- Value Intelligent Platform}, aims to design and implement an enterprise-grade AI agent orchestration platform capable of building, deploying, and managing intelligent applications through a modular multi-agent architecture. Unlike traditional monolithic AI systems, the platform follows an \textit{Agent-as-a-Service} approach, where specialized agents are dynamically generated from declarative configurations and deployed as independent containerized services.
 
-The platform provides a unified environment for agent creation, workflow orchestration, observability, and lifecycle management. Users can configure agents by selecting models, prompts, schemas, providers, and tools without directly modifying the source code. The generated agents can then be integrated into multi-agent execution pipelines coordinated through an orchestration layer and monitored through observability services.
+VIP provides a unified environment for agent creation, workflow orchestration, observability, and lifecycle management. Users can configure agents by selecting models, prompts, schemas, providers, and tools without directly modifying the source code. The generated agents can then be integrated into multi-agent execution pipelines coordinated through an orchestration layer and monitored through built-in observability services.
 
-The proposed solution also emphasizes scalability, flexibility, and provider independence by supporting multiple LLM providers and open-source models through a unified interface. In addition, the use of containerization and centralized configuration management enables easier deployment, maintenance, and extensibility of intelligent systems.
+This platform directly addresses the gaps identified in existing solutions by combining support for multiple LLM providers and open-source models with a modular architecture, declarative configuration management, and built-in observability. This design reduces dependency on a single proprietary provider, simplifies agent creation and deployment, and makes agent behavior easier to trace, evaluate, and improve over time.
+
+Alongside VIP, I developed the \textbf{SLM-evals} side project, a reproducible evaluation pipeline for benchmarking LLM and SLM providers. It compares OpenAI, Groq, Phi-4, Llama 3.1, and other alternatives under controlled prompts and golden datasets, while tracking latency, token usage, and layered evaluation metrics. The results of this pipeline guide the choice of models for the \textit{LLM-provider} layer and support VIP's objective of maintaining provider flexibility while selecting models that fit performance, cost, and reliability requirements.
 
 \vspace{1em}
 
 \subsection{Problem Statement}
 
-Despite the rapid evolution of AI agents and Large Language Models, the deployment of agentic systems in enterprise environments remains complex. Many existing solutions are either expensive to operate, difficult to scale, or too dependent on proprietary LLM providers. In addition, they often lack the infrastructure required to monitor, orchestrate, and deploy agents in a reliable and controlled way.
+Despite the rapid evolution of AI agents and large language models, the deployment of agentic systems in enterprise environments remains complex. These challenges matter because enterprises need systems that can scale reliably, remain auditable, control operational costs, and comply with internal governance and security requirements. When agent platforms lack provider flexibility, observability, automation, or modular orchestration, they become difficult to deploy at scale and hard to maintain in production.
 
 The main challenges addressed by this project can be summarized as follows:
 
 \begin{itemize}
 
-    \item \textbf{Cost and Scalability Limitations:} Existing AI agent solutions can be expensive to operate at scale, especially when relying heavily on large proprietary models or external APIs. This makes large-scale deployment difficult and limits their accessibility for enterprise use cases.
+    \item \textbf{High Operational Costs and Vendor Lock-in:} Existing AI agent solutions can be expensive to operate at scale, especially when they depend heavily on proprietary LLM APIs. This dependence increases costs, limits provider flexibility, and makes it harder to switch between OpenAI, Groq, Azure, open-source LLMs, or SLM alternatives.
 
-    \item \textbf{Poor Observability:} Many current systems lack sufficient traceability, monitoring, and execution tracking. This makes it difficult to understand agent behavior, detect errors, evaluate performance, and audit workflow execution.
-
-    \item \textbf{Dependence on External LLM APIs:} Several solutions are strongly tied to proprietary AI providers. This creates vendor dependency, increases operational costs, and reduces flexibility when switching between OpenAI, Groq, Azure, or open-source models.
+    \item \textbf{Poor Observability:} Many current systems lack sufficient traceability, monitoring, and execution tracking. This limits debugging, performance evaluation, and the audit evidence required for compliance and governance.
 
     \item \textbf{Absence of Automated Deployment:} Creating and deploying new agents is often a manual and time-consuming process. Without automated deployment mechanisms, it becomes difficult to rapidly generate, configure, and launch agents in a consistent way.
 
@@ -82,96 +72,526 @@ The main challenges addressed by this project can be summarized as follows:
 Based on these limitations, the central problem of this project can be formulated as follows:
 
 \begin{quote}
-How can we design a modular, secure, observable, and cost-optimized AI agent orchestration platform that enables dynamic and fast agent creation, deployment, and workflow composition, while maintaining high performance comparable to large proprietary models?
+How can we design a modular, secure, observable, and cost-optimized AI agent orchestration platform that enables dynamic agent creation, automated deployment, and workflow composition while evaluating and integrating multiple LLM and SLM providers to reduce vendor lock-in, control costs, and maintain strong performance?
 \end{quote}.
 
 \subsection{Objectives}
 
-The main objectives of this project are:
+Based on the problem statement, the objectives of the project are divided into functional and non-functional objectives.
+
+\paragraph{Functional Objectives}
+\begin{itemize}
+    \item Enable dynamic agent creation from declarative YAML or JSON configuration files.
+
+    \item Provide a visual workflow builder for composing and managing multi-agent execution pipelines.
+
+    \item Offer a unified interface for selecting models, prompts, schemas, providers, and tools without modifying the source code.
+
+    \item Support reusable multi-agent pipelines that can combine specialized agents into structured workflows.
+
+    \item Integrate SLM-evals results into the provider selection process to compare LLM and SLM options before deployment.
+\end{itemize}
+
+\paragraph{Non-functional Objectives}
+\begin{itemize}
+    \item Reduce vendor lock-in and operational cost by evaluating multiple providers, including proprietary LLM APIs and local SLM alternatives.
+
+    \item Optimize deployment costs through containerized, configurable, and reusable agent services.
+
+    \item Ensure observability and traceability by monitoring execution traces, token usage, latency, and estimated cost.
+
+    \item Preserve modularity and scalability by allowing agents, tools, providers, and workflows to evolve independently.
+
+    \item Strengthen security and provider independence by limiting hard-coded provider dependencies and supporting controlled configuration management.
+\end{itemize}
+
+\subsection{Technology Choices}
+
+The project relies on a modular technology stack selected to support agent generation, orchestration, deployment, observability, and provider flexibility.
+
+\subsubsection{Development Frameworks and Dev Environment}
+\begin{itemize}
+    \item \textbf{FastAPI:} lightweight Python framework used to build high-performance asynchronous APIs for agents and platform services.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    % Replace the placeholder below with: \includegraphics[width=0.18\textwidth]{fastapi_logo.png}
+    \includegraphics[width=0.18\textwidth]{fastapi_logo.png}
+    \caption{Logo of FastAPI}
+    \label{fig:fastapi_logo}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Next.js:} React-based framework used to build the web frontend and provide a modular interface for agents, workflows, and configurations.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    % Replace the placeholder below with: \includegraphics[width=0.18\textwidth]{nextjs_logo.png}
+\includegraphics[width=0.18\textwidth]{nextjs_logo.png}   
+\caption{Logo of Next.js}
+    \label{fig:nextjs_logo}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{LangChain:} library used to construct LLM-driven agents, connect tools, and manage prompt-based application logic.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.18\textwidth]{langchain_logo.png}
+    % \fbox{\begin{minipage}[c][1.4cm][c]{0.22\textwidth}\centering Add LangChain logo\end{minipage}}
+    \caption{Logo of LangChain}
+    \label{fig:langchain_logo}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{LangGraph:} library used to define graph-based orchestration logic for stateful multi-agent workflows.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.18\textwidth]{langgraph_logo.png}
+    % \fbox{\begin{minipage}[c][1.4cm][c]{0.22\textwidth}\centering Add LangGraph logo\end{minipage}}
+    \caption{Logo of LangGraph}
+    \label{fig:langgraph_logo}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Jupyter Notebook:} interactive environment used during prototyping, experimentation, SLM-evals, and prompt engineering.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.18\textwidth]{jupyter_logo.png}
+    % \fbox{\begin{minipage}[c][1.4cm][c]{0.22\textwidth}\centering Add Jupyter logo\end{minipage}}
+    \caption{Logo of Jupyter Notebook}
+    \label{fig:jupyter_logo}
+\end{figure}
+
+\subsubsection{LLM and SLM Providers}
+\begin{itemize}
+    \item \textbf{OpenAI:} commercial LLM provider used to access GPT-series models for high-quality generation and evaluation tasks.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.18\textwidth]{openai_logo.png}
+    % \fbox{\begin{minipage}[c][1.4cm][c]{0.22\textwidth}\centering Add OpenAI logo\end{minipage}}
+    \caption{Logo of OpenAI}
+    \label{fig:openai_logo}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Groq:} commercial inference provider used to access fast LLM serving, including Llama-based models.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.18\textwidth]{groq_logo.png}
+    % \fbox{\begin{minipage}[c][1.4cm][c]{0.22\textwidth}\centering Add Groq logo\end{minipage}}
+    \caption{Logo of Groq}
+    \label{fig:groq_logo}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Microsoft Phi-4:} small language model considered for cost-efficient and potentially self-hosted inference.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.18\textwidth]{phi4_logo.png}
+    % \fbox{\begin{minipage}[c][1.4cm][c]{0.22\textwidth}\centering Add Phi-4 logo\end{minipage}}
+    \caption{Logo of Microsoft Phi-4}
+    \label{fig:phi4_logo}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Meta Llama :} open-weight LLM used as an alternative provider option for flexible deployment and benchmarking.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.18\textwidth]{llama4_logo.png}
+    % \fbox{\begin{minipage}[c][1.4cm][c]{0.22\textwidth}\centering Add Llama 3.1 logo\end{minipage}}
+    \caption{Logo of Meta Llama }
+    \label{fig:llama31_logo}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{SLM-evals:} used to benchmark providers and models in order to choose the best mix for the VIP provider layer.
+\end{itemize}
+
+\subsubsection{Database, Storage, and Experiment Tracking}
+\begin{itemize}
+    \item \textbf{PostgreSQL:} relational database used to store configurations, metadata, workflows, and other structured platform data.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+     \includegraphics[width=0.18\textwidth]{postgresql_logo.png}
+    % \fbox{\begin{minipage}[c][1.4cm][c]{0.22\textwidth}\centering Add PostgreSQL logo\end{minipage}}
+    \caption{Logo of PostgreSQL}
+    \label{fig:postgresql_logo}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{MLflow:} experiment tracking and artifact registry used to version models, prompts, schemas, datasets, and evaluation metrics.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.18\textwidth]{mlflow_logo.png}
+    % \fbox{\begin{minipage}[c][1.4cm][c]{0.22\textwidth}\centering Add MLflow logo\end{minipage}}
+    \caption{Logo of MLflow}
+    \label{fig:mlflow_logo}
+\end{figure}
+
+
+\subsubsection{Deployment and Containerization}
+\begin{itemize}
+    \item \textbf{Docker:} container platform used to package individual agents, the builder, the orchestrator, and supporting services into reproducible images.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.18\textwidth]{docker_logo.png}
+    % \fbox{\begin{minipage}[c][1.4cm][c]{0.22\textwidth}\centering Add Docker logo\end{minipage}}
+    \caption{Logo of Docker}
+    \label{fig:docker_logo}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Docker Compose:} used during development and testing to run multi-service setups with consistent networking and configuration.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.18\textwidth]{docker_compose_logo.png}
+    % \fbox{\begin{minipage}[c][1.4cm][c]{0.24\textwidth}\centering Add Docker Compose logo\end{minipage}}
+    \caption{Logo of Docker Compose}
+    \label{fig:docker_compose_logo}
+\end{figure}
+
+\subsubsection{Observability and Monitoring}
+\begin{itemize}
+    \item \textbf{Laminar:} used to capture execution traces, token usage, latency, and cost metrics across agents.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.18\textwidth]{laminar_logo.png}
+    % \fbox{\begin{minipage}[c][1.4cm][c]{0.22\textwidth}\centering Add Laminar logo\end{minipage}}
+    \caption{Logo of Laminar}
+    \label{fig:laminar_logo}
+\end{figure}
 
 \subsection{Methodology}
 
-\subsubsection{Choice of the Methodology}
+\subsubsection{Methodological Approaches Considered}
 
-The methodology adopted for this project is based on the \textbf{IBM Master Plan}, also known as the \textbf{IBM Data Science Methodology}. This methodology was selected because it provides a structured and iterative framework that guides a project from problem understanding to deployment and feedback.
+Several methodological approaches were considered in order to structure the development of the VIP platform. The project combines software engineering, data science, agent lifecycle management, orchestration, deployment, and observability. Therefore, the selected methodology had to support both iterative development and long-term architectural control. The approaches considered were Scrum, IBM Data Science Methodology, and IBM Agent Development Lifecycle (ADLC).
 
-However, the VIP project does not correspond to a traditional data science project focused only on data collection, preparation, and predictive modeling. It is an agentic AI platform centered on dynamic agent creation, workflow orchestration, deployment, observability, and continuous improvement. For this reason, the IBM Master Plan was adapted to the nature of the project and enriched with the \textbf{IBM Agent Development Lifecycle (ADLC)} perspective.
+\subsubsection{Scrum Agile Methodology}
 
-\subsubsection{IBM Master Plan}
+Scrum is an Agile framework based on iterative and incremental development. The official Scrum Guide describes Scrum as an iterative and incremental approach used to optimize predictability and control risk.\footnote{\href{https://scrumguides.org/scrum-guide.html}{Schwaber and Sutherland, ``The 2020 Scrum Guide.''}} It supports progressive delivery by organizing work into short cycles, reviewing progress regularly, and adapting the next development steps according to feedback.
 
-The IBM Master Plan is an iterative methodology designed to structure data-driven and artificial intelligence projects. It organizes the project lifecycle into several phases, starting from business understanding and ending with deployment and feedback. Its iterative nature allows teams to return to previous phases when new requirements, constraints, or improvements are identified.
+Scrum was considered because the project required frequent adjustments, progressive development, and regular validation of features such as agent creation, workflow orchestration, prompt management, and observability dashboards.
+
+However, Scrum alone was not sufficient for this internship because the project required more than sprint-based feature delivery. It also required a structured lifecycle for AI/data-related work, architectural traceability, governance, deployment control, and continuous monitoring of AI agents. For this reason, Scrum-inspired practices were retained for implementation organization, but Scrum was not selected as the main project methodology.
+
+\subsubsection{IBM Data Science Methodology -- The Foundational Methodology}
+
+The IBM Data Science Methodology was considered as the foundational methodology because it provides the macro lifecycle of the project. The CognitiveClass data science methodology is structured around phases that move from business understanding and analytic approach to data requirements, collection, understanding, preparation, modeling, evaluation, deployment, and feedback.\footnote{\href{https://cognitiveclass.ai/courses/data-science-methodology-2}{CognitiveClass, ``Data Science Methodology.''}} This structure makes it suitable for organizing an AI-oriented project from problem definition to operational feedback.
+
+The methodology consists of 10 stages organized in a circular workflow:
+
+\begin{itemize}
+    \item \textbf{Business Understanding:} defining the problem to be solved and establishing the main objectives.
+    
+    \item \textbf{Analytic Approach:} determining the appropriate analytical and technical approach to address the problem.
+    
+    \item \textbf{Data Requirements:} identifying the information and resources required to address the problem.
+    
+    \item \textbf{Data Collection:} gathering the required data and project inputs from the relevant sources.
+    
+    \item \textbf{Data Understanding:} exploring and examining the available information in order to understand quality, constraints, and relationships.
+    
+    \item \textbf{Data Preparation:} cleaning, transforming, and formatting the required data or resources for later use.
+    
+    \item \textbf{Modeling:} building predictive, descriptive, or intelligent models using appropriate algorithms and implementation choices.
+    
+    \item \textbf{Evaluation:} assessing the obtained results against the initial objectives and expected quality criteria.
+    
+    \item \textbf{Deployment:} implementing the solution in a production or operational environment.
+    
+    \item \textbf{Feedback:} monitoring performance, collecting feedback, and iterating on earlier stages when improvements are required.
+\end{itemize}
+
+Figure~\ref{fig:ibm_original_methodology} presents the original IBM Data Science Methodology lifecycle, which was used as the main macro-framework for structuring the project from business understanding to deployment and feedback.
 
 \begin{figure}[H]
     \centering
-    % Add the original IBM Master Plan illustration here.
-    % Suggested file name when available: ibm_master_plan_original.png
-    \fbox{
-        \begin{minipage}[c][5cm][c]{0.85\textwidth}
-            \centering
-            Illustration placeholder\\
-            Add the original IBM Master Plan lifecycle diagram here.
-        \end{minipage}
+    \resizebox{0.95\textwidth}{!}{
+    \begin{tikzpicture}[
+        ibmphase/.style={
+            draw=black,
+            fill=white,
+            text=black,
+            rounded corners=2pt,
+            line width=0.45pt,
+            minimum width=3.1cm,
+            minimum height=0.85cm,
+            align=center,
+            font=\small
+        },
+        mainarrow/.style={-{Latex[length=2.3mm]}, draw=black!65, line width=0.75pt},
+        feedbackarrow/.style={-{Latex[length=2.3mm]}, draw=black!55, line width=0.75pt}
+    ]
+        \node[ibmphase] (business) at (0,4) {Business\\Understanding};
+        \node[ibmphase] (analytic) at (4.4,4) {Analytic\\Approach};
+        \node[ibmphase] (requirements) at (7.8,2.4) {Data\\Requirements};
+        \node[ibmphase] (collection) at (7.8,1.1) {Data\\Collection};
+        \node[ibmphase] (understanding) at (7.8,-0.2) {Data\\Understanding};
+        \node[ibmphase] (preparation) at (4.4,-1.8) {Data\\Preparation};
+        \node[ibmphase] (modeling) at (0.8,-1.8) {Modeling};
+        \node[ibmphase] (evaluation) at (-2.8,-0.2) {Evaluation};
+        \node[ibmphase] (deployment) at (-2.8,1.1) {Deployment};
+        \node[ibmphase] (feedback) at (-2.8,2.4) {Feedback};
+
+        \draw[mainarrow] (business) -- (analytic);
+        \draw[mainarrow] (analytic.east) to[out=0,in=90] (requirements.north);
+        \draw[mainarrow] (requirements) -- (collection);
+        \draw[mainarrow] (collection) -- (understanding);
+        \draw[mainarrow] (understanding.south) to[out=-90,in=0] (preparation.east);
+        \draw[mainarrow] ([yshift=0.12cm]preparation.west) -- ([yshift=0.12cm]modeling.east);
+        \draw[mainarrow] ([yshift=-0.12cm]modeling.east) -- ([yshift=-0.12cm]preparation.west);
+        \draw[mainarrow] (modeling.west) to[out=180,in=0] (evaluation.east);
+        \draw[mainarrow] (evaluation) -- (deployment);
+        \draw[mainarrow] (deployment) -- (feedback);
+
+        \draw[feedbackarrow] (feedback.east) to[out=0,in=150] (modeling.north);
+        \draw[feedbackarrow] (evaluation.south) to[out=-90,in=210] (modeling.south);
+        \draw[feedbackarrow] (preparation.north) to[out=90,in=180] (collection.west);
+    \end{tikzpicture}
     }
-    \caption{Original IBM Master Plan lifecycle}
-    \label{fig:ibm_master_plan_original}
+    \caption{Original IBM Data Science Methodology lifecycle}
+    \label{fig:ibm_original_methodology}
 \end{figure}
 
-\subsubsection{Adaptation of the IBM Master Plan to the VIP Project}
+This methodology is relevant for the VIP project because it supports a structured understanding of the business problem, the identification of requirements, the preparation of resources, the evaluation of outputs, and the deployment of the final solution. It also provides a feedback loop, which is important for improving agent behavior, model selection, and workflow reliability over time.
 
-Although the IBM Master Plan provides a strong methodological foundation, it was adapted to better fit the specific nature of the VIP platform. In this project, the focus is not limited to building a predictive model, but extends to designing, deploying, orchestrating, monitoring, and improving AI agents.
+\subsubsection{IBM Agent Development Lifecycle}
 
-For this reason, the original phases were reinterpreted according to the needs of an enterprise-grade agentic AI platform. The IBM Agent Development Lifecycle perspective was used to complement the methodology, especially for the phases related to agent design, deployment, observability, and continuous improvement.
+While the IBM Data Science Methodology provides the overall project structure, it does not fully describe the specific lifecycle of AI agents. The VIP platform required a more agent-specific perspective because agents are generated from configuration, connected to tools, deployed as services, monitored, and improved after execution. For this reason, ADLC was used as a complementary framework.
+
+IBM defines ADLC as a structured lifecycle for building, deploying, optimizing, and managing AI agents through distinct phases and iterative loops.\footnote{\href{https://www.ibm.com/think/topics/agent-development-lifecycle-adlc}{IBM, ``What is the agent development lifecycle (ADLC)?''}} In the context of VIP, this perspective is relevant because agents must remain reliable, observable, auditable, and aligned with business requirements after deployment.
+
+In this report, the ADLC perspective is summarized through the following phases:
+
+\begin{itemize}
+    \item \textbf{Plan:} alignment of stakeholders, use cases, objectives, success metrics, expected agent behavior, and operating procedures.
+
+    \item \textbf{Code \& Build:} implementation of agents through model selection, prompt design, tool integration, orchestration logic, version control, and controlled development environments.
+
+    \item \textbf{Test \& Release:} evaluation of agents against predefined criteria, including policy checks, security validation, and release readiness before cataloging or production use.
+
+    \item \textbf{Deploy:} controlled rollout of validated agents into production environments with governance, versioning, rollback, and runtime security mechanisms.
+
+    \item \textbf{Operate:} continuous observation and optimization of deployed agents using operational metrics such as accuracy, latency, cost, and user satisfaction.
+
+    \item \textbf{Monitor:} ongoing auditing of agents and tools to support fairness, transparency, compliance, observability, and reproducibility.
+\end{itemize}
+
+Figure~\ref{fig:ibm_adlc} illustrates the IBM Agent Development Lifecycle, which was used to guide the agent-specific phases of the project.
 
 \begin{figure}[H]
     \centering
-    % Add the adapted IBM Master Plan illustration for VIP here.
-    % Suggested file name when available: ibm_master_plan_adapted_vip.png
-    \fbox{
-        \begin{minipage}[c][5cm][c]{0.9\textwidth}
-            \centering
-            Illustration placeholder\\
-            Add the adapted IBM Master Plan for the VIP project here.
-        \end{minipage}
+    \resizebox{\textwidth}{!}{
+    \begin{tikzpicture}[
+        adlcphase/.style={
+            draw=black,
+            fill=white,
+            text=black,
+            rounded corners=2pt,
+            line width=0.45pt,
+            text width=2.7cm,
+            minimum height=1.25cm,
+            align=center,
+            font=\small
+        },
+        keyword/.style={font=\scriptsize, align=center},
+        mainarrow/.style={-{Latex[length=2.2mm]}, draw=black!65, line width=0.75pt},
+        looparrow/.style={<->, >=Latex, draw=black!55, line width=0.75pt},
+        dashedarrow/.style={-{Latex[length=2.2mm]}, draw=black!50, line width=0.75pt, dashed},
+        looplabel/.style={font=\scriptsize\itshape, align=center}
+    ]
+        \node[align=center, font=\large\bfseries] at (9.6,2.55) {IBM Agent Development Lifecycle (ADLC)};
+
+        \node[adlcphase] (plan) at (0,0) {
+            \textbf{Plan}\\
+            {\scriptsize Use cases\\Goals\\Constraints}
+        };
+        \node[adlcphase] (build) at (3.8,0) {
+            \textbf{Code \& Build}\\
+            {\scriptsize Models\\Prompts\\Tools}
+        };
+        \node[adlcphase] (test) at (7.6,0) {
+            \textbf{Test \& Release}\\
+            {\scriptsize Evaluations\\Policies\\Security}
+        };
+        \node[adlcphase] (deploy) at (11.4,0) {
+            \textbf{Deploy}\\
+            {\scriptsize Runtime\\Versioning\\Governance}
+        };
+        \node[adlcphase] (operate) at (15.2,0) {
+            \textbf{Operate}\\
+            {\scriptsize Accuracy\\Latency\\Cost}
+        };
+        \node[adlcphase] (monitor) at (19,0) {
+            \textbf{Monitor}\\
+            {\scriptsize Audits\\Compliance\\Catalog}
+        };
+
+        \draw[mainarrow] (plan) -- (build);
+        \draw[mainarrow] (build) -- (test);
+        \draw[mainarrow] (test) -- (deploy);
+        \draw[mainarrow] (deploy) -- (operate);
+        \draw[mainarrow] (operate) -- (monitor);
+
+        \draw[looparrow] (build.north) to[out=80,in=100] (test.north);
+        \node[looplabel] at (5.7,1.45) {Iterative development\\and validation};
+
+        \draw[looparrow] (deploy.south) to[out=-80,in=-100] (operate.south);
+        \node[looplabel] at (13.3,-1.45) {Runtime\\optimization};
+
+        \draw[dashedarrow] (monitor.south) to[out=-110,in=-70] node[looplabel, below] {Continuous improvement} (build.south);
+    \end{tikzpicture}
     }
-    \caption{Adapted IBM Master Plan applied to the VIP project}
-    \label{fig:ibm_master_plan_adapted_vip}
+    \caption{IBM Agent Development Lifecycle (ADLC)}
+    \label{fig:ibm_adlc}
 \end{figure}
 
-\subsubsection{Application of the Methodology to the Project}
+In the VIP project, the Plan phase corresponds to defining agent use cases, expected behavior, schemas, and constraints. The Code \& Build phase corresponds to configuring prompts, tools, models, and runtime artifacts. The Test \& Release phase corresponds to validating agent outputs and schema compliance. The Deploy phase corresponds to packaging agents as Dockerized FastAPI services. The Operate and Monitor phases correspond to observing latency, token usage, cost, and execution traces.
 
-The adapted methodology was applied throughout the project in order to ensure a structured progression from the initial problem definition to the implementation and evaluation of the VIP platform. Each phase contributed to a specific part of the project lifecycle.
+IBM also describes agent building as the transformation of intent and design into concrete capabilities by configuring models, behavior, knowledge, and tools.\footnote{\href{https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=building-agents}{IBM watsonx Orchestrate documentation, ``Building agents''}} This is aligned with the VIP approach, where agents are created from declarative configurations including prompts, schemas, tools, and model parameters.
+
+\subsubsection{Comparative Analysis of the Methodologies}
+
+The three methodologies were compared according to their relevance to the VIP project, especially with regard to flexibility, strategic vision, AI project support, agent lifecycle coverage, deployment, monitoring, and limitations.
 
 \begin{table}[H]
 \centering
-\renewcommand{\arraystretch}{1.25}
-\begin{tabularx}{\textwidth}{|p{4cm}|X|}
+\scriptsize
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|p{2.9cm}|X|X|X|}
 \hline
 \rowcolor{gray!20}
-\textbf{Adapted Phase} & \textbf{Application in the VIP Project} \\
+\textbf{Criterion} & \textbf{Scrum} & \textbf{IBM Data Science Methodology} & \textbf{IBM ADLC} \\
 \hline
-Business Understanding & Identification of the need for a modular, secure, observable, and cost-optimized AI agent orchestration platform. \\
+Approach & Iterative and sprint-based & Structured and data/AI-oriented & Agent lifecycle-oriented \\
 \hline
-Requirements Analysis & Definition of the functional and non-functional requirements, including dynamic agent creation, deployment automation, provider flexibility, scalability, and observability. \\
+Flexibility & High & Medium to high & High \\
 \hline
-Architecture Design & Design of the global architecture, including the builder, generated agents, orchestration layer, semantic adapter, MLflow governance, and observability components. \\
+Strategic vision & Limited to product increments & Strong & Focused on agent operations \\
 \hline
-Agent Design and Generation & Implementation of configurable agents generated from declarative configurations, prompts, schemas, tools, and model parameters. \\
+Fit for AI projects & Partial & Strong & Strong for agentic AI \\
 \hline
-Workflow Orchestration & Coordination of multiple agents through structured workflows and management of schema transformations between agents. \\
+Fit for agent lifecycle & Limited & Partial & Very strong \\
 \hline
-Deployment & Deployment of agents and platform services as containerized components using Docker. \\
+Deployment and monitoring support & Not detailed & Present through deployment and feedback & Central through deploy, operate, and monitor \\
 \hline
-Observability and Evaluation & Monitoring of traces, execution flow, latency, token usage, and system behavior in order to assess reliability and maintainability. \\
-\hline
-Feedback and Improvement & Iterative refinement of the architecture, orchestration logic, schema management, and provider integration based on testing and project evolution. \\
+Main limitation & Not enough governance for AI agents & Not specific enough for agent runtime behavior & Too agent-specific to structure the whole project alone \\
 \hline
 \end{tabularx}
-\caption{Application of the adapted methodology to the VIP project}
-\label{tab:methodology_application_vip}
+\caption{Comparison of the methodological approaches considered for the VIP project}
+\label{tab:methodology_comparison_vip}
 \end{table}
 
+The comparison shows that none of the methodologies fully covers the needs of the VIP project when used alone. Scrum supports practical development organization, IBM Data Science Methodology provides the strategic project lifecycle, and ADLC addresses the agent-specific lifecycle required by configurable, deployable, and observable AI agents.
+
+\subsubsection{Adopted Hybrid Methodology for the VIP Project}
+
+Based on the comparison, the adopted methodology is a hybrid approach combining IBM Data Science Methodology and IBM ADLC, while keeping Scrum-inspired iterations for practical development organization.
+
+IBM Data Science Methodology was selected as the main macro-framework because it structures the project from business understanding to deployment and feedback. It ensures that the project remains aligned with business objectives, technical constraints, and evaluation criteria.
+
+ADLC was added because the VIP platform is centered on AI agents. The project required agent-specific phases such as planning agent behavior, configuring prompts and tools, validating outputs, deploying agents as services, operating them, and monitoring their execution.
+
+Scrum was not selected as the main methodology because the project required stronger architectural governance and lifecycle control than a sprint-based framework alone could provide. However, Scrum-inspired practices were useful during implementation, especially for breaking the work into incremental tasks, validating features progressively, and adapting to feedback.
+
+This hybrid methodology was therefore chosen because it provides a balance between structure, flexibility, and agent-specific lifecycle management. It supports the strategic organization of the project, the iterative improvement of AI components, and the operational requirements of an enterprise-grade agentic platform.
+
+\begin{figure}[H]
+    \centering
+    \resizebox{0.95\textwidth}{!}{
+    \begin{tikzpicture}[
+        vipphase/.style={
+            draw=black,
+            fill=white,
+            text=black,
+            rounded corners=2pt,
+            line width=0.45pt,
+            minimum width=4.2cm,
+            minimum height=0.85cm,
+            align=center,
+            font=\small
+        },
+        note/.style={
+            draw=black,
+            fill=white,
+            rounded corners=4pt,
+            line width=0.45pt,
+            text width=4.8cm,
+            minimum height=1.35cm,
+            align=center,
+            font=\footnotesize\itshape
+        },
+        mainarrow/.style={-{Latex[length=2.3mm]}, draw=black!65, line width=0.75pt},
+        feedbackline/.style={draw=black!55, line width=0.75pt, dashed},
+        feedbackarrow/.style={-{Latex[length=2.3mm]}, draw=black!55, line width=0.75pt, dashed}
+    ]
+        \node[align=center, font=\large\bfseries] at (2.6,4.25)
+            {Hybrid Methodology for the VIP Project};
+
+        \node[vipphase] (business) at (0,3.1) {Business\\Understanding};
+        \node[vipphase] (requirements) at (0,2.0) {Requirements\\Analysis};
+        \node[vipphase] (architecture) at (0,0.9) {Architecture\\Design};
+        \node[vipphase] (agentdesign) at (0,-0.2) {Agent Design\\and Configuration};
+        \node[vipphase] (agentbuild) at (0,-1.3) {Agent Build\\and Validation};
+        \node[vipphase] (workflow) at (0,-2.4) {Workflow\\Orchestration};
+        \node[vipphase] (deployment) at (0,-3.5) {Deployment};
+        \node[vipphase] (observability) at (0,-4.6) {Observability\\and Evaluation};
+        \node[vipphase] (feedback) at (0,-5.7) {Feedback\\and Improvement};
+
+        \node[note] at (7.3,-1.3) {ADLC perspective applied to agent-specific phases:\\Plan $\rightarrow$ Code \& Build $\rightarrow$ Test \& Release $\rightarrow$ Deploy $\rightarrow$ Operate $\rightarrow$ Monitor};
+
+        \draw[mainarrow] (business) -- (requirements);
+        \draw[mainarrow] (requirements) -- (architecture);
+        \draw[mainarrow] (architecture) -- (agentdesign);
+        \draw[mainarrow] (agentdesign) -- (agentbuild);
+        \draw[mainarrow] (agentbuild) -- (workflow);
+        \draw[mainarrow] (workflow) -- (deployment);
+        \draw[mainarrow] (deployment) -- (observability);
+        \draw[mainarrow] (observability) -- (feedback);
+
+        \draw[feedbackline] (feedback.west) -- (-3.25,-5.7) -- (-3.25,3.1);
+        \draw[feedbackarrow] (-3.25,3.1) -- (business.west);
+        \draw[feedbackarrow] (-3.25,0.9) -- (architecture.west);
+        \draw[feedbackarrow] (-3.25,-0.2) -- (agentdesign.west);
+        \draw[feedbackarrow] (-3.25,-1.3) -- (agentbuild.west);
+    \end{tikzpicture}
+    }
+    \caption{Hybrid methodology adopted for the VIP project}
+    \label{fig:ibm_data_science_methodology_adapted_vip}
+\end{figure}
+
 \subsection{Project Timeline}
-The project was executed over a 22-week period, structured into several critical phases. The timeline began with a three-week onboarding phase focused on Django REST Framework and web scraping. This was followed by a research and design phase (Weeks 6-10). The core infrastructure and agent factory development took place between Weeks 11 and 16. The final weeks (17-22) were dedicated to engineering specialized actuarial logic, implementing the global orchestrator, and integrating the distributed tracing system for observability and final testing.
-\begin{mydefinition}
-    \textbf{Agentic Hub:} A centralized platform capable of programmatically spawning and managing specialized AI units to execute complex workflows.
-\end{mydefinition}
+The project officially started on December 1, 2025 and is scheduled to end on May 31, 2026, spanning a duration of six months. This timeframe was organized to support a structured and progressive approach, covering onboarding, research, design, development, integration, observability, and testing phases.
+
+\subsection{Summary}
+
+This chapter introduced the context of the internship by presenting the motivation behind enterprise AI agent orchestration, the host company Value Digital Services, and the objectives of the VIP project. It also clarified the main problem addressed by the project, namely the need for a modular, observable, cost-optimized, and provider-independent platform for creating and managing AI agents. The chapter then summarized the selected technologies, including FastAPI, Next.js, LangChain, LangGraph, Docker, MLflow, PostgreSQL, Laminar, and the LLM/SLM providers evaluated through SLM-evals, before presenting the methodological approach and the project timeline.
+
+The next chapter focuses on the state of the art. It reviews existing agent frameworks, LLM providers, orchestration approaches, and evaluation methods in order to position the proposed solution with respect to current tools and practices.

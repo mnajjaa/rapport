@@ -2,6 +2,7 @@
 
 % --- ABSTRACT ---
 \newpage
+\markboth{ABSTRACT}{}
 \begin{abstract}
 \noindent
 Agentic Artificial Intelligence refers to AI systems capable of performing tasks through autonomous or semi-autonomous agents that can reason, use tools, interact with external systems, and collaborate within structured workflows. In the financial services industry, the adoption of such systems requires not only advanced AI capabilities, but also strong guarantees in terms of scalability, control, auditability, and operational reliability.
@@ -25,7 +26,7 @@ The work focuses on several key aspects of enterprise AI deployment, including a
 % --- SUMMARY ---
 \newpage
 \section*{Summary}
-\addcontentsline{toc}{section}{Summary}
+\markboth{SUMMARY}{}
 
 This internship project focuses on the design and implementation of \textbf{VIP -- Value Intelligent Platform}, an \textbf{Enterprise-Grade Agentic AI Hub} aimed at building, deploying, and operating intelligent applications at scale.
 
@@ -44,7 +45,7 @@ This internship project focuses on the design and implementation of \textbf{VIP 
 % --- ACKNOWLEDGMENTS ---
 \newpage
 \section*{Acknowledgments}
-\addcontentsline{toc}{section}{Acknowledgments}
+\markboth{ACKNOWLEDGMENTS}{}
 
 I would first like to express my sincere gratitude to the entire team at \textbf{Value Digital Services} for welcoming me into such a professional, collaborative, and innovative environment. The experience gained throughout this internship has been both enriching and inspiring, and I truly appreciated the support and positive atmosphere within the company.
 \vspace{1em}
@@ -64,5 +65,49 @@ I would also like to warmly thank my sister \textbf{Dhouha}, as well as my broth
 Finally, I would like to thank everyone who contributed, directly or indirectly, to the success of this internship experience and to the completion of this project. This experience has been a major step in both my academic and professional journey, and I am truly grateful for the knowledge and experience I have gained.
 
 % --- TABLE OF CONTENTS ---
-\newpage
+\clearpage
+\phantomsection
+\thispagestyle{frontmatterplain}
+\markboth{TABLE OF CONTENTS}{}
 \tableofcontents
+
+% --- LIST OF FIGURES ---
+\clearpage
+\phantomsection
+\thispagestyle{frontmatterplain}
+\markboth{LIST OF FIGURES}{}
+\listoffigures
+
+% --- LIST OF TABLES ---
+\clearpage
+\phantomsection
+\thispagestyle{frontmatterplain}
+\markboth{LIST OF TABLES}{}
+\listoftables
+
+% --- GLOSSARY ---
+\clearpage
+\section*{Glossary}
+\phantomsection
+\thispagestyle{frontmatterplain}
+\markboth{GLOSSARY}{}
+\addcontentsline{toc}{section}{Glossary}
+
+\vspace{1.8cm}
+
+\begingroup
+\renewcommand{\arraystretch}{1.55}
+\noindent
+\begin{tabular}{@{}p{3cm}p{10cm}@{}}
+    \textbf{\textit{ADLC:}} & Agent Development Lifecycle \\
+    \textbf{\textit{AI:}} & Artificial Intelligence \\
+    \textbf{\textit{API:}} & Application Programming Interface \\
+    \textbf{\textit{IBM:}} & International Business Machines \\
+    \textbf{\textit{LLM:}} & Large Language Model \\
+    \textbf{\textit{QA:}} & Quality Assurance \\
+    \textbf{\textit{REST:}} & Representational State Transfer \\
+    \textbf{\textit{UI:}} & User Interface \\
+    \textbf{\textit{UX:}} & User Experience \\
+    \textbf{\textit{VIP:}} & Value Intelligent Platform \\
+\end{tabular}
+\endgroup
