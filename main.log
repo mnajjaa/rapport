@@ -1,9 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.21)  28 MAY 2026 14:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.21)  28 MAY 2026 20:02
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**./main.tex
-(main.tex
+**c:/Users/BRHN/Desktop/rapport/main.tex
+(c:/Users/BRHN/Desktop/rapport/main.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 (C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -1030,84 +1031,86 @@ Package hyperref Info: Link coloring OFF on input line 6.
 \openout4 = `main.out'.
 
  (title.tex
-<Page Garde Rapport Stage(Ang).pdf, id=178, 598.235pt x 845.1575pt>
-File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
-<use Page Garde Rapport Stage(Ang).pdf>
-Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf  used on input line 
-10.
+<figures/Page Garde Rapport Stage(Ang).pdf, id=234, 598.235pt x 845.1575pt>
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf  used on inp
+ut line 10.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
-<Page Garde Rapport Stage(Ang).pdf, id=180, page=1, 598.235pt x 845.1575pt>
-File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
-<use Page Garde Rapport Stage(Ang).pdf, page 1>
-Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf , page1 used on inpu
-t line 10.
+<figures/Page Garde Rapport Stage(Ang).pdf, id=236, page=1, 598.235pt x 845.157
+5pt>
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 1>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page1 used
+ on input line 10.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
-File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
-<use Page Garde Rapport Stage(Ang).pdf, page 1>
-Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf , page1 used on inpu
-t line 10.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 1>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page1 used
+ on input line 10.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
  [1
 
 {C:/Users/BRHN/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/BRHN/
 AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
-File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
-<use Page Garde Rapport Stage(Ang).pdf, page 1>
-Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf , page1 used on inpu
-t line 10.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 1>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page1 used
+ on input line 10.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
-File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
-<use Page Garde Rapport Stage(Ang).pdf, page 1>
-Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf , page1 used on inpu
-t line 10.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 1>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page1 used
+ on input line 10.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
-File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
-<use Page Garde Rapport Stage(Ang).pdf, page 1>
-Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf , page1 used on inpu
-t line 10.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 1>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page1 used
+ on input line 10.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
  [2
 
- <./Page Garde Rapport Stage(Ang).pdf>]
-<Page Garde Rapport Stage(Ang).pdf, id=210, page=2, 598.235pt x 845.1575pt>
-File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
-<use Page Garde Rapport Stage(Ang).pdf, page 2>
-Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf , page2 used on inpu
-t line 10.
+ <./figures/Page Garde Rapport Stage(Ang).pdf>]
+<figures/Page Garde Rapport Stage(Ang).pdf, id=266, page=2, 598.235pt x 845.157
+5pt>
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 2>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page2 used
+ on input line 10.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
-File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
-<use Page Garde Rapport Stage(Ang).pdf, page 2>
-Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf , page2 used on inpu
-t line 10.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 2>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page2 used
+ on input line 10.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
-File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
-<use Page Garde Rapport Stage(Ang).pdf, page 2>
-Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf , page2 used on inpu
-t line 10.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 2>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page2 used
+ on input line 10.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
  [3
 
- <./Page Garde Rapport Stage(Ang).pdf>]
-<Page Garde Rapport Stage(Ang).pdf, id=217, page=3, 598.235pt x 845.1575pt>
-File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
-<use Page Garde Rapport Stage(Ang).pdf, page 3>
-Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf , page3 used on inpu
-t line 10.
+ <./figures/Page Garde Rapport Stage(Ang).pdf>]
+<figures/Page Garde Rapport Stage(Ang).pdf, id=273, page=3, 598.235pt x 845.157
+5pt>
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 3>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page3 used
+ on input line 10.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
-File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
-<use Page Garde Rapport Stage(Ang).pdf, page 3>
-Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf , page3 used on inpu
-t line 10.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 3>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page3 used
+ on input line 10.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
-File: Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
-<use Page Garde Rapport Stage(Ang).pdf, page 3>
-Package pdftex.def Info: Page Garde Rapport Stage(Ang).pdf , page3 used on inpu
-t line 10.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 3>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page3 used
+ on input line 10.
 (pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
  [4
 
- <./Page Garde Rapport Stage(Ang).pdf>])
-(frontmatter.tex [5]
+ <./figures/Page Garde Rapport Stage(Ang).pdf>]) (frontmatter.tex [5]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
 4.
 
@@ -1125,114 +1128,117 @@ Overfull \hbox (10.13484pt too wide) in paragraph at lines 38--39
 -sion con-trol, and a ``Zero Code Change''
  []
 
-[6] [7] (main.toc)
+[6] [7] (main.toc [8
+
+])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [8
-
-] (main.lof)
+ [9] (main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [9
+ [10
 
 ] (main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [10
+ [11
 
 ])
-(chapters/introduction.tex [11
+(chapters/introduction.tex [12
 
 ]) (chapters/chapter1.tex [1
 
 ]
-<value_logo_transparent.png, id=359, 345.29pt x 128.48pt>
-File: value_logo_transparent.png Graphic file (type png)
-<use value_logo_transparent.png>
-Package pdftex.def Info: value_logo_transparent.png  used on input line 21.
+<figures/value_logo_transparent.png, id=418, 345.29pt x 128.48pt>
+File: figures/value_logo_transparent.png Graphic file (type png)
+<use figures/value_logo_transparent.png>
+Package pdftex.def Info: figures/value_logo_transparent.png  used on input line
+ 21.
 (pdftex.def)             Requested size: 227.62206pt x 84.69707pt.
- [2 <./value_logo_transparent.png>] [3] [4]
-<fastapi_logo.png, id=376, 1275.93932pt x 459.78673pt>
-File: fastapi_logo.png Graphic file (type png)
-<use fastapi_logo.png>
-Package pdftex.def Info: fastapi_logo.png  used on input line 119.
+ [2 <./figures/value_logo_transparent.png>] [3] [4]
+<figures/fastapi_logo.png, id=434, 1275.93932pt x 459.78673pt>
+File: figures/fastapi_logo.png Graphic file (type png)
+<use figures/fastapi_logo.png>
+Package pdftex.def Info: figures/fastapi_logo.png  used on input line 119.
 (pdftex.def)             Requested size: 81.9406pt x 29.52235pt.
-<nextjs_logo.png, id=377, 225.84375pt x 225.84375pt>
-File: nextjs_logo.png Graphic file (type png)
-<use nextjs_logo.png>
-Package pdftex.def Info: nextjs_logo.png  used on input line 130.
+<figures/nextjs_logo.png, id=435, 225.84375pt x 225.84375pt>
+File: figures/nextjs_logo.png Graphic file (type png)
+<use figures/nextjs_logo.png>
+Package pdftex.def Info: figures/nextjs_logo.png  used on input line 130.
 (pdftex.def)             Requested size: 81.9406pt x 81.94121pt.
-<langchain_logo.png, id=378, 546.04pt x 92.345pt>
-File: langchain_logo.png Graphic file (type png)
-<use langchain_logo.png>
-Package pdftex.def Info: langchain_logo.png  used on input line 141.
+<figures/langchain_logo.png, id=436, 546.04pt x 92.345pt>
+File: figures/langchain_logo.png Graphic file (type png)
+<use figures/langchain_logo.png>
+Package pdftex.def Info: figures/langchain_logo.png  used on input line 141.
 (pdftex.def)             Requested size: 81.9406pt x 13.85678pt.
- [5 <./fastapi_logo.png> <./nextjs_logo.png>]
-<langgraph_logo.png, id=386, 319.1925pt x 159.59625pt>
-File: langgraph_logo.png Graphic file (type png)
-<use langgraph_logo.png>
-Package pdftex.def Info: langgraph_logo.png  used on input line 152.
+ [5 <./figures/fastapi_logo.png> <./figures/nextjs_logo.png>]
+<figures/langgraph_logo.png, id=444, 319.1925pt x 159.59625pt>
+File: figures/langgraph_logo.png Graphic file (type png)
+<use figures/langgraph_logo.png>
+Package pdftex.def Info: figures/langgraph_logo.png  used on input line 152.
 (pdftex.def)             Requested size: 81.9406pt x 40.97046pt.
-<jupyter_logo.png, id=387, 1405.25pt x 379.4175pt>
-File: jupyter_logo.png Graphic file (type png)
-<use jupyter_logo.png>
-Package pdftex.def Info: jupyter_logo.png  used on input line 163.
+<figures/jupyter_logo.png, id=445, 1405.25pt x 379.4175pt>
+File: figures/jupyter_logo.png Graphic file (type png)
+<use figures/jupyter_logo.png>
+Package pdftex.def Info: figures/jupyter_logo.png  used on input line 163.
 (pdftex.def)             Requested size: 81.9406pt x 22.12143pt.
-<openai_logo.png, id=388, 432.61626pt x 117.43875pt>
-File: openai_logo.png Graphic file (type png)
-<use openai_logo.png>
-Package pdftex.def Info: openai_logo.png  used on input line 175.
+<figures/openai_logo.png, id=446, 432.61626pt x 117.43875pt>
+File: figures/openai_logo.png Graphic file (type png)
+<use figures/openai_logo.png>
+Package pdftex.def Info: figures/openai_logo.png  used on input line 175.
 (pdftex.def)             Requested size: 81.9406pt x 22.2437pt.
-<groq_logo.png, id=389, 373.395pt x 136.51pt>
-File: groq_logo.png Graphic file (type png)
-<use groq_logo.png>
-Package pdftex.def Info: groq_logo.png  used on input line 186.
+<figures/groq_logo.png, id=447, 373.395pt x 136.51pt>
+File: figures/groq_logo.png Graphic file (type png)
+<use figures/groq_logo.png>
+Package pdftex.def Info: figures/groq_logo.png  used on input line 186.
 (pdftex.def)             Requested size: 81.9406pt x 29.95522pt.
-<phi4_logo.png, id=390, 312.16624pt x 162.6075pt>
-File: phi4_logo.png Graphic file (type png)
-<use phi4_logo.png>
-Package pdftex.def Info: phi4_logo.png  used on input line 197.
+<figures/phi4_logo.png, id=448, 312.16624pt x 162.6075pt>
+File: figures/phi4_logo.png Graphic file (type png)
+<use figures/phi4_logo.png>
+Package pdftex.def Info: figures/phi4_logo.png  used on input line 197.
 (pdftex.def)             Requested size: 81.9406pt x 42.68138pt.
- [6 <./langchain_logo.png> <./langgraph_logo.png> <./jupyter_logo.png> <./opena
-i_logo.png> <./groq_logo.png> <./phi4_logo.png>]
-<llama4_logo.png, id=401, 224.84pt x 224.84pt>
-File: llama4_logo.png Graphic file (type png)
-<use llama4_logo.png>
-Package pdftex.def Info: llama4_logo.png  used on input line 208.
+ [6 <./figures/langchain_logo.png> <./figures/langgraph_logo.png> <./figures/ju
+pyter_logo.png> <./figures/openai_logo.png> <./figures/groq_logo.png> <./figure
+s/phi4_logo.png>]
+<figures/llama4_logo.png, id=459, 224.84pt x 224.84pt>
+File: figures/llama4_logo.png Graphic file (type png)
+<use figures/llama4_logo.png>
+Package pdftex.def Info: figures/llama4_logo.png  used on input line 208.
 (pdftex.def)             Requested size: 81.9406pt x 81.94069pt.
-<postgresql_logo.png, id=402, 333.245pt x 152.57pt>
-File: postgresql_logo.png Graphic file (type png)
-<use postgresql_logo.png>
-Package pdftex.def Info: postgresql_logo.png  used on input line 224.
+<figures/postgresql_logo.png, id=460, 333.245pt x 152.57pt>
+File: figures/postgresql_logo.png Graphic file (type png)
+<use figures/postgresql_logo.png>
+Package pdftex.def Info: figures/postgresql_logo.png  used on input line 224.
 (pdftex.def)             Requested size: 81.9406pt x 37.51382pt.
-<mlflow_logo.png, id=403, 372.39125pt x 136.51pt>
-File: mlflow_logo.png Graphic file (type png)
-<use mlflow_logo.png>
-Package pdftex.def Info: mlflow_logo.png  used on input line 235.
+<figures/mlflow_logo.png, id=461, 372.39125pt x 136.51pt>
+File: figures/mlflow_logo.png Graphic file (type png)
+<use figures/mlflow_logo.png>
+Package pdftex.def Info: figures/mlflow_logo.png  used on input line 235.
 (pdftex.def)             Requested size: 81.9406pt x 30.03645pt.
-<docker_logo.png, id=404, 472.76625pt x 107.40125pt>
-File: docker_logo.png Graphic file (type png)
-<use docker_logo.png>
-Package pdftex.def Info: docker_logo.png  used on input line 248.
+<figures/docker_logo.png, id=462, 472.76625pt x 107.40125pt>
+File: figures/docker_logo.png Graphic file (type png)
+<use figures/docker_logo.png>
+Package pdftex.def Info: figures/docker_logo.png  used on input line 248.
 (pdftex.def)             Requested size: 81.9406pt x 18.61522pt.
-<docker_compose_logo.png, id=405, 298.11375pt x 170.6375pt>
-File: docker_compose_logo.png Graphic file (type png)
-<use docker_compose_logo.png>
-Package pdftex.def Info: docker_compose_logo.png  used on input line 259.
+<figures/docker_compose_logo.png, id=463, 298.11375pt x 170.6375pt>
+File: figures/docker_compose_logo.png Graphic file (type png)
+<use figures/docker_compose_logo.png>
+Package pdftex.def Info: figures/docker_compose_logo.png  used on input line 25
+9.
 (pdftex.def)             Requested size: 81.9406pt x 46.90071pt.
- [7 <./llama4_logo.png> <./postgresql_logo.png> <./mlflow_logo.png> <./docker_l
-ogo.png>]
-<laminar_logo.png, id=414, 233.673pt x 57.816pt>
-File: laminar_logo.png Graphic file (type png)
-<use laminar_logo.png>
-Package pdftex.def Info: laminar_logo.png  used on input line 271.
+ [7 <./figures/llama4_logo.png> <./figures/postgresql_logo.png> <./figures/mlfl
+ow_logo.png> <./figures/docker_logo.png>]
+<figures/laminar_logo.png, id=473, 233.673pt x 57.816pt>
+File: figures/laminar_logo.png Graphic file (type png)
+<use figures/laminar_logo.png>
+Package pdftex.def Info: figures/laminar_logo.png  used on input line 271.
 (pdftex.def)             Requested size: 81.9406pt x 20.27382pt.
- [8 <./docker_compose_logo.png> <./laminar_logo.png>] [9] [10] [11] [12]) (chap
-ters/chapter2.tex [13] [14]
-[15] [16] [17] [18] [19] [20]) [21]
+
+[8 <./figures/docker_compose_logo.png> <./figures/laminar_logo.png>] [9]
+[10] [11] [12]) (chapters/chapter2.tex [13] [14] [15] [16]) [17] [18]
 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (main.aux)
@@ -1241,25 +1247,25 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9F253470BA6D6CB70E92D4512FD4B5C3;6543.
+(rerunfilecheck)             Checksum: 6C9C5296EB6F3AF1F2DFFA2A7078978C;10838.
  ) 
 Here is how much of TeX's memory you used:
- 30240 strings out of 467871
- 613124 string characters out of 5418860
- 1039929 words of memory out of 5000000
- 58484 multiletter control sequences out of 15000+600000
+ 29948 strings out of 467871
+ 609340 string characters out of 5418860
+ 1036423 words of memory out of 5000000
+ 58185 multiletter control sequences out of 15000+600000
  687951 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 121i,17n,124p,1033b,879s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 121i,17n,124p,799b,879s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 msy10.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/ut
 mb8a.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utm
 bi8a.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utm
 r8a.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr
 i8a.pfb>
-Output written on main.pdf (32 pages, 615865 bytes).
+Output written on main.pdf (30 pages, 608387 bytes).
 PDF statistics:
- 525 PDF objects out of 1000 (max. 8388607)
- 99 named destinations out of 1000 (max. 500000)
- 529 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 571 PDF objects out of 1000 (max. 8388607)
+ 104 named destinations out of 1000 (max. 500000)
+ 641 words of extra memory for PDF output out of 10000 (max. 10000000)
 
