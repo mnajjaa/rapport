@@ -6,13 +6,19 @@
 \contentsline {figure}{\numberline {6}{\ignorespaces Logo of Jupyter Notebook}}{6}{figure.6}%
 \contentsline {figure}{\numberline {7}{\ignorespaces Logo of OpenAI}}{6}{figure.7}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Logo of Groq}}{6}{figure.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Logo of Microsoft Phi-4}}{7}{figure.9}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Logo of Microsoft Phi-4}}{6}{figure.9}%
 \contentsline {figure}{\numberline {10}{\ignorespaces Logo of Meta Llama }}{7}{figure.10}%
 \contentsline {figure}{\numberline {11}{\ignorespaces Logo of PostgreSQL}}{7}{figure.11}%
 \contentsline {figure}{\numberline {12}{\ignorespaces Logo of MLflow}}{7}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Logo of Docker}}{8}{figure.13}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Logo of Docker}}{7}{figure.13}%
 \contentsline {figure}{\numberline {14}{\ignorespaces Logo of Docker Compose}}{8}{figure.14}%
 \contentsline {figure}{\numberline {15}{\ignorespaces Logo of Laminar}}{8}{figure.15}%
 \contentsline {figure}{\numberline {16}{\ignorespaces Original IBM Data Science Methodology lifecycle}}{10}{figure.16}%
 \contentsline {figure}{\numberline {17}{\ignorespaces IBM Agent Development Lifecycle (ADLC)}}{11}{figure.17}%
 \contentsline {figure}{\numberline {18}{\ignorespaces Hybrid methodology adopted for the VIP project}}{13}{figure.18}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Orchestration patterns diagram}}{15}{figure.2.1}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Visual workflow orchestration model---n8n-style node-based workflow.}}{18}{figure.2.2}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Role-based crew coordination---CrewAI-style manager/workers interaction.}}{18}{figure.2.3}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Managed operational platform lifecycle}}{18}{figure.2.4}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Evaluation pipeline---golden dataset, generation, metrics, judge, logging.}}{20}{figure.2.5}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces VIP gap positioning matrix---existing tools vs VIP capabilities.}}{21}{figure.2.6}%

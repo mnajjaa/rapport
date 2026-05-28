@@ -4,158 +4,298 @@
 \newpage
 \section{State of the Art}
 
-\subsection*{Introduction}
+This chapter presents the main concepts, tools, and evaluation approaches that form the state of the art for the VIP project. It reviews the evolution of agentic AI systems, examines representative orchestration and automation platforms, summarizes the main LLM and SLM provider options, and introduces the evaluation principles used to compare models in a reproducible way. The objective is not only to survey existing solutions, but also to identify the practical gaps that motivate the architecture of VIP.
 
-This chapter presents the main theoretical and technical concepts related to the VIP project. It introduces Large Language Models, generative AI, AI agents, multi-agent workflows, orchestration mechanisms, configuration-driven agent platforms, observability, governance, evaluation, and the development and deployment tools used to build modern agentic AI systems.
+\subsection{AI Agents and Orchestration}
 
-\subsection{Large Language Models and Generative AI}
-
-\subsubsection{Overview of Large Language Models}
-
-Large Language Models (LLMs) are deep learning models trained on large textual corpora to understand, generate, summarize, translate, and reason over natural language. In modern AI systems, they act as the core reasoning component that transforms user instructions and contextual information into useful outputs.
-
-\subsubsection{Prompt Engineering}
-
-Prompt engineering refers to the design of clear and structured instructions that guide an LLM toward the expected behavior. It includes task framing, context selection, examples, constraints, and output formatting rules.
-
-\subsubsection{Structured Outputs and Schema-Guided Generation}
-
-Structured output generation makes model responses predictable by requiring formats such as JSON or predefined schemas. This is important for agent platforms because outputs often need to be validated, stored, or passed to another component.
-
-\subsubsection{LLM Providers and Open-Source Models}
-
-LLM-based applications may rely on proprietary providers, cloud-hosted APIs, or open-source models deployed locally or privately. The choice of provider affects cost, latency, data governance, model quality, and deployment flexibility.
-
-\subsection{AI Agents}
-
-\subsubsection{Definition of an AI Agent}
-
-An AI agent is a software entity that uses an AI model to interpret a goal, decide on actions, use tools when needed, and return a result. Unlike a simple chatbot, an agent can interact with external systems and execute multi-step tasks.
-
-\subsubsection{Components of an AI Agent}
-
-An AI agent is generally composed of a model, instructions, tools, memory or context, input and output schemas, and execution logic. These components define how the agent receives a request, reasons about it, acts, and produces a response.
-
-\subsubsection{Tools, Memory, Prompts and Schemas}
-
-Tools allow agents to call external services, memory provides contextual continuity, prompts define behavior, and schemas constrain exchanged data. Together, these elements make agent behavior more controllable and reusable.
-
-\subsubsection{From LLM Applications to Agentic Applications}
-
-Traditional LLM applications usually generate responses from a single prompt, while agentic applications coordinate reasoning, tool usage, validation, and execution steps. This shift makes it possible to build systems that solve operational tasks rather than only answer questions.
-
-\subsection{Multi-Agent Systems and Agentic Workflows}
-
-\subsubsection{Principles of Multi-Agent Systems}
-
-Multi-agent systems divide a complex problem into specialized responsibilities handled by several agents. Each agent focuses on a specific role, while the overall system coordinates their collaboration toward a common objective.
-
-\subsubsection{Agent Specialization}
-
-Agent specialization consists of assigning a clear domain, task, or behavior to each agent. This improves modularity, simplifies maintenance, and makes workflows easier to understand and extend.
-
-\subsubsection{Workflow-Based Collaboration}
-
-Workflow-based collaboration organizes agent interactions as a sequence or graph of execution steps. This approach helps define dependencies, control data flow, and ensure that each agent receives the appropriate input.
-
-\subsubsection{Communication Between Agents}
-
-Communication between agents requires clear payloads, compatible schemas, and reliable handoff mechanisms. Without these elements, outputs from one agent may be difficult for another agent to interpret or reuse.
-
-\subsection{Agent Orchestration}
-
-\subsubsection{Role of the Orchestrator}
-
-The orchestrator is responsible for coordinating the execution of agents and workflows. It determines which agent should run, in which order, with which input, and how the produced output should be handled.
-
-\subsubsection{Workflow Execution}
-
-Workflow execution consists of running multiple steps according to a predefined process. In an agentic platform, this may include sequential execution, branching logic, conditional routing, and aggregation of intermediate results.
-
-\subsubsection{Direct Agent Execution}
-
-Direct agent execution allows a user or system to call a single agent independently from a complete workflow. This is useful for testing, debugging, and using specialized agents as standalone services.
-
-\subsubsection{Schema Validation and Payload Adaptation}
-
-Schema validation ensures that inputs and outputs respect the expected structure before being processed. Payload adaptation transforms data between incompatible schemas so that agents can communicate reliably.
-
-\subsection{Configuration-Driven Agent Platforms}
-
-\subsubsection{Low-Code and No-Code Agent Creation}
-
-Low-code and no-code approaches allow users to create agents through forms, templates, or configuration files instead of manually writing complete services. This reduces development effort and makes agent creation more accessible.
-
-\subsubsection{YAML-Based Configuration}
-
-YAML-based configuration is commonly used to describe agent metadata, prompts, models, tools, input schemas, and output schemas in a readable format. It supports declarative agent creation and simplifies version control.
-
-\subsubsection{Reusable Agent Runtime}
-
-A reusable agent runtime provides a common execution environment shared by generated agents. This avoids duplicating infrastructure code and ensures that agents follow the same operational standards.
-
-\subsubsection{Prompt and Schema Versioning}
-
-Prompt and schema versioning makes it possible to track changes in agent behavior and data contracts over time. This supports reproducibility, rollback, auditing, and controlled experimentation.
-
-\subsection{Observability, Governance and Evaluation}
-
-\subsubsection{Traceability and Auditability}
-
-Traceability makes it possible to follow the execution path of an agent or workflow, while auditability ensures that actions and decisions can be reviewed later. These capabilities are essential for reliable enterprise AI systems.
-
-\subsubsection{Monitoring Latency, Tokens and Costs}
-
-Monitoring latency, token usage, and execution cost helps evaluate the operational performance of an agentic platform. These indicators are important for scalability, optimization, and cost control.
-
-\subsubsection{Prompt and Artifact Management}
-
-Prompt and artifact management centralizes elements such as prompts, schemas, model parameters, and execution metadata. This improves governance and makes system behavior easier to reproduce.
-
-\subsubsection{Evaluation of Agent Outputs}
-
-Evaluation of agent outputs measures whether generated responses meet expected quality, correctness, safety, and formatting criteria. Evaluation can be manual, automated, or based on predefined benchmarks.
-
-\subsection{Development and Deployment Tools}
-
-\subsubsection{Backend and API Frameworks}
-
-This part covers backend technologies used to expose and manage agent services, including FastAPI, REST APIs, microservice communication, and dedicated agent endpoints.
-
-\subsubsection{Frontend and Dashboard Frameworks}
-
-This part focuses on frontend technologies such as Next.js or Angular, which can be used to build dashboards for agents, workflows, schemas, prompts, and container status.
-
-\subsubsection{Databases and Vector Storage}
-
-This part introduces database and storage components such as PostgreSQL for metadata management, including agents, workflows, tools, and possible vector storage through pgvector for embeddings.
-
-\subsubsection{Containerization with Docker}
-
-This part presents Docker and Docker Compose as tools for packaging agents into independent containers, generating Dockerfiles, and connecting services through shared networks.
-
-\subsubsection{Continuous Integration and Continuous Delivery}
-
-This part introduces CI/CD principles used to automate build, test, and deployment pipelines during the development and release process.
-
-\subsection{Existing Agentic AI Platforms and Tools}
-
-\subsubsection{Workflow Automation Platforms}
-
-Workflow automation platforms provide visual or configurable environments for designing and executing business processes. In the context of agentic AI, they help compare how workflows can be modeled, triggered, and monitored.
-
-\subsubsection{Agent Development Frameworks}
-
-Agent development frameworks offer abstractions for building agents, connecting tools, managing memory, and composing multi-step reasoning flows. They are useful references for understanding common design patterns in agentic systems.
-
-\subsubsection{Cloud-Based Agent Platforms}
-
-Cloud-based agent platforms provide managed services for creating, deploying, and monitoring AI agents. They often include built-in integrations, governance features, and scalable runtime environments.
-
-\subsubsection{Comparative Analysis}
-
-The comparative analysis highlights the strengths and limitations of existing tools in relation to the needs of the VIP project. This makes it possible to identify the specific contribution of a configuration-driven, observable, and containerized agent platform.
-
-\subsection{Conclusion}
-
-This chapter reviewed the main concepts and tools required to understand the design of the VIP platform. The next chapters build on this state of the art to present the proposed architecture and implementation choices.
+AI agents extend the traditional prompt-response use of language models by combining instructions, tools, memory, and execution logic in order to pursue a task over multiple steps. In enterprise settings, the challenge is not only to generate responses, but to coordinate agents reliably, preserve state, validate exchanged data, and observe execution across workflows. For this reason, orchestration frameworks have become a central layer in modern agentic systems, providing reusable abstractions for tool usage, workflow control, persistence, tracing, and multi-agent collaboration. In the context of VIP, these frameworks are reviewed as design references rather than turnkey solutions, since the platform must remain configuration-driven, modular, and provider-independent.
+
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\theHfigure}{\thesection.\arabic{figure}}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        box/.style={draw, align=center, minimum width=2.25cm, minimum height=0.78cm, font=\small},
+        smallbox/.style={draw, align=center, minimum width=1.65cm, minimum height=0.66cm, font=\scriptsize},
+        arrow/.style={-{Stealth[length=2mm]}, thick}
+    ]
+        \node[font=\bfseries\small] at (-4.9,2.1) {Single-agent};
+        \node[box] (su) at (-6.2,1.1) {User\\request};
+        \node[box] (sa) at (-3.8,1.1) {Agent\\tools};
+        \node[box] (so) at (-5.0,-0.15) {Answer\\or action};
+        \draw[arrow] (su) -- (sa);
+        \draw[arrow] (sa) -- (so);
+
+        \node[font=\bfseries\small] at (0,2.1) {Multi-agent};
+        \node[box] (mm) at (0,1.2) {Manager\\agent};
+        \node[smallbox] (mp) at (-1.55,0.05) {Planner};
+        \node[smallbox] (mr) at (0,0.05) {Retriever};
+        \node[smallbox] (mv) at (1.55,0.05) {Validator};
+        \draw[arrow] (mm) -- (mp);
+        \draw[arrow] (mm) -- (mr);
+        \draw[arrow] (mm) -- (mv);
+
+        \node[font=\bfseries\small] at (5.0,2.1) {Orchestrated workflow};
+        \node[smallbox] (wt) at (3.0,1.1) {Trigger};
+        \node[smallbox] (ws) at (4.55,1.1) {State};
+        \node[smallbox] (wa) at (6.1,1.1) {Agent};
+        \node[smallbox] (wl) at (4.55,-0.15) {Trace\\logs};
+        \draw[arrow] (wt) -- (ws);
+        \draw[arrow] (ws) -- (wa);
+        \draw[arrow] (wa) -- (wl);
+        \draw[arrow] (wl) -- (ws);
+    \end{tikzpicture}
+    \caption[Orchestration patterns diagram]{Orchestration patterns diagram---single-agent, multi-agent, and orchestrated workflow patterns.}
+    \label{fig:orchestration_patterns}
+\end{figure}
+
+\subsubsection{Definitions}
+
+An AI agent is classically defined as a system that perceives its environment and acts to achieve objectives. In LLM-based applications, this idea becomes a model connected to instructions, tools, memory, control logic, and outputs that may affect external systems. The agent may execute a single role, such as retrieval or validation, or participate in a multi-agent workflow where specialized components exchange intermediate results. The key distinction is that an agent follows a task across steps: it observes context, decides or delegates actions, uses tools, and adapts subsequent behavior based on results.
+
+\noindent\textbf{Synthesis.} VIP treats agents as managed execution units rather than prompt wrappers because they require configuration, state, tools, permissions, and observable runtime behavior.
+
+\subsubsection{LLM and SLM Overview}
+
+Large language models (LLMs) provide broad reasoning, generation, and tool-use capabilities, but enterprise use often depends on remote provider APIs, network conditions, and external service availability. This dependence can increase latency variability, expose sensitive prompts or outputs to third-party infrastructure, and reduce operational control over deployment and versioning. Small language models (SLMs) offer a complementary option: they can be hosted closer to the application or inside controlled environments, which can improve privacy, latency control, and independence from a single provider. However, smaller models must be evaluated against concrete tasks to verify whether their quality is sufficient. VIP therefore links model selection to SLM-evals, which benchmarks LLM and SLM options under reproducible prompts, datasets, and evaluation criteria.
+
+\subsubsection{Motivation for Orchestration Frameworks}
+
+Raw LLM APIs produce model responses, but agentic applications need an execution layer around those responses. Developers must organize message passing between users, tools, and agents; preserve state across steps; apply retries when providers or tools fail; record tracing data for debugging and auditability; and coordinate several agents when work is delegated. Without a framework, these responsibilities become fragmented across application code, making behavior harder to test, reproduce, and monitor. Orchestration frameworks provide reusable patterns for graphs, loops, handoffs, memory, tool calls, and workflow control.
+
+\noindent\textbf{Synthesis.} This motivates VIP's orchestration layer, which coordinates generated agents while keeping execution observable and controllable.
+
+\subsubsection{Framework Survey}
+
+\noindent\textbf{LangChain / LangGraph.} LangChain / LangGraph is the LangChain ecosystem for model integration and graph-based agent orchestration. LangChain provides a standard model interface and agent abstractions, while LangGraph supplies durable execution, persistence, human-in-the-loop control, and stateful workflow graphs. It is strong at separating model calls, tools, state, and control flow. VIP learns from it by adopting provider-neutral model integration and explicit orchestration patterns for generated agents.
+
+\noindent\textbf{CrewAI.} CrewAI is a framework for organizing autonomous agents into Crews and controlled execution paths into Flows. It is strong at role-based collaboration, task delegation, and stateful, event-driven workflow control where agents can exchange work through defined processes. VIP learns from it by separating collaborative agent roles from workflow governance, so planner, retriever, validator, and reporting agents can cooperate without turning coordination into unmanaged prompt logic.
+
+\noindent\textbf{OpenAI Agents SDK.} The OpenAI Agents SDK is a production-oriented toolkit for defining agents, tools, handoffs, guardrails, sessions, and tracing around OpenAI model execution. It is strong at compact developer primitives for agent handoff, validation, persistent context, and trace visibility. VIP learns from it by treating handoffs, guardrails, sessions, and observability as first-class platform capabilities, while keeping the architecture independent from a single provider ecosystem.
+
+\noindent\textbf{Google ADK.} Google ADK is a framework for building agents with tools, sessions, memory, evaluation, and workflow agents. It is strong at graph workflows and multi-agent workflow patterns, including sequential, parallel, and loop-style coordination. VIP learns from it by modeling generated agents as composable workflow nodes that can be routed, repeated, parallelized, observed, and evaluated rather than as isolated API endpoints.
+
+\noindent\textbf{Anthropic / MCP-oriented tooling.} Anthropic / MCP-oriented tooling combines terminal-based agent work, Model Context Protocol connectivity, and multiple-agent or subagent patterns. It is strong at connecting agents to external tools through controlled interfaces while supporting practical software-engineering workflows. VIP learns from it by emphasizing scoped tool access, permission boundaries, and repeatable multi-agent patterns so agent execution remains governable in enterprise environments.
+
+\noindent\textbf{Synthesis.} These frameworks show that VIP should combine configurable agent generation, explicit orchestration, provider flexibility, tool governance, state management, and observability in a single managed platform.
+
+\subsection{Comparison of Existing Platforms}
+
+Existing platforms solve different parts of the enterprise agent orchestration problem. Visual workflow platforms such as n8n simplify automation and integration, agent collaboration frameworks such as CrewAI make role-based decomposition easier to implement, and managed cloud platforms illustrate the value of an operational layer for execution and follow-up. However, these solutions do not provide the full combination required by VIP, namely configuration-driven agent generation, provider neutrality, reusable deployment units, observability, and evidence-based model selection. Their comparative study is therefore useful primarily to identify reusable patterns and architectural gaps.
+
+\noindent\textbf{n8n.} n8n represents the visual workflow automation category. It models automations as node-based workflows and includes LangChain-oriented cluster nodes, where root nodes define main actions and sub-nodes provide connected capabilities such as models, memory, or tools. Its AI Agent node is explicitly tool-using and requires at least one tool sub-node, which makes it useful for connecting agent steps to external systems. VIP learns from n8n's accessible workflow composition, but must add stronger agent generation, deployment, observability, and provider-selection control.
+
+\begin{itemize}
+    \item \textbf{Relevance to VIP:} n8n inspired the visual workflow layer implemented in VIP, where generated agents can be composed into multi-agent execution pipelines rather than invoked only as isolated services.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        box/.style={draw, align=center, minimum width=2.15cm, minimum height=0.7cm, font=\scriptsize},
+        subbox/.style={draw, align=center, minimum width=1.55cm, minimum height=0.58cm, font=\scriptsize},
+        arrow/.style={-{Stealth[length=2mm]}, thick}
+    ]
+        \node[box] (trigger) at (-5.0,0.8) {Trigger\\event};
+        \node[box] (agent) at (-1.8,0.8) {AI Agent\\node};
+        \node[box] (tool) at (1.4,0.8) {Tool/API\\nodes};
+        \node[box] (apps) at (4.6,0.8) {Enterprise\\applications};
+        \node[subbox] (model) at (-3.2,-0.6) {Model};
+        \node[subbox] (memory) at (-1.8,-1.35) {Memory};
+        \node[subbox] (binding) at (-0.4,-0.6) {Tool\\binding};
+        \draw[arrow] (trigger) -- (agent);
+        \draw[arrow] (agent) -- (tool);
+        \draw[arrow] (tool) -- (apps);
+        \draw[arrow] (model) -- (agent);
+        \draw[arrow] (memory) -- (agent);
+        \draw[arrow] (binding) -- (agent);
+    \end{tikzpicture}
+    \caption{Visual workflow orchestration model---n8n-style node-based workflow.}
+    \label{fig:visual_workflow_orchestration_model}
+\end{figure}
+
+\noindent\textbf{CrewAI.} CrewAI represents the agent collaboration category. Its documentation separates Crews, which are teams of autonomous agents, from Flows, which provide the stateful execution backbone for controlled workflows. This distinction is useful because enterprise agent systems need both role decomposition and process control. VIP learns from CrewAI's planner-worker style collaboration, but requires a broader platform layer for generated services, centralized configuration, multi-provider support, and production monitoring.
+
+\begin{itemize}
+    \item \textbf{Relevance to VIP:} CrewAI influenced VIP's specialized agent roles, including planner, retriever, validator, and reporting agents coordinated through the orchestration layer.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        box/.style={draw, align=center, minimum width=2.05cm, minimum height=0.68cm, font=\scriptsize},
+        smallbox/.style={draw, align=center, minimum width=1.65cm, minimum height=0.62cm, font=\scriptsize},
+        arrow/.style={-{Stealth[length=2mm]}, thick}
+    ]
+        \node[box] (request) at (-4.9,1.2) {Business\\request};
+        \node[box] (manager) at (-1.6,1.2) {Manager\\agent};
+        \node[smallbox] (planner) at (-4.2,-0.15) {Planner};
+        \node[smallbox] (retriever) at (-2.05,-0.15) {Retriever};
+        \node[smallbox] (validator) at (0.1,-0.15) {Validator};
+        \node[smallbox] (reporter) at (2.25,-0.15) {Reporter};
+        \node[box] (result) at (4.75,1.2) {Aggregated\\result};
+        \draw[arrow] (request) -- (manager);
+        \draw[arrow] (manager) -- (planner);
+        \draw[arrow] (manager) -- (retriever);
+        \draw[arrow] (manager) -- (validator);
+        \draw[arrow] (manager) -- (reporter);
+        \draw[arrow] (planner) -- (result);
+        \draw[arrow] (retriever) -- (result);
+        \draw[arrow] (validator) -- (result);
+        \draw[arrow] (reporter) -- (result);
+    \end{tikzpicture}
+    \caption{Role-based crew coordination---CrewAI-style manager/workers interaction.}
+    \label{fig:role_based_crew_coordination}
+\end{figure}
+
+\noindent\textbf{Managed operational platform.} Jarvio is kept as the representative managed-platform slot because its product page presents AI agents as operational assistants that can execute workflows, call APIs, schedule actions, and support business follow-up from a cloud environment. This category is strong at reducing infrastructure burden and making agent execution accessible to non-specialist users. VIP learns from the value of an operational layer, but must remain more portable, configurable, and provider-neutral than a domain-specific managed service.
+
+\begin{itemize}
+    \item \textbf{Relevance to VIP:} Jarvio's managed execution model reinforced VIP's cost-aware evaluation work through SLM-evals and its cloud-neutral, provider-independent deployment strategy.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        box/.style={draw, align=center, minimum width=2.05cm, minimum height=0.68cm, font=\scriptsize},
+        arrow/.style={-{Stealth[length=2mm]}, thick}
+    ]
+        \node[box] (user) at (-4.5,1.15) {User\\request};
+        \node[box] (context) at (-1.45,1.15) {Domain\\context};
+        \node[box] (model) at (1.6,1.15) {Model\\selection};
+        \node[box] (api) at (4.65,1.15) {API\\execution};
+        \node[box] (monitoring) at (1.6,-0.45) {Monitoring\\and traces};
+        \node[box] (followup) at (-1.45,-0.45) {Scheduled\\follow-up};
+        \draw[arrow] (user) -- (context);
+        \draw[arrow] (context) -- (model);
+        \draw[arrow] (model) -- (api);
+        \draw[arrow] (api) -- (monitoring);
+        \draw[arrow] (monitoring) -- (followup);
+        \draw[arrow] (followup) -- (context);
+    \end{tikzpicture}
+    \caption{Managed operational platform lifecycle}
+    \label{fig:managed_cloud_agent_lifecycle}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{|>{\RaggedRight\arraybackslash}p{2.5cm}|>{\RaggedRight\arraybackslash}p{3.4cm}|>{\RaggedRight\arraybackslash}X|>{\RaggedRight\arraybackslash}X|}
+\hline
+\rowcolor{gray!20}
+\textbf{Framework} & \textbf{Orchestration Model} & \textbf{Strengths} & \textbf{Weaknesses} \\
+\hline
+n8n & Visual node-based workflow automation with AI Agent and LangChain cluster nodes & Accessible workflow design; broad integrations; practical connection between AI steps and external systems & Does not fully cover generated agent services, deployment units, governance, or model-selection evaluation \\
+\hline
+CrewAI & Crews for autonomous agent teams and Flows for stateful execution & Clear role decomposition; useful for planner-worker collaboration; strong reference for agent templates & More code-oriented; requires additional platform services for enterprise monitoring, configuration, and deployment \\
+\hline
+Jarvio & Managed cloud operational layer for AI-assisted business workflows & Practical operational experience; API execution and follow-up actions; reduced infrastructure burden & Vendor and domain dependency; less portable and less transparent for custom multi-provider architectures \\
+\hline
+\end{tabularx}
+\caption{Comparison of existing platforms}
+\label{tab:agent_orchestration_frameworks}
+\end{table}
+
+\subsection{LLM and SLM Providers}
+
+The provider layer is a strategic component of VIP because the choice of model directly affects latency, cost, deployment flexibility, and vendor dependence. Commercial APIs simplify integration and provide strong general-purpose performance, while smaller or open-weight models may become preferable when privacy, infrastructure control, or operational cost are stronger constraints. For this reason, the provider layer of VIP is designed to remain replaceable rather than hard-coded. The SLM-evals side project complements this design by benchmarking different providers under controlled prompts, datasets, and evaluation metrics before they are integrated into workflows.
+
+\begin{table}[H]
+\centering
+\scriptsize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{|>{\RaggedRight\arraybackslash}p{3.1cm}|>{\RaggedRight\arraybackslash}p{3.2cm}|>{\RaggedRight\arraybackslash}X|>{\RaggedRight\arraybackslash}X|}
+\hline
+\rowcolor{gray!20}
+\textbf{Provider family} & \textbf{Integration mode} & \textbf{Strengths} & \textbf{Constraints} \\
+\hline
+Commercial API providers & Remote API integration through provider SDKs or HTTP clients & Strong general-purpose capability; fast integration; managed model serving; frequent model updates & Provider dependence; external data processing; network latency; limited deployment control \\
+\hline
+Cloud-hosted open-weight models & Hosted inference through managed cloud or specialized inference platforms & More model choice; easier experimentation with open-weight families; scalable serving without local infrastructure & Still depends on third-party infrastructure; deployment and data-governance control vary by host \\
+\hline
+Self-hosted SLMs or open-weight models & Local, private-cloud, or containerized deployment near VIP services & Better privacy control; reduced external dependency; tunable deployment environment; useful for latency-sensitive workflows & Requires infrastructure management; model quality must be validated; operational monitoring remains necessary \\
+\hline
+\end{tabularx}
+\caption{Provider comparison}
+\label{tab:provider_comparison}
+\end{table}
+
+\subsection{Evaluation Framework}
+
+A key limitation of many current agent platforms is that model selection is often driven by vendor familiarity rather than controlled evaluation. In the VIP context, this issue is addressed through the SLM-evals pipeline, which combines reference-based similarity metrics, structural completeness checks, latency tracking, and LLM-as-a-judge scoring in order to compare providers on the same task under the same prompting conditions. The framework was later extended with layered evaluation, including RAGAS-based analysis and domain-specific numerical checks, to obtain a more robust comparison than lexical metrics alone. This evaluation block is essential because provider flexibility only has practical value when model choice is measurable and reproducible.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        node/.style={draw, align=center, minimum width=2.2cm, minimum height=0.75cm, font=\small},
+        arrow/.style={-{Stealth[length=2mm]}, thick}
+    ]
+        \node[node] (dataset) at (0,0) {Golden\\dataset};
+        \node[node] (generation) at (2.8,0) {Provider\\generation};
+        \node[node] (metrics) at (5.6,0) {Deterministic\\metrics};
+        \node[node] (judge) at (8.4,0) {Judge\\model};
+        \node[node] (logging) at (11.2,0) {Trace\\logging};
+
+        \draw[arrow] (dataset) -- (generation);
+        \draw[arrow] (generation) -- (metrics);
+        \draw[arrow] (metrics) -- (judge);
+        \draw[arrow] (judge) -- (logging);
+
+        \node[node, minimum width=2.8cm] (checks) at (5.6,-1.35) {Structural and\\domain checks};
+        \draw[arrow] (generation) |- (checks);
+        \draw[arrow] (checks) -- (logging);
+    \end{tikzpicture}
+    \caption{Evaluation pipeline---golden dataset, generation, metrics, judge, logging.}
+    \label{fig:evaluation_pipeline}
+\end{figure}
+
+\subsection{Gap Analysis and VIP Positioning}
+
+Existing tools show that the enterprise agent ecosystem is already mature in several focused areas. LangChain and LangGraph provide reusable abstractions for model calls, tools, graph-based workflows, persistence, and durable execution. In the platform comparison, CrewAI demonstrates practical role-based collaboration, n8n shows how visual workflow environments can make automation and integration accessible to non-specialist users, and Jarvio illustrates the value of a managed operational layer that handles execution and follow-up. These solutions therefore provide useful design references for VIP: they validate the importance of workflow modeling, tool connectivity, state management, and agent collaboration in enterprise use cases.
+
+However, the same comparison also reveals important gaps. Most frameworks solve one part of the lifecycle without covering the full operational chain from agent definition to deployment, monitoring, and provider evaluation. Code-oriented frameworks can be powerful but remain difficult to expose directly to business users or to standardize across many generated agents. Visual platforms simplify workflow creation but do not fully address generated agent templates, versioned configuration, reusable deployment units, and deep runtime observability. Managed platforms reduce infrastructure effort, but usually introduce cloud dependency, limited portability, and weaker control over the provider layer. These limitations align with the problem statement of Chapter~1: VIP needs modularity, observability, deployment automation, multi-provider support, and cost-aware model choice rather than only isolated agent execution.
+
+VIP is positioned at this intersection. Its objective is not to replace every agent framework with a new low-level library, but to build a controlled platform architecture around generated agents. In this architecture, agents are created from configuration, packaged as reusable services, connected through an orchestration layer, monitored during execution, and linked to a replaceable provider layer. SLM-evals strengthens this positioning by making model selection evidence-based rather than vendor-driven. The contribution of VIP is therefore architectural: it combines lessons from existing tools while adding the governance, observability, deployment, and evaluation mechanisms required for enterprise-grade agent operations.
+
+\begin{itemize}
+    \item \textbf{Configurable agent generation:} VIP addresses the gap between code-heavy frameworks and reusable agent templates by generating agents from structured configuration.
+    \item \textbf{Observability and governance:} VIP responds to weak runtime visibility by tracking execution traces, configuration artifacts, prompts, schemas, and operational metrics.
+    \item \textbf{Provider-neutral model selection:} VIP reduces vendor dependence by keeping the provider layer replaceable and using SLM-evals to compare models under reproducible conditions.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        cell/.style={draw, align=center, minimum width=3.25cm, minimum height=0.8cm, font=\small},
+        head/.style={draw, fill=gray!20, align=center, minimum width=3.25cm, minimum height=0.8cm, font=\small\bfseries}
+    ]
+        \node[head] at (0,0) {Capability};
+        \node[head] at (3.25,0) {Existing tools};
+        \node[head] at (6.5,0) {VIP response};
+
+        \node[cell] at (0,-0.8) {Agent generation};
+        \node[cell] at (3.25,-0.8) {Partial or\\code-heavy};
+        \node[cell] at (6.5,-0.8) {Configuration-\\driven};
+
+        \node[cell] at (0,-1.6) {Orchestration};
+        \node[cell] at (3.25,-1.6) {Workflow or\\agent-specific};
+        \node[cell] at (6.5,-1.6) {Reusable service\\workflows};
+
+        \node[cell] at (0,-2.4) {Observability};
+        \node[cell] at (3.25,-2.4) {Uneven across\\platforms};
+        \node[cell] at (6.5,-2.4) {Execution traces\\and metrics};
+
+        \node[cell] at (0,-3.2) {Provider choice};
+        \node[cell] at (3.25,-3.2) {Often tied to\\ecosystem};
+        \node[cell] at (6.5,-3.2) {Replaceable layer\\plus SLM-evals};
+    \end{tikzpicture}
+    \caption{VIP gap positioning matrix---existing tools vs VIP capabilities.}
+    \label{fig:vip_gap_positioning_matrix}
+\end{figure}
+
+\subsection{Summary and Transition}
+
+This chapter reviewed the technical and conceptual foundations needed to position VIP: agent definitions, orchestration patterns, representative platforms, provider trade-offs, and reproducible evaluation principles. The analysis showed that existing solutions are mature in specific areas, such as workflow automation, role-based collaboration, graph execution, and managed operations, but that they do not fully combine configuration-driven agent generation, reusable deployment, observability, governance, and provider-neutral model selection. These findings justify the architectural direction of VIP as a platform rather than a single isolated framework. The next chapter builds directly on this state of the art by presenting the proposed system architecture and explaining how the identified requirements are translated into concrete components, including the agent generator, orchestration layer, provider abstraction, observability services, and evaluation workflow.

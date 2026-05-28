@@ -1,4 +1,4 @@
-\contentsline {section}{Glossary}{XII}{section*.4}%
+\contentsline {section}{Glossary}{XI}{section*.4}%
 \contentsline {section}{Introduction}{1}{section*.5}%
 \contentsline {section}{\numberline {1}Introduction and Project Context}{2}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Introduction}{2}{subsection.1.1}%
@@ -17,52 +17,20 @@
 \contentsline {subsection}{\numberline {1.7}Methodology}{8}{subsection.1.7}%
 \contentsline {subsubsection}{\numberline {1.7.1}Methodological Approaches Considered}{8}{subsubsection.1.7.1}%
 \contentsline {subsubsection}{\numberline {1.7.2}Scrum Agile Methodology}{8}{subsubsection.1.7.2}%
-\contentsline {subsubsection}{\numberline {1.7.3}IBM Data Science Methodology -- The Foundational Methodology}{9}{subsubsection.1.7.3}%
+\contentsline {subsubsection}{\numberline {1.7.3}IBM Data Science Methodology -- The Foundational Methodology}{8}{subsubsection.1.7.3}%
 \contentsline {subsubsection}{\numberline {1.7.4}IBM Agent Development Lifecycle}{10}{subsubsection.1.7.4}%
-\contentsline {subsubsection}{\numberline {1.7.5}Comparative Analysis of the Methodologies}{12}{subsubsection.1.7.5}%
+\contentsline {subsubsection}{\numberline {1.7.5}Comparative Analysis of the Methodologies}{11}{subsubsection.1.7.5}%
 \contentsline {subsubsection}{\numberline {1.7.6}Adopted Hybrid Methodology for the VIP Project}{12}{subsubsection.1.7.6}%
 \contentsline {subsection}{\numberline {1.8}Project Timeline}{13}{subsection.1.8}%
 \contentsline {subsection}{\numberline {1.9}Summary}{13}{subsection.1.9}%
 \contentsline {section}{\numberline {2}State of the Art}{15}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Large Language Models and Generative AI}{15}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Overview of Large Language Models}{15}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Prompt Engineering}{15}{subsubsection.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.1.3}Structured Outputs and Schema-Guided Generation}{15}{subsubsection.2.1.3}%
-\contentsline {subsubsection}{\numberline {2.1.4}LLM Providers and Open-Source Models}{15}{subsubsection.2.1.4}%
-\contentsline {subsection}{\numberline {2.2}AI Agents}{16}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Definition of an AI Agent}{16}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Components of an AI Agent}{16}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Tools, Memory, Prompts and Schemas}{16}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.4}From LLM Applications to Agentic Applications}{16}{subsubsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.3}Multi-Agent Systems and Agentic Workflows}{16}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Principles of Multi-Agent Systems}{16}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Agent Specialization}{16}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Workflow-Based Collaboration}{16}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Communication Between Agents}{17}{subsubsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.4}Agent Orchestration}{17}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Role of the Orchestrator}{17}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Workflow Execution}{17}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Direct Agent Execution}{17}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}Schema Validation and Payload Adaptation}{17}{subsubsection.2.4.4}%
-\contentsline {subsection}{\numberline {2.5}Configuration-Driven Agent Platforms}{17}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Low-Code and No-Code Agent Creation}{17}{subsubsection.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.5.2}YAML-Based Configuration}{17}{subsubsection.2.5.2}%
-\contentsline {subsubsection}{\numberline {2.5.3}Reusable Agent Runtime}{18}{subsubsection.2.5.3}%
-\contentsline {subsubsection}{\numberline {2.5.4}Prompt and Schema Versioning}{18}{subsubsection.2.5.4}%
-\contentsline {subsection}{\numberline {2.6}Observability, Governance and Evaluation}{18}{subsection.2.6}%
-\contentsline {subsubsection}{\numberline {2.6.1}Traceability and Auditability}{18}{subsubsection.2.6.1}%
-\contentsline {subsubsection}{\numberline {2.6.2}Monitoring Latency, Tokens and Costs}{18}{subsubsection.2.6.2}%
-\contentsline {subsubsection}{\numberline {2.6.3}Prompt and Artifact Management}{18}{subsubsection.2.6.3}%
-\contentsline {subsubsection}{\numberline {2.6.4}Evaluation of Agent Outputs}{18}{subsubsection.2.6.4}%
-\contentsline {subsection}{\numberline {2.7}Development and Deployment Tools}{18}{subsection.2.7}%
-\contentsline {subsubsection}{\numberline {2.7.1}Backend and API Frameworks}{18}{subsubsection.2.7.1}%
-\contentsline {subsubsection}{\numberline {2.7.2}Frontend and Dashboard Frameworks}{19}{subsubsection.2.7.2}%
-\contentsline {subsubsection}{\numberline {2.7.3}Databases and Vector Storage}{19}{subsubsection.2.7.3}%
-\contentsline {subsubsection}{\numberline {2.7.4}Containerization with Docker}{19}{subsubsection.2.7.4}%
-\contentsline {subsubsection}{\numberline {2.7.5}Continuous Integration and Continuous Delivery}{19}{subsubsection.2.7.5}%
-\contentsline {subsection}{\numberline {2.8}Existing Agentic AI Platforms and Tools}{19}{subsection.2.8}%
-\contentsline {subsubsection}{\numberline {2.8.1}Workflow Automation Platforms}{19}{subsubsection.2.8.1}%
-\contentsline {subsubsection}{\numberline {2.8.2}Agent Development Frameworks}{19}{subsubsection.2.8.2}%
-\contentsline {subsubsection}{\numberline {2.8.3}Cloud-Based Agent Platforms}{19}{subsubsection.2.8.3}%
-\contentsline {subsubsection}{\numberline {2.8.4}Comparative Analysis}{19}{subsubsection.2.8.4}%
-\contentsline {subsection}{\numberline {2.9}Conclusion}{20}{subsection.2.9}%
+\contentsline {subsection}{\numberline {2.1}AI Agents and Orchestration}{15}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Definitions}{15}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}LLM and SLM Overview}{16}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Motivation for Orchestration Frameworks}{16}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Framework Survey}{16}{subsubsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.2}Comparison of Existing Platforms}{17}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}LLM and SLM Providers}{19}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Evaluation Framework}{19}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Gap Analysis and VIP Positioning}{20}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Summary and Transition}{21}{subsection.2.6}%

@@ -4,6 +4,8 @@
 \setlength{\parindent}{0.5cm}
 \justifying
 \renewcommand{\contentsname}{Table of Contents}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -38,6 +40,9 @@
 
 \titleformat{\subsection}{\normalfont\fontsize{14}{18}\bfseries}{\thesubsection}{0.2cm}{}
 \titlespacing{\subsection}{0.2cm}{0.4cm}{0.2cm}
+
+\titleformat{\subsubsection}{\normalfont\fontsize{13}{16}\bfseries}{\thesubsubsection}{0.2cm}{}
+\titlespacing{\subsubsection}{0.2cm}{0.35cm}{0.15cm}
 
 \newtcolorbox{mydefinition}{colback=white, colframe=black, sharp corners, boxrule=0.5pt, fonttitle=\bfseries}
 
