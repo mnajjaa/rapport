@@ -21,41 +21,65 @@ In enterprise environments, an agent is not merely a conversational component, b
 
 This evolution from simple generation models to operational agents introduces new requirements: lifecycle management, configuration control, structured outputs, monitoring, and governance.
 
-\subsubsection{Single-Agent and Multi-Agent Systems}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/ai-agent.png}
+    \caption{AI Agent Architecture.}
+    \label{fig:ai_agent_architecture}
+\end{figure}
 
-A single-agent system relies on one autonomous unit responsible for handling the entire task loop, including reasoning, tool invocation, and response generation. This approach is suitable for bounded or narrowly scoped tasks.
+\subsubsection{Structure of AI Agents}
 
-However, complex enterprise workflows often require decomposition into multiple responsibilities such as planning, retrieval, validation, transformation, and reporting. Multi-agent systems distribute these responsibilities across specialized agents, each with a defined role and structured input/output schema.
+AI agents can either be single or multi depending on the design structure.
 
-In such architectures, agents collaborate through intermediate outputs and shared state. While this improves modularity and reuse, it significantly increases coordination complexity. Consequently, multi-agent systems require orchestration mechanisms to manage sequencing, state transitions, schema compatibility, and error handling.
+\paragraph{Single Agent vs Multi-Agent}
 
-\subsubsection{Why Orchestration Is Required}
 
-As agentic systems evolve from isolated assistants to collaborative execution networks, orchestration becomes a fundamental architectural requirement. Orchestration ensures that agents are executed in the correct order, that data flows between them in a structured manner, and that failures can be handled predictably.
 
-Without orchestration, agent logic becomes embedded in ad hoc control code, making workflows difficult to reproduce, debug, or scale. Orchestration frameworks introduce structured patterns such as workflow graphs, state machines, retries, and task delegation.
+A single agent is an agent design where one LLM handles the whole task. It reasons, plans, and calls the required tools when needed. Most AI agents start as single-agent systems because they are simpler, easier to maintain, and usually enough for many tasks.
 
-In enterprise contexts, orchestration is not only about execution sequencing. It also ensures traceability, auditability, and governance of agent interactions.
+A multi-agent system uses specialised agents to solve different parts of a task. It often has a central agent, usually called an \textbf{orchestrator}, \textbf{supervisor}, or \textbf{planner}, that coordinates the other agents and decides when each one should act. Each specialised agent can have its own role, tools, and reasoning logic, making the system more modular and suitable for complex workflows.
 
 \begin{figure}[H]
     \centering
-    \fbox{
-        \begin{minipage}[c][5cm][c]{0.85\textwidth}
-            \centering
-            Figure to be added later.
-        \end{minipage}
-    }
-    \caption{Evolution from single-agent execution to orchestrated multi-agent workflows.}
-    \label{fig:evolution_single_agent_to_orchestrated_multi_agent_workflows}
+    \includegraphics[width=0.9\textwidth]{figures/figure-20.png}
+    \caption{Single-Agent vs Multi-Agent.}
+    \label{fig:single_agent_vs_multi_agent}
 \end{figure}
 
-\subsubsection{Provider Landscape: Frontier LLMs and Small Language Models}
+\paragraph{When to Build a Multi-Agent System}
 
-The provider layer is a strategic dimension of agentic systems. Frontier LLMs such as GPT-series or other commercial APIs offer strong reasoning performance and ease of integration. However, they introduce dependency on external infrastructure, token-based operational costs, and potential vendor lock-in.
+A single-agent design works well for simple tasks that require limited tool use. For example, a personal assistant agent that can access a calendar to book reminders, a calculator agent that only uses a calculator tool, or a web search agent that uses a web search API to retrieve up-to-date information.
 
-Small Language Models (SLMs) and open-weight models offer an alternative path. They may be self-hosted or deployed closer to the application environment, improving latency control and governance. However, their suitability depends on rigorous evaluation against task-specific requirements.
+However, a single agent can become overloaded when the task requires many tools, multi-step reasoning, different responsibilities, or verification before the final response is returned to the user. Common issues include overloaded prompting, poor tool routing, unclear agent responsibilities, and reduced reliability due to too much complexity in one agent.
 
-For enterprise platforms, provider flexibility becomes essential. A robust architecture should abstract the provider layer, enabling model replacement based on cost, latency, compliance, or performance constraints.
+A \textbf{multi-agent system} is a better choice when the task may overwhelm a single-agent design and when specialised agents with clear roles, their own tools, and separate responsibilities are needed.
+
+For example, a \textbf{software engineering agent} may work better as a multi-agent system:
+
+\begin{quote}
+\texttt{Orchestrator -> Coder -> Tester -> Reviewer}
+\end{quote}
+
+The \textbf{Orchestrator} coordinates the workflow, the \textbf{Coder agent} generates the code, the \textbf{Tester agent} checks whether the code works, and the \textbf{Reviewer agent} reviews the solution to check for missing parts or possible improvements.
+
+Another example is a \textbf{research agent} that researches a topic, retrieves information from different data sources, and generates grounded content:
+
+\begin{quote}
+\texttt{Orchestrator -> Retriever -> Writer -> Verifier}
+\end{quote}
+
+The \textbf{Retriever agent} gathers information from the web and local documents stored in a vector database. The \textbf{Writer agent} writes based on the retrieved content. The \textbf{Verifier agent} checks the written content for errors, citations, and factual accuracy before the final response is returned.
+
+Multi-agent systems make the workflow more modular and give each stage a clear role. However, they should be used only when the task genuinely needs that design, because they usually increase latency, cost, and maintenance complexity due to more LLM calls and more moving parts.
+
+A simple rule is:
+
+\begin{quote}
+\textit{Use a single agent when the task is simple, has fewer steps, and needs only a few tools. Use a multi-agent system when the task requires specialised roles, multi-step reasoning, stronger verification, or coordination across different tools and workflows.}
+\end{quote}
+
+In this context, VIP supports both Single-Agent Systems (SAS) and Multi-Agent Systems (MAS). Simple use cases can be handled by one configurable agent, while complex workflows can be distributed across coordinated specialised agents with clear responsibilities.
 
 \subsection{Preliminary Study and Project Specifications of the VIP Project}
 
@@ -97,7 +121,7 @@ From a technical perspective, the VIP project aims to provide a modular platform
 
 These objectives are not limited to model performance. They also concern the way agents are generated, connected, monitored, and maintained throughout their lifecycle. Therefore, the main technical objectives of VIP are to enable configuration-driven agent creation, standardize agent communication through schemas, support multiple LLM and SLM providers, and ensure traceability during execution.
 
-The model evaluation aspect is supported by the SLM-evals second project, which is presented separately in Section 2.6.
+The model evaluation aspect is supported by the SLM-evals second project, which is presented separately in Section 2.4.
 
 The main technical objectives of VIP are:
 
@@ -154,121 +178,214 @@ VIP is considered successful if:
     \item Evaluation results guide provider selection decisions
 \end{itemize}
 
-\subsection{Comparison of Existing Platforms with Respect to VIP}
+\subsection{Comparison of Existing Platforms}
+
+In order to position VIP with respect to existing agentic and LLM-based platforms, this section presents a comparative study of three representative solutions: n8n, CrewAI, and Dify. These platforms were selected because they represent three complementary approaches: visual workflow automation, code-first multi-agent orchestration, and LLM application development. The objective is not to identify a direct competitor to VIP, but rather to highlight the architectural gaps that justify the design choices adopted in this project.
+
+The comparison is particularly relevant because VIP aims to go beyond simple workflow automation. Its architecture focuses on generating configurable agents, deploying them as independent services, orchestrating them through explicit contracts, and monitoring their execution.
 
 \subsubsection{Evaluation Criteria Derived from VIP Requirements}
 
-The comparative study of existing platforms is derived directly from the needs of VIP rather than from generic feature lists. The first criterion is the orchestration model, because VIP must support both simple flows and more advanced multi-agent coordination patterns. The second criterion is provider flexibility, since the platform must avoid hard dependency on a single LLM vendor and must remain open to commercial APIs as well as smaller or open models. The third criterion is observability, which includes execution traces, latency visibility, token and cost tracking, and debugging support. The fourth criterion is the deployment model, because VIP targets reproducible packaging and controlled execution environments rather than ad hoc local scripts only. The fifth criterion is scalability, meaning the ability to support increasing workflow load, agent concurrency, and operational growth. The sixth criterion is ease of use, since one of the platform goals is to reduce the friction of creating and operating agents. The last criterion is enterprise readiness, which covers access control, configuration management, security integration, and operational governance. These criteria are consistent with current documentation for workflow platforms, agent frameworks, and observability tools, and they also align with the broader recommendation in evaluation literature to assess LLM systems with multiple dimensions rather than accuracy alone.
+The evaluation criteria are derived from the main requirements of VIP. Since the platform is designed to build, deploy, and operate configurable AI agents, the comparison focuses on orchestration, agent modularity, provider flexibility, observability, deployment model, and governance. These criteria reflect the main technical choices of VIP, namely configuration-driven agent behavior, independent Dockerized agents, MLflow-based prompt and schema versioning, schema validation, and workflow orchestration.
 
-\subsubsection{Comparative Study of n8n, CrewAI, and Jarvio}
-
-n8n is best understood as a workflow automation platform with AI extensions. Its AI Agent node is tool-oriented and explicitly requires at least one connected tool sub-node, while its LangChain cluster node structure shows that AI execution is embedded inside a broader node-based workflow model. n8n also documents scalable execution through queue mode, where workflow execution is delegated from a main instance to worker instances through Redis, and it exposes OpenTelemetry tracing for workflow and node executions in self-hosted deployments. This makes n8n attractive for visual orchestration, fast integration, and practical automation. However, its abstraction remains workflow-centric rather than agent-platform-centric: it does not natively target configuration-driven generation of reusable agent services with an internal provider benchmarking loop.
-
-CrewAI is stronger on the agentic side. Its documentation defines Crews as collaborative groups of agents and Flows as structured, event-driven workflows that manage state and control execution. It also supports sequential and hierarchical processes, where a manager model or manager agent can coordinate delegation and validate outcomes. In addition, CrewAI supports multiple LLM providers, YAML-based configuration, direct code-based model configuration, and observability integrations including MLflow. This makes CrewAI a stronger reference for planner-worker collaboration, controlled multi-agent execution, and provider abstraction. Its main limitation with respect to VIP is that it remains primarily a development framework: it helps build agent systems, but it does not by itself provide the full managed platform layer that VIP requires for declarative agent creation, standardized container packaging, visual lifecycle management, and integrated provider evaluation.
-
-Jarvio is considered here as a managed operational platform candidate rather than as a code-first orchestration framework. In practical terms, it is most useful as a contrast case: it represents the category of managed AI business platforms that can reduce infrastructure burden and accelerate operational adoption. However, during this review, public engineering documentation for Jarvio was not available at the same level of detail as the documentation for n8n and CrewAI. For this reason, the comparison remains conservative: Jarvio can be positioned as easier to adopt operationally, but less transparent from an architectural perspective, less portable than a self-hosted stack, and less suitable as a technical foundation when the objective is to control provider abstraction, deployment topology, schema governance, and runtime traces at platform level. This limited public technical transparency is itself a relevant gap for VIP, whose target is an enterprise-grade platform with explicit control over architecture and operations.
-
-\begin{landscape}
 \begin{table}[H]
 \centering
-\scriptsize
 \renewcommand{\arraystretch}{1.25}
-\caption{Comparative study of n8n, CrewAI, Jarvio, and VIP implications}
-\label{tab:platform_comparison_vip}
-\begin{tabularx}{\linewidth}{|
-    >{\raggedright\arraybackslash}p{0.14\linewidth}|
-    >{\raggedright\arraybackslash}X|
-    >{\raggedright\arraybackslash}X|
-    >{\raggedright\arraybackslash}X|
+\caption{Evaluation criteria derived from VIP requirements}
+\label{tab:vip_evaluation_criteria}
+\begin{tabularx}{\textwidth}{|
+    >{\raggedright\arraybackslash}p{0.28\textwidth}|
     >{\raggedright\arraybackslash}X|}
 \hline
 \rowcolor{gray!15}
-\textbf{Criterion} & \textbf{n8n} & \textbf{CrewAI} & \textbf{Jarvio} & \textbf{VIP implication} \\
+\textbf{Criterion} & \textbf{Why it matters for VIP} \\
 \hline
-Orchestration model & Visual node-based workflows with AI agent nodes & Crews for collaboration, Flows for structured execution & Managed agent/workflow experience at product level & VIP should combine visual orchestration with explicit multi-agent control \\
+Orchestration model & VIP needs to coordinate multiple agents in workflows, not only execute isolated prompts. \\
 \hline
-Provider flexibility & Moderate; AI integrations are broad, but model strategy is not the core design axis & High; supports multiple LLM providers and configurable model bindings & Not sufficiently documented publicly at engineering depth & VIP must keep provider abstraction explicit and replaceable \\
+Agent abstraction & VIP treats each agent as a configurable and reusable unit. \\
 \hline
-Observability & Good in self-hosted mode through executions, metrics, and OpenTelemetry tracing & Good through tracing and multiple observability integrations & Not sufficiently documented publicly at engineering depth & VIP must treat tracing, cost, and latency as built-in capabilities \\
+Provider flexibility & VIP must support different LLM providers without rewriting the platform. \\
 \hline
-Deployment model & Self-hosted and cloud; scalable queue mode with workers & Primarily framework-oriented; deployable but requires surrounding platform choices & Managed platform orientation & VIP should provide standardized containerized deployment units \\
+Observability & VIP needs traces, token usage, latency, and cost monitoring. \\
 \hline
-Scalability & Strong for workflow execution through queue mode and workers & Good at application level, but depends on surrounding infrastructure choices & Operational scaling is product-facing, not deeply documented technically & VIP should isolate orchestration scaling from model/provider dependence \\
+Deployment model & VIP uses independently deployable containerized agents. \\
 \hline
-Ease of use & High for workflow composition and integrations & Moderate; more code-oriented and developer-centric & Likely high from a business-user perspective & VIP should reduce setup complexity without losing architectural control \\
+Schema and contract control & VIP relies on structured inputs, structured outputs, and schema validation. \\
 \hline
-Enterprise features & RBAC, custom roles, SAML/OIDC, source control, log streaming, insights & Enterprise-oriented positioning plus observability and security emphasis & Product-level operational positioning & VIP should expose governance and operations without vendor lock-in \\
+Scalability & VIP must scale orchestration and agent execution separately. \\
+\hline
+Ease of use & VIP should simplify agent creation without losing technical control. \\
+\hline
+Enterprise readiness & VIP targets controlled, auditable, and maintainable AI systems. \\
 \hline
 \end{tabularx}
 \end{table}
-\end{landscape}
 
-The table above is derived from n8n's AI Agent, queue mode, OpenTelemetry, and enterprise documentation, and from CrewAI's Crews, Flows, provider, and observability documentation. The Jarvio row is intentionally cautious because comparable public engineering documentation was not available during this review.
+These criteria allow us to evaluate whether each platform is workflow-centric, agent-centric, or application-centric, and to identify which limitations VIP should address.
 
-\subsubsection{Discussion of Platform-Level Gaps}
+\subsubsection{Comparative Study of n8n, CrewAI and Dify}
 
-The comparison shows that the three platforms address different parts of the problem space, but none of them maps exactly to the full VIP requirement set. n8n is excellent for visual automation and systems integration, yet its core abstraction remains the workflow rather than the lifecycle-managed agent service. CrewAI is much closer to VIP on agent design and orchestration logic, but it still assumes a developer-centric framework context and leaves significant platform concerns to surrounding infrastructure choices. Jarvio, by contrast, is valuable as an example of managed operational packaging, but its public technical depth is insufficient for a platform whose architectural decisions must be justified in an engineering report. Therefore, the gap is not that such tools are weak; rather, each tool covers one slice of the lifecycle, while VIP aims to combine agent definition, provider abstraction, orchestration, observability, and evaluation in one controlled architecture.
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
 
-\subsection{Evaluation and Operational Foundations}
+\paragraph{n8n}
 
-\subsubsection{Evaluation Frameworks for Agentic Systems}
+n8n is a workflow automation platform based on a visual node-based editor. It allows users to connect services, APIs, and automation steps through graphical workflows. In the context of AI, n8n provides an AI Agent node. According to the official documentation, an AI agent in n8n receives data, makes decisions, and acts in its environment by using external tools and APIs. The documentation also specifies that at least one tool sub-node must be connected to the AI Agent node.
 
-Evaluation in agentic systems cannot be reduced to a single leaderboard score. The literature on language-model evaluation recommends multi-dimensional assessment, and this is even more important for agent workflows where errors may arise from reasoning, tool use, retrieval, formatting, or coordination rather than from generation quality alone. A robust evaluation framework therefore combines logic-based checks, reference-based metrics when available, model-based judging for open-ended outputs, and operational measurements such as latency and cost. Laminar's evaluation model is consistent with this view: it distinguishes executors, evaluators, datasets, and result visualization, and explicitly supports both logic-based evaluation and model-based evaluation. In the same direction, MLflow positions tracing and evaluation as complementary, so that quality analysis can be inspected together with internal execution data. In research, HELM argues for multi-metric evaluation beyond accuracy, G-Eval shows the usefulness of LLM-as-a-judge for open-ended quality assessment, and frameworks such as RAGAS and ARES show that faithfulness and relevance must be assessed separately in retrieval-grounded systems.
+n8n is relevant to VIP because it demonstrates the value of visual workflow composition and low-code automation. However, it remains mainly workflow-centric. The main object in n8n is the workflow, while in VIP the main object is the agent lifecycle: configuration, generation, deployment, execution, monitoring, and versioning. n8n provides useful enterprise features such as source control, log streaming, security settings, and insights, and it also supports deployment and monitoring configurations such as Docker, queue mode, OpenTelemetry, and scaling options. Nevertheless, VIP requires a more explicit agent contract, stronger schema enforcement, and independent agent containers generated from configuration.
 
-\subsubsection{Observability and Governance Requirements}
+The main lesson for VIP is that n8n is strong for visual workflows, integration, and automation. VIP should therefore learn from its ease of use while remaining different in its core focus: agent generation, schema control, and containerized runtime management.
 
-For VIP, observability is not an optional monitoring add-on but a structural requirement. A platform that creates and orchestrates AI agents must expose what the agent received, what model or tool it called, how long each step took, how many tokens were consumed, and where failures or invalid transitions occurred. Laminar is designed precisely for this space: it traces LLM calls, tool use, and custom functions; supports evaluations, datasets, alerts, and dashboards; and can run in managed cloud or in a self-hosted Docker Compose deployment. MLflow complements this by covering prompt lifecycle and traceability: its tracing captures inputs, outputs, and metadata for intermediate steps, while its Prompt Registry provides immutable prompt versions, side-by-side diffs, and integration with tracing and evaluation. Governance also includes access control and environments. On the workflow-platform side, n8n documents RBAC, custom roles, SAML/OIDC, source control, and log streaming, which confirms that enterprise AI systems require operational governance in addition to workflow logic. These elements justify why VIP must be designed around traceability, configuration history, and controlled operations from the start.
+\paragraph{CrewAI}
 
-\subsubsection{Why Observability Is a First-Class Need for VIP}
+CrewAI represents the category of code-first multi-agent frameworks. It is designed around the concept of a crew, which is a collaborative group of agents working together to achieve a set of tasks. Each crew defines the strategy for task execution, agent collaboration, and the overall workflow. CrewAI supports attributes such as agents, tasks, process type, memory, callbacks, planning, and knowledge sources.
 
-VIP targets multi-step, multi-agent, provider-flexible execution. In such a setting, the final answer alone is not enough to diagnose system behavior. Failures may come from the wrong prompt version, a schema mismatch between agents, a tool error, excessive latency on one provider, or unstable output formatting. Laminar's trace model illustrates why deep observability matters: it captures LLM calls, tool calls, and custom functions, supports replay and evaluation, shows token and cost badges in multi-agent traces, and provides trace-level analysis and alerts. MLflow adds the missing governance layer around prompt evolution by making prompt versions immutable and connecting prompt changes to tracing and evaluation results. In the VIP context, this is why the observability layer must be introduced already in Chapter 2 as a design necessity. The concrete implementation choice -- Laminar deployed locally in Docker and combined with MLflow for prompt and schema versioning -- should be described in detail in Chapter 3 as part of the system architecture and demonstrated in Chapter 4 through traces, dashboards, and evaluation results rather than fully expanded here.
+CrewAI is close to VIP from a multi-agent perspective because both approaches rely on task decomposition and specialized agents. CrewAI also supports YAML configuration as a recommended way to define crews, agents, and tasks, which is aligned with the configuration-driven philosophy of VIP. However, CrewAI is mainly a framework used inside a Python runtime, while VIP aims to provide a complete platform where agents are generated, containerized, registered, orchestrated, and monitored as independent services.
 
-\subsection{Synthesis and Gap Analysis for the VIP Project}
+This distinction is important because VIP's architecture separates build-time and runtime responsibilities. The builder receives an agent specification and produces a standalone artifact containing runtime code, selected tools, dependencies, Dockerfile, compose file, and manifest. This makes VIP closer to an operational platform than to a pure development framework.
 
-\subsubsection{Identified Gaps in Existing Solutions}
+The main lesson for VIP is that CrewAI is strong for explaining multi-agent collaboration through agents, roles, tasks, and processes. VIP goes further by adding Dockerized independent services, MLflow governance, schema contracts, and orchestration over HTTP.
 
-The state of the art confirms that the ecosystem is already mature, but in fragmented ways. n8n provides strong workflow composition, integrations, scalable workers, and observability hooks, yet it remains primarily centered on workflow automation. CrewAI provides a better abstraction for collaborative agents, flows, state, and provider flexibility, yet it remains a framework that still needs surrounding platform design choices for deployment lifecycle, standardization, and governance. Managed-product platforms such as Jarvio highlight the operational value of ready-to-use agent experiences, but they do not provide the same architectural transparency and portability needed for a configurable enterprise AI hub. The missing combination is therefore clear: a platform that can generate agents from declarative specifications, package them as reusable deployment units, orchestrate them visually and programmatically, observe them deeply in runtime, and choose providers through continuous evaluation rather than vendor habit.
+\paragraph{Dify}
 
-\subsubsection{Design Implications for VIP}
+Dify represents the category of LLM application development platforms. Its official documentation describes it as an open-source platform for building agentic workflows. It allows users to define processes visually, connect tools and data sources, and deploy AI applications.
 
-These gaps translate directly into design implications for VIP. First, agent creation must be configuration-driven rather than hard-coded, so that prompts, schemas, tools, and providers can be modified without rewriting application logic. Second, the provider layer must remain abstract and replaceable, because model choice is a moving engineering decision shaped by quality, latency, privacy, and cost. Third, observability must be embedded by design through traces, metrics, and execution metadata rather than added after deployment. Fourth, prompts and schemas must be versioned as governed artifacts, because reproducibility and rollback are essential in enterprise environments. Finally, model selection must be connected to a dedicated evaluation loop, which is precisely the role of the second project, SLM-Evals. VIP is therefore positioned not as another isolated framework, but as an integrating architecture that combines generation, orchestration, observability, and evaluation in one platform-level design.
+Dify is relevant to VIP because it focuses on simplifying the development of LLM-based applications through visual workflows and integration with external tools and data. Compared with n8n, Dify is more oriented toward AI applications. Compared with CrewAI, it is less code-first and more product-oriented. However, VIP has a more infrastructure-oriented vision: each agent is treated as a deployable unit with explicit input/output schemas, selected tools, MLflow-managed artifacts, and container-level isolation.
+
+This difference is aligned with VIP's objective of reducing fragmented AI initiatives. The internal platform vision highlights the need to move away from isolated workflows, fragmented models, and unscalable deployments toward a unified and auditable agent-centric platform.
+
+The main lesson for VIP is that Dify is strong for LLM application creation, visual configuration, and AI workflow building. VIP should keep more control over agent runtime, schemas, observability, and deployment while learning from Dify's platform-oriented user experience.
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\subsubsection{Comparative Synthesis and VIP Positioning}
+
+The following table summarizes the comparison between n8n, CrewAI, and Dify according to the criteria derived from VIP requirements. The last column identifies the implications for VIP and shows how the proposed platform can combine the strengths of existing solutions while addressing their limitations.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Synthesis of existing platforms and VIP positioning}
+\label{tab:platform_comparison_compact}
+\begin{tabular}{|p{3cm}|p{5.5cm}|p{6cm}|}
+\hline
+\textbf{Criterion} & \textbf{Observation from existing platforms} & \textbf{VIP implication} \\
+\hline
+Workflow design & n8n and Dify provide accessible visual workflow creation. & VIP should keep workflow creation simple while preserving technical control. \\
+\hline
+Multi-agent logic & CrewAI structures collaboration through agents, tasks, and crews. & VIP should support specialized agents coordinated by an orchestrator. \\
+\hline
+Agent lifecycle & Existing tools focus more on workflows or agent execution than full lifecycle management. & VIP should cover configuration, generation, deployment, execution, monitoring, and versioning. \\
+\hline
+Deployment & Deployment depends on each platform or surrounding infrastructure. & VIP should standardize deployment through Dockerized independent agents. \\
+\hline
+Governance & Governance and observability are present but not always central or customizable. & VIP should rely on MLflow, schema validation, traces, latency, token usage, and cost monitoring. \\
+\hline
+Positioning & Existing platforms solve parts of the problem but not the full VIP target. & VIP is positioned as an agent lifecycle and orchestration platform. \\
+\hline
+\end{tabular}
+\end{table}
+
+This comparison shows that VIP is positioned at the intersection of three approaches. From n8n, it can retain the idea of accessible workflow composition. From CrewAI, it can reuse the principle of specialized collaborative agents. From Dify, it can adopt the product-oriented view of LLM application development. However, VIP differentiates itself through its contract-first architecture, Dockerized agent-per-service model, MLflow-based governance, schema validation, adapter logic, and observability layer. These elements are necessary because the target system is not only an AI workflow tool, but a platform for building, deploying, and operating reusable AI agents in a controlled environment.
 
 \subsection{Preliminary Study of the SLM-Evals Second Project}
 
-Alongside the main VIP platform, this internship includes a second project named SLM-Evals, dedicated to the systematic evaluation of language-model providers and candidate models before their integration into production workflows. In the current VIP draft, SLM-Evals is already introduced as a reproducible benchmark pipeline comparing providers under controlled prompts and golden datasets while tracking latency, token usage, and layered evaluation metrics. This subsection formalizes that role by defining the motivation, the evaluation scope, the main measurement dimensions, and the contribution of this second project to VIP.
+The SLM-Evals project was introduced as a complementary study to the VIP platform. Its objective is to evaluate whether smaller and more cost-efficient language models can be used for specific business tasks, especially financial report generation and analysis. This study is important because VIP is designed to support multiple providers and models, meaning that model selection should not be based only on popularity, but also on measurable criteria such as quality, cost, latency, schema compliance, and deployment constraints.
+
+\subsubsection{What are language models?}
+
+A language model is an artificial intelligence model designed to understand, generate, and manipulate natural language. It learns patterns from large text datasets and uses these patterns to predict the most probable sequence of words based on a given input. Modern language models are usually based on neural networks, especially transformer architectures, which allow them to capture contextual relationships between words over long sequences.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/language-models.png}
+    \caption{Basic representation of a language model.}
+    \label{fig:basic_language_model}
+\end{figure}
+
+\subsubsection{What is an LLM?}
+
+Large Language Models, or LLMs, are language models trained on massive datasets and built with a very large number of parameters. This scale allows them to perform complex tasks such as text generation, summarization, translation, question answering, reasoning, and chatbot interaction. Examples include GPT models, Llama, Mistral, and Gemini-like models.
+
+However, this high performance comes with important constraints. LLMs usually require significant computational resources for training and deployment, which increases infrastructure cost, energy consumption, and operational complexity. For this reason, they are powerful but not always the most efficient choice for every business use case.
+
+
+
+\subsubsection{What is an SLM?}
+
+Small Language Models, or SLMs, are lighter language models designed to offer a more resource-efficient alternative to LLMs. They usually contain fewer parameters and require less computational power, which makes them easier to deploy, faster to fine-tune, and more affordable to operate. They are especially useful when the task is narrow, well-defined, and domain-specific.
+
+Unlike LLMs, SLMs are not necessarily designed to solve every possible language task. Their main value appears when they are adapted to a specific use case, such as document classification, structured information extraction, report generation, or domain-specific question answering. In business contexts, they can also reduce latency and support local or private deployment when sensitive data is involved.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/LLM-vs-SLM.png}
+    \caption{Comparison between large and small language models.}
+    \label{fig:llm_vs_slm}
+\end{figure}
 
 \subsubsection{Motivation of the SLM-Evals Second Project}
 
-The motivation behind SLM-Evals is that model selection in enterprise agentic systems cannot rely on vendor marketing claims or isolated public benchmark results. VIP is intended to orchestrate configurable agents across heterogeneous business workflows, which means that the selected model must not only be ``strong'' in a general sense, but also sufficiently reliable for structured outputs, sufficiently fast for multi-step orchestration, and sufficiently economical for repeated production use. HELM explicitly argues for multi-dimensional evaluation rather than single-score benchmarking, and this principle is particularly important for agentic systems where quality, efficiency, and trustworthiness must be optimized together.
+The motivation behind SLM-Evals is to determine whether smaller models can achieve acceptable quality for financial analysis tasks while reducing cost and latency. In the VIP context, this is important because each agent may not need the most powerful model available. For example, an extraction agent, a mapper agent, or a summarizer agent may perform well with a smaller model if the task is structured and supported by clear prompts and schemas.
 
-In this report, the distinction between LLMs and SLMs is operational rather than purely semantic. LLMs refer to frontier or larger-capacity models, including proprietary APIs and large open-weight families, which are typically used as high-quality baselines for reasoning-intensive tasks. SLMs refer to more compact models that are easier to deploy, cheaper to run, and better suited to memory- or latency-constrained environments. Microsoft's Phi-4 model card explicitly positions Phi-4 as a 14B dense model intended for memory/compute-constrained and latency-bound scenarios, while Meta's Llama 3.1 family spans 8B, 70B, and 405B variants with 128k context, making it useful as an open-weight comparison family across scales. Both classes must therefore be evaluated, because VIP may need a higher-capacity model for difficult reasoning steps and a smaller or locally deployable model for routing, extraction, or budget-sensitive tasks.
+This project therefore aims to compare models not only from a quality perspective, but also from an engineering and business perspective. A model that produces slightly lower quality but is cheaper, faster, and easier to deploy may be more suitable for some VIP agents. Recent research on Phi-3, for example, shows that a 3.8B-parameter model can reach competitive results on benchmarks such as MMLU and MT-Bench while remaining small enough for local or lightweight deployment scenarios.
 
-From this perspective, the problem addressed by SLM-Evals can be stated as follows: how can heterogeneous providers and models be compared under one fair, repeatable protocol so that VIP can select the most appropriate model for each agent task while controlling cost, latency, and reliability risk? This problem is directly aligned with the current VIP draft, which already identifies provider flexibility, reduced vendor lock-in, and evidence-based provider selection as explicit project goals.
+Therefore, the objective is not to prove that SLMs are always better than LLMs, but to identify when they are sufficient for a given task.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/SLM-Quality.png}
+    \caption{Quality and efficiency considerations for small language models.}
+    \label{fig:slm_quality}
+\end{figure}
+
 
 \subsubsection{Provider and Model Evaluation Need}
 
-The provider/model evaluation need emerges from two complementary decisions. The first is a provider-level decision: which execution environment or API vendor should be preferred under given cost, latency, and governance constraints. The second is a model-level decision: which exact model should be assigned to a given agent or task category. These two decisions are related but not identical. For example, OpenAI exposes tiered pricing across flagship and smaller models, Groq emphasizes high token speed and publishes model-dependent throughput and per-token prices, while Google positions Gemini Flash as a price-performance option for low-latency, high-volume tasks. Such differences make provider choice an operational decision, not just a research preference.
+Since VIP is designed to support multiple models and providers, model choice must be based on evaluation rather than intuition. Different providers may offer different trade-offs in terms of output quality, response time, token cost, availability, context length, and structured output support. For this reason, SLM-Evals provides a controlled evaluation process that helps compare models under the same task conditions.
 
-At the same time, model-level choice matters because open-weight and compact models are now strong enough to be viable for some enterprise workloads, especially when the task is narrow, schema-constrained, or repeated at scale. Phi-4 is explicitly described as a high-quality compact model for constrained environments, while Llama 3.1 provides a scalable open-weight family that can be tested across small and large variants. This is precisely why SLM-Evals must evaluate both LLMs and SLMs: not to identify a universal winner, but to determine which model is ``good enough'' for a given task type, under a measurable latency and cost envelope.
+For the VIP platform, the most relevant evaluation criteria are:
 
-From the VIP perspective, the evaluation need is therefore explicit. A viable provider/model pair must satisfy at least five conditions: acceptable task quality, predictable latency, affordable token cost, reliable structured-output behavior, and sufficient operational traceability for debugging and governance. Because VIP agents exchange schema-constrained data and execute inside orchestrated workflows, schema adherence and execution observability are not secondary concerns; they are fundamental selection criteria. This justifies the existence of SLM-Evals as a dedicated experimental layer rather than an ad hoc benchmark notebook.
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.25}
+\caption{Evaluation criteria for provider and model selection in VIP}
+\label{tab:slm_evals_criteria}
+\begin{tabularx}{\textwidth}{|
+    >{\raggedright\arraybackslash}p{0.28\textwidth}|
+    >{\raggedright\arraybackslash}X|}
+\hline
+\rowcolor{gray!15}
+\textbf{Criterion} & \textbf{Why it matters for VIP} \\
+\hline
+Output quality & Measures whether the generated financial analysis is correct and useful \\
+\hline
+Latency & Important for responsive agent workflows \\
+\hline
+Cost & Helps reduce operational expenses when many agents are executed \\
+\hline
+Schema compliance & Ensures that agents return structured and valid outputs \\
+\hline
+Provider flexibility & Avoids dependency on a single LLM provider \\
+\hline
+Stability & Ensures consistent behavior across repeated executions \\
+\hline
+Domain relevance & Measures how well the model handles financial language and reasoning \\
+\hline
+\end{tabularx}
+\end{table}
 
-\subsubsection{Main Evaluation Dimensions}
+The results of this evaluation will support VIP's provider-selection strategy. Instead of assigning the same model to all agents, VIP can select the most appropriate model depending on the agent role, task complexity, and expected quality level. This aligns with the platform's objective of building configurable, cost-aware, and provider-independent AI workflows.
 
-At the time of writing, the exact final benchmark bundle, evaluation budget, and final provider list remain partially unspecified. A practical default protocol is therefore to combine one broad knowledge/reasoning benchmark, one arithmetic reasoning benchmark, one factuality benchmark, and one VIP-specific golden dataset reflecting the project's own agent tasks. Reasonable default public datasets are MMLU or MMLU-Pro for broad multi-domain reasoning, GSM8K for multi-step arithmetic reasoning, and TruthfulQA for factual reliability. If code-generation or code-transformation agents later become part of scope, HumanEval can be added as an optional benchmark. The golden dataset remains the most important component for VIP, because public benchmarks do not directly measure schema-heavy enterprise tasks, system-specific prompts, or business-specific failure modes.
-
-The evaluation dimensions should cover both output quality and operational behavior. For closed-form tasks, the primary metrics are accuracy, exact match, or task-specific correctness. For open-ended outputs, a rubric-based LLM-as-a-judge score can be used, provided that the judge model and evaluation prompt remain fixed across all compared candidates. For schema-constrained tasks, structured-output correctness must be measured explicitly through JSON validity, schema-validation pass rate, and field-level exact match. This requirement is technically justified because OpenAI, Groq, and Gemini all expose schema-constrained structured-output mechanisms, but with different guarantees and model coverage. Groq, for instance, distinguishes strict mode from best-effort mode and explicitly documents exact schema adherence only for supported models; OpenAI recommends Structured Outputs over plain JSON mode because schema adherence is stronger than mere JSON validity; and Gemini documents JSON-Schema-constrained responses for structured extraction and agentic workflows.
-
-In addition to output quality, SLM-Evals must track latency, token usage, estimated cost, and reliability. Latency should be reported at least through p50 and p95 response time. Token usage should distinguish prompt and completion tokens whenever provider metadata allows it. Estimated cost should be derived from provider pricing tables and logged per request and per evaluation batch. Reliability should include timeout rate, API error rate, retry rate, and parse-failure rate. Since factual reliability is particularly important in knowledge-intensive workflows, a separate hallucination or unsupported-claim rate should be measured either with reference-grounded scoring or with truthfulness-oriented benchmarks such as TruthfulQA. Finally, if the model is prompted to emit confidence values, calibration can be evaluated through measures such as Expected Calibration Error or Brier score, which is consistent with HELM's inclusion of calibration as a first-class evaluation dimension and with recent work on confidence calibration in LLMs.
-
-The experimental protocol must remain reproducible. All compared runs should use the same prompt template, the same judge prompt if LLM-as-a-judge is used, the same input schema, the same output schema, and the same maximum-token budget. Prompt versions and schemas should be versioned in MLflow, and the evaluation runner should be executed in Docker to stabilize dependencies and environment differences. When a provider supports deterministic controls, a fixed seed and low-temperature setting should be used; otherwise, deterministic settings such as temperature zero and repeated runs should be preferred, with mean and variance reported for stochastic conditions. MLflow now provides provider-agnostic evaluation, datasets, scorers, and tracing support for LLM applications, while Laminar provides dataset-driven evaluations, automatic tracing of model invocations, and storage of per-datapoint results and traces over time. These capabilities make both reproducibility and later auditability much easier to enforce.
-
-\subsubsection{Contribution of the Second Project to VIP}
-
-The contribution of SLM-Evals to VIP is not limited to producing a benchmark table. Its real value lies in transforming evaluation results into provider-selection knowledge that can be consumed by the VIP platform. In other words, SLM-Evals should feed VIP with a structured decision layer: which provider/model pair is the default for a given agent family, which fallback should be triggered when cost or latency thresholds are exceeded, and which task categories require escalation to a stronger frontier model. This logic is already consistent with the current VIP draft, which states that SLM-Evals supports provider flexibility and guides the provider layer.
-
-Concretely, the outputs of SLM-Evals can be reused by VIP in three ways. First, they can define default deployment choices for agent archetypes such as extraction agents, routing agents, or reasoning agents. Second, they can define runtime policies, for example: use the cheapest model that still satisfies a schema-pass threshold for structured extraction; escalate to a stronger model when confidence is low or when the task is reasoning-heavy; or prefer a local/open-weight model when privacy or budget constraints dominate. Third, they can support a continuous improvement loop in which production traces are collected through Laminar, difficult or failing examples are promoted into evaluation datasets, and the evaluation suite is re-run before updating the VIP routing policy. Laminar explicitly supports trace collection, dataset building, replay, and evaluation runs over datasets, while MLflow supports prompt versioning, provider-agnostic evaluation, and centralized experiment tracking.
-
-For this reason, SLM-Evals should be presented in Chapter 2 as a preliminary study and evaluation foundation, not as an isolated experiment. The detailed integration architecture can then be deferred to Chapter 3, while the concrete execution protocol, obtained results, and provider-selection outcomes can be reported in Chapter 4. This separation keeps Chapter 2 analytical and preparatory, while preserving implementation detail for the later chapters.
 
 \subsection{Chapter Summary}
+
+This chapter presented the state of the art related to the VIP project and introduced the main concepts required to understand the proposed platform. It first defined AI agents as operational software entities capable of reasoning, using tools, interacting with external systems, and producing structured outputs. The chapter also distinguished between single-agent and multi-agent systems, showing that single-agent architectures are suitable for simple tasks, while multi-agent systems are more appropriate for complex workflows requiring specialization, coordination, and verification.
+
+The chapter then introduced the preliminary study and specifications of the VIP project. The main problem identified is the fragmentation of existing enterprise AI solutions, which often lack configuration-driven agent generation, provider flexibility, automated deployment, orchestration, observability, and governance. Based on these limitations, the business objectives, technical objectives, functional requirements, non-functional requirements, and success criteria of VIP were defined.
+
+A comparative study of existing platforms was also conducted through the analysis of n8n, CrewAI, and Dify. This comparison showed that each platform addresses part of the problem: n8n provides strong visual workflow automation, CrewAI focuses on multi-agent collaboration, and Dify supports the development of LLM-based applications through agentic workflows. However, none of these solutions fully covers the specific needs of VIP, especially regarding independent agent containers, schema-based contracts, MLflow-based artifact governance, provider abstraction, and built-in observability. This analysis helped position VIP as a platform that combines workflow usability, multi-agent modularity, and infrastructure-level control.
+
+Finally, the chapter introduced the SLM-Evals second project, which supports VIP by evaluating language models and providers according to practical criteria such as output quality, latency, cost, schema compliance, stability, and domain relevance. The distinction between LLMs and SLMs highlighted the importance of selecting models according to the complexity of each agent task instead of relying on a single model for all use cases. This evaluation perspective prepares the next chapters, where the architecture, implementation, orchestration, and evaluation of the VIP platform are presented in detail.

@@ -1,3 +1,392 @@
 % !TEX root = ../main.tex
 
-% Chapter 3 content will be added here.
+\clearpage
+
+\section{System Design and Architecture}
+
+\subsection{Introduction}
+
+This chapter presents the system design and architecture of VIP. Based on the limitations and requirements identified in the previous chapter, the objective is to describe how the platform is structured to support configurable agent generation, multi-agent orchestration, provider flexibility, deployment automation, and observability. The chapter focuses on the architectural organization of the platform, its main components, their responsibilities, and the interactions between them.
+
+\subsection{Architectural Vision of VIP}
+
+\subsubsection{From Fragmented AI Solutions to an Agentic Hub}
+Enterprise AI initiatives often start as isolated prototypes, where each use case has its own prompts, tools, provider configuration, deployment logic, and monitoring approach. As these initiatives grow, this fragmentation creates duplicated effort, weak governance, limited observability, and higher maintenance complexity.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/repport 0.1 - visual selection.png}
+    \caption{Transition from fragmented AI solutions to the VIP agentic hub}
+    \label{fig:fragmented-ai-to-agentic-hub}
+\end{figure}
+
+
+VIP responds to this problem through an agentic hub architecture. The platform centralizes agent creation, deployment, orchestration, provider configuration, schema validation, and monitoring. This makes agents reusable, configurable, and observable components that can be combined into controlled business workflows.
+\subsubsection{Main Architectural Principles}
+
+The architecture of VIP is guided by a set of principles derived from the limitations identified in the previous chapter. These principles ensure that the platform remains modular, configurable, observable, and suitable for enterprise-level AI workflows.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Main architectural principles of VIP}
+\label{tab:vip_architectural_principles}
+\begin{tabular}{|p{4cm}|p{9cm}|}
+\hline
+\textbf{Principle} & \textbf{Meaning in VIP} \\
+\hline
+Modularity & Each agent has a specific responsibility and can be reused in different workflows. \\
+\hline
+Configuration-driven behavior & Agent behavior is controlled through prompts, tools, schemas, model parameters, and provider configuration. \\
+\hline
+Zero code change & New agent behaviors can be created by changing configuration artifacts instead of modifying the agent source code. \\
+\hline
+Contract-first communication & Inputs and outputs are validated using schemas to make communication between agents more reliable. \\
+\hline
+Containerized deployment & Each generated agent can run as an independent Dockerized service. \\
+\hline
+Provider flexibility & The platform can use different LLM and SLM providers without being tied to one model provider. \\
+\hline
+Observability by design & Executions must be traceable through logs, latency, token usage, cost, and runtime metrics. \\
+\hline
+\end{tabular}
+\end{table}
+
+These principles define the architectural direction of VIP. Instead of designing agents as isolated scripts, the platform treats them as configurable, deployable, and observable services. This makes the system easier to extend, monitor, and adapt to different business workflows.
+\subsection{Global Architecture of the VIP Platform}
+
+This section presents the global architecture of the VIP platform. The objective is to describe how the platform interacts with its users and external systems, then to zoom into its main internal containers and components. The architecture is presented progressively using a context view, a container view, and a component summary.
+
+\subsubsection{System Context View}
+
+At the context level, VIP is represented as a single platform interacting with one main actor, the platform user. This user can create configurable agents, compose workflows from generated agents, execute these workflows, and consume the generated outputs. External systems such as LLM/SLM providers, MLflow, PostgreSQL, the observability layer, and the Docker environment support the platform execution.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/system-view.png}
+    \caption{System context view of the VIP platform}
+    \label{fig:vip-system-context-view}
+\end{figure}
+
+\subsubsection{Container View}
+
+After presenting the external context of VIP, the container view provides a more detailed representation of the main software units that compose the platform. At this level, VIP is no longer considered as a single black-box system. Instead, it is decomposed into its principal containers and runtime services, including the frontend, backend API, Agent Factory, generated agents, orchestration layer, storage services, governance layer, and observability layer.
+
+The architecture is organized around two main operational responsibilities. The first responsibility is the creation of runnable agent services from declarative configurations, handled by the Agent Factory. The second responsibility is the coordination of generated agents into direct executions or multi-step workflows, handled by the orchestration layer. The Agent Core acts as the reusable runtime scaffold that defines the common behavior of all generated agents.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Container-view.png}
+    \caption{Container view of the VIP platform}
+    \label{fig:vip-container-view}
+\end{figure}
+
+This illustrates the main containers of the VIP platform. The platform user interacts with the system through the Next.js frontend, which communicates with the FastAPI backend. The backend coordinates agent creation through the Agent Factory and workflow execution through the orchestration layer. During agent creation, the selected provider, model, prompts, schemas, and tools are included in the generated agent configuration. At runtime, the generated agents operate as independent containers and can be orchestrated through the workflow execution layer. PostgreSQL stores platform metadata, MLflow manages prompts and schemas, Laminar collects observability data, and LLM/SLM providers are used for model inference.
+
+\subsubsection{Main Platform Components}
+
+The container view highlights the main components involved in the VIP platform. Each component has a specific responsibility in the agent lifecycle, from user interaction and configuration to agent generation, workflow execution, storage, governance, and monitoring. Table~\ref{tab:vip_components} summarizes the role of each component before presenting the detailed architecture of the main modules in the following sections.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Main components of the VIP platform}
+\label{tab:vip_components}
+\begin{tabular}{|p{4cm}|p{9cm}|}
+\hline
+\textbf{Component} & \textbf{Responsibility} \\
+\hline
+Platform User & Creates agents, composes workflows, executes them, and consults outputs. \\
+\hline
+Frontend / Next.js & Provides the interface for agents, workflows, prompts, schemas, tools, and monitoring. \\
+\hline
+Backend API / FastAPI & Coordinates requests between the frontend and platform services. \\
+\hline
+Agent Factory & Generates independent agent services from declarative configurations. \\
+\hline
+Agent Core & Provides the reusable runtime scaffold shared by generated agents. \\
+\hline
+Generated Agents & Execute specialized tasks as independent containers. \\
+\hline
+Orchestration Layer & Coordinates direct execution and multi-agent workflows. \\
+\hline
+Adapter & Transforms payloads between agents when schemas differ. \\
+\hline
+PostgreSQL & Stores platform metadata such as agents, tools, workflows, and configurations. \\
+\hline
+MLflow & Versions prompts, schemas, and related artifacts. \\
+\hline
+Laminar & Collects traces, latency, token usage, cost, and execution metrics. \\
+\hline
+LLM / SLM Providers & Provide model inference during agent execution. \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Agent Lifecycle Architecture}
+
+\subsubsection{Configuration-Driven Agent Creation}
+
+In VIP, an agent is not created by manually writing a new service for each use case. Instead, it is generated from a declarative configuration that describes how the agent should behave at runtime. This configuration defines the selected provider, the model, the temperature, the system and task prompts, the tools, the expected input schema, and the expected output schema.
+
+This approach separates the reusable execution logic from the agent-specific behavior. The Agent Core provides the common runtime structure, while the configuration specializes this structure for a particular task. As a result, the same Agent Core can produce different agents without modifying the source code of the runtime itself. This supports the zero-code-change principle: creating or updating an agent mainly requires changing its configuration, not rewriting its implementation.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/Config-driven.png}
+\caption{Configuration-driven agent specialization}
+\label{fig:configuration_driven_agent_specialization}
+\end{figure}
+
+\subsubsection{Agent Generation Pipeline}
+
+The generation process starts when an agent configuration is sent to the Agent Factory. The Agent Factory first validates the configuration to ensure that the selected provider, model parameters, prompts, tools, schemas, and deployment metadata are complete and consistent. Once the configuration is accepted, the factory creates a generated agent artifact.
+
+This artifact contains all elements required to execute the agent as an independent service. It includes the runtime code, the selected tools, the required dependencies, the Dockerfile used for containerization, and the configuration files required to run the agent as an independent service. After the artifact is produced, Docker builds the agent container. The generated agent then becomes a runnable service that can be deployed, called directly, or integrated into an orchestrated workflow.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/agent-lifecycle.png}
+\caption{Agent generation and containerization pipeline}
+\label{fig:agent_generation_pipeline}
+\end{figure}
+
+\subsubsection{Agent Runtime Contract}
+
+Once generated and deployed, each agent exposes a standard runtime contract. This means that all agents can be invoked in a consistent way, regardless of their internal task or configuration. In VIP, a generated agent receives a structured input payload, validates it against its input schema, executes its configured logic, and returns a structured output that conforms to its output schema.
+
+This common contract is important because generated agents are deployed as independent services. The orchestration layer does not need to know the internal implementation of each agent. It only needs to know the agent endpoint, its input schema, and its output schema. This allows the orchestrator to execute agents individually or combine them into multi-step workflows.
+
+The runtime contract can be summarized as follows:
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/agent-runtime.png}
+\caption{Standard runtime contract of a generated agent}
+\label{fig:agent_runtime_contract}
+\end{figure}
+
+During workflow execution, the output of one agent may become the input of another agent. If the output schema of a previous step does not directly match the input schema expected by the next step, the adapter is used to transform the payload into a compatible structure. This ensures that agents can remain specialized and independent while still being combined into coherent workflows.
+
+Therefore, the runtime contract acts as a common communication layer between generated agents and the orchestrator. It improves reliability, reduces integration complexity, and supports the contract-first architecture of the VIP platform.
+
+\subsubsection{Agent Lifecycle Summary}
+
+The agent lifecycle in VIP can be summarized as a controlled transformation from configuration to execution. The process starts when the platform user defines the agent behavior through a declarative configuration. This configuration specifies the model provider, model parameters, prompts, tools, and input/output schemas. It is then processed by the Agent Factory to produce a standalone generated artifact.
+
+This artifact is packaged as a Docker image and executed as an independent agent container. Once running, the agent can be invoked by the orchestration layer either directly or as part of a multi-step workflow. During execution, observability mechanisms collect traces, latency, token usage, cost, and execution metrics to support monitoring and later improvement.
+
+This lifecycle establishes a clear separation between agent creation, runtime execution, and workflow coordination. The next section details the internal architecture of the Agent Factory and explains how the platform generates reusable and deployable agent artifacts.
+
+\subsection{Agent Factory Architecture}
+
+The Agent Factory is the build-time component responsible for transforming an agent configuration into a standalone and deployable runtime artifact. It plays a central role in VIP because it allows the platform to create specialized agents without modifying the source code of the runtime engine.
+
+The main objective of the Agent Factory is to separate agent creation from agent execution. The platform user defines the desired behavior of the agent through configuration, while the Agent Factory handles the preparation of the runtime scaffold, selected tools, dependencies, Docker-related files, and metadata required for deployment and later orchestration.
+
+\subsubsection{Role of the Agent Factory}
+
+The Agent Factory is responsible for generating runnable agent services from declarative configurations. It does not execute the agent itself. Instead, it prepares all the elements required to build and run the agent as an independent service.
+
+This component enforces a clear separation of responsibilities. The Agent Core remains the source of truth for runtime behavior, while the Agent Factory is responsible for assembly behavior. In other words, the runtime logic is reused across generated agents, but each generated agent can behave differently depending on its configuration, prompts, schemas, tools, model provider, and model parameters.
+
+By centralizing the generation process, the Agent Factory ensures that all generated agents follow the same architectural rules. This improves consistency, reduces duplication, and supports the zero-code-change principle, where new agent behaviors are created by changing configuration artifacts rather than modifying the runtime source code.
+
+\subsubsection{Agent Configuration Input}
+
+The generation process starts with an agent configuration. This configuration describes the main properties required to create the agent, including its name, model provider, model name, temperature, prompt reference, memory behavior, input schema, output schema, and selected tools.
+
+The configuration acts as the source of truth for the generated agent. It determines which model will be used, which prompts and schemas will be loaded from MLflow, and which tools will be included in the generated runtime. This allows the same Agent Core to be reused for different agent types such as extractor, mapper, generator, or sanitizer agents.
+
+This approach makes the platform flexible because changing the configuration can produce a different agent behavior without changing the underlying runtime implementation.
+
+The following example illustrates a simplified \texttt{config.yaml} file used to define an agent in VIP.
+
+\begin{verbatim}
+agent_name: extractor_agent
+provider: openai
+model: gpt-4o-mini
+temperature: 0
+prompt_uri: mlflow://prompts/extractor_v1
+input_schema: mlflow://schemas/extractor_input
+output_schema: mlflow://schemas/extractor_output
+tools:
+  - pdf_extractor
+  - table_parser
+\end{verbatim}
+
+This example shows how the behavior of an agent can be defined through configuration elements instead of source code modifications.
+
+\subsubsection{Tool Selection Mechanism}
+
+The Agent Factory includes only the tools selected in the agent configuration. Instead of copying the complete tool catalog into every generated agent, the builder selects the required tool files and stages them inside the generated artifact.
+
+This mechanism ensures that each generated agent contains only the capabilities required for its task. For example, an extractor agent may include document parsing tools, while a mapper agent may include transformation tools. A generator agent may rely mainly on prompts and schemas, with fewer external tools.
+
+The tool selection mechanism improves modularity and control. It reduces unnecessary dependencies inside generated agents and limits the actions that an agent can perform at runtime. This is important in an agentic platform because tools define the operational capabilities of an agent.
+
+\subsubsection{Dependency and Package Resolution Strategy}
+
+To avoid generating oversized agent containers, the Agent Factory applies a selective dependency and package resolution strategy. Instead of copying a complete shared dependency environment into every generated agent, the platform combines the common runtime requirements with only the requirements associated with the selected tools.
+
+The same principle is applied to operating system packages. Each tool can define its own required system packages, and only the packages linked to the selected tools are included in the generated artifact. As a result, each generated agent receives a tailored \texttt{requirements.txt} and \texttt{apt-runtime-packages.txt} file.
+
+This strategy makes generated agents lighter, more understandable, and easier to maintain. It also supports the modular architecture of VIP, because each agent contains dependencies that reflect its actual role instead of depending on the full platform tool catalog.
+
+\subsubsection{Generated Agent Runtime Structure}
+
+After the configuration, tool selection, and dependency resolution steps are completed, the Agent Factory prepares the runtime structure of the generated agent. This structure is not a complete copy of the whole VIP repository. Instead, it contains only the elements required for the agent to run as an independent FastAPI service.
+
+The generated runtime is mainly composed of the reusable Agent Core files, the agent configuration, the selected tools, dependency files, and Docker-related files. This allows each generated agent to keep the same execution structure while specializing its behavior through configuration.
+
+A simplified generated agent structure can be represented as follows:
+
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+\small
+\begin{verbatim}
+generated_agent/
+|-- app.py
+|-- agent.py
+|-- agent_config.yaml
+|-- api/
+|-- core/
+|-- observability/
+|-- services/
+|-- tools/
+|-- requirements.txt
+|-- apt-runtime-packages.txt
+|-- Dockerfile
+\end{verbatim}
+\end{minipage}
+\end{center}
+
+The \texttt{agent\_config.yaml} file defines the specific behavior of the generated agent, while the runtime files provide the common execution logic. The \texttt{tools/} directory contains the common tool interface files and only the selected tools required by the agent. The \texttt{requirements.txt} and \texttt{apt-runtime-packages.txt} files define the Python and operating system dependencies needed to build the final container image.
+
+This structure supports modularity because each generated agent contains only what it needs to execute its task. It also improves maintainability, since the Agent Core remains the reusable source of runtime behavior, while the generated agent structure represents the concrete runtime package used for deployment.
+
+\subsubsection{Runtime Metadata and Agent Registry}
+
+After an agent is generated and launched, the platform must keep track of it so that it can be displayed, monitored, and reused in workflows. In the current architecture, the complete generated runtime folder is not stored in the database. Instead, PostgreSQL stores lightweight metadata describing the created agent and its runtime state, such as the agent identifier, name, configuration snapshot, builder request snapshot, container identifier, image tag, endpoint information, and runtime status.
+
+This separation distinguishes runtime files from platform metadata. The generated runtime files are used to build and run the Docker container, while PostgreSQL stores the information needed to list agents, count them, monitor their status, and associate them with workflows. As a result, the agent library can display created agents based on database records, while execution remains handled by independent Docker containers.
+
+The Agent Factory architecture makes agent creation controlled, modular, and reusable. By separating configuration, runtime scaffold, selected tools, dependencies, and runtime metadata, VIP can generate independent agent services while preserving consistency across the platform. The next section focuses on the orchestration layer, which is responsible for invoking these generated agents individually or as part of multi-step workflows.
+\subsection{Orchestrator Architecture}
+
+After the Agent Factory generates and deploys independent agent services, the platform requires a runtime component capable of coordinating their execution. This responsibility is handled by the orchestration layer, which connects generated agents into direct executions or multi-step workflows.
+
+\subsubsection{Role of the Orchestrator}
+
+The orchestrator is the runtime coordination component of VIP. Agents perform the actual task execution, while the orchestrator decides which agent should run, in which order, with which payload, and under which input/output contract.
+
+When a workflow is triggered, the orchestrator prepares the current payload, applies schema handling, invokes the target agent through its internal endpoint, and collects the produced output. This design keeps agents independent and reusable, while allowing the platform to combine them into more complex workflows.
+
+\subsubsection{Workflow Definition}
+
+A workflow defines the ordered sequence of agents required to complete a higher-level task. In VIP, this sequence is not fixed by the architecture. It is defined by the workflow specification and can vary depending on the business use case.
+
+For illustration, a document-processing workflow can be represented as follows:
+
+\begin{center}
+\texttt{Agent 1 $\rightarrow$ Agent 2 $\rightarrow$ Agent 3 $\rightarrow$ Agent n}
+\end{center}
+
+In the implemented prototype, one representative workflow follows a document-processing pattern composed of extraction, mapping, generation, and sanitization steps. The implementation details of this workflow are presented in Chapter 4.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/workflow_architecture_diagram.png}
+    \caption{Workflow execution process in the VIP platform}
+    \label{fig:workflow_execution_process}
+\end{figure}
+
+Figure~\ref{fig:workflow_execution_process} shows the high-level workflow execution process in VIP. The backend loads the execution-ready workflow specification from PostgreSQL and sends it to the orchestrator. The orchestrator then invokes the generated agents step by step through their internal runtime endpoints until the final output is produced.
+
+\subsubsection{Schema-Based Communication}
+
+
+Because generated agents are independent services, communication between them must be controlled. VIP relies on schema-based communication to ensure that each workflow step receives a payload compatible with the input schema of the target agent.
+
+Before invoking an agent, the orchestration layer checks whether the current payload can satisfy the target input schema. If the payload is already compatible, it can be passed directly to the agent. Otherwise, the adapter mechanism is used to reshape it before execution.
+
+The communication process can be summarized as follows:
+
+\begin{center}
+\texttt{Current Payload $\rightarrow$ Schema Handling $\rightarrow$ AdapterAgent if Needed $\rightarrow$ Agent Execution}
+\end{center}
+
+\subsubsection{Adapter Role in Workflow Execution}
+
+The adapter service is part of the workflow execution path before each agent call. It first attempts deterministic schema handling by checking whether the current payload already satisfies the target input schema or can be made compatible through direct field matching and default values.
+
+If this deterministic step is sufficient, the workflow continues without invoking the model-backed adapter. If the payload cannot be adapted directly, the \texttt{AdapterAgent} is used as a fallback to transform it into the expected structure. This decision depends on the actual payload compatibility with the next agent input schema, not only on whether two schema definitions look identical.
+
+This mechanism improves modularity because agents do not need to be tightly coupled to each other. Each agent keeps its own input and output contract, while the orchestration layer manages compatibility between workflow steps.
+
+
+\subsection{Data, Storage, and Governance Architecture}
+
+The VIP platform relies on several storage and governance mechanisms to manage generated agents, workflows, prompts, schemas, provider choices, and runtime metadata. This layer is important because the platform does not only execute agents; it must also keep track of how agents are configured, how workflows are defined, and how runtime services are deployed.
+
+In the current architecture, PostgreSQL is used as the main metadata storage layer, while MLflow is used for prompt and schema retrieval. Provider and model choices are stored as part of the agent configuration, and runtime metadata is persisted to support monitoring and reuse.
+
+\subsubsection{PostgreSQL Metadata Storage}
+
+PostgreSQL is used as the main operational metadata store of the VIP platform. It does not store the generated agent runtime files themselves. Instead, it stores structured metadata that allows the backend to manage applications, agents, reusable agent templates, and workflow definitions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/vip_data_storage_governance.png}
+    \caption{Data, storage, and governance architecture of the VIP platform}
+    \label{fig:vip_data_storage_governance}
+\end{figure}
+
+The main application tables are \texttt{apps}, \texttt{agents}, \texttt{agent\_library}, and \texttt{workflow\_definitions}. The \texttt{apps} table stores intelligent application or workspace records. The \texttt{agents} table stores the agents created inside an application, including their configuration snapshots, selected tools, runtime status, container metadata, image tag, and endpoint information. The \texttt{agent\_library} table stores reusable or prebuilt agent templates. Finally, the \texttt{workflow\_definitions} table stores the workflows created through the user interface.
+
+This storage layer acts as the application-level registry of the platform. It allows VIP to list created agents, count them, display their runtime state, associate them with workflows, and keep their configuration references. However, the generated runtime files, such as the agent source scaffold, \texttt{agent\_config.yaml}, selected tool files, dependency files, and Docker image layers, remain outside PostgreSQL. They are part of the generated runtime environment and Docker container lifecycle.
+
+\subsubsection{MLflow-Based Prompt and Schema Management}
+
+
+MLflow is used in VIP as a registry and artifact lookup mechanism for prompts and schemas. Generated agents do not embed prompt or schema content directly inside their runtime code. Instead, they store references to these resources through URIs.
+
+For prompts, the generated agent configuration contains a prompt URI. At runtime, the agent loads the prompt from MLflow using this reference. This makes it possible to change the prompt version used by an agent without modifying the reusable runtime code.
+
+For schemas, VIP uses schema URIs to reference input and output contracts. The schema content is stored in MLflow as JSON artifacts and loaded by the agent runtime when needed. This supports schema-based validation and helps ensure that generated agents receive and produce structured data.
+
+In the current implementation, MLflow is mainly used for versioned reference and retrieval. It does not act as a full experiment tracking system for agent runs, model training, or execution metrics. Moreover, rollback is not implemented as an automatic platform feature. A rollback can be performed manually by changing the referenced prompt or schema version and redeploying the corresponding agent.
+
+\subsubsection{Provider and Model Configuration}
+
+VIP separates provider and model choices from the reusable agent runtime logic. When an agent is created, the selected provider, model, temperature, token limit, prompt URI, schema URIs, tools, and memory settings are stored as part of the agent configuration.
+
+This configuration is stored in several forms. It is included in the frontend configuration, translated into the builder request, written into the generated \texttt{agent\_config.yaml}, and persisted in PostgreSQL through configuration snapshots. At runtime, the generated agent reads this configuration and initializes the selected model provider accordingly.
+
+In the current implementation, provider management is not fully dynamic from the user interface. The supported provider catalog is defined in code, and adding a new provider still requires code or configuration changes, as well as the corresponding environment variables for credentials and base URLs. Nevertheless, this design allows different agents to use different supported providers or models depending on quality, latency, and cost constraints.
+
+\subsubsection{Traceability and Current Persistence Limits}
+
+The storage architecture of VIP provides traceability for created agents and workflows. For agents, the platform stores identity metadata, selected tools, configuration snapshots, builder request snapshots, prompt and schema references, provider and model settings, runtime status, deployment metadata, and timestamps. For workflows, the platform stores the editable graph representation, the compiled runtime specification, validation information, status, version, and timestamps.
+
+\subsection{Deployment Architecture}
+
+\subsubsection{Dockerized Agent Services}
+
+\subsubsection{Shared Docker Network}
+
+\subsubsection{Service-to-Service Communication}
+
+\subsection{Observability and Monitoring Architecture}
+
+\subsubsection{Execution Tracing}
+
+\subsubsection{Token, Cost, and Latency Monitoring}
+
+\subsubsection{Logs and Runtime Metrics}
+
+\subsection{Architectural Decisions and Design Rationale}
+
+\subsection{Chapter Summary}

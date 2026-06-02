@@ -16,4 +16,16 @@
 \contentsline {figure}{\numberline {16}{\ignorespaces Original IBM Data Science Methodology lifecycle}}{10}{figure.16}%
 \contentsline {figure}{\numberline {17}{\ignorespaces IBM Agent Development Lifecycle (ADLC)}}{11}{figure.17}%
 \contentsline {figure}{\numberline {18}{\ignorespaces Hybrid methodology adopted for the VIP project}}{13}{figure.18}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Evolution from single-agent execution to orchestrated multi-agent workflows.}}{16}{figure.19}%
+\contentsline {figure}{\numberline {19}{\ignorespaces AI Agent Architecture.}}{15}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Single-Agent vs Multi-Agent.}}{16}{figure.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Basic representation of a language model.}}{23}{figure.21}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Comparison between large and small language models.}}{24}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Quality and efficiency considerations for small language models.}}{25}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Transition from fragmented AI solutions to the VIP agentic hub}}{28}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces System context view of the VIP platform}}{30}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Container view of the VIP platform}}{31}{figure.26}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Configuration-driven agent specialization}}{33}{figure.27}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Agent generation and containerization pipeline}}{33}{figure.28}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Standard runtime contract of a generated agent}}{34}{figure.29}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Workflow execution process in the VIP platform}}{39}{figure.30}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Data, storage, and governance architecture of the VIP platform}}{40}{figure.31}%
