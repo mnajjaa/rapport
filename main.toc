@@ -84,11 +84,11 @@
 \contentsline {subsubsection}{\numberline {3.7.4}Traceability and Current Persistence Limits}{42}{subsubsection.3.7.4}%
 \contentsline {subsection}{\numberline {3.8}Deployment Architecture}{42}{subsection.3.8}%
 \contentsline {subsubsection}{\numberline {3.8.1}Dockerized Agent Services}{42}{subsubsection.3.8.1}%
-\contentsline {subsubsection}{\numberline {3.8.2}Shared Docker Network}{42}{subsubsection.3.8.2}%
-\contentsline {subsubsection}{\numberline {3.8.3}Service-to-Service Communication}{42}{subsubsection.3.8.3}%
-\contentsline {subsection}{\numberline {3.9}Observability and Monitoring Architecture}{42}{subsection.3.9}%
-\contentsline {subsubsection}{\numberline {3.9.1}Execution Tracing}{42}{subsubsection.3.9.1}%
-\contentsline {subsubsection}{\numberline {3.9.2}Token, Cost, and Latency Monitoring}{42}{subsubsection.3.9.2}%
-\contentsline {subsubsection}{\numberline {3.9.3}Logs and Runtime Metrics}{42}{subsubsection.3.9.3}%
-\contentsline {subsection}{\numberline {3.10}Architectural Decisions and Design Rationale}{42}{subsection.3.10}%
-\contentsline {subsection}{\numberline {3.11}Chapter Summary}{42}{subsection.3.11}%
+\contentsline {subsubsection}{\numberline {3.8.2}Shared Docker Network and Service-to-Service Communication}{42}{subsubsection.3.8.2}%
+\contentsline {subsubsection}{\numberline {3.8.3}Docker Image Optimization Strategy}{43}{subsubsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.9}Observability and Monitoring Architecture}{44}{subsection.3.9}%
+\contentsline {subsubsection}{\numberline {3.9.1}Execution Tracing}{44}{subsubsection.3.9.1}%
+\contentsline {subsubsection}{\numberline {3.9.2}Token, Cost, and Latency Monitoring}{44}{subsubsection.3.9.2}%
+\contentsline {subsubsection}{\numberline {3.9.3}Logs and Runtime Metrics}{44}{subsubsection.3.9.3}%
+\contentsline {subsection}{\numberline {3.10}Architectural Decisions and Design Rationale}{44}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.11}Chapter Summary}{44}{subsection.3.11}%

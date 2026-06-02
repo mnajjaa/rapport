@@ -29,3 +29,5 @@
 \contentsline {figure}{\numberline {29}{\ignorespaces Standard runtime contract of a generated agent}}{34}{figure.29}%
 \contentsline {figure}{\numberline {30}{\ignorespaces Workflow execution process in the VIP platform}}{39}{figure.30}%
 \contentsline {figure}{\numberline {31}{\ignorespaces Data, storage, and governance architecture of the VIP platform}}{40}{figure.31}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Example of container communication through a Docker bridge network}}{43}{figure.32}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Single-stage build versus multi-stage Docker build}}{44}{figure.33}%

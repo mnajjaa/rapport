@@ -373,11 +373,54 @@ The storage architecture of VIP provides traceability for created agents and wor
 
 \subsection{Deployment Architecture}
 
+The deployment architecture of VIP describes how generated agents are packaged, executed, and connected at runtime. While the previous sections focused on the logical architecture of the Agent Factory, the orchestrator, and the governance layer, this section focuses on the physical execution environment.
+
+In VIP, generated agents are deployed as independent Docker containers. Each container exposes a FastAPI runtime service and joins a shared Docker network so that the orchestrator can invoke agents through internal HTTP endpoints. This deployment model supports service isolation, independent runtime execution, and clearer separation between build-time generation and runtime orchestration.
+
 \subsubsection{Dockerized Agent Services}
 
-\subsubsection{Shared Docker Network}
+Each generated agent in VIP is deployed as an independent Dockerized service. After the Agent Factory prepares the generated runtime structure, Docker builds an image containing the reusable agent runtime, the agent configuration, selected tools, dependency files, and the FastAPI entrypoint.
 
-\subsubsection{Service-to-Service Communication}
+At runtime, each generated agent runs in its own container and exposes a standard HTTP interface. The main execution endpoint is the \texttt{/run} endpoint, which allows the orchestrator to invoke agents in a consistent way regardless of their internal role or configuration.
+
+This deployment model reinforces the modular architecture of VIP. An extractor, mapper, generator, or sanitizer can run as a separate service while still following the same runtime contract. As a result, agents can be started, stopped, monitored, or replaced independently without modifying the rest of the platform.
+
+Inside the container, generated agents listen on the same internal port. When needed, different host ports can be mapped to these internal ports for manual testing or debugging. However, service-to-service communication mainly relies on the internal Docker network rather than host-published ports.
+
+\subsubsection{Shared Docker Network and Service-to-Service Communication}
+
+Figure~\ref{fig:docker_bridge_network_example} presents a conceptual example of how Docker bridge networking enables communication between containers. In VIP, the same principle is applied through the external shared bridge network \texttt{vif\_shared\_net}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/docker-bridge-network-2.png}
+    \caption{Example of container communication through a Docker bridge network}
+    \label{fig:docker_bridge_network_example}
+\end{figure}
+
+
+In the VIP deployment, the bridge network is used to support internal service-to-service communication. The orchestrator does not need to call agents through host addresses. Instead, it can reach each generated agent through its container name or network alias, using an internal endpoint such as \texttt{http://\textless container\_name\textgreater:8000/run}. Host-published ports remain useful mainly for debugging or manual inspection.
+
+All agent invocations are performed through REST-style HTTP calls. This keeps communication simple and technology-independent: as long as an agent exposes the expected runtime contract, it can be invoked by the orchestrator without embedding its internal logic into the orchestration layer.
+
+\subsubsection{Docker Image Optimization Strategy}
+
+Because each generated agent is deployed as a separate container, image size and runtime cleanliness are important deployment concerns. VIP addresses this by combining selective dependency resolution with a multi-stage Docker build strategy.
+
+A multi-stage Docker build is a container image construction strategy where the build process is divided into separate stages. The first stage is used to install build dependencies and prepare the application artifacts, while the final stage keeps only the runtime elements required to execute the application. This avoids carrying unnecessary build tools, temporary files, and intermediate artifacts inside the final image.
+
+Figure~\ref{fig:docker_multistage_build} illustrates the difference between a traditional single-stage Docker build and a multi-stage build. In a single-stage build, build dependencies and runtime dependencies may remain together in the final image. In a multi-stage build, only the required runtime components are copied into the final image, which results in a smaller and cleaner container.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/multi-stage.png}
+    \caption{Single-stage build versus multi-stage Docker build}
+    \label{fig:docker_multistage_build}
+\end{figure}
+
+In VIP, this strategy is applied to each generated agent container. The build stage prepares the Python dependencies and creates the required wheels, while the runtime stage installs only the runtime packages and copies the generated agent files. As a result, the final agent image contains the FastAPI runtime, the agent configuration, the selected tools, and the required dependencies, without keeping unnecessary build-time packages.
+
+This optimization is combined with the dependency resolution strategy introduced in the Agent Factory architecture. Instead of copying a global environment into every generated agent, VIP generates a tailored \texttt{requirements.txt} and \texttt{apt-runtime-packages.txt} based on the selected tools and runtime needs of each agent. This reduces the final image size and keeps each generated container aligned with the capabilities required by that specific agent.
 
 \subsection{Observability and Monitoring Architecture}
 
