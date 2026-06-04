@@ -261,6 +261,17 @@ The project relies on a modular technology stack selected to support agent gener
     \label{fig:docker_compose_logo}
 \end{figure}
 
+\begin{itemize}
+    \item \textbf{GitLab:} used for source code hosting, version control, collaboration, and continuous integration workflows during development.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.18\textwidth]{figures/Gitlab.png}
+    \caption{Logo of GitLab}
+    \label{fig:gitlab_logo}
+\end{figure}
+
 \subsubsection{Observability and Monitoring}
 \begin{itemize}
     \item \textbf{Laminar:} used to capture execution traces, token usage, latency, and cost metrics across agents.
@@ -332,7 +343,7 @@ Figure~\ref{fig:ibm_original_methodology} presents the original IBM Data Science
             align=center,
             font=\small
         },
-        mainarrow/.style={-{Latex[length=2.3mm]}, draw=black!65, line width=0.75pt},
+        mainarrow/.style={-{Latex[length=2.6mm]}, draw=black, line width=1pt},
         feedbackarrow/.style={-{Latex[length=2.3mm]}, draw=black!55, line width=0.75pt}
     ]
         \node[ibmphase] (business) at (0,4) {Business\\Understanding};
@@ -511,64 +522,7 @@ This hybrid methodology was therefore chosen because it provides a balance betwe
 
 \begin{figure}[H]
     \centering
-    \resizebox{0.95\textwidth}{!}{
-    \begin{tikzpicture}[
-        vipphase/.style={
-            draw=black,
-            fill=white,
-            text=black,
-            rounded corners=2pt,
-            line width=0.45pt,
-            minimum width=4.2cm,
-            minimum height=0.85cm,
-            align=center,
-            font=\small
-        },
-        note/.style={
-            draw=black,
-            fill=white,
-            rounded corners=4pt,
-            line width=0.45pt,
-            text width=4.8cm,
-            minimum height=1.35cm,
-            align=center,
-            font=\footnotesize\itshape
-        },
-        mainarrow/.style={-{Latex[length=2.3mm]}, draw=black!65, line width=0.75pt},
-        feedbackline/.style={draw=black!55, line width=0.75pt, dashed},
-        feedbackarrow/.style={-{Latex[length=2.3mm]}, draw=black!55, line width=0.75pt, dashed}
-    ]
-        \node[align=center, font=\large\bfseries] at (2.6,4.25)
-            {Hybrid Methodology for the VIP Project};
-
-        \node[vipphase] (business) at (0,3.1) {Business\\Understanding};
-        \node[vipphase] (requirements) at (0,2.0) {Requirements\\Analysis};
-        \node[vipphase] (architecture) at (0,0.9) {Architecture\\Design};
-        \node[vipphase] (agentdesign) at (0,-0.2) {Agent Design\\and Configuration};
-        \node[vipphase] (agentbuild) at (0,-1.3) {Agent Build\\and Validation};
-        \node[vipphase] (workflow) at (0,-2.4) {Workflow\\Orchestration};
-        \node[vipphase] (deployment) at (0,-3.5) {Deployment};
-        \node[vipphase] (observability) at (0,-4.6) {Observability\\and Evaluation};
-        \node[vipphase] (feedback) at (0,-5.7) {Feedback\\and Improvement};
-
-        \node[note] at (7.3,-1.3) {ADLC perspective applied to agent-specific phases:\\Plan $\rightarrow$ Code \& Build $\rightarrow$ Test \& Release $\rightarrow$ Deploy $\rightarrow$ Operate $\rightarrow$ Monitor};
-
-        \draw[mainarrow] (business) -- (requirements);
-        \draw[mainarrow] (requirements) -- (architecture);
-        \draw[mainarrow] (architecture) -- (agentdesign);
-        \draw[mainarrow] (agentdesign) -- (agentbuild);
-        \draw[mainarrow] (agentbuild) -- (workflow);
-        \draw[mainarrow] (workflow) -- (deployment);
-        \draw[mainarrow] (deployment) -- (observability);
-        \draw[mainarrow] (observability) -- (feedback);
-
-        \draw[feedbackline] (feedback.west) -- (-3.25,-5.7) -- (-3.25,3.1);
-        \draw[feedbackarrow] (-3.25,3.1) -- (business.west);
-        \draw[feedbackarrow] (-3.25,0.9) -- (architecture.west);
-        \draw[feedbackarrow] (-3.25,-0.2) -- (agentdesign.west);
-        \draw[feedbackarrow] (-3.25,-1.3) -- (agentbuild.west);
-    \end{tikzpicture}
-    }
+    \includegraphics[width=0.95\textwidth]{figures/ChatGPT Image Jun 3, 2026, 03_42_14 PM.png}
     \caption{Hybrid methodology adopted for the VIP project}
     \label{fig:ibm_data_science_methodology_adapted_vip}
 \end{figure}
