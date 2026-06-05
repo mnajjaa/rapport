@@ -6,52 +6,49 @@
 
 \subsection{Introduction}
 
-\subsection{Implementation Environment and Repository Organization}
+The previous chapter presented the system design and architecture of the VIP platform. This chapter moves from architectural design to practical implementation, evaluation, and results.
+
+It first describes the implementation of the VIP platform, including the Agent Factory, generated agent runtime, workflow orchestration, Docker-based deployment, and observability integration. It then presents the SLM-Evals project, which was developed to compare LLM and SLM providers according to quality, latency, cost, schema compliance, stability, and domain relevance.
+
+Finally, this chapter presents the evaluation protocol and discusses the obtained results. The objective is to assess whether the implemented solution satisfies the functional and non-functional objectives defined earlier in the report.
+
+\subsection{Implementation Environment}
+
+This section presents the technical environment used to implement the VIP platform. The objective is to give a simplified overview of the main technologies used for the frontend, backend services, metadata storage, prompt and schema management, deployment, and observability.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/VIP_implementation.png}
+    \caption{VIP implementation environment}
+    \label{fig:vip-implementation}
+\end{figure}
+
+This figure summarizes the main implementation stack of VIP. The frontend was developed with Next.js, while FastAPI was used for backend services, orchestration endpoints, and generated agent runtimes. PostgreSQL stores platform metadata such as agents, workflows, configuration snapshots, and runtime information. MLflow manages prompt and schema references, Docker supports containerized execution, and Laminar provides observability through traces, spans, latency, token usage, and model-call monitoring.
+\vspace{0.4cm}
+The platform was developed and tested locally before being executed through Docker containers. This environment made it possible to validate agent generation, container execution, workflow orchestration, service-to-service communication, and observability integration. The following sections describe how these components were implemented, starting with the VIP platform and then moving to the SLM-Evals evaluation pipeline.
 
 \subsection{VIP Platform Implementation}
-
-\subsubsection{Agent Factory Implementation}
-
-\subsubsection{Generated Agent Runtime Implementation}
-
-\subsubsection{Workflow Orchestration Implementation}
-
-\subsubsection{Docker-Based Deployment Implementation}
-
-\subsubsection{Observability Implementation}
+    \subsubsection{Agent Factory Implementation}
+    \subsubsection{Generated Agent Runtime Implementation}
+    \subsubsection{Workflow Orchestration Implementation}
+    \subsubsection{Docker-Based Deployment Implementation}
+    \subsubsection{Observability Implementation}
 
 \subsection{SLM-Evals Implementation}
-
-\subsubsection{Objective of the Evaluation Pipeline}
-
-\subsubsection{Evaluation Dataset and Test Cases}
-
-\subsubsection{Providers and Models Evaluated}
-
-\subsubsection{Prompting and Execution Protocol}
-
-\subsubsection{Evaluation Metrics}
-
-\subsubsection{Result Storage and Visualization}
+    \subsubsection{Objective of the Evaluation Pipeline}
+    \subsubsection{Evaluation Dataset and Test Cases}
+    \subsubsection{Providers and Models Evaluated}
+    \subsubsection{Prompting and Execution Protocol}
+    \subsubsection{Evaluation Metrics}
+    \subsubsection{Result Storage and Visualization}
 
 \subsection{Evaluation Protocol}
-
-\subsubsection{VIP Platform Validation Criteria}
-
-\subsubsection{SLM-Evals Validation Criteria}
+    \subsubsection{VIP Platform Validation Criteria}
+    \subsubsection{SLM-Evals Validation Criteria}
 
 \subsection{Results and Discussion}
-
-\subsubsection{Agent Generation Results}
-
-\subsubsection{Workflow Execution Results}
-
-\subsubsection{Docker Optimization Results}
-
-\subsubsection{Observability Results}
-
-\subsubsection{SLM-Evals Results}
-
-\subsubsection{Discussion of Results}
+    \subsubsection{VIP Platform Results}
+    \subsubsection{SLM-Evals Results}
+    \subsubsection{Discussion of Results}
 
 \subsection{Chapter Summary}

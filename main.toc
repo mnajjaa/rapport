@@ -92,30 +92,27 @@
 \contentsline {subsubsection}{\numberline {3.9.3}Token, Cost, and Latency Monitoring}{45}{subsubsection.3.9.3}%
 \contentsline {subsubsection}{\numberline {3.9.4}Logs and Runtime Monitoring}{46}{subsubsection.3.9.4}%
 \contentsline {subsection}{\numberline {3.10}Chapter Summary}{46}{subsection.3.10}%
-\contentsline {section}{\numberline {4}Implementation, Evaluation, and Results}{49}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Introduction}{49}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Implementation Environment and Repository Organization}{49}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}VIP Platform Implementation}{49}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Agent Factory Implementation}{49}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Generated Agent Runtime Implementation}{49}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Workflow Orchestration Implementation}{49}{subsubsection.4.3.3}%
-\contentsline {subsubsection}{\numberline {4.3.4}Docker-Based Deployment Implementation}{49}{subsubsection.4.3.4}%
-\contentsline {subsubsection}{\numberline {4.3.5}Observability Implementation}{49}{subsubsection.4.3.5}%
-\contentsline {subsection}{\numberline {4.4}SLM-Evals Implementation}{49}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Objective of the Evaluation Pipeline}{49}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Evaluation Dataset and Test Cases}{49}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}Providers and Models Evaluated}{49}{subsubsection.4.4.3}%
-\contentsline {subsubsection}{\numberline {4.4.4}Prompting and Execution Protocol}{49}{subsubsection.4.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.5}Evaluation Metrics}{49}{subsubsection.4.4.5}%
-\contentsline {subsubsection}{\numberline {4.4.6}Result Storage and Visualization}{49}{subsubsection.4.4.6}%
-\contentsline {subsection}{\numberline {4.5}Evaluation Protocol}{49}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}VIP Platform Validation Criteria}{49}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}SLM-Evals Validation Criteria}{49}{subsubsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.6}Results and Discussion}{49}{subsection.4.6}%
-\contentsline {subsubsection}{\numberline {4.6.1}Agent Generation Results}{49}{subsubsection.4.6.1}%
-\contentsline {subsubsection}{\numberline {4.6.2}Workflow Execution Results}{49}{subsubsection.4.6.2}%
-\contentsline {subsubsection}{\numberline {4.6.3}Docker Optimization Results}{49}{subsubsection.4.6.3}%
-\contentsline {subsubsection}{\numberline {4.6.4}Observability Results}{49}{subsubsection.4.6.4}%
-\contentsline {subsubsection}{\numberline {4.6.5}SLM-Evals Results}{49}{subsubsection.4.6.5}%
-\contentsline {subsubsection}{\numberline {4.6.6}Discussion of Results}{49}{subsubsection.4.6.6}%
-\contentsline {subsection}{\numberline {4.7}Chapter Summary}{49}{subsection.4.7}%
+\contentsline {section}{\numberline {4}Implementation, Evaluation, and Results}{48}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Introduction}{48}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Implementation Environment}{48}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}VIP Platform Implementation}{50}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Agent Factory Implementation}{50}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Generated Agent Runtime Implementation}{50}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Workflow Orchestration Implementation}{50}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Docker-Based Deployment Implementation}{50}{subsubsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.5}Observability Implementation}{50}{subsubsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.4}SLM-Evals Implementation}{50}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Objective of the Evaluation Pipeline}{50}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Evaluation Dataset and Test Cases}{50}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Providers and Models Evaluated}{50}{subsubsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.4}Prompting and Execution Protocol}{50}{subsubsection.4.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.5}Evaluation Metrics}{50}{subsubsection.4.4.5}%
+\contentsline {subsubsection}{\numberline {4.4.6}Result Storage and Visualization}{50}{subsubsection.4.4.6}%
+\contentsline {subsection}{\numberline {4.5}Evaluation Protocol}{50}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}VIP Platform Validation Criteria}{50}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}SLM-Evals Validation Criteria}{50}{subsubsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.6}Results and Discussion}{50}{subsection.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}VIP Platform Results}{50}{subsubsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.2}SLM-Evals Results}{50}{subsubsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.3}Discussion of Results}{50}{subsubsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.7}Chapter Summary}{50}{subsection.4.7}%
