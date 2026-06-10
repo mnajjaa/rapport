@@ -27,27 +27,628 @@ This figure summarizes the main implementation stack of VIP. The frontend was de
 \vspace{0.4cm}
 The platform was developed and tested locally before being executed through Docker containers. This environment made it possible to validate agent generation, container execution, workflow orchestration, service-to-service communication, and observability integration. The following sections describe how these components were implemented, starting with the VIP platform and then moving to the SLM-Evals evaluation pipeline.
 
+
+
 \subsection{VIP Platform Implementation}
-    \subsubsection{Agent Factory Implementation}
+    \subsubsection{Implemented Use Case and Execution Scenario}
+ \label{sec:implemented-use-case}
+
+To validate the implementation of the VIP platform, a multi-agent financial document-processing workflow was implemented. This scenario was selected because it involves several complementary agent roles and therefore demonstrates the main capabilities of the platform: configurable agent creation, independent containerized execution, schema-based communication, dynamic workflow execution, and runtime observability.
+
+The implemented workflow is composed of four generated agent roles: an extractor, a mapper, a generator, and a sanitizer. In this report, these roles are referred to as \texttt{extractor\_agent}, \texttt{mapper\_agent}, \texttt{generator\_agent}, and \texttt{sanitizer\_agent}. The exact runtime instance names are generated automatically by the platform and do not affect the functional responsibility of each agent.
+
+The workflow starts from a financial PDF or input payload and produces a sanitized financial analysis. The saved application graph is executed as a runtime workflow specification. The detailed technical path used to transform the saved graph into an executable workflow is presented later in Section~\ref{sec:workflow-orchestration-implementation}.
+
+Figure~\ref{fig:vip_implemented_use_case} presents the implemented execution scenario. It shows the input type used by the workflow, the sequence of generated agents, the selected tools attached to each agent, and the final sanitized financial output produced by the platform.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/scenario_VIP.png}
+    \caption{Implemented use case and execution scenario of the VIP financial workflow}
+    \label{fig:vip_implemented_use_case}
+\end{figure}
+
+The \texttt{extractor\_agent} transforms the financial PDF or input payload into structured pages, tables, and raw text. The \texttt{mapper\_agent} normalizes this extracted content into financial fields such as revenue, financial charges, and net income. The \texttt{generator\_agent} uses the mapped financial data to produce the financial analysis and identify red flags. Finally, the \texttt{sanitizer\_agent} detects and masks sensitive information before returning the final sanitized output.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{|p{2.8cm}|X|p{3.5cm}|X|}
+\hline
+\textbf{Agent role} & \textbf{Purpose} & \textbf{Selected tools} & \textbf{Main output} \\
+\hline
+\texttt{extractor} &
+Extracts structured content from a financial PDF or input payload. &
+\texttt{pdf\_loader}, \texttt{table\_detector} &
+Pages, tables, and raw text. \\
+\hline
+\texttt{mapper} &
+Maps extracted content into a canonical financial structure. &
+\texttt{semantic\_matcher}, \texttt{unit\_normalizer} &
+Revenue, financial charges, and net income. \\
+\hline
+\texttt{generator} &
+Generates financial analysis from mapped financial data. &
+\texttt{numerical\_calculator} &
+Revenue analysis, cost structure analysis, net result analysis, and red flags. \\
+\hline
+\texttt{sanitizer} &
+Detects and masks sensitive information in the generated content. &
+\texttt{pii\_detector}, \texttt{regex\_masker} &
+Sanitized content and masked fields. \\
+\hline
+\end{tabularx}
+\caption{Implemented agent roles in the VIP financial workflow}
+\label{tab:implemented_agent_roles}
+\end{table}
+
+This use case confirms that different agents can share the same runtime core while being specialized through configuration, prompt references, schema references, selected tools, and provider settings. It also shows that VIP can execute a complete multi-agent workflow in which each step has a clear responsibility and contributes to producing a structured, validated, and sanitized financial output.
+   
+
+\subsubsection{Agent Factory Implementation}
+
+\label{sec:agent-factory-implementation}
+
+The Agent Factory is the build-time component responsible for transforming an agent creation request into a runnable agent service. In the implementation, this responsibility is handled by the \texttt{builder/} module. The Agent Factory does not execute business logic itself. Instead, it prepares the runtime files, configuration, selected tools, dependencies, and Docker runtime elements required to create an independent generated agent.
+
+The implementation separates assembly logic from runtime logic. The reusable runtime behavior is provided by \texttt{agent\_core/}, while the builder assembles a concrete agent artifact from the selected configuration. This allows several agents to share the same runtime core while behaving differently according to their prompt references, schema references, selected tools, model configuration, and memory settings.
+
+The agent creation process starts when the builder API receives a creation request. This request contains the agent name, provider and model settings, prompt URI, memory configuration, input and output schema URIs, and selected tools. Before generation starts, the request is validated and normalized to prevent incomplete or malformed configurations from being transformed into runtime artifacts.
+
+The main implementation files involved in the Agent Factory are:
+
+\begin{itemize}
+    \item \textbf{Builder API} -- \texttt{builder/api/app.py}: exposes the builder FastAPI service.
+
+    \item \textbf{Request validation} -- \texttt{builder/api/schemas/create\_agent\_request.py}: validates the agent creation request.
+
+    \item \textbf{Build coordination} -- \texttt{builder/services/build\_service.py}: coordinates the generation process.
+
+    \item \textbf{Configuration preparation} -- \texttt{builder/services/config\_normalizer.py} and \texttt{builder/services/config\_validator.py}: normalize and validate the received configuration.
+
+    \item \textbf{Runtime artifact assembly} -- \texttt{builder/services/artifact\_assembler.py}: assembles runtime files and writes \texttt{agent\_config.yaml}.
+
+    \item \textbf{Tool and dependency preparation} -- \texttt{builder/services/tool\_selector.py} and \texttt{builder/services/dependency\_resolver.py}: copy selected tools and prepare tailored dependencies.
+
+    \item \textbf{Docker runtime handling} -- \texttt{builder/services/docker\_runtime.py}: builds and starts the generated agent container.
+
+    \item \textbf{Runtime contract exposure} -- \texttt{agent\_core/api/routers/manifest.py}: exposes the runtime \texttt{/manifest} contract.
+\end{itemize}
+
+After validation, the builder assembles a controlled runtime artifact from \texttt{agent\_core/} instead of copying the full repository. It then copies only the selected tools, prepares dependency files, writes the generated \texttt{agent\_config.yaml}, builds the Docker image, and starts the generated container. Once the service is running, the \texttt{/manifest} endpoint is used to confirm that the generated agent exposes the expected runtime contract.
+
+Figure~\ref{fig:agent_factory_implementation_pipeline} summarizes the implemented Agent Factory pipeline.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/agent_factory.png}
+    \caption{Implemented Agent Factory pipeline}
+    \label{fig:agent_factory_implementation_pipeline}
+\end{figure}
+
+This implementation supports the zero-code-change objective of VIP. Creating a new agent does not require rewriting the runtime source code. Instead, the platform changes the configuration, tools, prompt references, schema references, and provider settings used to generate the agent.
     \subsubsection{Generated Agent Runtime Implementation}
+
+\label{sec:generated-agent-runtime-implementation}
+
+After the Agent Factory prepares the runtime package and starts the container, the generated agent becomes an independent FastAPI service. All generated agents share the same reusable \texttt{agent\_core/} scaffold, while their behavior is defined by the generated \texttt{agent\_config.yaml} file. This configuration contains the agent name, provider and model settings, prompt URI, memory configuration, input and output schema URIs, and selected tools.
+
+The generated runtime mainly contains the FastAPI entry point, the reusable agent logic, the generated \texttt{agent\_config.yaml}, API routers for \texttt{/run} and \texttt{/manifest}, selected tools, dependency files, and the Dockerfile. At startup, the service loads its configuration, retrieves the prompt from MLflow, loads the input and output schemas from their \texttt{schemas://} references, and initializes the configured model provider.
+
+Each generated agent exposes two main endpoints. The \texttt{/run} endpoint executes the agent using a standard request envelope composed of a \texttt{trace\_id}, a \texttt{payload}, and optional \texttt{metadata}. The \texttt{/manifest} endpoint exposes the runtime contract of the service, including its identity, version, input schema, and output schema. This endpoint allows the builder and the orchestrator to verify that the running container exposes the expected contract before execution.
+
+Figure~\ref{fig:generated_agent_runtime} summarizes the runtime behavior of a generated agent.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/generated_agent_runtime.png}
+    \caption{Runtime execution flow of a generated VIP agent}
+    \label{fig:generated_agent_runtime}
+\end{figure}
+
+This implementation makes each generated agent autonomous at runtime. Once started, the agent can be executed through \texttt{/run}, inspected through \texttt{/manifest}, monitored through the observability layer, and reused inside different workflows.
+
+\subsubsection{Validation Layers: Pydantic and JSON Schema}
+\label{sec:validation-layers}
+
+The VIP platform applies two complementary validation layers. Pydantic validates API request structures, while JSON Schema validates the business payloads exchanged between agents.
+
+At the API level, Pydantic is used before execution starts. The generated agent runtime validates \texttt{POST /run} requests with \texttt{RunRequest} in \texttt{agent\_core/api/schemas/run.py}. The builder validates agent creation requests with \texttt{CreateAgentRequest} in \texttt{builder/api/schemas/create\_agent\_request.py}. The orchestrator validates dynamic workflow execution requests with \texttt{RunWorkflowSpecRequest} in \texttt{orchestrator/api/schemas/runWorkflowSpec.py}.
+
+After the request envelope is accepted, JSON Schema validates the actual payload. In \texttt{agent\_core/agent.py}, the input payload is checked against the configured input schema, tool arguments are validated before execution, and the final structured result is checked against the configured output schema. At the workflow level, \texttt{orchestrator/services/schema\_service.py} uses \texttt{Draft202012Validator} to validate step inputs and outputs.
+
+The validation flow can be summarized as follows:
+
+\begin{center}
+\texttt{Pydantic request validation}
+$\rightarrow$
+\texttt{JSON Schema input validation}
+$\rightarrow$
+\texttt{Tool argument validation}
+$\rightarrow$
+\texttt{Tool/model execution}
+$\rightarrow$
+\texttt{JSON Schema output validation}
+\end{center}
+
+This layered approach prevents malformed requests from entering the system and ensures that each generated agent receives and returns data that respects its configured contract.
+
     \subsubsection{Workflow Orchestration Implementation}
+
+The workflow orchestration layer executes generated agents in a defined order. In the current implementation, workflows are not loaded from static YAML files. Instead, the workflow created from the user interface is saved as an application graph and transformed into a runtime workflow specification before execution.
+
+When the user launches a saved workflow, the request first reaches the frontend backend through \texttt{POST /orchestration/\{app\_id\}/run}. The backend compiles the saved graph and forwards the runtime specification to the orchestrator through \texttt{POST /run-workflow-spec}. The request is then handled by \texttt{runWorkflowSpec.py} and executed by \texttt{WorkflowExecutionService}.
+
+For the implemented financial workflow, the runtime specification follows the functional order introduced in Section~\ref{sec:implemented-use-case}: extraction, mapping, generation, and sanitization.
+
+Before execution, the orchestrator retrieves the runtime manifest of each target agent using \texttt{ManifestService}. The manifest provides the agent identity, input schema, and output schema. This allows the orchestrator to execute the workflow according to the contract exposed by each generated agent.
+
+For each step, the orchestrator prepares the payload expected by the next agent. The \texttt{AdapterService} aligns the current payload with the target input schema. It first attempts deterministic adaptation, and when this is not sufficient, it relies on the model-backed \texttt{AdapterAgent}.
+
+After the payload is prepared, the orchestrator invokes the target generated agent through \texttt{AgentClient}. The call is performed over the internal Docker network using the runtime endpoint \texttt{http://<agent-container>:8000/run}. The returned result is stored in the workflow execution state and passed to the next step until the final output is produced.
+
+Figure~\ref{fig:workflow_orchestration_execution_path} summarizes the workflow orchestration execution path.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=0.9cm,
+    box/.style={
+        rectangle,
+        draw,
+        rounded corners,
+        align=center,
+        minimum width=7.8cm,
+        minimum height=0.8cm,
+        font=\small
+    },
+    arrow/.style={-Latex, thick}
+]
+
+\node[box] (user) {User launches workflow};
+\node[box, below=of user] (frontend) {Frontend UI};
+\node[box, below=of frontend] (backend) {\texttt{POST /orchestration/\{app\_id\}/run}\\Frontend Backend};
+\node[box, below=of backend] (spec) {Build runtime workflow specification};
+\node[box, below=of spec] (orchestrator) {\texttt{POST /run-workflow-spec}\\Orchestrator};
+\node[box, below=of orchestrator] (workflow) {\texttt{WorkflowExecutionService}};
+\node[box, below=of workflow] (manifest) {\texttt{ManifestService}\\\texttt{GET /manifest}};
+\node[box, below=of manifest] (adapter) {\texttt{AdapterService}\\Payload adaptation};
+\node[box, below=of adapter] (client) {\texttt{AgentClient}\\HTTP call};
+\node[box, below=of client] (agent) {Generated Agent\\\texttt{POST /run}};
+\node[box, below=of agent] (state) {Step result stored};
+\node[box, below=of state] (final) {Next agent or final output};
+
+\draw[arrow] (user) -- (frontend);
+\draw[arrow] (frontend) -- (backend);
+\draw[arrow] (backend) -- (spec);
+\draw[arrow] (spec) -- (orchestrator);
+\draw[arrow] (orchestrator) -- (workflow);
+\draw[arrow] (workflow) -- (manifest);
+\draw[arrow] (manifest) -- (adapter);
+\draw[arrow] (adapter) -- (client);
+\draw[arrow] (client) -- (agent);
+\draw[arrow] (agent) -- (state);
+\draw[arrow] (state) -- (final);
+
+\node[
+    draw,
+    dashed,
+    rounded corners,
+    align=center,
+    font=\small,
+    right=1.2cm of workflow,
+    text width=4.2cm
+] (roles) {
+Runtime workflow roles\\[0.1cm]
+\texttt{extractor}\\
+$\downarrow$\\
+\texttt{mapper}\\
+$\downarrow$\\
+\texttt{generator}\\
+$\downarrow$\\
+\texttt{sanitizer}
+};
+
+\draw[dashed] (roles.west) -- (workflow.east);
+
+\end{tikzpicture}
+\caption{Workflow Orchestration Execution Path}
+\label{fig:workflow_orchestration_execution_path}
+\end{figure}
+
+This implementation keeps workflow logic outside the generated agents. Each agent only exposes its runtime contract and \texttt{/run} endpoint, while the orchestrator manages execution order, payload adaptation, agent invocation, and step result aggregation.
+    
+\subsubsection{PostgreSQL Persistence and Table Models}
+
+\label{sec:postgresql-persistence}
+
+PostgreSQL is used as the persistence layer of the VIP platform. It stores platform metadata related to applications, agents, reusable agent templates, and workflow definitions. The persistence layer is implemented with SQLAlchemy and Alembic under the \texttt{frontend/backend/} module, mainly through \texttt{models.py}, \texttt{db.py}, and \texttt{storage/postgres.py}.
+
+The main PostgreSQL tables are:
+
+\begin{itemize}
+    \item \textbf{\texttt{apps}} -- stores application or workspace records, including name, description, version, status, creator, and timestamps.
+
+    \item \textbf{\texttt{agents}} -- stores app-scoped agent records, including agent name, type, category, runtime status, container metadata, image tag, endpoints, selected tools, configuration snapshot, and builder request snapshot.
+
+    \item \textbf{\texttt{agent\_library}} -- stores reusable agent templates that can be copied into an application when creating new agents.
+
+    \item \textbf{\texttt{workflow\_definitions}} -- stores workflow definitions created from the user interface, including the editable graph, compiled runtime specification, YAML rendering, validation errors, status, and timestamps.
+\end{itemize}
+
+The database stores metadata and references rather than generated runtime files. Tools are stored as references in agent configuration fields, while the actual tool code is located in \texttt{tools\_catalog/}. Prompts and schemas are also stored as URI references, while their content is resolved from MLflow. Generated runtime files, such as \texttt{agent\_config.yaml}, selected tool files, and Docker build artifacts, are created by the Agent Factory and are not persisted in PostgreSQL.
+
+For workflow execution, the most important table is \texttt{workflow\_definitions}. It stores the editable graph in \texttt{graph\_json} and the compiled executable specification in \texttt{runtime\_spec\_json}. When the user launches a workflow, the frontend backend retrieves the saved workflow definition, validates the compiled runtime specification, and forwards it to the orchestrator through \texttt{/run-workflow-spec}.
+
+This persistence model separates platform state from runtime execution. PostgreSQL keeps track of applications, agents, templates, workflow graphs, runtime endpoints, and configuration snapshots, while Docker handles running containers and MLflow manages prompt and schema content.
+
     \subsubsection{Docker-Based Deployment Implementation}
+
+\label{sec:docker-deployment-implementation}
+
+Docker is used to package and run each generated agent as an independent FastAPI service. In the current implementation, generated agents use the Dockerfile copied from \texttt{agent\_core/Dockerfile}. The Dockerfile is not dynamically generated; it is included in the runtime scaffold assembled by the Agent Factory.
+
+The generated agent image uses a multi-stage build based on \texttt{python:3.11-slim}. The builder stage creates Python wheels from the generated \texttt{requirements.txt}, while the runtime stage installs these prebuilt wheels and the packages listed in \texttt{apt-runtime-packages.txt}. These dependency files are generated by \texttt{builder/services/dependency\_resolver.py} using the base runtime requirements and the dependencies required by the selected tools.
+
+Container creation is handled by \texttt{builder/services/docker\_runtime.py}. The implementation uses Docker CLI commands to build the image, start the container, connect it to the shared Docker network, and assign a dynamic localhost host port. Each generated agent listens internally on port \texttt{8000}, and the orchestrator calls it through the shared network using an endpoint such as \texttt{http://<agent-name>:8000/run}.
+
+After startup, the builder checks runtime readiness by calling the root endpoint \texttt{/} and the contract endpoint \texttt{/manifest}. Once the service is ready, runtime metadata such as the container identifier, container name, image tag, internal endpoint, host port, external URL, documentation URL, and runtime status is saved in PostgreSQL.
+
+Figure~\ref{fig:docker_deployment_flow} summarizes the Docker-based deployment flow for generated agents.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\textwidth]{figures/docker_dep.png}
+    \caption{Docker-based deployment flow for generated agents}
+    \label{fig:docker_deployment_flow}
+\end{figure}
     \subsubsection{Observability Implementation}
 
-\subsection{SLM-Evals Implementation}
-    \subsubsection{Objective of the Evaluation Pipeline}
-    \subsubsection{Evaluation Dataset and Test Cases}
-    \subsubsection{Providers and Models Evaluated}
-    \subsubsection{Prompting and Execution Protocol}
-    \subsubsection{Evaluation Metrics}
-    \subsubsection{Result Storage and Visualization}
+\label{sec:observability-implementation}
 
-\subsection{Evaluation Protocol}
-    \subsubsection{VIP Platform Validation Criteria}
-    \subsubsection{SLM-Evals Validation Criteria}
+The VIP platform uses Laminar as the active observability layer. TraceAI remains only as legacy code, while Laminar is initialized in the generated agent runtime and in the orchestrator. The builder itself is not directly traced, but it injects the required \texttt{LMNR\_*} environment variables into generated agent containers.
+
+Observability is applied during agent and workflow execution. Generated agents trace \texttt{/run} calls, agent execution, tool execution, and model calls through the OpenAI-compatible instrumentation. The orchestrator traces workflow runs, dynamic workflow execution, workflow steps, and HTTP calls made to generated agents.
+
+The main metadata captured includes the \texttt{trace\_id}, latency, token usage when available, agent name, workflow name, step index, tool name, execution status, and error information. Logs are also written to files such as \texttt{logs/app.log}, \texttt{logs/orchestrator.log}, and \texttt{logs/builder.log}, in addition to Docker and process standard output.
+
+The frontend provides an observability interface connected to Laminar through the backend observability routes and services. This allows the user to inspect traces and execution metrics related to agents and workflows.
+
+This implementation improves debugging and auditability by making agent execution, tool usage, workflow steps, and runtime errors visible during platform operation.
+
+\subsection{Implementation of SLM-Evals Pipeline}
+After presenting the motivation behind the SLM-Evals second project in the previous chapters, this section focuses on its practical implementation and obtained results. The pipeline was implemented through four notebooks covering environment setup, golden dataset creation, prompt registration, baseline generation, multi-layer evaluation, result visualization, and prompt enhancement.
+
+MLflow was used as the central component for tracking experiments, registering prompts, storing dataset metadata, logging generation runs, and saving evaluation artifacts. The evaluation compared small language models on a structured financial report generation task using the same input data, reference output, prompt version, and execution protocol.
+
+\subsubsection{ Environment and MLflow Setup}
+
+The first implementation step consisted of preparing the execution environment and configuring MLflow as the central tracking tool of the SLM-Evals pipeline. The setup notebook validated the required environment variables for the different model providers, including Phi-4 through an Azure OpenAI-compatible endpoint and Llama 3.1 through Groq.
+
+MLflow was then initialized using the local tracking server available at \texttt{http://127.0.0.1:5000}. The main experiment was created under the name \texttt{phi4\_vs\_Llama3-1\_baseline}, with experiment ID \texttt{4}. This experiment served as the shared workspace for all following steps, including prompt registration, dataset creation, baseline generation, evaluation runs, and artifact logging.
+
+A bootstrap run was also created in order to store the initial configuration and metadata. This run logged the notebook role, the number of runs, the RAGAS configuration, judge model information, and package versions. This setup ensured that the evaluation process remained traceable and reproducible across the different notebooks.
+
+\begin{table}[H]
+\centering
+\caption{MLflow environment configuration for the SLM-Evals pipeline}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Element} & \textbf{Value} \\
+\hline
+MLflow tracking URI & \texttt{http://127.0.0.1:5000} \\
+\hline
+Experiment name & \texttt{phi4\_vs\_Llama3-1\_baseline} \\
+\hline
+Experiment ID & \texttt{4} \\
+\hline
+Bootstrap run ID & \texttt{3fcccec7d2924a41a86e6d2c645ccf50} \\
+\hline
+Main generation providers & Azure OpenAI-compatible, Groq \\
+\hline
+Main tracking tool & MLflow \\
+\hline
+\end{tabular}
+\end{table}
+
+The setup notebook ends with a validation summary confirming that the MLflow experiment, baseline prompt, and golden dataset were successfully configured. This output also indicates that the pipeline is ready for the baseline generation phase.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/slm_mlflow_setup_summary.png}
+    \caption{MLflow setup summary generated by Notebook 01}
+    \label{fig:slm_mlflow_setup_summary}
+\end{figure}
+
+\subsubsection{Evaluation Dataset and prompt Registration}
+
+
+After configuring the MLflow experiment, the next step consisted of creating the reference evaluation dataset and registering the baseline prompt. This step was implemented in Notebook 01 and served as the foundation for the following generation and evaluation notebooks.
+
+The evaluation dataset was created in MLflow under the name \texttt{bank\_financial\_analysis\_golden\_v4}. It contains one golden record, identified as \texttt{test\_case\_004}, corresponding to the Banque Internationale Arabe de Tunisie BIAT over the 2021--2024 period. This record includes the raw financial input data and the expected reference report. The objective of this dataset was to provide a stable reference case against which all generated outputs could be evaluated.
+\vspace{0.4cm}
+The baseline prompt was also registered in MLflow Prompt Registry under the name \texttt{financial\_analysis\_baseline}. The version used in the experiments was version \texttt{11}. Registering the prompt in MLflow made it possible to reuse the exact same prompt in the following notebooks and to guarantee that the generated outputs were linked to a fixed prompt version.
+   
+\begin{table}[H]
+\centering
+\caption{Golden dataset and baseline prompt configuration}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Element} & \textbf{Value} \\
+\hline
+Dataset name & \texttt{bank\_financial\_analysis\_golden\_v4} \\
+\hline
+Dataset ID & \texttt{d-92231453cc9f4fbd83fa1978c64293bc} \\
+\hline
+Number of records & 1 \\
+\hline
+Test case ID & \texttt{test\_case\_004} \\
+\hline
+Institution & Banque Internationale Arabe de Tunisie (BIAT) \\
+\hline
+Period & 2021--2024 \\
+\hline
+Prompt name & \texttt{financial\_analysis\_baseline} \\
+\hline
+Prompt version & \texttt{11} \\
+\hline
+Prompt URI & \texttt{prompts:/financial\_analysis\_baseline/11} \\
+\hline
+Baseline alias & \texttt{prompts:/financial\_analysis\_baseline@baseline} \\
+\hline
+\end{tabular}
+\end{table}
+
+The baseline prompt was designed to enforce a fixed financial report structure. It instructed the model to rely only on the provided data, avoid inventing unsupported figures or claims, and keep the same section order in every generated report. This structure was important because it allowed the evaluation notebook to automatically parse the generated outputs and verify whether the expected sections were present.
+
+The expected report structure contained eight sections:
+
+\begin{enumerate}
+    \item Executive Summary
+    \item Profitability and Operational Efficiency
+    \item Revenue Dynamics
+    \item Asset Quality and Risk Profile
+    \item Balance Sheet Structure and Liquidity
+    \item Capital Adequacy
+    \item Key Risks and Watch Points
+    \item Conclusion
+\end{enumerate}
+
+This setup ensured that all models were evaluated under the same conditions. Each generated report used the same financial input, the same reference output, and the same prompt version. As a result, differences in the evaluation results could be attributed mainly to model behavior rather than changes in the input data or prompt design.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/slm_prompt_registry.png}
+    \caption{Baseline prompt registered in MLflow Prompt Registry}
+    \label{fig:slm_prompt_registry}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/slm_golden_dataset.png}
+    \caption{Golden BIAT financial analysis dataset registered in MLflow}
+    \label{fig:slm_golden_dataset}
+\end{figure}
+
+
+\subsubsection{Baseline Output Generation}
+
+
+The second notebook implemented the baseline generation phase. It reused the golden BIAT case and the baseline prompt registered in Notebook 01, then executed the same financial analysis task with two small language models. The first model was Phi-4, accessed through an Azure OpenAI-compatible endpoint, while the second model was Llama 3.1, accessed through Groq.
+
+The same input data and the same prompt version were used for both models. This ensured that the comparison focused on the generated outputs rather than differences in input preparation or prompt design.
+
+The generation protocol was configured as follows:
+
+\begin{itemize}
+    \item Golden case: \texttt{test\_case\_004}, corresponding to BIAT financial data.
+    \item Prompt: \texttt{financial\_analysis\_baseline}, version \texttt{11}.
+    \item Models: Phi-4 and Llama 3.1.
+    \item Providers: Azure OpenAI-compatible endpoint for Phi-4 and Groq for Llama 3.1.
+    \item Temperatures: \texttt{0.0}, \texttt{0.1}, \texttt{0.3}, \texttt{0.5}, and \texttt{0.7}.
+    \item Total outputs: ten generated reports, with five outputs per model.
+    \item Maximum generation length: \texttt{1200} tokens.
+\end{itemize}
+
+Each generation call was traced with MLflow. This allowed each output to be linked to its model, provider, prompt version, temperature value, and input case. The notebook also stored execution metadata such as token usage and latency. However, latency was not used as a main comparison criterion because the two models were served through different providers and infrastructures.
+
+At the end of the generation phase, the outputs were exported as structured files for the next notebook. The main output was \texttt{baseline\_outputs\_test\_case\_004.csv}, accompanied by a JSONL version and a compact summary file. These files contained the generated reports, the model metadata, the temperature values, token usage, and the parsed section structure.
+
+The main artifacts produced by Notebook 02 were:
+
+\begin{itemize}
+    \item \texttt{baseline\_outputs\_test\_case\_004.csv}, containing all generated reports and metadata.
+    \item \texttt{baseline\_outputs\_test\_case\_004.jsonl}, providing the same outputs in line-by-line JSON format.
+    \item \texttt{baseline\_outputs\_test\_case\_004\_summary.csv}, summarizing the generation phase by model.
+\end{itemize}
+
+After generation, the notebook normalized the outputs and parsed them into the eight expected report sections. This structure parsing step was important because the evaluation notebook needed to verify whether each generated report respected the format imposed by the baseline prompt. The parsed sections and structure score were saved with the generated outputs, making the baseline file directly usable for the multi-layer evaluation phase.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/slm_baseline_generation_outputs.png}
+    \caption{Baseline generation outputs across models and temperature values}
+    \label{fig:slm_baseline_generation_outputs}
+\end{figure}
+
+Figure~\ref{fig:slm_baseline_generation_outputs} shows the baseline outputs generated in Notebook 02. Each row corresponds to one model-temperature combination and contains the metadata required for the evaluation phase.
+    \subsubsection{Multi-Layer Evaluation Implementation}
+    The third notebook implemented the evaluation phase of the SLM-Evals pipeline. It loaded the baseline outputs generated in Notebook 02 and applied several complementary evaluation layers. This multi-layer approach was necessary because financial report generation cannot be evaluated only through text similarity. A report may be fluent and close to the reference text while still containing numerical errors, missing sections, or unsupported financial conclusions.
+
+Before computing the metrics, the generated outputs were normalized and parsed into the eight expected report sections. This allowed the notebook to evaluate both the global report and the section-level quality of each output.
+    
+The evaluation was implemented through the following layers:
+
+\begin{itemize}
+    \item \textbf{Deterministic similarity metrics:} ROUGE-L, BLEU, ChrF++, and BERTScore F1 were computed to compare each generated report with the reference output.
+    
+    \item \textbf{Structural completeness:} the notebook checked whether the eight required financial report sections were present. The structure score was computed as the ratio of detected sections to expected sections.
+    
+    \item \textbf{Domain numerical accuracy:} financial numbers were extracted from the generated reports and compared with the reference values using a tolerance of $\pm 2\%$.
+    
+    \item \textbf{RAGAS metrics:} semantic similarity, answer correctness, and factual correctness were used to evaluate semantic and factual alignment.
+    
+    \item \textbf{LLM-as-a-judge evaluation:} the model \texttt{openai/gpt-oss-20b} was used as the main judge, with \texttt{temperature=0.0} and \texttt{max\_tokens=3000}. It scored the generated reports on faithfulness, numerical accuracy, trend accuracy, reasoning quality, completeness, and hallucination risk. A second judge configuration, \texttt{meta-llama/llama-4-scout-17b-16e-instruct}, was also defined for additional judge or RAGAS-based evaluation support.    
+    
+    \item \textbf{Efficiency metadata:} token usage and execution metadata were stored, but latency was not treated as a main quality criterion because the models were served through different providers.
+\end{itemize}
+
+The main judge model used in the evaluation was \texttt{openai/gpt-oss-20b}. It was configured with a temperature of \texttt{0.0} in order to reduce randomness in the scoring process. For each generated report, the judge evaluated section-level quality according to six criteria: faithfulness, numerical accuracy, trend accuracy, reasoning quality, completeness, and hallucination risk. This judge-based layer was important because it assessed financial reasoning quality, which cannot be fully captured by deterministic similarity metrics.
+
+The judge configuration used in Notebook 03 can be summarized as follows:
+
+\begin{itemize}
+    \item Main judge model: \texttt{openai/gpt-oss-20b}.
+    \item Judge temperature: \texttt{0.0}.
+    \item Maximum judge output length: \texttt{3000} tokens.
+    \item Secondary judge / RAGAS judge: \texttt{meta-llama/llama-4-scout-17b-16e-instruct}.
+    \item Scored dimensions: faithfulness, numerical accuracy, trend accuracy, reasoning quality, completeness, and hallucination risk.
+\end{itemize}
+
+The judge quality score was computed from the average of the first five judge dimensions, namely faithfulness, numerical accuracy, trend accuracy, reasoning quality, and completeness. The safety score was derived from the hallucination score. At section level, the final judge score was computed as follows:
+
+\[
+SectionScore = 0.80 \times QualityScore + 0.20 \times SafetyScore
+\]
+
+The final composite score combined several evaluation signals into one aggregated score:
+
+\[
+FinalScore = 0.38 \times JudgeQuality + 0.19 \times SemanticScore + 0.1425 \times Structure + 0.1425 \times Safety + 0.095 \times Efficiency + 0.05 \times ChrF
+\]
+
+In this formula, the judge quality score received the highest weight because financial report generation requires reliable reasoning, factual grounding, and controlled hallucination risk. RAGAS metrics and deterministic domain accuracy were reported as diagnostic indicators, but they were not directly weighted in the final composite score.
+
+This evaluation design made the comparison more robust than a single-metric approach. Deterministic metrics provided a fast and reproducible baseline, structural checks verified format compliance, domain accuracy focused on financial numbers, RAGAS added semantic and factual signals, and the judge layer assessed reasoning quality. The outputs of this phase were then used to build the final leaderboard and visual comparison charts.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/slm_multilayer_evaluation_metrics.png}
+    \caption{Multi-layer evaluation metrics computed for the generated reports}
+    \label{fig:slm_multilayer_evaluation_metrics}
+\end{figure}
+
+Figure~\ref{fig:slm_multilayer_evaluation_metrics} shows the evaluation outputs produced by Notebook 03. The generated reports were evaluated across multiple dimensions, including similarity, structure, semantic alignment, numerical accuracy, and judge-based reasoning quality.
+
+\subsubsection{Result Storage and Visualization}
+
+After computing the evaluation metrics, Notebook 03 stored the results in structured files and logged the main artifacts to MLflow. This step made the evaluation outputs easier to inspect, compare, and reuse in later analysis. Instead of keeping the results only inside the notebook, the pipeline exported them as CSV, JSON, HTML reports, and visual charts.
+
+The main objective of this step was to make the comparison traceable. Each generated report had already been linked to its model, provider, temperature value, prompt version, and golden dataset record. The evaluation notebook extended this traceability by saving the computed metrics, judge scores, RAGAS outputs, section-level scores, and final model ranking.
+
+The main artifacts produced during this phase were:
+
+\begin{itemize}
+    \item \texttt{comparison\_metrics\_test\_case\_004\_nb4.csv}, containing the aggregated model comparison and final ranking.
+    
+    \item \texttt{comparison\_metrics\_test\_case\_004\_nb4.json}, storing the same comparison results in JSON format.
+    
+    \item \texttt{comparison\_metrics\_test\_case\_004\_nb4.html}, providing a styled version of the comparison table.
+    
+    \item \texttt{ragas\_combined\_test\_case\_004\_nb4.csv}, storing the RAGAS evaluation results.
+    
+    \item \texttt{judge\_section\_scores\_test\_case\_004\_nb4.csv}, storing section-level judge scores.
+    
+    \item \texttt{radar\_comparison\_test\_case\_004.png}, visualizing the comparison between Phi-4 and Llama 3.1.
+    
+    \item \texttt{judge\_eval\_test\_case\_004\_openai\_gpt-oss-20b.json}, storing the cached judge evaluation results.
+\end{itemize}
+
+The main MLflow evaluation run was identified by the run ID \texttt{44c74a49b6694c3aa3dbfaaf107d3926}. This run grouped the evaluation parameters, metric weights, comparison reports, RAGAS outputs, judge results, and visualization files. Logging these artifacts in MLflow made it possible to inspect the evaluation history from a single interface and to keep a reproducible link between the generated outputs and the final comparison.
+
+A radar chart was also generated to provide a visual comparison between the two evaluated models. This chart summarized the main evaluation dimensions and made it easier to identify the relative strengths of each model. The visualization was not used alone to select the best model, but rather as a supporting tool for interpreting the metric values.
+
+Since the goal of this section is to document implementation and result tracking, the interpretation of the winner is not discussed here. The final comparison between Phi-4 and Llama 3.1 is presented in the next subsection.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/slm_mlflow_evaluation_artifacts.png}
+    \caption{Evaluation artifacts logged in MLflow}
+    \label{fig:slm_mlflow_evaluation_artifacts}
+\end{figure}
+
+Figure~\ref{fig:slm_mlflow_evaluation_artifacts} shows the artifacts saved by the evaluation run. The logged files include comparison reports, judge scores, RAGAS outputs, and visualization files used for result analysis.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/radar_comparison_test_case_004.png}
+    \caption{Radar chart comparing Phi-4 and Llama 3.1 across evaluation dimensions}
+    \label{fig:slm_radar_comparison}
+\end{figure}
+
+Figure~\ref{fig:slm_radar_comparison} provides a visual comparison of the two evaluated models across the main scoring dimensions. It helps summarize the evaluation results before moving to the final interpretation.
+
+
+    \subsubsection{Results Interpretation}
+
+   Although the detailed metric calculations are available in the evaluation notebook, the report must summarize the main findings and explain their meaning. The notebook proves that the evaluation was executed, while this subsection interprets the results obtained from the pipeline.
+
+The aggregated comparison showed that both evaluated models were able to generate structured financial reports following the eight required sections. The structure score was equal to \texttt{1.0} for both models, which confirms that the baseline prompt successfully enforced the expected report format.
+   
+   The final composite score ranked Llama 3.1 slightly ahead of Phi-4, with a score of \texttt{0.648} compared with \texttt{0.643} for Phi-4. However, this difference is very small and should be interpreted carefully. The composite score includes an efficiency component, while the two models were served through different providers and infrastructures. Therefore, the final ranking should not be understood as a pure model-quality ranking.
+   
+   When focusing on output quality and financial correctness, Phi-4 showed stronger results on several important dimensions. It achieved better deterministic similarity scores, higher domain numerical accuracy, higher RAGAS mean score, and a higher judge quality score. This indicates that Phi-4 produced reports that were closer to the reference answer and more reliable from a financial analysis perspective.
+
+Llama 3.1 remained a relevant candidate because it produced complete structured reports and obtained a competitive final score. However, its weaker numerical accuracy and judge quality suggest that it may require prompt improvement or additional validation before being used for more sensitive financial analysis tasks.
+
+The main findings can be summarized as follows:
+
+\begin{itemize}
+    \item Both models respected the expected report structure, with a structure score of \texttt{1.0}.
+    
+    \item Llama 3.1 obtained the highest final composite score, with \texttt{0.648}, compared with \texttt{0.643} for Phi-4.
+    
+    \item Phi-4 obtained stronger quality-oriented results, especially in judge quality, numerical accuracy, RAGAS mean score, and reference-based similarity metrics.
+    
+    \item The final score difference was very small, so the result should be interpreted as a trade-off rather than a clear superiority of one model.
+    
+    \item Since provider latency can influence efficiency, latency was not used as the main criterion for choosing the better model.
+\end{itemize}
+
+Overall, the evaluation showed that Phi-4 was more reliable for financial report quality, while Llama 3.1 remained competitive in the global pipeline score. For a financial analysis use case, the quality-oriented metrics are more important than raw execution speed. Therefore, Phi-4 appears to be the stronger baseline for financial reasoning, while Llama 3.1 may require prompt enhancement to improve numerical accuracy and reasoning quality.
+
+These results remain directional because the evaluation was performed on a single golden case. A larger dataset containing several banks, reporting periods, and financial situations would be required to draw stronger conclusions about the general performance of each model.
+
+
+    \subsubsection{Prompt Enhancement Experiment}
+
+
+After the baseline evaluation, Notebook 04 tested whether prompt engineering could improve the quality of Llama 3.1 outputs. The experiment reused the same BIAT golden case and compared the baseline Llama prompt with two variants.
+
+The tested variants were:
+
+\begin{itemize}
+    \item \textbf{Variant A:} a Llama-optimized prompt with stricter reporting instructions and clearer trend verification rules.
+    \item \textbf{Variant B:} a structured scratchpad approach where the model first extracted key financial metrics before generating the final report.
+\end{itemize}
+
+A specific check was also added for the Liquidity Coverage Ratio, noted as LCR. In this financial case, the LCR values evolved from \texttt{120} in 2021 to \texttt{125} in 2022, \texttt{130} in 2023, and \texttt{128} in 2024. The purpose of the LCR direction check was to verify whether the model correctly described this trend, instead of wrongly presenting the ratio as continuously increasing or decreasing.
+
+The quick evaluation used ROUGE-L, ChrF++, BERTScore F1, structure score, output length, and the LCR direction check. All variants preserved the expected report structure. The baseline Llama output obtained the best ChrF++ score, while Variant A slightly improved BERTScore F1. Variant B did not outperform the baseline on automatic metrics, but it made the intermediate financial reasoning more explicit.
+
+Although the baseline remained stronger according to the quick deterministic metrics, Variant B was registered in MLflow as an optimized prompt for future experimentation. The registered prompt was named \texttt{financial\_analysis\_llama\_optimized}, version \texttt{1}, with the alias \texttt{llama\_current}.
+
+This experiment should therefore be interpreted as exploratory. It showed that prompt design can influence the generated report, but more golden cases are required before concluding that one prompt variant is consistently better.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/slm_prompt_variant_comparison.png}
+    \caption{Comparison of Llama 3.1 prompt variants in Notebook 04}
+    \label{fig:slm_prompt_variant_comparison}
+\end{figure}
+
+Figure~\ref{fig:slm_prompt_variant_comparison} summarizes the quick comparison between the baseline Llama output and the two prompt enhancement variants.
+
 
 \subsection{Results and Discussion}
     \subsubsection{VIP Platform Results}
+The implemented VIP platform was validated through the main user interfaces and through a complete financial workflow scenario. The objective of this validation was to verify that the platform can manage applications, create configurable agents, store generated agents, compose them into workflows, execute a multi-agent scenario, and provide runtime visibility through observability and deployment traces.
+
+
+
+
     \subsubsection{SLM-Evals Results}
     \subsubsection{Discussion of Results}
 
