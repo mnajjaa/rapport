@@ -643,8 +643,110 @@ Figure~\ref{fig:slm_prompt_variant_comparison} summarizes the quick comparison b
 
 
 \subsection{Results and Discussion}
+
     \subsubsection{VIP Platform Results}
-The implemented VIP platform was validated through the main user interfaces and through a complete financial workflow scenario. The objective of this validation was to verify that the platform can manage applications, create configurable agents, store generated agents, compose them into workflows, execute a multi-agent scenario, and provide runtime visibility through observability and deployment traces.
+    The implemented VIP platform was validated through the main user interfaces and through a complete financial workflow scenario. The objective of this validation was to verify that the platform can manage applications, create configurable agents, store generated agents, compose them into workflows, execute a multi-agent scenario, and provide runtime visibility through observability and deployment traces.
+
+    \paragraph{Main platform interfaces :}
+The dashboard, applications list, and agents list show the main management interfaces of the platform. They confirm that VIP provides a centralized interface for accessing applications, generated agents, workflows, and execution information.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/vip_dashboard.png}
+    \caption{VIP dashboard showing the main platform overview}
+    \label{fig:vip_dashboard}
+\end{figure}
+
+The agents interface displays the generated agents available in the platform. This confirms that created agents are persisted as reusable components and can later be selected inside workflow definitions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/vip_agents_list.png}
+    \caption{List of generated agents available in the VIP platform}
+    \label{fig:vip_agents_list}
+\end{figure}
+
+
+The applications interface lists the created intelligent applications. Each application can group several agents and workflows related to a specific use case.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/vip_apps_list.png}
+    \caption{List of applications managed in the VIP platform}
+    \label{fig:vip_apps_list}
+\end{figure}
+
+
+\paragraph{Agent Creation and Deployment Validation : }
+
+The agent creation interface validates the configuration-driven approach of VIP. Through this form, the user can define the agent role, provider, model configuration, prompt reference, schema references, and selected tools. This confirms that agent behavior is configured declaratively rather than hard-coded.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.95\textwidth]{figures/vip_agent_creation_form.png}
+%     \caption{Agent creation form used to configure a new generated agent}
+%     \label{fig:vip_agent_creation_form}
+% \end{figure}
+
+Prompt and schema references are managed through MLflow. This supports traceability because generated agents can be linked to versioned prompts and structured input/output contracts.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.95\textwidth]{figures/vip_mlflow_prompts_schemas.png}
+%     \caption{MLflow interface showing prompt and schema artifacts used by VIP agents}
+%     \label{fig:vip_mlflow_prompts_schemas}
+% \end{figure}
+
+After generation, the agent is deployed as a Docker container. The Docker container view confirms that the generated agent is not only stored in the platform metadata, but also launched as an independent runtime service.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.95\textwidth]{figures/vip_generated_docker_container.png}
+%     \caption{Generated agent running as an independent Docker container}
+%     \label{fig:vip_generated_docker_container}
+% \end{figure}
+
+\paragraph{Workflow Execution Scenario: }
+
+After the required agents were created, they were composed into a financial workflow. The workflow builder connects the extractor, mapper, generator, and sanitizer agents in the expected execution order. This validates the ability of VIP to transform generated agents into a reusable multi-step process.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.95\textwidth]{figures/vip_workflow_builder.png}
+%     \caption{Workflow builder showing the financial analysis agent sequence}
+%     \label{fig:vip_workflow_builder}
+% \end{figure}
+
+The workflow was then executed from the platform interface. During execution, the orchestrator invoked the generated agents step by step, adapted the payload when required, and returned the final sanitized financial analysis output.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.95\textwidth]{figures/vip_workflow_execution_result.png}
+%     \caption{Execution result of the financial workflow in VIP}
+%     \label{fig:vip_workflow_execution_result}
+% \end{figure}
+
+The observability interface provides execution details for the workflow. It allows the user to inspect traces, execution status, latency, token usage, and error information when available. This confirms that the platform supports not only agent execution, but also runtime monitoring.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.95\textwidth]{figures/vip_observability_trace.png}
+%     \caption{Observability trace and execution details for the VIP workflow}
+%     \label{fig:vip_observability_trace}
+% \end{figure}
+
+Overall, these results confirm that the VIP prototype satisfies the main functional objectives defined earlier in the report. The platform can create configurable agents, persist them as reusable components, deploy them as Dockerized services, compose them into workflows, execute a complete financial scenario, and expose execution details through observability interfaces.
+
+
+
+
+
+
+
+
+
+
+
 
 
 

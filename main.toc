@@ -1,0 +1,122 @@
+\contentsline {section}{Glossary}{XIV}{section*.4}%
+\contentsline {section}{Introduction}{1}{section*.5}%
+\contentsline {section}{\numberline {1}Introduction and Project Context}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Introduction}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Host Company and Areas of Expertise}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Project Overview}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Problem Statement}{3}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Objectives}{4}{subsection.1.5}%
+\contentsline {paragraph}{Functional Objectives}{4}{paragraph*.6}%
+\contentsline {paragraph}{Non-functional Objectives}{5}{paragraph*.7}%
+\contentsline {subsection}{\numberline {1.6}Technology Choices}{5}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}Development Frameworks and Dev Environment}{5}{subsubsection.1.6.1}%
+\contentsline {subsubsection}{\numberline {1.6.2}LLM and SLM Providers}{6}{subsubsection.1.6.2}%
+\contentsline {subsubsection}{\numberline {1.6.3}Database, Storage, and Experiment Tracking}{7}{subsubsection.1.6.3}%
+\contentsline {subsubsection}{\numberline {1.6.4}Deployment and Containerization}{7}{subsubsection.1.6.4}%
+\contentsline {subsubsection}{\numberline {1.6.5}Observability and Monitoring}{8}{subsubsection.1.6.5}%
+\contentsline {subsection}{\numberline {1.7}Methodology}{8}{subsection.1.7}%
+\contentsline {subsubsection}{\numberline {1.7.1}Methodological Approaches Considered}{8}{subsubsection.1.7.1}%
+\contentsline {subsubsection}{\numberline {1.7.2}Scrum Agile Methodology}{8}{subsubsection.1.7.2}%
+\contentsline {subsubsection}{\numberline {1.7.3}IBM Data Science Methodology -- The Foundational Methodology}{9}{subsubsection.1.7.3}%
+\contentsline {subsubsection}{\numberline {1.7.4}IBM Agent Development Lifecycle}{10}{subsubsection.1.7.4}%
+\contentsline {subsubsection}{\numberline {1.7.5}Comparative Analysis of the Methodologies}{11}{subsubsection.1.7.5}%
+\contentsline {subsubsection}{\numberline {1.7.6}Adopted Hybrid Methodology for the VIP Project}{12}{subsubsection.1.7.6}%
+\contentsline {subsection}{\numberline {1.8}Project Timeline}{13}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.9}Summary}{13}{subsection.1.9}%
+\contentsline {section}{\numberline {2}State of the Art}{14}{section.2}%
+\contentsline {subsection}{\numberline {2.1}State of the Art of AI Agents and Orchestration}{14}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Defining AI Agents}{14}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Structure of AI Agents}{14}{subsubsection.2.1.2}%
+\contentsline {paragraph}{Single Agent vs Multi-Agent}{15}{paragraph*.8}%
+\contentsline {paragraph}{When to Build a Multi-Agent System}{15}{paragraph*.9}%
+\contentsline {subsection}{\numberline {2.2}Preliminary Study and Project Specifications of the VIP Project}{16}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Problem Statement}{16}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Business Objectives}{17}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Technical Objectives}{17}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Functional and Non-Functional Requirements}{18}{subsubsection.2.2.4}%
+\contentsline {paragraph}{\numberline {2.2.4.1}Functional Requirements}{18}{paragraph.2.2.4.1}%
+\contentsline {paragraph}{\numberline {2.2.4.2}Non-Functional Requirements}{18}{paragraph.2.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.2.5}Success Criteria}{18}{subsubsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.3}Comparison of Existing Platforms}{19}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Evaluation Criteria Derived from VIP Requirements}{19}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Comparative Study of n8n, CrewAI and Dify}{20}{subsubsection.2.3.2}%
+\contentsline {paragraph}{\numberline {2.3.2.1}n8n}{20}{paragraph.2.3.2.1}%
+\contentsline {paragraph}{\numberline {2.3.2.2}CrewAI}{20}{paragraph.2.3.2.2}%
+\contentsline {paragraph}{\numberline {2.3.2.3}Dify}{21}{paragraph.2.3.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.3}Comparative Synthesis and VIP Positioning}{21}{subsubsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Preliminary Study of the SLM-Evals Second Project}{22}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}What are language models?}{22}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}What is an LLM?}{22}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}What is an SLM?}{23}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Motivation of the SLM-Evals Second Project}{23}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Provider and Model Evaluation Need}{24}{subsubsection.2.4.5}%
+\contentsline {subsection}{\numberline {2.5}Chapter Summary}{25}{subsection.2.5}%
+\contentsline {section}{\numberline {3}System Design and Architecture}{27}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Introduction}{27}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Architectural Vision of VIP}{27}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}From Fragmented AI Solutions to an Agentic Hub}{27}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Main Architectural Principles}{28}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Global Architecture of the VIP Platform}{28}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}System Context View}{28}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Container View}{29}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Main Platform Components}{30}{subsubsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.4}Agent Lifecycle Architecture}{31}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Configuration-Driven Agent Creation}{31}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Agent Generation Pipeline}{32}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Agent Runtime Contract}{32}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Agent Lifecycle Summary}{33}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Agent Factory Architecture}{33}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Role of the Agent Factory}{34}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Agent Configuration Input}{34}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}Tool Selection Mechanism}{35}{subsubsection.3.5.3}%
+\contentsline {subsubsection}{\numberline {3.5.4}Dependency and Package Resolution Strategy}{35}{subsubsection.3.5.4}%
+\contentsline {subsubsection}{\numberline {3.5.5}Generated Agent Runtime Structure}{35}{subsubsection.3.5.5}%
+\contentsline {subsubsection}{\numberline {3.5.6}Runtime Metadata and Agent Registry}{36}{subsubsection.3.5.6}%
+\contentsline {subsection}{\numberline {3.6}Orchestrator Architecture}{36}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Role of the Orchestrator}{37}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Workflow Definition}{37}{subsubsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.3}Schema-Based Communication}{38}{subsubsection.3.6.3}%
+\contentsline {subsubsection}{\numberline {3.6.4}Adapter Role in Workflow Execution}{38}{subsubsection.3.6.4}%
+\contentsline {subsection}{\numberline {3.7}Data, Storage, and Governance Architecture}{39}{subsection.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.1}PostgreSQL Metadata Storage}{39}{subsubsection.3.7.1}%
+\contentsline {subsubsection}{\numberline {3.7.2}MLflow-Based Prompt and Schema Management}{40}{subsubsection.3.7.2}%
+\contentsline {subsubsection}{\numberline {3.7.3}Provider and Model Configuration}{40}{subsubsection.3.7.3}%
+\contentsline {subsubsection}{\numberline {3.7.4}Traceability and Current Persistence Limits}{41}{subsubsection.3.7.4}%
+\contentsline {subsection}{\numberline {3.8}Deployment Architecture}{41}{subsection.3.8}%
+\contentsline {subsubsection}{\numberline {3.8.1}Dockerized Agent Services}{41}{subsubsection.3.8.1}%
+\contentsline {subsubsection}{\numberline {3.8.2}Shared Docker Network and Service-to-Service Communication}{42}{subsubsection.3.8.2}%
+\contentsline {subsubsection}{\numberline {3.8.3}Docker Image Optimization Strategy}{42}{subsubsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.9}Observability and Monitoring Architecture}{43}{subsection.3.9}%
+\contentsline {subsubsection}{\numberline {3.9.1}Laminar-Based Observability Design}{44}{subsubsection.3.9.1}%
+\contentsline {subsubsection}{\numberline {3.9.2}Execution Tracing Across Workflows}{44}{subsubsection.3.9.2}%
+\contentsline {subsubsection}{\numberline {3.9.3}Token, Cost, and Latency Monitoring}{45}{subsubsection.3.9.3}%
+\contentsline {subsubsection}{\numberline {3.9.4}Logs and Runtime Monitoring}{46}{subsubsection.3.9.4}%
+\contentsline {subsection}{\numberline {3.10}Chapter Summary}{46}{subsection.3.10}%
+\contentsline {section}{\numberline {4}Implementation, Evaluation, and Results}{48}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Introduction}{48}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Implementation Environment}{48}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}VIP Platform Implementation}{49}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Implemented Use Case and Execution Scenario}{49}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Agent Factory Implementation}{51}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Generated Agent Runtime Implementation}{53}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Validation Layers: Pydantic and JSON Schema}{53}{subsubsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.5}Workflow Orchestration Implementation}{54}{subsubsection.4.3.5}%
+\contentsline {subsubsection}{\numberline {4.3.6}PostgreSQL Persistence and Table Models}{56}{subsubsection.4.3.6}%
+\contentsline {subsubsection}{\numberline {4.3.7}Docker-Based Deployment Implementation}{56}{subsubsection.4.3.7}%
+\contentsline {subsubsection}{\numberline {4.3.8}Observability Implementation}{58}{subsubsection.4.3.8}%
+\contentsline {subsection}{\numberline {4.4}Implementation of SLM-Evals Pipeline}{59}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1} Environment and MLflow Setup}{59}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Evaluation Dataset and prompt Registration}{60}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Baseline Output Generation}{62}{subsubsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.4}Multi-Layer Evaluation Implementation}{64}{subsubsection.4.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.5}Result Storage and Visualization}{66}{subsubsection.4.4.5}%
+\contentsline {subsubsection}{\numberline {4.4.6}Results Interpretation}{68}{subsubsection.4.4.6}%
+\contentsline {subsubsection}{\numberline {4.4.7}Prompt Enhancement Experiment}{69}{subsubsection.4.4.7}%
+\contentsline {subsection}{\numberline {4.5}Results and Discussion}{70}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}VIP Platform Results}{70}{subsubsection.4.5.1}%
+\contentsline {paragraph}{Main platform interfaces :}{70}{paragraph*.10}%
+\contentsline {paragraph}{Agent Creation and Deployment Validation : }{72}{paragraph*.11}%
+\contentsline {paragraph}{Workflow Execution Scenario: }{72}{paragraph*.12}%
+\contentsline {subsubsection}{\numberline {4.5.2}SLM-Evals Results}{73}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}Discussion of Results}{73}{subsubsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.6}Chapter Summary}{73}{subsection.4.6}%

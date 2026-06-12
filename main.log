@@ -1,0 +1,1816 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.21)  11 JUN 2026 15:44
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/Users/BRHN/Desktop/rapport/main.tex
+(c:/Users/BRHN/Desktop/rapport/main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+)
+(packages.tex
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\times.sty
+Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count283
+\Gm@cntv=\count284
+\c@Gm@tempcnt=\count285
+\Gm@bindingoffset=\dimen149
+\Gm@wd@mp=\dimen150
+\Gm@odd@mp=\dimen151
+\Gm@even@mp=\dimen152
+\Gm@layoutwidth=\dimen153
+\Gm@layoutheight=\dimen154
+\Gm@layouthoffset=\dimen155
+\Gm@layoutvoffset=\dimen156
+\Gm@dimlist=\toks20
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tools\indentfirst.sty
+Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty
+Package: ragged2e 2023/06/22 v3.6 ragged2e Package
+\CenteringLeftskip=\skip51
+\RaggedLeftLeftskip=\skip52
+\RaggedRightLeftskip=\skip53
+\CenteringRightskip=\skip54
+\RaggedLeftRightskip=\skip55
+\RaggedRightRightskip=\skip56
+\CenteringParfillskip=\skip57
+\RaggedLeftParfillskip=\skip58
+\RaggedRightParfillskip=\skip59
+\JustifyingParfillskip=\skip60
+\CenteringParindent=\skip61
+\RaggedLeftParindent=\skip62
+\RaggedRightParindent=\skip63
+\JustifyingParindent=\skip64
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip65
+\f@nch@offset@elh=\skip66
+\f@nch@offset@erh=\skip67
+\f@nch@offset@olh=\skip68
+\f@nch@offset@orh=\skip69
+\f@nch@offset@elf=\skip70
+\f@nch@offset@erf=\skip71
+\f@nch@offset@olf=\skip72
+\f@nch@offset@orf=\skip73
+\f@nch@height=\skip74
+\f@nch@footalignment=\skip75
+\f@nch@widthL=\skip76
+\f@nch@widthC=\skip77
+\f@nch@widthR=\skip78
+\@temptokenb=\toks21
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage.sty
+Package: lastpage 2025/08/14 v2.1h lastpage: 2.09 or 2e? (HMM)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage2e.sty
+Package: lastpage2e 2025/08/14 v2.1h Decide which 2e lastpage version to use (H
+MM)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpagemodern.
+sty
+Package: lastpagemodern 2025-08-14 v2.1h Refers to last page's name (HMM; JPG)
+\c@lastpagecount=\count286
+) 
+)) (C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box53
+\beforetitleunit=\skip79
+\aftertitleunit=\skip80
+\ttl@plus=\dimen157
+\ttl@minus=\dimen158
+\ttl@toksa=\toks22
+\titlewidth=\dimen159
+\titlewidthlast=\dimen160
+\titlewidthfirst=\dimen161
+) (C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+) (C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen162
+\ar@mcellbox=\box54
+\extrarowheight=\dimen163
+\NC@list=\toks23
+\extratabsurround=\skip81
+\backup@length=\skip82
+\ar@cellbox=\box55
+)
+\everycr=\toks24
+\minrowclearance=\skip83
+\rownum=\count287
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen164
+\TX@old@table=\dimen165
+\TX@old@col=\dimen166
+\TX@target=\dimen167
+\TX@delta=\dimen168
+\TX@cols=\count288
+\TX@ftn=\toks25
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count289
+\float@exts=\toks26
+\float@box=\box56
+\@float@everytoks=\toks27
+\@floatcapt=\box57
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcolorbox.sty
+Package: tcolorbox 2025/11/28 version 6.9.0 text color boxes
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.s
+ty
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-
+common.tex
+\pgfutil@everybye=\toks28
+\pgfutil@tempdima=\dimen169
+\pgfutil@tempdimb=\dimen170
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-
+latex.def
+\pgfutil@abb=\box58
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.c
+ode.tex
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
+))
+Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.s
+ty (C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cf
+g
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+)
+\Gin@req@height=\dimen171
+\Gin@req@width=\dimen172
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.s
+ty
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+.code.tex
+Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.
+code.tex
+\pgfkeys@pathtoks=\toks29
+\pgfkeys@temptoks=\toks30
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeysl
+ibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks31
+))
+\pgf@x=\dimen173
+\pgf@y=\dimen174
+\pgf@xa=\dimen175
+\pgf@ya=\dimen176
+\pgf@xb=\dimen177
+\pgf@yb=\dimen178
+\pgf@xc=\dimen179
+\pgf@yc=\dimen180
+\pgf@xd=\dimen181
+\pgf@yd=\dimen182
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count290
+\c@pgf@countb=\count291
+\c@pgf@countc=\count292
+\c@pgf@countd=\count293
+\t@pgf@toka=\toks32
+\t@pgf@tokb=\toks33
+\t@pgf@tokc=\toks34
+\pgf@sys@id@count=\count294
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cf
+g
+File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+-pdftex.def
+File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+-common-pdf.def
+File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+softpath.code.tex
+File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfsyssoftpath@smallbuffer@items=\count295
+\pgfsyssoftpath@bigbuffer@items=\count296
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+protocol.code.tex
+File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+.code.tex
+Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.
+tex
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.c
+ode.tex)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser
+.code.tex
+\pgfmath@dimen=\dimen183
+\pgfmath@count=\count297
+\pgfmath@box=\box59
+\pgfmath@toks=\toks35
+\pgfmath@stack@operand=\toks36
+\pgfmath@stack@operation=\toks37
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.code.tex)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.basic.code.tex)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.trigonometric.code.tex)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.random.code.tex)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.comparison.code.tex)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.base.code.tex)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.round.code.tex)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.misc.code.tex)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.integerarithmetics.code.tex)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.c
+ode.tex)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.
+code.tex
+\c@pgfmathroundto@lastzeros=\count298
+))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.t
+ex)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+points.code.tex
+File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@picminx=\dimen184
+\pgf@picmaxx=\dimen185
+\pgf@picminy=\dimen186
+\pgf@picmaxy=\dimen187
+\pgf@pathminx=\dimen188
+\pgf@pathmaxx=\dimen189
+\pgf@pathminy=\dimen190
+\pgf@pathmaxy=\dimen191
+\pgf@xx=\dimen192
+\pgf@xy=\dimen193
+\pgf@yx=\dimen194
+\pgf@yy=\dimen195
+\pgf@zx=\dimen196
+\pgf@zy=\dimen197
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@path@lastx=\dimen198
+\pgf@path@lasty=\dimen199
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathusage.code.tex
+File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@shorten@end@additional=\dimen256
+\pgf@shorten@start@additional=\dimen257
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+scopes.code.tex
+File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfpic=\box60
+\pgf@hbox=\box61
+\pgf@layerbox@main=\box62
+\pgf@picture@serial@count=\count299
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+graphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgflinewidth=\dimen258
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+transformations.code.tex
+File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@pt@x=\dimen259
+\pgf@pt@y=\dimen260
+\pgf@pt@temp=\dimen261
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+quick.code.tex
+File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+objects.code.tex
+File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+arrows.code.tex
+File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowsep=\dimen262
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+shade.code.tex
+File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@max=\dimen263
+\pgf@sys@shading@range@num=\count300
+\pgf@shadingcount=\count301
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+image.code.tex
+File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+external.code.tex
+File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfexternal@startupbox=\box63
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+layers.code.tex
+File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+transparency.code.tex
+File: pgfcoretransparency.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+patterns.code.tex
+File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+rdf.code.tex
+File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodules
+hapes.code.tex
+File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodeparttextbox=\box64
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulep
+lot.code.tex
+File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcom
+p-version-0-65.sty
+Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@nodesepstart=\dimen264
+\pgf@nodesepend=\dimen265
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcom
+p-version-1-18.sty
+Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
+))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.sty
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.st
+y
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.
+code.tex))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.
+tex))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.c
+ode.tex
+Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
+\pgffor@iter=\dimen266
+\pgffor@skip=\dimen267
+\pgffor@stack=\toks38
+\pgffor@toks=\toks39
+))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+\tikz.code.tex
+Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibra
+ryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@plot@mark@count=\count302
+\pgfplotmarksize=\dimen268
+)
+\tikz@lastx=\dimen269
+\tikz@lasty=\dimen270
+\tikz@lastxsaved=\dimen271
+\tikz@lastysaved=\dimen272
+\tikz@lastmovetox=\dimen273
+\tikz@lastmovetoy=\dimen274
+\tikzleveldistance=\dimen275
+\tikzsiblingdistance=\dimen276
+\tikz@figbox=\box65
+\tikz@figbox@bg=\box66
+\tikz@tempbox=\box67
+\tikz@tempbox@bg=\box68
+\tikztreelevel=\count303
+\tikznumberofchildren=\count304
+\tikznumberofcurrentchild=\count305
+\tikz@fig@count=\count306
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulem
+atrix.code.tex
+File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfmatrixcurrentrow=\count307
+\pgfmatrixcurrentcolumn=\count308
+\pgf@matrix@numberofcolumns=\count309
+)
+\tikz@expandcount=\count310
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks40
+\verbatim@line=\toks41
+\verbatim@in@stream=\read3
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/environ\environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces.st
+y
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)
+\@envbody=\toks42
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count311
+)
+\tcb@titlebox=\box69
+\tcb@upperbox=\box70
+\tcb@lowerbox=\box71
+\tcb@phantombox=\box72
+\c@tcbbreakpart=\count312
+\c@tcblayer=\count313
+\c@tcolorbox@number=\count314
+\l__tcobox_tmpa_box=\box73
+\l__tcobox_tmpa_dim=\dimen277
+\tcb@temp=\box74
+\tcb@temp=\box75
+\tcb@temp=\box76
+\tcb@temp=\box77
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbraster.code
+.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '6.9.0'
+\c@tcbrastercolumn=\count315
+\c@tcbrasterrow=\count316
+\c@tcbrasternum=\count317
+\c@tcbraster=\count318
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskins.code.
+tex
+Library (tcolorbox): 'tcbskins.code.tex' version '6.9.0'
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzfill.image.
+sty
+Package: tikzfill.image 2026/04/23 v1.2.0 Image filling library for TikZ
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tikzfill\tikzlibraryfill
+.image.code.tex
+File: tikzlibraryfill.image.code.tex 2026/04/23 v1.2.0 Image filling library
+\l__tikzfill_tmpa_dim=\dimen278
+\l__tikzfill_tmpb_dim=\dimen279
+\l__tikzfill_img_box=\box78
+))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskinsjigsaw
+.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.9.0'
+))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbbreakable.c
+ode.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.9.0'
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pdfcol\pdfcol.sty
+Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.st
+y
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+))
+Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
+\tcb@testbox=\box79
+\tcb@totalupperbox=\box80
+\tcb@totallowerbox=\box81
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbhooks.code.
+tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '6.9.0'
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbtheorems.co
+de.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '6.9.0'
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip84
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks43
+\ex@=\dimen280
+))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen281
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count319
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count320
+\leftroot@=\count321
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count322
+\DOTSCASE@=\count323
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box82
+\strutbox@=\box83
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen282
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count324
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count325
+\dotsspace@=\muskip17
+\c@parentequation=\count326
+\dspbrk@lvl=\count327
+\tag@help=\toks44
+\row@=\count328
+\column@=\count329
+\maxfields@=\count330
+\andhelp@=\toks45
+\eqnshift@=\dimen283
+\alignsep@=\dimen284
+\tagshift@=\dimen285
+\tagwidth@=\dimen286
+\totwidth@=\dimen287
+\lineht@=\dimen288
+\@envbody=\toks46
+\multlinegap=\skip85
+\multlinetaggap=\skip86
+\mathdisplay@stack=\toks47
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbfitting.cod
+e.tex
+Library (tcolorbox): 'tcbfitting.code.tex' version '6.9.0'
+\tcbfitdim=\dimen289
+\tcb@lowerfitdim=\dimen290
+\tcb@upperfitdim=\dimen291
+\tcb@cur@hbadness=\count331
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcblistingsutf
+8.code.tex
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.9.0'
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcblistings.co
+de.tex
+Library (tcolorbox): 'tcblistings.code.tex' version '6.9.0'
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count332
+\lst@gtempboxa=\box84
+\lst@token=\toks48
+\lst@length=\count333
+\lst@currlwidth=\dimen292
+\lst@column=\count334
+\lst@pos=\count335
+\lst@lostspace=\dimen293
+\lst@width=\dimen294
+\lst@newlines=\count336
+\lst@lineno=\count337
+\lst@maxwidth=\dimen295
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+\c@lstnumber=\count338
+\lst@skipnumbers=\count339
+\lst@framebox=\box85
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
+))
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcblistingscor
+e.code.tex
+Library (tcolorbox): 'tcblistingscore.code.tex' version '6.9.0'
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbprocessing.
+code.tex
+Library (tcolorbox): 'tcbprocessing.code.tex' version '6.9.0'
+)
+\c@tcblisting=\count340
+))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/listingsutf8\listingsutf
+8.sty
+Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.
+sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.st
+y
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.st
+y
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+))))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbexternal.co
+de.tex
+Library (tcolorbox): 'tcbexternal.code.tex' version '6.9.0'
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbmagazine.co
+de.tex
+Library (tcolorbox): 'tcbmagazine.code.tex' version '6.9.0'
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbvignette.co
+de.tex
+Library (tcolorbox): 'tcbvignette.code.tex' version '6.9.0'
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibraryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibra
+ryfadings.code.tex
+File: pgflibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbposter.code
+.tex
+Library (tcolorbox): 'tcbposter.code.tex' version '6.9.0'
+)) (C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pdfpages.sty
+Package: pdfpages 2026/03/30 v0.6h Insert pages of external PDF documents (AM)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count341
+\calc@Bcount=\count342
+\calc@Adimen=\dimen296
+\calc@Bdimen=\dimen297
+\calc@Askip=\skip87
+\calc@Bskip=\skip88
+LaTeX Info: Redefining \setlength on input line 86.
+LaTeX Info: Redefining \addtolength on input line 87.
+\calc@Ccount=\count343
+\calc@Cskip=\skip89
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
+Package: eso-pic 2025/12/10 v3.0d eso-pic (RN)
+\ESO@tempdima=\dimen298
+\ESO@tempdimb=\dimen299
+)
+\AM@pagewidth=\dimen300
+\AM@pageheight=\dimen301
+\AM@fboxrule=\dimen302
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def
+File: pppdftex.def 2026/03/30 v0.6h Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count344
+\AM@pagebox=\box86
+\AM@global@opts=\toks49
+\AM@pagecnt=\count345
+\AM@toc@title=\toks50
+\AM@lof@heading=\toks51
+\c@AM@survey=\count346
+\AM@templatesizebox=\box87
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nome
+tadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibra
+ryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen303
+\pgfarrowlength=\dimen304
+\pgfarrowwidth=\dimen305
+\pgfarrowlinewidth=\dimen306
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinek
+eys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitl
+estring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count347
+)
+\@linkdim=\dimen307
+\Hy@linkcounter=\count348
+\Hy@pagecounter=\count349
+ (C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count350
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4195.
+Package hyperref Info: Link nesting OFF on input line 4200.
+Package hyperref Info: Hyper index ON on input line 4203.
+Package hyperref Info: Plain pages OFF on input line 4210.
+Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4462.
+\c@Hy@tempcnt=\count351
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4801.
+\XeTeXLinkMargin=\dimen308
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.
+sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count352
+\Field@Width=\dimen309
+\Fld@charsize=\dimen310
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring OFF on input line 6098.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
+\Hy@abspage=\count353
+\c@Item=\count354
+\c@Hfootnote=\count355
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+\Fld@listcount=\count356
+\c@bookmark@seq@number=\count357
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfile
+check.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniqueco
+unter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
+)
+\Hy@SectionHShift=\skip90
+) (config.tex)
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 6.
+
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
+ex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count358
+) (main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=702.78308pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-38.1381pt
+* \headheight=15.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
+i
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count359
+\scratchdimen=\dimen311
+\scratchbox=\box88
+\nofMPsegments=\count360
+\nofMParguments=\count361
+\everyMPshowfont=\toks52
+\MPscratchCnt=\count362
+\MPscratchDim=\dimen312
+\MPnumerator=\count363
+\makeMPintoPDFobject=\count364
+\everyMPtoPDFconversion=\toks53
+)
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
+se.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cf
+g
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+\c@lstlisting=\count365
+Package hyperref Info: Link coloring OFF on input line 6.
+ (main.out) (main.out)
+\@outlinefile=\write4
+\openout4 = `main.out'.
+
+ (title.tex
+<figures/Page Garde Rapport Stage(Ang).pdf, id=502, 598.235pt x 845.1575pt>
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf  used on inp
+ut line 10.
+(pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
+<figures/Page Garde Rapport Stage(Ang).pdf, id=504, page=1, 598.235pt x 845.157
+5pt>
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 1>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page1 used
+ on input line 10.
+(pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 1>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page1 used
+ on input line 10.
+(pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
+ [1
+
+{C:/Users/BRHN/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/BRHN/
+AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 1>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page1 used
+ on input line 10.
+(pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 1>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page1 used
+ on input line 10.
+(pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 1>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page1 used
+ on input line 10.
+(pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
+ [2
+
+ <./figures/Page Garde Rapport Stage(Ang).pdf>]
+<figures/Page Garde Rapport Stage(Ang).pdf, id=534, page=2, 598.235pt x 845.157
+5pt>
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 2>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page2 used
+ on input line 10.
+(pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 2>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page2 used
+ on input line 10.
+(pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 2>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page2 used
+ on input line 10.
+(pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
+ [3
+
+ <./figures/Page Garde Rapport Stage(Ang).pdf>]
+<figures/Page Garde Rapport Stage(Ang).pdf, id=541, page=3, 598.235pt x 845.157
+5pt>
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 3>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page3 used
+ on input line 10.
+(pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 3>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page3 used
+ on input line 10.
+(pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
+File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
+<use figures/Page Garde Rapport Stage(Ang).pdf, page 3>
+Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page3 used
+ on input line 10.
+(pdftex.def)             Requested size: 597.7406pt x 844.45905pt.
+ [4
+
+ <./figures/Page Garde Rapport Stage(Ang).pdf>]) (frontmatter.tex [5]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
+4.
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+Overfull \hbox (15.72649pt too wide) in paragraph at lines 38--39
+[]\T1/ptm/b/n/12 Centralized Gov-er-nance and Ver-sion-ing: \T1/ptm/m/n/12 In-t
+e-grated MLflow to man-age prompts, schemas,
+ []
+
+
+Overfull \hbox (10.13484pt too wide) in paragraph at lines 38--39
+\T1/ptm/m/n/12 and con-fig-u-ra-tion ar-ti-facts, en-abling trace-abil-ity, ver
+-sion con-trol, and a ``Zero Code Change''
+ []
+
+[6] [7] (main.toc [8
+
+] [9])
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
+ [10] (main.lof [11
+
+])
+\tf@lof=\write6
+\openout6 = `main.lof'.
+
+ [12] (main.lot)
+\tf@lot=\write7
+\openout7 = `main.lot'.
+
+ [13
+
+])
+(chapters/introduction.tex [14
+
+]) (chapters/chapter1.tex [1
+
+]
+<figures/value_logo_transparent.png, id=842, 345.29pt x 128.48pt>
+File: figures/value_logo_transparent.png Graphic file (type png)
+<use figures/value_logo_transparent.png>
+Package pdftex.def Info: figures/value_logo_transparent.png  used on input line
+ 21.
+(pdftex.def)             Requested size: 227.62206pt x 84.69707pt.
+ [2 <./figures/value_logo_transparent.png>] [3] [4]
+<figures/fastapi_logo.png, id=858, 1275.93932pt x 459.78673pt>
+File: figures/fastapi_logo.png Graphic file (type png)
+<use figures/fastapi_logo.png>
+Package pdftex.def Info: figures/fastapi_logo.png  used on input line 119.
+(pdftex.def)             Requested size: 81.9406pt x 29.52235pt.
+<figures/nextjs_logo.png, id=859, 225.84375pt x 225.84375pt>
+File: figures/nextjs_logo.png Graphic file (type png)
+<use figures/nextjs_logo.png>
+Package pdftex.def Info: figures/nextjs_logo.png  used on input line 130.
+(pdftex.def)             Requested size: 81.9406pt x 81.94121pt.
+<figures/langchain_logo.png, id=860, 546.04pt x 92.345pt>
+File: figures/langchain_logo.png Graphic file (type png)
+<use figures/langchain_logo.png>
+Package pdftex.def Info: figures/langchain_logo.png  used on input line 141.
+(pdftex.def)             Requested size: 81.9406pt x 13.85678pt.
+ [5 <./figures/fastapi_logo.png> <./figures/nextjs_logo.png>]
+<figures/langgraph_logo.png, id=869, 319.1925pt x 159.59625pt>
+File: figures/langgraph_logo.png Graphic file (type png)
+<use figures/langgraph_logo.png>
+Package pdftex.def Info: figures/langgraph_logo.png  used on input line 152.
+(pdftex.def)             Requested size: 81.9406pt x 40.97046pt.
+<figures/jupyter_logo.png, id=870, 1405.25pt x 379.4175pt>
+File: figures/jupyter_logo.png Graphic file (type png)
+<use figures/jupyter_logo.png>
+Package pdftex.def Info: figures/jupyter_logo.png  used on input line 163.
+(pdftex.def)             Requested size: 81.9406pt x 22.12143pt.
+<figures/openai_logo.png, id=871, 432.61626pt x 117.43875pt>
+File: figures/openai_logo.png Graphic file (type png)
+<use figures/openai_logo.png>
+Package pdftex.def Info: figures/openai_logo.png  used on input line 175.
+(pdftex.def)             Requested size: 81.9406pt x 22.2437pt.
+<figures/groq_logo.png, id=872, 373.395pt x 136.51pt>
+File: figures/groq_logo.png Graphic file (type png)
+<use figures/groq_logo.png>
+Package pdftex.def Info: figures/groq_logo.png  used on input line 186.
+(pdftex.def)             Requested size: 81.9406pt x 29.95522pt.
+<figures/phi4_logo.png, id=873, 312.16624pt x 162.6075pt>
+File: figures/phi4_logo.png Graphic file (type png)
+<use figures/phi4_logo.png>
+Package pdftex.def Info: figures/phi4_logo.png  used on input line 197.
+(pdftex.def)             Requested size: 81.9406pt x 42.68138pt.
+ [6 <./figures/langchain_logo.png> <./figures/langgraph_logo.png> <./figures/ju
+pyter_logo.png> <./figures/openai_logo.png> <./figures/groq_logo.png> <./figure
+s/phi4_logo.png>]
+<figures/llama4_logo.png, id=884, 224.84pt x 224.84pt>
+File: figures/llama4_logo.png Graphic file (type png)
+<use figures/llama4_logo.png>
+Package pdftex.def Info: figures/llama4_logo.png  used on input line 208.
+(pdftex.def)             Requested size: 81.9406pt x 81.94069pt.
+<figures/postgresql_logo.png, id=885, 333.245pt x 152.57pt>
+File: figures/postgresql_logo.png Graphic file (type png)
+<use figures/postgresql_logo.png>
+Package pdftex.def Info: figures/postgresql_logo.png  used on input line 224.
+(pdftex.def)             Requested size: 81.9406pt x 37.51382pt.
+<figures/mlflow_logo.png, id=886, 372.39125pt x 136.51pt>
+File: figures/mlflow_logo.png Graphic file (type png)
+<use figures/mlflow_logo.png>
+Package pdftex.def Info: figures/mlflow_logo.png  used on input line 235.
+(pdftex.def)             Requested size: 81.9406pt x 30.03645pt.
+<figures/docker_logo.png, id=887, 472.76625pt x 107.40125pt>
+File: figures/docker_logo.png Graphic file (type png)
+<use figures/docker_logo.png>
+Package pdftex.def Info: figures/docker_logo.png  used on input line 248.
+(pdftex.def)             Requested size: 81.9406pt x 18.61522pt.
+<figures/docker_compose_logo.png, id=888, 298.11375pt x 170.6375pt>
+File: figures/docker_compose_logo.png Graphic file (type png)
+<use figures/docker_compose_logo.png>
+Package pdftex.def Info: figures/docker_compose_logo.png  used on input line 25
+9.
+(pdftex.def)             Requested size: 81.9406pt x 46.90071pt.
+ [7 <./figures/llama4_logo.png> <./figures/postgresql_logo.png> <./figures/mlfl
+ow_logo.png> <./figures/docker_logo.png>]
+<figures/Gitlab.png, id=897, 363.3575pt x 139.52126pt>
+File: figures/Gitlab.png Graphic file (type png)
+<use figures/Gitlab.png>
+Package pdftex.def Info: figures/Gitlab.png  used on input line 270.
+(pdftex.def)             Requested size: 81.9406pt x 31.4633pt.
+<figures/laminar_logo.png, id=898, 233.673pt x 57.816pt>
+File: figures/laminar_logo.png Graphic file (type png)
+<use figures/laminar_logo.png>
+Package pdftex.def Info: figures/laminar_logo.png  used on input line 282.
+(pdftex.def)             Requested size: 81.9406pt x 20.27382pt.
+
+[8 <./figures/docker_compose_logo.png> <./figures/Gitlab.png> <./figures/lamina
+r_logo.png>] [9] [10] [11]
+<figures/ChatGPT Image Jun 3, 2026, 03_42_14 PM.png, id=921, 1453.43pt x 1090.0
+725pt>
+File: figures/ChatGPT Image Jun 3, 2026, 03_42_14 PM.png Graphic file (type png
+)
+<use figures/ChatGPT Image Jun 3, 2026, 03_42_14 PM.png>
+Package pdftex.def Info: figures/ChatGPT Image Jun 3, 2026, 03_42_14 PM.png  us
+ed on input line 525.
+(pdftex.def)             Requested size: 432.48051pt x 324.36296pt.
+ [12]) (chapters/chapter2.tex [13 <./figures/ChatGPT Image Jun 3, 2026, 03_42_1
+4 PM.png (PNG copy)>]
+<figures/ai-agent.png, id=930, 611.28375pt x 243.15843pt>
+File: figures/ai-agent.png Graphic file (type png)
+<use figures/ai-agent.png>
+Package pdftex.def Info: figures/ai-agent.png  used on input line 26.
+(pdftex.def)             Requested size: 386.96027pt x 153.92526pt.
+ [14 <./figures/ai-agent.png>]
+<figures/figure-20.png, id=936, 473.3685pt x 337.26pt>
+File: figures/figure-20.png Graphic file (type png)
+<use figures/figure-20.png>
+Package pdftex.def Info: figures/figure-20.png  used on input line 45.
+(pdftex.def)             Requested size: 409.71692pt x 291.92143pt.
+
+[15 <./figures/figure-20.png>]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 61
+.
+
+(C:\Users\BRHN\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+[16] [17] [18] [19] [20]
+Underfull \hbox (badness 1308) in paragraph at lines 275--276
+[]|\T1/ptm/m/n/10.95 VIP should keep work-flow cre-ation
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 277--277
+[]|\T1/ptm/m/n/10.95 CrewAI struc-tures col-lab-o-ra-tion
+ []
+
+
+Underfull \hbox (badness 2393) in paragraph at lines 281--282
+[]|\T1/ptm/m/n/10.95 VIP should stan-dard-ize de-ploy-ment
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--282
+\T1/ptm/m/n/10.95 through Dock-er-ized in-de-pen-dent
+ []
+
+[21]
+<figures/language-models.png, id=970, 274.626pt x 139.722pt>
+File: figures/language-models.png Graphic file (type png)
+<use figures/language-models.png>
+Package pdftex.def Info: figures/language-models.png  used on input line 302.
+(pdftex.def)             Requested size: 341.43307pt x 173.70972pt.
+ [22 <./figures/language-models.png>]
+<figures/LLM-vs-SLM.png, id=976, 246.9225pt x 154.77824pt>
+File: figures/LLM-vs-SLM.png Graphic file (type png)
+<use figures/LLM-vs-SLM.png>
+Package pdftex.def Info: figures/LLM-vs-SLM.png  used on input line 323.
+(pdftex.def)             Requested size: 341.43307pt x 214.03348pt.
+ [23 <./figures/LLM-vs-SLM.png>]
+<figures/SLM-Quality.png, id=983, 485.4135pt x 323.40825pt>
+File: figures/SLM-Quality.png Graphic file (type png)
+<use figures/SLM-Quality.png>
+Package pdftex.def Info: figures/SLM-Quality.png  used on input line 338.
+(pdftex.def)             Requested size: 341.43307pt x 227.47974pt.
+
+[24 <./figures/SLM-Quality.png>]) (chapters/chapter3.tex [25] [26]
+<figures/repport 0.1 - visual selection.png, id=997, 594.22pt x 257.96375pt>
+File: figures/repport 0.1 - visual selection.png Graphic file (type png)
+<use figures/repport 0.1 - visual selection.png>
+Package pdftex.def Info: figures/repport 0.1 - visual selection.png  used on in
+put line 18.
+(pdftex.def)             Requested size: 409.71692pt x 177.87314pt.
+ [27
+
+ <./figures/repport 0.1 - visual selection.png>]
+Underfull \hbox (badness 2932) in paragraph at lines 40--40
+[]|\T1/ptm/m/n/10.95 Configuration-driven be-
+ []
+
+
+Underfull \hbox (badness 1688) in paragraph at lines 40--41
+[]|\T1/ptm/m/n/10.95 Agent be-hav-ior is con-trolled through prompts, tools,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--44
+[]|\T1/ptm/m/n/10.95 Contract-first com-mu-ni-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]|\T1/ptm/m/n/10.95 Containerized de-ploy-
+ []
+
+<figures/system-view.png, id=1003, 722.7pt x 516.93124pt>
+File: figures/system-view.png Graphic file (type png)
+<use figures/system-view.png>
+Package pdftex.def Info: figures/system-view.png  used on input line 66.
+(pdftex.def)             Requested size: 409.71692pt x 293.06055pt.
+[28]
+<figures/Container-view.png, id=1008, 809.0225pt x 684.5575pt>
+File: figures/Container-view.png Graphic file (type png)
+<use figures/Container-view.png>
+Package pdftex.def Info: figures/Container-view.png  used on input line 79.
+(pdftex.def)             Requested size: 409.71692pt x 346.6859pt.
+ [29 <./figures/system-view.png>] [30 <./figures/Container-view.png>]
+<figures/Config-driven.png, id=1021, 651.43375pt x 243.91125pt>
+File: figures/Config-driven.png Graphic file (type png)
+<use figures/Config-driven.png>
+Package pdftex.def Info: figures/Config-driven.png  used on input line 136.
+(pdftex.def)             Requested size: 318.66948pt x 119.3203pt.
+
+[31]
+<figures/agent-lifecycle.png, id=1026, 1057.9525pt x 197.73875pt>
+File: figures/agent-lifecycle.png Graphic file (type png)
+<use figures/agent-lifecycle.png>
+Package pdftex.def Info: figures/agent-lifecycle.png  used on input line 149.
+(pdftex.def)             Requested size: 409.71692pt x 76.57771pt.
+<figures/agent-runtime.png, id=1027, 708.6475pt x 175.65625pt>
+File: figures/agent-runtime.png Graphic file (type png)
+<use figures/agent-runtime.png>
+Package pdftex.def Info: figures/agent-runtime.png  used on input line 166.
+(pdftex.def)             Requested size: 409.71692pt x 101.55905pt.
+ [32 <./figures/Config-driven.png> <./figures/agent-lifecycle.png>]
+[33 <./figures/agent-runtime.png>] [34] [35]
+Overfull \hbox (24.56049pt too wide) in paragraph at lines 266--267
+\T1/ptm/m/n/12 mon tool in-ter-face files and only the se-lected tools re-quire
+d by the agent. The \T1/pcr/m/n/12 requirements.txt
+ []
+
+[36]
+<figures/workflow_architecture_diagram.png, id=1052, 682.55pt x 637.38126pt>
+File: figures/workflow_architecture_diagram.png Graphic file (type png)
+<use figures/workflow_architecture_diagram.png>
+Package pdftex.def Info: figures/workflow_architecture_diagram.png  used on inp
+ut line 301.
+(pdftex.def)             Requested size: 364.19667pt x 340.09598pt.
+ [37] [38 <./figures/workflow_architecture_diagram.png>]
+<figures/vip_data_storage_governance.png, id=1064, 682.55pt x 337.26pt>
+File: figures/vip_data_storage_governance.png Graphic file (type png)
+<use figures/vip_data_storage_governance.png>
+Package pdftex.def Info: figures/vip_data_storage_governance.png  used on input
+ line 342.
+(pdftex.def)             Requested size: 409.71692pt x 202.45018pt.
+
+Overfull \hbox (60.89493pt too wide) in paragraph at lines 347--348
+[]\T1/ptm/m/n/12 The main ap-pli-ca-tion ta-bles are \T1/pcr/m/n/12 apps\T1/ptm
+/m/n/12 , \T1/pcr/m/n/12 agents\T1/ptm/m/n/12 , \T1/pcr/m/n/12 agent_library\T1
+/ptm/m/n/12 , and \T1/pcr/m/n/12 workflow_definitions\T1/ptm/m/n/12 .
+ []
+
+
+Overfull \hbox (6.06813pt too wide) in paragraph at lines 347--348
+\T1/ptm/m/n/12 run-time sta-tus, con-tainer meta-data, im-age tag, and end-poin
+t in-for-ma-tion. The \T1/pcr/m/n/12 agent_library
+ []
+
+[39 <./figures/vip_data_storage_governance.png>]
+Overfull \hbox (3.48483pt too wide) in paragraph at lines 373--374
+[]\T1/ptm/m/n/12 The SLM-Evals project sup-ports this provider ab-strac-tion by
+ pro-vid-ing an eval-u-a-tion pipeline
+ []
+
+[40] [41]
+<figures/docker-bridge-network-2.png, id=1080, 1569.865pt x 822.07124pt>
+File: figures/docker-bridge-network-2.png Graphic file (type png)
+<use figures/docker-bridge-network-2.png>
+Package pdftex.def Info: figures/docker-bridge-network-2.png  used on input lin
+e 401.
+(pdftex.def)             Requested size: 409.71692pt x 214.54883pt.
+<figures/multi-stage1.jpg, id=1082, 1540.75626pt x 1027.84pt>
+File: figures/multi-stage1.jpg Graphic file (type jpg)
+<use figures/multi-stage1.jpg>
+Package pdftex.def Info: figures/multi-stage1.jpg  used on input line 421.
+(pdftex.def)             Requested size: 364.19667pt x 242.95395pt.
+ [42 <./figures/docker-bridge-network-2.png>] [43 <./figures/multi-stage1.jpg>]
+<figures/observability.png, id=1092, 639.38875pt x 490.83376pt>
+File: figures/observability.png Graphic file (type png)
+<use figures/observability.png>
+Package pdftex.def Info: figures/observability.png  used on input line 446.
+(pdftex.def)             Requested size: 409.71692pt x 314.52946pt.
+ [44 <./figures/observability.png>] [45] [46]) (chapters/chapter4.tex
+[47]
+<figures/VIP_implementation.png, id=1111, 1453.43pt x 1090.0725pt>
+File: figures/VIP_implementation.png Graphic file (type png)
+<use figures/VIP_implementation.png>
+Package pdftex.def Info: figures/VIP_implementation.png  used on input line 21.
+
+(pdftex.def)             Requested size: 409.71692pt x 307.28073pt.
+ [48
+
+]
+Overfull \hbox (7.17265pt too wide) in paragraph at lines 38--39
+\T1/ptm/m/n/12 per, a gen-er-a-tor, and a san-i-tizer. In this re-port, these r
+oles are re-ferred to as \T1/pcr/m/n/12 extractor_agent\T1/ptm/m/n/12 ,
+ []
+
+[49 <./figures/VIP_implementation.png (PNG copy)>]
+
+LaTeX Warning: Reference `sec:workflow-orchestration-implementation' on page 50
+ undefined on input line 40.
+
+<figures/scenario_VIP.png, id=1121, 1096.095pt x 545.03625pt>
+File: figures/scenario_VIP.png Graphic file (type png)
+<use figures/scenario_VIP.png>
+Package pdftex.def Info: figures/scenario_VIP.png  used on input line 46.
+(pdftex.def)             Requested size: 432.48051pt x 215.04994pt.
+
+Underfull \hbox (badness 1661) in paragraph at lines 81--81
+[]|\T1/ptm/m/n/10.95 Extracts struc-tured con-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--81
+[]|\T1/pcr/m/n/10.95 pdf_loader\T1/ptm/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 2285) in paragraph at lines 81--81
+[]|\T1/ptm/m/n/10.95 Pages, ta-bles, and raw
+ []
+
+
+Underfull \hbox (badness 3735) in paragraph at lines 81--81
+[]|\T1/ptm/m/n/10.95 Maps ex-tracted con-tent
+ []
+
+
+Overfull \hbox (8.27272pt too wide) in paragraph at lines 81--81
+[]|\T1/pcr/m/n/10.95 semantic_matcher\T1/ptm/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--81
+[]|\T1/ptm/m/n/10.95 Revenue, fi-nan-cial
+ []
+
+
+Overfull \hbox (31.8152pt too wide) in paragraph at lines 81--81
+[]|\T1/pcr/m/n/10.95 numerical_calculator| 
+ []
+
+
+Underfull \hbox (badness 5417) in paragraph at lines 81--81
+[]|\T1/ptm/m/n/10.95 Revenue anal-y-sis, cost
+ []
+
+
+Underfull \hbox (badness 6204) in paragraph at lines 81--81
+\T1/ptm/m/n/10.95 sult anal-y-sis, and red
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--81
+[]|\T1/pcr/m/n/10.95 pii_detector\T1/ptm/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--81
+[]|\T1/ptm/m/n/10.95 Sanitized con-tent and
+ []
+
+[50 <./figures/scenario_VIP.png>] [51]
+Overfull \hbox (6.10536pt too wide) in paragraph at lines 108--109
+[]\T1/ptm/b/n/12 Configuration prepa-ra-tion \T1/ptm/m/n/12 -- \T1/pcr/m/n/12 b
+uilder/services/config_normalizer.py \T1/ptm/m/n/12 and
+ []
+
+
+Overfull \hbox (6.9806pt too wide) in paragraph at lines 108--109
+\T1/pcr/m/n/12 builder/services/config_validator.py\T1/ptm/m/n/12 : nor-mal-ize
+ and val-i-date the re-ceived
+ []
+
+<figures/agent_factory.png, id=1132, 1084.05pt x 456.70625pt>
+File: figures/agent_factory.png Graphic file (type png)
+<use figures/agent_factory.png>
+Package pdftex.def Info: figures/agent_factory.png  used on input line 125.
+(pdftex.def)             Requested size: 455.24411pt x 191.7944pt.
+[52 <./figures/agent_factory.png>]
+Overfull \hbox (17.69748pt too wide) in paragraph at lines 135--136
+\T1/pcr/m/n/12 agent_core/ \T1/ptm/m/n/12 scaf-fold, while their be-hav-ior is 
+de-fined by the gen-er-ated \T1/pcr/m/n/12 agent_config.yaml
+ []
+
+
+Overfull \hbox (24.56178pt too wide) in paragraph at lines 139--140
+\T1/ptm/m/n/12 us-ing a stan-dard re-quest en-ve-lope com-posed of a \T1/pcr/m/
+n/12 trace_id\T1/ptm/m/n/12 , a \T1/pcr/m/n/12 payload\T1/ptm/m/n/12 , and op-t
+ional \T1/pcr/m/n/12 metadata\T1/ptm/m/n/12 .
+ []
+
+<figures/generated_agent_runtime.png, id=1139, 1141.26375pt x 395.4775pt>
+File: figures/generated_agent_runtime.png Graphic file (type png)
+<use figures/generated_agent_runtime.png>
+Package pdftex.def Info: figures/generated_agent_runtime.png  used on input lin
+e 145.
+(pdftex.def)             Requested size: 455.24411pt x 157.75371pt.
+[53 <./figures/generated_agent_runtime.png>]
+Overfull \hbox (1.69055pt too wide) in paragraph at lines 157--158
+\T1/ptm/m/n/12 dates \T1/pcr/m/n/12 POST /run \T1/ptm/m/n/12 re-quests with \T1
+/pcr/m/n/12 RunRequest \T1/ptm/m/n/12 in \T1/pcr/m/n/12 agent_core/api/schemas/
+run.py\T1/ptm/m/n/12 .
+ []
+
+
+Overfull \hbox (236.8891pt too wide) in paragraph at lines 157--158
+\T1/ptm/m/n/12 The builder val-i-dates agent cre-ation re-quests with \T1/pcr/m
+/n/12 CreateAgentRequest \T1/ptm/m/n/12 in \T1/pcr/m/n/12 builder/api/schemas/c
+reate_agent_request.py\T1/ptm/m/n/12 .
+ []
+
+
+Overfull \hbox (33.58485pt too wide) in paragraph at lines 157--158
+\T1/ptm/m/n/12 The or-ches-tra-tor val-i-dates dy-namic work-flow ex-e-cu-tion 
+re-quests with \T1/pcr/m/n/12 RunWorkflowSpecRequest
+ []
+
+
+Overfull \hbox (78.87393pt too wide) in paragraph at lines 159--160
+\T1/ptm/m/n/12 the con-fig-ured out-put schema. At the work-flow level, \T1/pcr
+/m/n/12 orchestrator/services/schema_service.py
+ []
+
+
+Overfull \hbox (54.63281pt too wide) in paragraph at lines 181--182
+\T1/ptm/m/n/12 graph and for-wards the run-time spec-i-fi-ca-tion to the or-che
+s-tra-tor through \T1/pcr/m/n/12 POST /run-workflow-spec\T1/ptm/m/n/12 .
+ []
+
+
+Overfull \hbox (76.54655pt too wide) in paragraph at lines 181--182
+\T1/ptm/m/n/12 The re-quest is then han-dled by \T1/pcr/m/n/12 runWorkflowSpec.
+py \T1/ptm/m/n/12 and ex-e-cuted by \T1/pcr/m/n/12 WorkflowExecutionService\T1/
+ptm/m/n/12 . 
+ []
+
+
+Overfull \hbox (38.28737pt too wide) in paragraph at lines 187--188
+\T1/ptm/m/n/12 de-ter-min-is-tic adap-ta-tion, and when this is not suf-fi-cien
+t, it re-lies on the model-backed \T1/pcr/m/n/12 AdapterAgent\T1/ptm/m/n/12 . 
+ []
+
+[54] [55]
+Overfull \hbox (54.15294pt too wide) in paragraph at lines 282--283
+\T1/ptm/m/n/12 the ed-itable graph in \T1/pcr/m/n/12 graph_json \T1/ptm/m/n/12 
+and the com-piled ex-e-cutable spec-i-fi-ca-tion in \T1/pcr/m/n/12 runtime_spec
+_json\T1/ptm/m/n/12 .
+ []
+
+
+Overfull \hbox (74.97224pt too wide) in paragraph at lines 290--291
+\T1/ptm/m/n/12 In the cur-rent im-ple-men-ta-tion, gen-er-ated agents use the D
+ock-er-file copied from \T1/pcr/m/n/12 agent_core/Dockerfile\T1/ptm/m/n/12 .
+ []
+
+
+Overfull \hbox (32.02385pt too wide) in paragraph at lines 292--293
+\T1/ptm/m/n/12 time stage in-stalls these pre-built wheels and the pack-ages li
+sted in \T1/pcr/m/n/12 apt-runtime-packages.txt\T1/ptm/m/n/12 .
+ []
+
+
+Overfull \hbox (18.32243pt too wide) in paragraph at lines 292--293
+\T1/ptm/m/n/12 These de-pen-dency files are gen-er-ated by \T1/pcr/m/n/12 build
+er/services/dependency_resolver.py
+ []
+
+[56]
+<figures/docker_dep.png, id=1162, 1126.2075pt x 1240.635pt>
+File: figures/docker_dep.png Graphic file (type png)
+<use figures/docker_dep.png>
+Package pdftex.def Info: figures/docker_dep.png  used on input line 302.
+(pdftex.def)             Requested size: 418.82375pt x 461.37515pt.
+ [57] [58 <./figures/docker_dep.png>]
+Overfull \hbox (51.797pt too wide) in paragraph at lines 329--330
+[]\T1/ptm/m/n/12 MLflow was then ini-tial-ized us-ing the lo-cal track-ing serv
+er avail-able at \T1/pcr/m/n/12 http://127.0.0.1:5000\T1/ptm/m/n/12 .
+ []
+
+[59]
+<figures/slm_mlflow_setup_summary.png, id=1177, 446.8695pt x 183.68625pt>
+File: figures/slm_mlflow_setup_summary.png Graphic file (type png)
+<use figures/slm_mlflow_setup_summary.png>
+Package pdftex.def Info: figures/slm_mlflow_setup_summary.png  used on input li
+ne 359.
+(pdftex.def)             Requested size: 409.71692pt x 168.4216pt.
+
+Overfull \hbox (96.68997pt too wide) in paragraph at lines 369--372
+[]\T1/ptm/m/n/12 The eval-u-a-tion dataset was cre-ated in MLflow un-der the na
+me \T1/pcr/m/n/12 bank_financial_analysis_golden_v4\T1/ptm/m/n/12 .
+ []
+
+
+Overfull \hbox (79.08893pt too wide) in paragraph at lines 369--372
+\T1/ptm/m/n/12 prompt was also reg-is-tered in MLflow Prompt Reg-istry un-der t
+he name \T1/pcr/m/n/12 financial_analysis_baseline\T1/ptm/m/n/12 .
+ []
+
+[60 <./figures/slm_mlflow_setup_summary.png>]
+<figures/slm_prompt_registry.png, id=1183, 1109.3445pt x 437.83575pt>
+File: figures/slm_prompt_registry.png Graphic file (type png)
+<use figures/slm_prompt_registry.png>
+Package pdftex.def Info: figures/slm_prompt_registry.png  used on input line 42
+2.
+(pdftex.def)             Requested size: 409.71692pt x 161.70941pt.
+ [61]
+<figures/slm_golden_dataset.png, id=1196, 1106.33325pt x 435.42674pt>
+File: figures/slm_golden_dataset.png Graphic file (type png)
+<use figures/slm_golden_dataset.png>
+Package pdftex.def Info: figures/slm_golden_dataset.png  used on input line 429
+.
+(pdftex.def)             Requested size: 409.71692pt x 161.25154pt.
+ [62 <./figures/slm_prompt_registry.png> <./figures/slm_golden_dataset.png>]
+Overfull \hbox (2.63702pt too wide) in paragraph at lines 462--463
+[]\T1/pcr/m/n/12 baseline_outputs_test_case_004.jsonl\T1/ptm/m/n/12 , pro-vid-i
+ng the same out-puts in line-
+ []
+
+<figures/slm_baseline_generation_outputs.png, id=1203, 759.43726pt x 304.7385pt
+>
+File: figures/slm_baseline_generation_outputs.png Graphic file (type png)
+<use figures/slm_baseline_generation_outputs.png>
+Package pdftex.def Info: figures/slm_baseline_generation_outputs.png  used on i
+nput line 471.
+(pdftex.def)             Requested size: 432.48051pt x 173.54465pt.
+[63 <./figures/slm_baseline_generation_outputs.png>]
+Overfull \hbox (175.68698pt too wide) in paragraph at lines 493--494
+\T1/ptm/m/n/12 plete-ness, and hal-lu-ci-na-tion risk. A sec-ond judge con-fig-
+u-ra-tion, \T1/pcr/m/n/12 meta-llama/llama-4-scout-17b-16e-instruct\T1/ptm/m/n/
+12 ,
+ []
+
+[64]
+Overfull \hbox (35.64867pt too wide) in paragraph at lines 506--507
+[]\T1/ptm/m/n/12 Secondary judge / RA-GAS judge: \T1/pcr/m/n/12 meta-llama/llam
+a-4-scout-17b-16e-instruct\T1/ptm/m/n/12 . 
+ []
+
+
+Overfull \hbox (208.65953pt too wide) detected at line 520
+\OML/cmm/m/it/12 FinalScore \OT1/cmr/m/n/12 = 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/1
+2 38 \OMS/cmsy/m/n/12 ^^B \OML/cmm/m/it/12 JudgeQuality \OT1/cmr/m/n/12 + 0\OML
+/cmm/m/it/12 :\OT1/cmr/m/n/12 19 \OMS/cmsy/m/n/12 ^^B \OML/cmm/m/it/12 Semantic
+Score \OT1/cmr/m/n/12 + 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 1425 \OMS/cmsy/m/n/1
+2 ^^B \OML/cmm/m/it/12 Structure \OT1/cmr/m/n/12 + 0\OML/cmm/m/it/12 :\OT1/cmr/
+m/n/12 1425 \OMS/cmsy/m/n/12 ^^B \OML/cmm/m/it/12 Safety \OT1/cmr/m/n/12 + 0\OM
+L/cmm/m/it/12 :\OT1/cmr/m/n/12 095 \OMS/cmsy/m/n/12 ^^B \OML/cmm/m/it/12 Effici
+ency \OT1/cmr/m/n/12 + 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 05 \OMS/cmsy/m/n/12 ^
+^B \OML/cmm/m/it/12 ChrF
+ []
+
+<figures/slm_multilayer_evaluation_metrics.png, id=1215, 328.8285pt x 308.352pt
+>
+File: figures/slm_multilayer_evaluation_metrics.png Graphic file (type png)
+<use figures/slm_multilayer_evaluation_metrics.png>
+Package pdftex.def Info: figures/slm_multilayer_evaluation_metrics.png  used on
+ input line 528.
+(pdftex.def)             Requested size: 432.48051pt x 405.56732pt.
+[65]
+Overfull \hbox (22.12527pt too wide) in paragraph at lines 544--545
+[]\T1/pcr/m/n/12 comparison_metrics_test_case_004_nb4.csv\T1/ptm/m/n/12 , con-t
+ain-ing the ag-gre-gated model
+ []
+
+[66 <./figures/slm_multilayer_evaluation_metrics.png>]
+Overfull \hbox (7.35309pt too wide) in paragraph at lines 552--553
+[]\T1/pcr/m/n/12 judge_section_scores_test_case_004_nb4.csv\T1/ptm/m/n/12 , sto
+r-ing section-level judge
+ []
+
+
+Overfull \hbox (11.02562pt too wide) in paragraph at lines 556--557
+[]\T1/pcr/m/n/12 judge_eval_test_case_004_openai_gpt-oss-20b.json\T1/ptm/m/n/12
+ , stor-ing the cached
+ []
+
+
+Overfull \hbox (87.13776pt too wide) in paragraph at lines 559--560
+[]\T1/ptm/m/n/12 The main MLflow eval-u-a-tion run was iden-ti-fied by the run 
+ID \T1/pcr/m/n/12 44c74a49b6694c3aa3dbfaaf107d3926\T1/ptm/m/n/12 .
+ []
+
+<figures/slm_mlflow_evaluation_artifacts.png, id=1228, 1010.5755pt x 374.5995pt
+>
+File: figures/slm_mlflow_evaluation_artifacts.png Graphic file (type png)
+<use figures/slm_mlflow_evaluation_artifacts.png>
+Package pdftex.def Info: figures/slm_mlflow_evaluation_artifacts.png  used on i
+nput line 567.
+(pdftex.def)             Requested size: 432.48051pt x 160.3087pt.
+<figures/radar_comparison_test_case_004.png, id=1230, 702.625pt x 501.875pt>
+File: figures/radar_comparison_test_case_004.png Graphic file (type png)
+<use figures/radar_comparison_test_case_004.png>
+Package pdftex.def Info: figures/radar_comparison_test_case_004.png  used on in
+put line 576.
+(pdftex.def)             Requested size: 386.96027pt x 276.40733pt.
+[67 <./figures/slm_mlflow_evaluation_artifacts.png>] [68 <./figures/radar_compa
+rison_test_case_004.png>]
+Overfull \hbox (2.07126pt too wide) in paragraph at lines 601--602
+[]\T1/ptm/m/n/12 Llama 3.1 ob-tained the high-est fi-nal com-pos-ite score, wit
+h \T1/pcr/m/n/12 0.648\T1/ptm/m/n/12 , com-pared with \T1/pcr/m/n/12 0.643
+ []
+
+[69]
+<figures/slm_prompt_variant_comparison.png, id=1246, 519.74174pt x 91.542pt>
+File: figures/slm_prompt_variant_comparison.png Graphic file (type png)
+<use figures/slm_prompt_variant_comparison.png>
+Package pdftex.def Info: figures/slm_prompt_variant_comparison.png  used on inp
+ut line 637.
+(pdftex.def)             Requested size: 432.48051pt x 76.17538pt.
+<figures/vip_dashboard.png, id=1248, 1121.3895pt x 465.53925pt>
+File: figures/vip_dashboard.png Graphic file (type png)
+<use figures/vip_dashboard.png>
+Package pdftex.def Info: figures/vip_dashboard.png  used on input line 655.
+(pdftex.def)             Requested size: 432.48051pt x 179.54216pt.
+ [70 <./figures/slm_prompt_variant_comparison.png>]
+<figures/vip_agents_list.png, id=1255, 1117.17375pt x 447.47176pt>
+File: figures/vip_agents_list.png Graphic file (type png)
+<use figures/vip_agents_list.png>
+Package pdftex.def Info: figures/vip_agents_list.png  used on input line 664.
+(pdftex.def)             Requested size: 432.48051pt x 173.22281pt.
+<figures/vip_apps_list.png, id=1256, 1120.78725pt x 443.85825pt>
+File: figures/vip_apps_list.png Graphic file (type png)
+<use figures/vip_apps_list.png>
+Package pdftex.def Info: figures/vip_apps_list.png  used on input line 674.
+(pdftex.def)             Requested size: 432.48051pt x 171.2686pt.
+ [71 <./figures/vip_dashboard.png> <./figures/vip_agents_list.png>]) [72 <./fig
+ures/vip_apps_list.png>] [73] 
+enddocument/afterlastpage (AED): lastpage setting LastPage.
+(main.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: F69FF2BA1B777D12742785CF714D7FC8;24607.
+ ) 
+Here is how much of TeX's memory you used:
+ 30725 strings out of 467871
+ 627669 string characters out of 5418860
+ 1041832 words of memory out of 5000000
+ 58765 multiletter control sequences out of 15000+600000
+ 689578 words of font info for 105 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 121i,17n,124p,818b,879s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mmi12.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmr12.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/urw/courier/ucrb8a.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/urw/courier/ucrr8a.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/urw/times/utmb8a.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/urw/times/utmbi8a.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/urw/times/utmr8a.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/urw/times/utmri8a.pfb>
+Output written on main.pdf (87 pages, 5419427 bytes).
+PDF statistics:
+ 1378 PDF objects out of 1440 (max. 8388607)
+ 283 named destinations out of 1000 (max. 500000)
+ 1347 words of extra memory for PDF output out of 10000 (max. 10000000)
+
