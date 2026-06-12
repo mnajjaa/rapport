@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.21)  11 JUN 2026 15:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.21)  12 JUN 2026 14:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1033,13 +1033,13 @@ Package hyperref Info: Link coloring OFF on input line 6.
 \openout4 = `main.out'.
 
  (title.tex
-<figures/Page Garde Rapport Stage(Ang).pdf, id=502, 598.235pt x 845.1575pt>
+<figures/Page Garde Rapport Stage(Ang).pdf, id=494, 598.235pt x 845.1575pt>
 File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
 <use figures/Page Garde Rapport Stage(Ang).pdf>
 Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf  used on inp
 ut line 10.
 (pdftex.def)             Requested size: 598.23354pt x 845.15544pt.
-<figures/Page Garde Rapport Stage(Ang).pdf, id=504, page=1, 598.235pt x 845.157
+<figures/Page Garde Rapport Stage(Ang).pdf, id=496, page=1, 598.235pt x 845.157
 5pt>
 File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
 <use figures/Page Garde Rapport Stage(Ang).pdf, page 1>
@@ -1073,7 +1073,7 @@ Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page1 used
  [2
 
  <./figures/Page Garde Rapport Stage(Ang).pdf>]
-<figures/Page Garde Rapport Stage(Ang).pdf, id=534, page=2, 598.235pt x 845.157
+<figures/Page Garde Rapport Stage(Ang).pdf, id=526, page=2, 598.235pt x 845.157
 5pt>
 File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
 <use figures/Page Garde Rapport Stage(Ang).pdf, page 2>
@@ -1093,7 +1093,7 @@ Package pdftex.def Info: figures/Page Garde Rapport Stage(Ang).pdf , page2 used
  [3
 
  <./figures/Page Garde Rapport Stage(Ang).pdf>]
-<figures/Page Garde Rapport Stage(Ang).pdf, id=541, page=3, 598.235pt x 845.157
+<figures/Page Garde Rapport Stage(Ang).pdf, id=533, page=3, 598.235pt x 845.157
 5pt>
 File: figures/Page Garde Rapport Stage(Ang).pdf Graphic file (type pdf)
 <use figures/Page Garde Rapport Stage(Ang).pdf, page 3>
@@ -1154,50 +1154,50 @@ Overfull \hbox (10.13484pt too wide) in paragraph at lines 38--39
 ]) (chapters/chapter1.tex [1
 
 ]
-<figures/value_logo_transparent.png, id=842, 345.29pt x 128.48pt>
+<figures/value_logo_transparent.png, id=862, 345.29pt x 128.48pt>
 File: figures/value_logo_transparent.png Graphic file (type png)
 <use figures/value_logo_transparent.png>
 Package pdftex.def Info: figures/value_logo_transparent.png  used on input line
  21.
 (pdftex.def)             Requested size: 227.62206pt x 84.69707pt.
  [2 <./figures/value_logo_transparent.png>] [3] [4]
-<figures/fastapi_logo.png, id=858, 1275.93932pt x 459.78673pt>
+<figures/fastapi_logo.png, id=878, 1275.93932pt x 459.78673pt>
 File: figures/fastapi_logo.png Graphic file (type png)
 <use figures/fastapi_logo.png>
 Package pdftex.def Info: figures/fastapi_logo.png  used on input line 119.
 (pdftex.def)             Requested size: 81.9406pt x 29.52235pt.
-<figures/nextjs_logo.png, id=859, 225.84375pt x 225.84375pt>
+<figures/nextjs_logo.png, id=879, 225.84375pt x 225.84375pt>
 File: figures/nextjs_logo.png Graphic file (type png)
 <use figures/nextjs_logo.png>
 Package pdftex.def Info: figures/nextjs_logo.png  used on input line 130.
 (pdftex.def)             Requested size: 81.9406pt x 81.94121pt.
-<figures/langchain_logo.png, id=860, 546.04pt x 92.345pt>
+<figures/langchain_logo.png, id=880, 546.04pt x 92.345pt>
 File: figures/langchain_logo.png Graphic file (type png)
 <use figures/langchain_logo.png>
 Package pdftex.def Info: figures/langchain_logo.png  used on input line 141.
 (pdftex.def)             Requested size: 81.9406pt x 13.85678pt.
  [5 <./figures/fastapi_logo.png> <./figures/nextjs_logo.png>]
-<figures/langgraph_logo.png, id=869, 319.1925pt x 159.59625pt>
+<figures/langgraph_logo.png, id=889, 319.1925pt x 159.59625pt>
 File: figures/langgraph_logo.png Graphic file (type png)
 <use figures/langgraph_logo.png>
 Package pdftex.def Info: figures/langgraph_logo.png  used on input line 152.
 (pdftex.def)             Requested size: 81.9406pt x 40.97046pt.
-<figures/jupyter_logo.png, id=870, 1405.25pt x 379.4175pt>
+<figures/jupyter_logo.png, id=890, 1405.25pt x 379.4175pt>
 File: figures/jupyter_logo.png Graphic file (type png)
 <use figures/jupyter_logo.png>
 Package pdftex.def Info: figures/jupyter_logo.png  used on input line 163.
 (pdftex.def)             Requested size: 81.9406pt x 22.12143pt.
-<figures/openai_logo.png, id=871, 432.61626pt x 117.43875pt>
+<figures/openai_logo.png, id=891, 432.61626pt x 117.43875pt>
 File: figures/openai_logo.png Graphic file (type png)
 <use figures/openai_logo.png>
 Package pdftex.def Info: figures/openai_logo.png  used on input line 175.
 (pdftex.def)             Requested size: 81.9406pt x 22.2437pt.
-<figures/groq_logo.png, id=872, 373.395pt x 136.51pt>
+<figures/groq_logo.png, id=892, 373.395pt x 136.51pt>
 File: figures/groq_logo.png Graphic file (type png)
 <use figures/groq_logo.png>
 Package pdftex.def Info: figures/groq_logo.png  used on input line 186.
 (pdftex.def)             Requested size: 81.9406pt x 29.95522pt.
-<figures/phi4_logo.png, id=873, 312.16624pt x 162.6075pt>
+<figures/phi4_logo.png, id=893, 312.16624pt x 162.6075pt>
 File: figures/phi4_logo.png Graphic file (type png)
 <use figures/phi4_logo.png>
 Package pdftex.def Info: figures/phi4_logo.png  used on input line 197.
@@ -1205,27 +1205,27 @@ Package pdftex.def Info: figures/phi4_logo.png  used on input line 197.
  [6 <./figures/langchain_logo.png> <./figures/langgraph_logo.png> <./figures/ju
 pyter_logo.png> <./figures/openai_logo.png> <./figures/groq_logo.png> <./figure
 s/phi4_logo.png>]
-<figures/llama4_logo.png, id=884, 224.84pt x 224.84pt>
+<figures/llama4_logo.png, id=904, 224.84pt x 224.84pt>
 File: figures/llama4_logo.png Graphic file (type png)
 <use figures/llama4_logo.png>
 Package pdftex.def Info: figures/llama4_logo.png  used on input line 208.
 (pdftex.def)             Requested size: 81.9406pt x 81.94069pt.
-<figures/postgresql_logo.png, id=885, 333.245pt x 152.57pt>
+<figures/postgresql_logo.png, id=905, 333.245pt x 152.57pt>
 File: figures/postgresql_logo.png Graphic file (type png)
 <use figures/postgresql_logo.png>
 Package pdftex.def Info: figures/postgresql_logo.png  used on input line 224.
 (pdftex.def)             Requested size: 81.9406pt x 37.51382pt.
-<figures/mlflow_logo.png, id=886, 372.39125pt x 136.51pt>
+<figures/mlflow_logo.png, id=906, 372.39125pt x 136.51pt>
 File: figures/mlflow_logo.png Graphic file (type png)
 <use figures/mlflow_logo.png>
 Package pdftex.def Info: figures/mlflow_logo.png  used on input line 235.
 (pdftex.def)             Requested size: 81.9406pt x 30.03645pt.
-<figures/docker_logo.png, id=887, 472.76625pt x 107.40125pt>
+<figures/docker_logo.png, id=907, 472.76625pt x 107.40125pt>
 File: figures/docker_logo.png Graphic file (type png)
 <use figures/docker_logo.png>
 Package pdftex.def Info: figures/docker_logo.png  used on input line 248.
 (pdftex.def)             Requested size: 81.9406pt x 18.61522pt.
-<figures/docker_compose_logo.png, id=888, 298.11375pt x 170.6375pt>
+<figures/docker_compose_logo.png, id=908, 298.11375pt x 170.6375pt>
 File: figures/docker_compose_logo.png Graphic file (type png)
 <use figures/docker_compose_logo.png>
 Package pdftex.def Info: figures/docker_compose_logo.png  used on input line 25
@@ -1233,12 +1233,12 @@ Package pdftex.def Info: figures/docker_compose_logo.png  used on input line 25
 (pdftex.def)             Requested size: 81.9406pt x 46.90071pt.
  [7 <./figures/llama4_logo.png> <./figures/postgresql_logo.png> <./figures/mlfl
 ow_logo.png> <./figures/docker_logo.png>]
-<figures/Gitlab.png, id=897, 363.3575pt x 139.52126pt>
+<figures/Gitlab.png, id=917, 363.3575pt x 139.52126pt>
 File: figures/Gitlab.png Graphic file (type png)
 <use figures/Gitlab.png>
 Package pdftex.def Info: figures/Gitlab.png  used on input line 270.
 (pdftex.def)             Requested size: 81.9406pt x 31.4633pt.
-<figures/laminar_logo.png, id=898, 233.673pt x 57.816pt>
+<figures/laminar_logo.png, id=918, 233.673pt x 57.816pt>
 File: figures/laminar_logo.png Graphic file (type png)
 <use figures/laminar_logo.png>
 Package pdftex.def Info: figures/laminar_logo.png  used on input line 282.
@@ -1246,7 +1246,7 @@ Package pdftex.def Info: figures/laminar_logo.png  used on input line 282.
 
 [8 <./figures/docker_compose_logo.png> <./figures/Gitlab.png> <./figures/lamina
 r_logo.png>] [9] [10] [11]
-<figures/ChatGPT Image Jun 3, 2026, 03_42_14 PM.png, id=921, 1453.43pt x 1090.0
+<figures/ChatGPT Image Jun 3, 2026, 03_42_14 PM.png, id=941, 1453.43pt x 1090.0
 725pt>
 File: figures/ChatGPT Image Jun 3, 2026, 03_42_14 PM.png Graphic file (type png
 )
@@ -1256,13 +1256,13 @@ ed on input line 525.
 (pdftex.def)             Requested size: 432.48051pt x 324.36296pt.
  [12]) (chapters/chapter2.tex [13 <./figures/ChatGPT Image Jun 3, 2026, 03_42_1
 4 PM.png (PNG copy)>]
-<figures/ai-agent.png, id=930, 611.28375pt x 243.15843pt>
+<figures/ai-agent.png, id=950, 611.28375pt x 243.15843pt>
 File: figures/ai-agent.png Graphic file (type png)
 <use figures/ai-agent.png>
 Package pdftex.def Info: figures/ai-agent.png  used on input line 26.
 (pdftex.def)             Requested size: 386.96027pt x 153.92526pt.
  [14 <./figures/ai-agent.png>]
-<figures/figure-20.png, id=936, 473.3685pt x 337.26pt>
+<figures/figure-20.png, id=956, 473.3685pt x 337.26pt>
 File: figures/figure-20.png Graphic file (type png)
 <use figures/figure-20.png>
 Package pdftex.def Info: figures/figure-20.png  used on input line 45.
@@ -1296,26 +1296,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 281--282
  []
 
 [21]
-<figures/language-models.png, id=970, 274.626pt x 139.722pt>
+<figures/language-models.png, id=990, 274.626pt x 139.722pt>
 File: figures/language-models.png Graphic file (type png)
 <use figures/language-models.png>
 Package pdftex.def Info: figures/language-models.png  used on input line 302.
 (pdftex.def)             Requested size: 341.43307pt x 173.70972pt.
  [22 <./figures/language-models.png>]
-<figures/LLM-vs-SLM.png, id=976, 246.9225pt x 154.77824pt>
+<figures/LLM-vs-SLM.png, id=996, 246.9225pt x 154.77824pt>
 File: figures/LLM-vs-SLM.png Graphic file (type png)
 <use figures/LLM-vs-SLM.png>
 Package pdftex.def Info: figures/LLM-vs-SLM.png  used on input line 323.
 (pdftex.def)             Requested size: 341.43307pt x 214.03348pt.
  [23 <./figures/LLM-vs-SLM.png>]
-<figures/SLM-Quality.png, id=983, 485.4135pt x 323.40825pt>
+<figures/SLM-Quality.png, id=1003, 485.4135pt x 323.40825pt>
 File: figures/SLM-Quality.png Graphic file (type png)
 <use figures/SLM-Quality.png>
 Package pdftex.def Info: figures/SLM-Quality.png  used on input line 338.
 (pdftex.def)             Requested size: 341.43307pt x 227.47974pt.
 
 [24 <./figures/SLM-Quality.png>]) (chapters/chapter3.tex [25] [26]
-<figures/repport 0.1 - visual selection.png, id=997, 594.22pt x 257.96375pt>
+<figures/repport 0.1 - visual selection.png, id=1017, 594.22pt x 257.96375pt>
 File: figures/repport 0.1 - visual selection.png Graphic file (type png)
 <use figures/repport 0.1 - visual selection.png>
 Package pdftex.def Info: figures/repport 0.1 - visual selection.png  used on in
@@ -1343,31 +1343,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []|\T1/ptm/m/n/10.95 Containerized de-ploy-
  []
 
-<figures/system-view.png, id=1003, 722.7pt x 516.93124pt>
+<figures/system-view.png, id=1023, 722.7pt x 516.93124pt>
 File: figures/system-view.png Graphic file (type png)
 <use figures/system-view.png>
 Package pdftex.def Info: figures/system-view.png  used on input line 66.
 (pdftex.def)             Requested size: 409.71692pt x 293.06055pt.
 [28]
-<figures/Container-view.png, id=1008, 809.0225pt x 684.5575pt>
+<figures/Container-view.png, id=1028, 809.0225pt x 684.5575pt>
 File: figures/Container-view.png Graphic file (type png)
 <use figures/Container-view.png>
 Package pdftex.def Info: figures/Container-view.png  used on input line 79.
 (pdftex.def)             Requested size: 409.71692pt x 346.6859pt.
  [29 <./figures/system-view.png>] [30 <./figures/Container-view.png>]
-<figures/Config-driven.png, id=1021, 651.43375pt x 243.91125pt>
+<figures/Config-driven.png, id=1041, 651.43375pt x 243.91125pt>
 File: figures/Config-driven.png Graphic file (type png)
 <use figures/Config-driven.png>
 Package pdftex.def Info: figures/Config-driven.png  used on input line 136.
 (pdftex.def)             Requested size: 318.66948pt x 119.3203pt.
 
 [31]
-<figures/agent-lifecycle.png, id=1026, 1057.9525pt x 197.73875pt>
+<figures/agent-lifecycle.png, id=1046, 1057.9525pt x 197.73875pt>
 File: figures/agent-lifecycle.png Graphic file (type png)
 <use figures/agent-lifecycle.png>
 Package pdftex.def Info: figures/agent-lifecycle.png  used on input line 149.
 (pdftex.def)             Requested size: 409.71692pt x 76.57771pt.
-<figures/agent-runtime.png, id=1027, 708.6475pt x 175.65625pt>
+<figures/agent-runtime.png, id=1047, 708.6475pt x 175.65625pt>
 File: figures/agent-runtime.png Graphic file (type png)
 <use figures/agent-runtime.png>
 Package pdftex.def Info: figures/agent-runtime.png  used on input line 166.
@@ -1380,14 +1380,14 @@ d by the agent. The \T1/pcr/m/n/12 requirements.txt
  []
 
 [36]
-<figures/workflow_architecture_diagram.png, id=1052, 682.55pt x 637.38126pt>
+<figures/workflow_architecture_diagram.png, id=1072, 682.55pt x 637.38126pt>
 File: figures/workflow_architecture_diagram.png Graphic file (type png)
 <use figures/workflow_architecture_diagram.png>
 Package pdftex.def Info: figures/workflow_architecture_diagram.png  used on inp
 ut line 301.
 (pdftex.def)             Requested size: 364.19667pt x 340.09598pt.
  [37] [38 <./figures/workflow_architecture_diagram.png>]
-<figures/vip_data_storage_governance.png, id=1064, 682.55pt x 337.26pt>
+<figures/vip_data_storage_governance.png, id=1084, 682.55pt x 337.26pt>
 File: figures/vip_data_storage_governance.png Graphic file (type png)
 <use figures/vip_data_storage_governance.png>
 Package pdftex.def Info: figures/vip_data_storage_governance.png  used on input
@@ -1413,26 +1413,26 @@ Overfull \hbox (3.48483pt too wide) in paragraph at lines 373--374
  []
 
 [40] [41]
-<figures/docker-bridge-network-2.png, id=1080, 1569.865pt x 822.07124pt>
+<figures/docker-bridge-network-2.png, id=1100, 1569.865pt x 822.07124pt>
 File: figures/docker-bridge-network-2.png Graphic file (type png)
 <use figures/docker-bridge-network-2.png>
 Package pdftex.def Info: figures/docker-bridge-network-2.png  used on input lin
 e 401.
 (pdftex.def)             Requested size: 409.71692pt x 214.54883pt.
-<figures/multi-stage1.jpg, id=1082, 1540.75626pt x 1027.84pt>
+<figures/multi-stage1.jpg, id=1102, 1540.75626pt x 1027.84pt>
 File: figures/multi-stage1.jpg Graphic file (type jpg)
 <use figures/multi-stage1.jpg>
 Package pdftex.def Info: figures/multi-stage1.jpg  used on input line 421.
 (pdftex.def)             Requested size: 364.19667pt x 242.95395pt.
  [42 <./figures/docker-bridge-network-2.png>] [43 <./figures/multi-stage1.jpg>]
-<figures/observability.png, id=1092, 639.38875pt x 490.83376pt>
+<figures/observability.png, id=1112, 639.38875pt x 490.83376pt>
 File: figures/observability.png Graphic file (type png)
 <use figures/observability.png>
 Package pdftex.def Info: figures/observability.png  used on input line 446.
 (pdftex.def)             Requested size: 409.71692pt x 314.52946pt.
  [44 <./figures/observability.png>] [45] [46]) (chapters/chapter4.tex
 [47]
-<figures/VIP_implementation.png, id=1111, 1453.43pt x 1090.0725pt>
+<figures/VIP_implementation.png, id=1131, 1453.43pt x 1090.0725pt>
 File: figures/VIP_implementation.png Graphic file (type png)
 <use figures/VIP_implementation.png>
 Package pdftex.def Info: figures/VIP_implementation.png  used on input line 21.
@@ -1451,7 +1451,7 @@ oles are re-ferred to as \T1/pcr/m/n/12 extractor_agent\T1/ptm/m/n/12 ,
 LaTeX Warning: Reference `sec:workflow-orchestration-implementation' on page 50
  undefined on input line 40.
 
-<figures/scenario_VIP.png, id=1121, 1096.095pt x 545.03625pt>
+<figures/scenario_VIP.png, id=1141, 1096.095pt x 545.03625pt>
 File: figures/scenario_VIP.png Graphic file (type png)
 <use figures/scenario_VIP.png>
 Package pdftex.def Info: figures/scenario_VIP.png  used on input line 46.
@@ -1523,7 +1523,7 @@ Overfull \hbox (6.9806pt too wide) in paragraph at lines 108--109
  and val-i-date the re-ceived
  []
 
-<figures/agent_factory.png, id=1132, 1084.05pt x 456.70625pt>
+<figures/agent_factory.png, id=1152, 1084.05pt x 456.70625pt>
 File: figures/agent_factory.png Graphic file (type png)
 <use figures/agent_factory.png>
 Package pdftex.def Info: figures/agent_factory.png  used on input line 125.
@@ -1541,7 +1541,7 @@ n/12 trace_id\T1/ptm/m/n/12 , a \T1/pcr/m/n/12 payload\T1/ptm/m/n/12 , and op-t
 ional \T1/pcr/m/n/12 metadata\T1/ptm/m/n/12 .
  []
 
-<figures/generated_agent_runtime.png, id=1139, 1141.26375pt x 395.4775pt>
+<figures/generated_agent_runtime.png, id=1159, 1141.26375pt x 395.4775pt>
 File: figures/generated_agent_runtime.png Graphic file (type png)
 <use figures/generated_agent_runtime.png>
 Package pdftex.def Info: figures/generated_agent_runtime.png  used on input lin
@@ -1618,7 +1618,7 @@ er/services/dependency_resolver.py
  []
 
 [56]
-<figures/docker_dep.png, id=1162, 1126.2075pt x 1240.635pt>
+<figures/docker_dep.png, id=1182, 1126.2075pt x 1240.635pt>
 File: figures/docker_dep.png Graphic file (type png)
 <use figures/docker_dep.png>
 Package pdftex.def Info: figures/docker_dep.png  used on input line 302.
@@ -1630,7 +1630,7 @@ er avail-able at \T1/pcr/m/n/12 http://127.0.0.1:5000\T1/ptm/m/n/12 .
  []
 
 [59]
-<figures/slm_mlflow_setup_summary.png, id=1177, 446.8695pt x 183.68625pt>
+<figures/slm_mlflow_setup_summary.png, id=1197, 446.8695pt x 183.68625pt>
 File: figures/slm_mlflow_setup_summary.png Graphic file (type png)
 <use figures/slm_mlflow_setup_summary.png>
 Package pdftex.def Info: figures/slm_mlflow_setup_summary.png  used on input li
@@ -1649,14 +1649,14 @@ he name \T1/pcr/m/n/12 financial_analysis_baseline\T1/ptm/m/n/12 .
  []
 
 [60 <./figures/slm_mlflow_setup_summary.png>]
-<figures/slm_prompt_registry.png, id=1183, 1109.3445pt x 437.83575pt>
+<figures/slm_prompt_registry.png, id=1203, 1109.3445pt x 437.83575pt>
 File: figures/slm_prompt_registry.png Graphic file (type png)
 <use figures/slm_prompt_registry.png>
 Package pdftex.def Info: figures/slm_prompt_registry.png  used on input line 42
 2.
 (pdftex.def)             Requested size: 409.71692pt x 161.70941pt.
  [61]
-<figures/slm_golden_dataset.png, id=1196, 1106.33325pt x 435.42674pt>
+<figures/slm_golden_dataset.png, id=1216, 1106.33325pt x 435.42674pt>
 File: figures/slm_golden_dataset.png Graphic file (type png)
 <use figures/slm_golden_dataset.png>
 Package pdftex.def Info: figures/slm_golden_dataset.png  used on input line 429
@@ -1668,7 +1668,7 @@ Overfull \hbox (2.63702pt too wide) in paragraph at lines 462--463
 ng the same out-puts in line-
  []
 
-<figures/slm_baseline_generation_outputs.png, id=1203, 759.43726pt x 304.7385pt
+<figures/slm_baseline_generation_outputs.png, id=1223, 759.43726pt x 304.7385pt
 >
 File: figures/slm_baseline_generation_outputs.png Graphic file (type png)
 <use figures/slm_baseline_generation_outputs.png>
@@ -1701,7 +1701,7 @@ ency \OT1/cmr/m/n/12 + 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 05 \OMS/cmsy/m/n/12 ^
 ^B \OML/cmm/m/it/12 ChrF
  []
 
-<figures/slm_multilayer_evaluation_metrics.png, id=1215, 328.8285pt x 308.352pt
+<figures/slm_multilayer_evaluation_metrics.png, id=1235, 328.8285pt x 308.352pt
 >
 File: figures/slm_multilayer_evaluation_metrics.png Graphic file (type png)
 <use figures/slm_multilayer_evaluation_metrics.png>
@@ -1732,14 +1732,14 @@ Overfull \hbox (87.13776pt too wide) in paragraph at lines 559--560
 ID \T1/pcr/m/n/12 44c74a49b6694c3aa3dbfaaf107d3926\T1/ptm/m/n/12 .
  []
 
-<figures/slm_mlflow_evaluation_artifacts.png, id=1228, 1010.5755pt x 374.5995pt
+<figures/slm_mlflow_evaluation_artifacts.png, id=1248, 1010.5755pt x 374.5995pt
 >
 File: figures/slm_mlflow_evaluation_artifacts.png Graphic file (type png)
 <use figures/slm_mlflow_evaluation_artifacts.png>
 Package pdftex.def Info: figures/slm_mlflow_evaluation_artifacts.png  used on i
 nput line 567.
 (pdftex.def)             Requested size: 432.48051pt x 160.3087pt.
-<figures/radar_comparison_test_case_004.png, id=1230, 702.625pt x 501.875pt>
+<figures/radar_comparison_test_case_004.png, id=1250, 702.625pt x 501.875pt>
 File: figures/radar_comparison_test_case_004.png Graphic file (type png)
 <use figures/radar_comparison_test_case_004.png>
 Package pdftex.def Info: figures/radar_comparison_test_case_004.png  used on in
@@ -1753,30 +1753,126 @@ h \T1/pcr/m/n/12 0.648\T1/ptm/m/n/12 , com-pared with \T1/pcr/m/n/12 0.643
  []
 
 [69]
-<figures/slm_prompt_variant_comparison.png, id=1246, 519.74174pt x 91.542pt>
+<figures/slm_prompt_variant_comparison.png, id=1266, 519.74174pt x 91.542pt>
 File: figures/slm_prompt_variant_comparison.png Graphic file (type png)
 <use figures/slm_prompt_variant_comparison.png>
 Package pdftex.def Info: figures/slm_prompt_variant_comparison.png  used on inp
 ut line 637.
 (pdftex.def)             Requested size: 432.48051pt x 76.17538pt.
-<figures/vip_dashboard.png, id=1248, 1121.3895pt x 465.53925pt>
+<figures/vip_dashboard.png, id=1268, 1121.3895pt x 465.53925pt>
 File: figures/vip_dashboard.png Graphic file (type png)
 <use figures/vip_dashboard.png>
 Package pdftex.def Info: figures/vip_dashboard.png  used on input line 655.
 (pdftex.def)             Requested size: 432.48051pt x 179.54216pt.
  [70 <./figures/slm_prompt_variant_comparison.png>]
-<figures/vip_agents_list.png, id=1255, 1117.17375pt x 447.47176pt>
+<figures/vip_agents_list.png, id=1275, 1117.17375pt x 447.47176pt>
 File: figures/vip_agents_list.png Graphic file (type png)
 <use figures/vip_agents_list.png>
 Package pdftex.def Info: figures/vip_agents_list.png  used on input line 664.
 (pdftex.def)             Requested size: 432.48051pt x 173.22281pt.
-<figures/vip_apps_list.png, id=1256, 1120.78725pt x 443.85825pt>
+<figures/vip_apps_list.png, id=1276, 1120.78725pt x 443.85825pt>
 File: figures/vip_apps_list.png Graphic file (type png)
 <use figures/vip_apps_list.png>
 Package pdftex.def Info: figures/vip_apps_list.png  used on input line 674.
 (pdftex.def)             Requested size: 432.48051pt x 171.2686pt.
- [71 <./figures/vip_dashboard.png> <./figures/vip_agents_list.png>]) [72 <./fig
-ures/vip_apps_list.png>] [73] 
+ [71 <./figures/vip_dashboard.png> <./figures/vip_agents_list.png>]
+<figures/create-app-img1.png, id=1284, 995.51926pt x 413.74574pt>
+File: figures/create-app-img1.png Graphic file (type png)
+<use figures/create-app-img1.png>
+Package pdftex.def Info: figures/create-app-img1.png  used on input line 686.
+(pdftex.def)             Requested size: 432.48051pt x 179.74435pt.
+<figures/create-app-img2.png, id=1285, 924.45375pt x 419.76825pt>
+File: figures/create-app-img2.png Graphic file (type png)
+<use figures/create-app-img2.png>
+Package pdftex.def Info: figures/create-app-img2.png  used on input line 695.
+(pdftex.def)             Requested size: 432.48051pt x 196.37515pt.
+ [72 <./figures/vip_apps_list.png> <./figures/create-app-img1.png>]
+<figures/create-app-img3.png, id=1293, 614.295pt x 510.10574pt>
+File: figures/create-app-img3.png Graphic file (type png)
+<use figures/create-app-img3.png>
+Package pdftex.def Info: figures/create-app-img3.png  used on input line 704.
+(pdftex.def)             Requested size: 432.48051pt x 359.13423pt.
+ [73 <./figures/create-app-img2.png> <./figures/create-app-img3.png>]
+<figures/create-app-img4.png, id=1300, 601.0455pt x 488.42474pt>
+File: figures/create-app-img4.png Graphic file (type png)
+<use figures/create-app-img4.png>
+Package pdftex.def Info: figures/create-app-img4.png  used on input line 713.
+(pdftex.def)             Requested size: 432.48051pt x 351.4494pt.
+<figures/create-app-img5.png, id=1301, 602.25pt x 416.757pt>
+File: figures/create-app-img5.png Graphic file (type png)
+<use figures/create-app-img5.png>
+Package pdftex.def Info: figures/create-app-img5.png  used on input line 722.
+(pdftex.def)             Requested size: 432.48051pt x 299.28899pt.
+ [74 <./figures/create-app-img4.png>]
+<figures/create-app-img6.png, id=1307, 599.841pt x 492.6405pt>
+File: figures/create-app-img6.png Graphic file (type png)
+<use figures/create-app-img6.png>
+Package pdftex.def Info: figures/create-app-img6.png  used on input line 731.
+(pdftex.def)             Requested size: 432.48051pt x 355.20453pt.
+ [75 <./figures/create-app-img5.png>]
+<figures/create-app-img7.png, id=1313, 614.89725pt x 513.117pt>
+File: figures/create-app-img7.png Graphic file (type png)
+<use figures/create-app-img7.png>
+Package pdftex.def Info: figures/create-app-img7.png  used on input line 740.
+(pdftex.def)             Requested size: 432.48051pt x 360.90195pt.
+ [76 <./figures/create-app-img6.png>]
+<figures/vip_mlflow_prompts.png, id=1319, 852.786pt x 404.712pt>
+File: figures/vip_mlflow_prompts.png Graphic file (type png)
+<use figures/vip_mlflow_prompts.png>
+Package pdftex.def Info: figures/vip_mlflow_prompts.png  used on input line 753
+.
+(pdftex.def)             Requested size: 432.48051pt x 205.24559pt.
+ [77 <./figures/create-app-img7.png>]
+<figures/vip_mlflow_schemas.png, id=1326, 850.97925pt x 401.70074pt>
+File: figures/vip_mlflow_schemas.png Graphic file (type png)
+<use figures/vip_mlflow_schemas.png>
+Package pdftex.def Info: figures/vip_mlflow_schemas.png  used on input line 762
+.
+(pdftex.def)             Requested size: 432.48051pt x 204.1475pt.
+<figures/docker-container.png, id=1327, 1400.98407pt x 700.11563pt>
+File: figures/docker-container.png Graphic file (type png)
+<use figures/docker-container.png>
+Package pdftex.def Info: figures/docker-container.png  used on input line 771.
+(pdftex.def)             Requested size: 432.48051pt x 216.12555pt.
+ [78 <./figures/vip_mlflow_prompts.png> <./figures/vip_mlflow_schemas.png>]
+<figures/vip_workflow_builder_full1.png, id=1334, 943.72575pt x 519.1395pt>
+File: figures/vip_workflow_builder_full1.png Graphic file (type png)
+<use figures/vip_workflow_builder_full1.png>
+Package pdftex.def Info: figures/vip_workflow_builder_full1.png  used on input 
+line 787.
+(pdftex.def)             Requested size: 432.48051pt x 237.904pt.
+<figures/vip_workflow_validation.png, id=1335, 943.72575pt x 254.1495pt>
+File: figures/vip_workflow_validation.png Graphic file (type png)
+<use figures/vip_workflow_validation.png>
+Package pdftex.def Info: figures/vip_workflow_validation.png  used on input lin
+e 798.
+(pdftex.def)             Requested size: 432.48051pt x 116.4681pt.
+ [79 <./figures/docker-container.png (PNG copy)> <./figures/vip_workflow_builde
+r_full1.png>]
+<figures/vip_workflow_execution_result.png, id=1342, 1124.40076pt x 464.937pt>
+File: figures/vip_workflow_execution_result.png Graphic file (type png)
+<use figures/vip_workflow_execution_result.png>
+Package pdftex.def Info: figures/vip_workflow_execution_result.png  used on inp
+ut line 807.
+(pdftex.def)             Requested size: 432.48051pt x 178.82748pt.
+<figures/vip_workflow_observability_trace.png, id=1343, 1124.40076pt x 469.755p
+t>
+File: figures/vip_workflow_observability_trace.png Graphic file (type png)
+<use figures/vip_workflow_observability_trace.png>
+Package pdftex.def Info: figures/vip_workflow_observability_trace.png  used on 
+input line 816.
+(pdftex.def)             Requested size: 432.48051pt x 180.68062pt.
+ [80 <./figures/vip_workflow_validation.png> <./figures/vip_workflow_execution_
+result.png>]
+<figures/vip_laminar_trace_details.png, id=1350, 1146.08176pt x 518.53725pt>
+File: figures/vip_laminar_trace_details.png Graphic file (type png)
+<use figures/vip_laminar_trace_details.png>
+Package pdftex.def Info: figures/vip_laminar_trace_details.png  used on input l
+ine 825.
+(pdftex.def)             Requested size: 432.48051pt x 195.66946pt.
+ [81 <./figures/vip_workflow_observability_trace.png> <./figures/vip_laminar_tr
+ace_details.png>]) [82]
+
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (main.aux)
  ***********
@@ -1788,13 +1884,13 @@ L3 programming layer <2025-12-24>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F69FF2BA1B777D12742785CF714D7FC8;24607.
+(rerunfilecheck)             Checksum: 4A9483880A285A55327CBBDC6D20B23F;24270.
  ) 
 Here is how much of TeX's memory you used:
- 30725 strings out of 467871
- 627669 string characters out of 5418860
- 1041832 words of memory out of 5000000
- 58765 multiletter control sequences out of 15000+600000
+ 30865 strings out of 467871
+ 632255 string characters out of 5418860
+ 1043049 words of memory out of 5000000
+ 58883 multiletter control sequences out of 15000+600000
  689578 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  121i,17n,124p,818b,879s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1808,9 +1904,9 @@ ype1/urw/times/utmb8a.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/urw/times/utmbi8a.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/urw/times/utmr8a.pfb><C:/Users/BRHN/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/urw/times/utmri8a.pfb>
-Output written on main.pdf (87 pages, 5419427 bytes).
+Output written on main.pdf (96 pages, 6651191 bytes).
 PDF statistics:
- 1378 PDF objects out of 1440 (max. 8388607)
- 283 named destinations out of 1000 (max. 500000)
- 1347 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1468 PDF objects out of 1728 (max. 8388607)
+ 305 named destinations out of 1000 (max. 500000)
+ 1406 words of extra memory for PDF output out of 10000 (max. 10000000)
 

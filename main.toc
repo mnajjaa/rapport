@@ -116,7 +116,5 @@
 \contentsline {subsubsection}{\numberline {4.5.1}VIP Platform Results}{70}{subsubsection.4.5.1}%
 \contentsline {paragraph}{Main platform interfaces :}{70}{paragraph*.10}%
 \contentsline {paragraph}{Agent Creation and Deployment Validation : }{72}{paragraph*.11}%
-\contentsline {paragraph}{Workflow Execution Scenario: }{72}{paragraph*.12}%
-\contentsline {subsubsection}{\numberline {4.5.2}SLM-Evals Results}{73}{subsubsection.4.5.2}%
-\contentsline {subsubsection}{\numberline {4.5.3}Discussion of Results}{73}{subsubsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.6}Chapter Summary}{73}{subsection.4.6}%
+\contentsline {paragraph}{Workflow Execution Scenario: }{79}{paragraph*.12}%
+\contentsline {subsection}{\numberline {4.6}Chapter Summary}{82}{subsection.4.6}%

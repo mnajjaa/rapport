@@ -679,79 +679,167 @@ The applications interface lists the created intelligent applications. Each appl
 
 \paragraph{Agent Creation and Deployment Validation : }
 
-The agent creation interface validates the configuration-driven approach of VIP. Through this form, the user can define the agent role, provider, model configuration, prompt reference, schema references, and selected tools. This confirms that agent behavior is configured declaratively rather than hard-coded.
+The validation scenario starts by creating a new intelligent application dedicated to financial document analysis. The application groups the agents and workflow related to the same business use case.
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.95\textwidth]{figures/vip_agent_creation_form.png}
-%     \caption{Agent creation form used to configure a new generated agent}
-%     \label{fig:vip_agent_creation_form}
-% \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/create-app-img1.png}
+    \caption{Creation of the Financial Document Analysis intelligent application}
+    \label{fig:vip_create_intelligent_app}
+\end{figure}
 
-Prompt and schema references are managed through MLflow. This supports traceability because generated agents can be linked to versioned prompts and structured input/output contracts.
+After creating the application, the platform allows the user either to reuse agents from the Agent Library or to create new agents from scratch. In this scenario, new agents were created in order to define their configuration, prompts, schemas, and tools.
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.95\textwidth]{figures/vip_mlflow_prompts_schemas.png}
-%     \caption{MLflow interface showing prompt and schema artifacts used by VIP agents}
-%     \label{fig:vip_mlflow_prompts_schemas}
-% \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/create-app-img2.png}
+    \caption{Agent creation mode selection for the intelligent application}
+    \label{fig:vip_agent_creation_mode}
+\end{figure}
 
-After generation, the agent is deployed as a Docker container. The Docker container view confirms that the generated agent is not only stored in the platform metadata, but also launched as an independent runtime service.
+The first step defines the agent identity. For the implemented scenario, the extractor agent was created as a finance-oriented agent responsible for extracting text and tables from financial PDF documents.
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.95\textwidth]{figures/vip_generated_docker_container.png}
-%     \caption{Generated agent running as an independent Docker container}
-%     \label{fig:vip_generated_docker_container}
-% \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/create-app-img3.png}
+    \caption{Identity configuration of the extractor agent}
+    \label{fig:vip_agent_identity_step}
+\end{figure}
+
+The second step configures the model provider, model name, temperature, and maximum token limit. This confirms that the model behavior is selected through configuration rather than hard-coded inside the agent runtime.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/create-app-img4.png}
+    \caption{Model configuration step of the generated agent}
+    \label{fig:vip_agent_model_step}
+\end{figure}
+
+The third step links the agent to a prompt artifact through a prompt URI. The prompt content is resolved externally at runtime, which supports prompt versioning and avoids embedding prompt text directly in the agent code.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/create-app-img5.png}
+    \caption{Prompt URI configuration for the generated agent}
+    \label{fig:vip_agent_prompt_step}
+\end{figure}
+
+The fourth step defines the input and output schema URIs. These schemas are used by the runtime to validate the data received and produced by the agent.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/create-app-img6.png}
+    \caption{Input and output schema configuration for the generated agent}
+    \label{fig:vip_agent_schema_step}
+\end{figure}
+
+The final step selects the tools enabled for the agent. In the extractor agent, tools such as the PDF loader and table detector are enabled because they are required to process financial documents.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/create-app-img7.png}
+    \caption{Tool selection step for the extractor agent}
+    \label{fig:vip_agent_tools_step}
+\end{figure}
+
+These steps show that the generated agent is fully defined through configuration. The user specifies the agent identity, model, prompt URI, schema URIs, and selected tools from the interface, while the platform transforms this configuration into a deployable runtime service.
+
+
+
+The prompt references used during agent creation are managed through MLflow. This provides traceability between generated agents and versioned prompt artifacts.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/vip_mlflow_prompts.png}
+    \caption{MLflow prompt registry containing VIP agent prompts}
+    \label{fig:vip_mlflow_prompts}
+\end{figure}
+
+Schemas are also registered as MLflow artifacts. The schema runs store the input and output contracts used by the generated agents at runtime.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/vip_mlflow_schemas.png}
+    \caption{MLflow schema artifacts used for agent input and output validation}
+    \label{fig:vip_mlflow_schemas}
+\end{figure}
+
+After generation, the agent is deployed as an independent Docker container. The Docker view confirms that the generated agent runs as a separate runtime service alongside the builder, orchestrator, and PostgreSQL services.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/docker-container.png}
+    \caption{Generated agent container running in Docker Desktop}
+    \label{fig:vip_docker_generated_container}
+\end{figure}
+
+
+
+
+
 
 \paragraph{Workflow Execution Scenario: }
 
-After the required agents were created, they were composed into a financial workflow. The workflow builder connects the extractor, mapper, generator, and sanitizer agents in the expected execution order. This validates the ability of VIP to transform generated agents into a reusable multi-step process.
+After creating the required agents, they were composed into the Financial Document Intelligence Workflow. The workflow builder connects the extractor, mapper, generator, and sanitizer agents in the expected execution order.
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.95\textwidth]{figures/vip_workflow_builder.png}
-%     \caption{Workflow builder showing the financial analysis agent sequence}
-%     \label{fig:vip_workflow_builder}
-% \end{figure}
-
-The workflow was then executed from the platform interface. During execution, the orchestrator invoked the generated agents step by step, adapted the payload when required, and returned the final sanitized financial analysis output.
-
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.95\textwidth]{figures/vip_workflow_execution_result.png}
-%     \caption{Execution result of the financial workflow in VIP}
-%     \label{fig:vip_workflow_execution_result}
-% \end{figure}
-
-The observability interface provides execution details for the workflow. It allows the user to inspect traces, execution status, latency, token usage, and error information when available. This confirms that the platform supports not only agent execution, but also runtime monitoring.
-
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.95\textwidth]{figures/vip_observability_trace.png}
-%     \caption{Observability trace and execution details for the VIP workflow}
-%     \label{fig:vip_observability_trace}
-% \end{figure}
-
-Overall, these results confirm that the VIP prototype satisfies the main functional objectives defined earlier in the report. The platform can create configurable agents, persist them as reusable components, deploy them as Dockerized services, compose them into workflows, execute a complete financial scenario, and expose execution details through observability interfaces.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/vip_workflow_builder_full1.png}
+    \caption{Workflow builder showing the complete financial document intelligence workflow}
+    \label{fig:vip_workflow_builder_full}
+\end{figure}
 
 
+Before execution, the workflow is validated to ensure that the selected agents, input configuration, and execution order are consistent.
 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/vip_workflow_validation.png}
+    \caption{Validation of the financial document intelligence workflow}
+    \label{fig:vip_workflow_validation}
+\end{figure}
+
+The workflow was then executed from the platform interface. During execution, the orchestrator invoked each generated agent step by step and returned the final sanitized financial analysis.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/vip_workflow_execution_result.png}
+    \caption{Execution result of the financial document intelligence workflow}
+    \label{fig:vip_workflow_execution_result}
+\end{figure}
+
+The execution was also visible through the observability interface. The trace view provides runtime information about the workflow execution, involved agents, execution status, and step-level details.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/vip_workflow_observability_trace.png}
+    \caption{Observability trace generated during workflow execution}
+    \label{fig:vip_workflow_observability_trace}
+\end{figure}
+
+From the VIP observability interface, the user can open the corresponding execution trace in Laminar for deeper inspection. The Laminar trace view provides more detailed runtime information, including the execution timeline, nested spans, involved agent calls, tool executions, model call details, token usage, duration, input payloads, output payloads, and trace attributes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/vip_laminar_trace_details.png}
+    \caption{Detailed workflow trace inspection in Laminar}
+    \label{fig:vip_laminar_trace_details}
+\end{figure}
+
+This detailed trace view complements the VIP observability page by allowing developers to inspect each execution step more precisely and identify where time, tool calls, or model calls occurred during the workflow.
 
 
+This scenario confirms that VIP can create configurable agents, deploy them as Dockerized services, compose them into a workflow, execute the workflow through the orchestrator, and expose runtime information through observability interfaces.
 
 
-
-
-
-
-
-
-
-    \subsubsection{SLM-Evals Results}
-    \subsubsection{Discussion of Results}
 
 \subsection{Chapter Summary}
+
+This chapter presented the implementation, evaluation, and results of the project. It first described the VIP implementation environment, then detailed the main platform components, including the Agent Factory, generated agent runtime, validation layers, workflow orchestration, PostgreSQL persistence, Docker deployment, and Laminar observability.
+
+The chapter also presented the implemented financial document intelligence workflow, composed of four agents: extractor, mapper, generator, and sanitizer. The interface screenshots validated the main platform flow, from intelligent application creation and agent configuration to workflow execution, Docker deployment, MLflow artifact traceability, and Laminar trace inspection.
+
+In addition, the chapter described the SLM-Evals pipeline implemented through four notebooks. This pipeline covered MLflow setup, golden dataset creation, prompt registration, baseline generation, multi-layer evaluation, result visualization, and prompt enhancement. The evaluation compared Phi-4 and Llama 3.1 on a structured financial report generation task.
+
+Overall, this chapter showed that VIP can create configurable agents, deploy them as independent services, compose them into workflows, execute a complete multi-agent scenario, and provide runtime observability. It also showed that SLM-Evals supports reproducible model comparison and helps guide provider selection for financial AI workflows.

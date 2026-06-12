@@ -51,3 +51,18 @@
 \contentsline {figure}{\numberline {51}{\ignorespaces VIP dashboard showing the main platform overview}}{71}{figure.51}%
 \contentsline {figure}{\numberline {52}{\ignorespaces List of generated agents available in the VIP platform}}{71}{figure.52}%
 \contentsline {figure}{\numberline {53}{\ignorespaces List of applications managed in the VIP platform}}{72}{figure.53}%
+\contentsline {figure}{\numberline {54}{\ignorespaces Creation of the Financial Document Analysis intelligent application}}{72}{figure.54}%
+\contentsline {figure}{\numberline {55}{\ignorespaces Agent creation mode selection for the intelligent application}}{73}{figure.55}%
+\contentsline {figure}{\numberline {56}{\ignorespaces Identity configuration of the extractor agent}}{73}{figure.56}%
+\contentsline {figure}{\numberline {57}{\ignorespaces Model configuration step of the generated agent}}{74}{figure.57}%
+\contentsline {figure}{\numberline {58}{\ignorespaces Prompt URI configuration for the generated agent}}{75}{figure.58}%
+\contentsline {figure}{\numberline {59}{\ignorespaces Input and output schema configuration for the generated agent}}{76}{figure.59}%
+\contentsline {figure}{\numberline {60}{\ignorespaces Tool selection step for the extractor agent}}{77}{figure.60}%
+\contentsline {figure}{\numberline {61}{\ignorespaces MLflow prompt registry containing VIP agent prompts}}{78}{figure.61}%
+\contentsline {figure}{\numberline {62}{\ignorespaces MLflow schema artifacts used for agent input and output validation}}{78}{figure.62}%
+\contentsline {figure}{\numberline {63}{\ignorespaces Generated agent container running in Docker Desktop}}{79}{figure.63}%
+\contentsline {figure}{\numberline {64}{\ignorespaces Workflow builder showing the complete financial document intelligence workflow}}{79}{figure.64}%
+\contentsline {figure}{\numberline {65}{\ignorespaces Validation of the financial document intelligence workflow}}{80}{figure.65}%
+\contentsline {figure}{\numberline {66}{\ignorespaces Execution result of the financial document intelligence workflow}}{80}{figure.66}%
+\contentsline {figure}{\numberline {67}{\ignorespaces Observability trace generated during workflow execution}}{81}{figure.67}%
+\contentsline {figure}{\numberline {68}{\ignorespaces Detailed workflow trace inspection in Laminar}}{81}{figure.68}%
