@@ -174,7 +174,8 @@ $\rightarrow$
 
 This layered approach prevents malformed requests from entering the system and ensures that each generated agent receives and returns data that respects its configured contract.
 
-    \subsubsection{Workflow Orchestration Implementation}
+\subsubsection{Workflow Orchestration Implementation}
+\label{sec:workflow-orchestration-implementation}
 
 The workflow orchestration layer executes generated agents in a defined order. In the current implementation, workflows are not loaded from static YAML files. Instead, the workflow created from the user interface is saved as an application graph and transformed into a runtime workflow specification before execution.
 
