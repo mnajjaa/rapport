@@ -122,13 +122,12 @@ Figure~\ref{fig:agent_factory_implementation_pipeline} summarizes the implemente
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{figures/agent_factory.png}
+    \includegraphics[width=\textwidth]{figures/From agent specification to runnable agent service.png}
     \caption{Implemented Agent Factory pipeline}
     \label{fig:agent_factory_implementation_pipeline}
 \end{figure}
 
-This implementation supports the zero-code-change objective of VIP. Creating a new agent does not require rewriting the runtime source code. Instead, the platform changes the configuration, tools, prompt references, schema references, and provider settings used to generate the agent.
-    \subsubsection{Generated Agent Runtime Implementation}
+Figure 39 summarizes the implemented Agent Factory pipeline. The process starts from a declarative agent specification containing the provider, model, prompt reference, schema references, and selected tools. The Builder API validates this specification, resolves the required artifacts, assembles the reusable runtime scaffold, prepares the Docker packaging files, and starts the generated container. The final result is an independent FastAPI agent service exposing the standard runtime endpoints required by the orchestrator.    \subsubsection{Generated Agent Runtime Implementation}
 
 \label{sec:generated-agent-runtime-implementation}
 
@@ -142,13 +141,12 @@ Figure~\ref{fig:generated_agent_runtime} summarizes the runtime behavior of a ge
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{figures/generated_agent_runtime.png}
-    \caption{Runtime execution flow of a generated VIP agent}
+    \includegraphics[width=\textwidth]{figures/Canonical agent runtime contract.png}
+    \caption{Implemented agent runtime contract}
     \label{fig:generated_agent_runtime}
 \end{figure}
 
-This implementation makes each generated agent autonomous at runtime. Once started, the agent can be executed through \texttt{/run}, inspected through \texttt{/manifest}, monitored through the observability layer, and reused inside different workflows.
-
+Figure 40 presents the runtime contract implemented by every generated agent. The orchestrator first calls /manifest to retrieve the agent metadata, endpoint, version, and input/output schemas. It then calls /run using a standardized request envelope containing the trace identifier, payload, and metadata. The agent returns a standardized JSON response containing the execution status, result, token usage, and latency. This contract allows the orchestrator to invoke generated agents without depending on their internal implementation.
 \subsubsection{Validation Layers: Pydantic and JSON Schema}
 \label{sec:validation-layers}
 
@@ -177,89 +175,46 @@ This layered approach prevents malformed requests from entering the system and e
 \subsubsection{Workflow Orchestration Implementation}
 \label{sec:workflow-orchestration-implementation}
 
-The workflow orchestration layer executes generated agents in a defined order. In the current implementation, workflows are not loaded from static YAML files. Instead, the workflow created from the user interface is saved as an application graph and transformed into a runtime workflow specification before execution.
+The workflow orchestration layer is responsible for executing generated agents in a defined order. In the current implementation, workflows are not loaded from static YAML files. Instead, the workflow created from the user interface is saved as an application graph and transformed into a runtime workflow specification before execution.
 
-When the user launches a saved workflow, the request first reaches the frontend backend through \texttt{POST /orchestration/\{app\_id\}/run}. The backend compiles the saved graph and forwards the runtime specification to the orchestrator through \texttt{POST /run-workflow-spec}. The request is then handled by \texttt{runWorkflowSpec.py} and executed by \texttt{WorkflowExecutionService}.
+For the implemented financial workflow, the runtime specification follows the functional order introduced in Section~\ref{sec:implemented-use-case}: extraction, mapping, generation, and sanitization. The orchestrator does not implement the business logic of these steps itself. Instead, it coordinates the generated agents, validates their inputs and outputs, adapts payloads when needed, and stores the execution state until the final response is produced.
 
-For the implemented financial workflow, the runtime specification follows the functional order introduced in Section~\ref{sec:implemented-use-case}: extraction, mapping, generation, and sanitization.
+\paragraph{Workflow Run Preparation.}
 
-Before execution, the orchestrator retrieves the runtime manifest of each target agent using \texttt{ManifestService}. The manifest provides the agent identity, input schema, and output schema. This allows the orchestrator to execute the workflow according to the contract exposed by each generated agent.
+When the user launches a saved workflow, the request first reaches the frontend backend through \texttt{POST /orchestration/\{app\_id\}/run}. The backend retrieves the saved application graph, compiles it into a runtime workflow specification, and forwards it to the orchestrator through \texttt{POST /run-workflow-spec}. The request is then handled by \texttt{runWorkflowSpec.py} and executed by \texttt{WorkflowExecutionService}.
 
-For each step, the orchestrator prepares the payload expected by the next agent. The \texttt{AdapterService} aligns the current payload with the target input schema. It first attempts deterministic adaptation, and when this is not sufficient, it relies on the model-backed \texttt{AdapterAgent}.
+Before any agent is executed, the orchestrator performs a preparation phase. It checks that the runtime specification contains the required workflow data and input payload. It then verifies that the requested workflow can be executed and retrieves the runtime manifests of the agents involved in the workflow. These manifests are obtained through the \texttt{/manifest} endpoint exposed by each generated agent and provide the agent identity, endpoint, input schema, and output schema.
 
-After the payload is prepared, the orchestrator invokes the target generated agent through \texttt{AgentClient}. The call is performed over the internal Docker network using the runtime endpoint \texttt{http://<agent-container>:8000/run}. The returned result is stored in the workflow execution state and passed to the next step until the final output is produced.
-
-Figure~\ref{fig:workflow_orchestration_execution_path} summarizes the workflow orchestration execution path.
+The retrieved manifests are cached during execution in order to avoid repeating the same discovery operation for every step. After the manifests are available, the orchestrator initializes the execution context by creating or propagating a \texttt{trace\_id}, storing the initial payload, and preparing the workflow state. At this point, the workflow is ready to enter the step execution loop.
 
 \begin{figure}[H]
-\centering
-\begin{tikzpicture}[
-    node distance=0.9cm,
-    box/.style={
-        rectangle,
-        draw,
-        rounded corners,
-        align=center,
-        minimum width=7.8cm,
-        minimum height=0.8cm,
-        font=\small
-    },
-    arrow/.style={-Latex, thick}
-]
-
-\node[box] (user) {User launches workflow};
-\node[box, below=of user] (frontend) {Frontend UI};
-\node[box, below=of frontend] (backend) {\texttt{POST /orchestration/\{app\_id\}/run}\\Frontend Backend};
-\node[box, below=of backend] (spec) {Build runtime workflow specification};
-\node[box, below=of spec] (orchestrator) {\texttt{POST /run-workflow-spec}\\Orchestrator};
-\node[box, below=of orchestrator] (workflow) {\texttt{WorkflowExecutionService}};
-\node[box, below=of workflow] (manifest) {\texttt{ManifestService}\\\texttt{GET /manifest}};
-\node[box, below=of manifest] (adapter) {\texttt{AdapterService}\\Payload adaptation};
-\node[box, below=of adapter] (client) {\texttt{AgentClient}\\HTTP call};
-\node[box, below=of client] (agent) {Generated Agent\\\texttt{POST /run}};
-\node[box, below=of agent] (state) {Step result stored};
-\node[box, below=of state] (final) {Next agent or final output};
-
-\draw[arrow] (user) -- (frontend);
-\draw[arrow] (frontend) -- (backend);
-\draw[arrow] (backend) -- (spec);
-\draw[arrow] (spec) -- (orchestrator);
-\draw[arrow] (orchestrator) -- (workflow);
-\draw[arrow] (workflow) -- (manifest);
-\draw[arrow] (manifest) -- (adapter);
-\draw[arrow] (adapter) -- (client);
-\draw[arrow] (client) -- (agent);
-\draw[arrow] (agent) -- (state);
-\draw[arrow] (state) -- (final);
-
-\node[
-    draw,
-    dashed,
-    rounded corners,
-    align=center,
-    font=\small,
-    right=1.2cm of workflow,
-    text width=4.2cm
-] (roles) {
-Runtime workflow roles\\[0.1cm]
-\texttt{extractor}\\
-$\downarrow$\\
-\texttt{mapper}\\
-$\downarrow$\\
-\texttt{generator}\\
-$\downarrow$\\
-\texttt{sanitizer}
-};
-
-\draw[dashed] (roles.west) -- (workflow.east);
-
-\end{tikzpicture}
-\caption{Workflow Orchestration Execution Path}
-\label{fig:workflow_orchestration_execution_path}
+    \centering
+    \includegraphics[width=\textwidth]{figures/orchestrator_run_preparation.png}
+    \caption{Orchestrator workflow run preparation}
+    \label{fig:orchestrator_run_preparation}
 \end{figure}
 
-This implementation keeps workflow logic outside the generated agents. Each agent only exposes its runtime contract and \texttt{/run} endpoint, while the orchestrator manages execution order, payload adaptation, agent invocation, and step result aggregation.
-    
+Figure~\ref{fig:orchestrator_run_preparation} shows the preparation phase executed by the orchestrator before the first agent call. This phase ensures that the workflow request is valid, that the runtime specification can be executed, and that all required agent manifests are available before the execution loop starts.
+
+\paragraph{Workflow Step Execution Loop.}
+
+After the workflow run has been prepared, the orchestrator executes the workflow step by step. For each step, it loads the target agent manifest and identifies the endpoint, input schema, and output schema required for that agent. This contract-based execution allows the orchestrator to interact with generated agents without depending on their internal implementation.
+
+Before invoking the target agent, the orchestrator prepares the payload expected by that step. The \texttt{AdapterService} first attempts deterministic adaptation by checking whether the current payload already satisfies the target input schema or can be adapted through direct field matching. If this local adaptation is not sufficient, the orchestrator uses the model-backed \texttt{AdapterAgent} to transform the payload into the expected JSON structure.
+
+Once the adapted payload is prepared, it is validated against the target input schema. If the validation fails, the workflow execution stops and an error response is returned. If the input is valid, the orchestrator invokes the generated agent through \texttt{AgentClient}. The call is performed over the internal Docker network using an endpoint such as \texttt{http://<agent-container>:8000/run}.
+
+After the agent returns its response, the orchestrator checks whether the invocation succeeded and validates the returned output against the agent output schema. If the output is valid, the result is stored in the workflow execution state and becomes available for the next step. The same loop continues until there are no remaining steps. The orchestrator then returns the final response with the aggregated workflow result.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/workflow_step_execution_loop.png}
+    \caption{Workflow step execution loop}
+    \label{fig:workflow_step_execution_loop}
+\end{figure}
+
+Figure~\ref{fig:workflow_step_execution_loop} details the internal execution loop of the orchestrator. Each handoff between agents is adapted, validated, executed, checked, and stored before the workflow continues. This implementation keeps workflow logic outside the generated agents. Each generated agent only exposes its runtime contract and \texttt{/run} endpoint, while the orchestrator manages execution order, payload adaptation, agent invocation, output validation, and step result aggregation.
+
 \subsubsection{PostgreSQL Persistence and Table Models}
 
 \label{sec:postgresql-persistence}

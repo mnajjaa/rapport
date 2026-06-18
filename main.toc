@@ -99,26 +99,28 @@
 \contentsline {subsubsection}{\numberline {4.3.1}Implemented Use Case and Execution Scenario}{49}{subsubsection.4.3.1}%
 \contentsline {subsubsection}{\numberline {4.3.2}Agent Factory Implementation}{51}{subsubsection.4.3.2}%
 \contentsline {subsubsection}{\numberline {4.3.3}Generated Agent Runtime Implementation}{53}{subsubsection.4.3.3}%
-\contentsline {subsubsection}{\numberline {4.3.4}Validation Layers: Pydantic and JSON Schema}{53}{subsubsection.4.3.4}%
-\contentsline {subsubsection}{\numberline {4.3.5}Workflow Orchestration Implementation}{54}{subsubsection.4.3.5}%
-\contentsline {subsubsection}{\numberline {4.3.6}PostgreSQL Persistence and Table Models}{56}{subsubsection.4.3.6}%
-\contentsline {subsubsection}{\numberline {4.3.7}Docker-Based Deployment Implementation}{56}{subsubsection.4.3.7}%
-\contentsline {subsubsection}{\numberline {4.3.8}Observability Implementation}{58}{subsubsection.4.3.8}%
-\contentsline {subsection}{\numberline {4.4}Implementation of SLM-Evals Pipeline}{59}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1} Environment and MLflow Setup}{59}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Evaluation Dataset and prompt Registration}{60}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}Baseline Output Generation}{62}{subsubsection.4.4.3}%
-\contentsline {subsubsection}{\numberline {4.4.4}Multi-Layer Evaluation Implementation}{64}{subsubsection.4.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.5}Result Storage and Visualization}{66}{subsubsection.4.4.5}%
-\contentsline {subsubsection}{\numberline {4.4.6}Results Interpretation}{68}{subsubsection.4.4.6}%
-\contentsline {subsubsection}{\numberline {4.4.7}Prompt Enhancement Experiment}{69}{subsubsection.4.4.7}%
-\contentsline {subsection}{\numberline {4.5}Results and Discussion}{70}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}VIP Platform Results}{70}{subsubsection.4.5.1}%
-\contentsline {paragraph}{Main platform interfaces :}{70}{paragraph*.10}%
-\contentsline {paragraph}{Agent Creation and Deployment Validation : }{72}{paragraph*.11}%
-\contentsline {paragraph}{Workflow Execution Scenario: }{79}{paragraph*.12}%
-\contentsline {subsection}{\numberline {4.6}Chapter Summary}{82}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Conclusion and Perspectives}{83}{section.5}%
-\contentsline {subsection}{\numberline {5.1}General Conclusion}{83}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Current Limitations}{84}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Perspectives for Future Work}{85}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Validation Layers: Pydantic and JSON Schema}{54}{subsubsection.4.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.5}Workflow Orchestration Implementation}{55}{subsubsection.4.3.5}%
+\contentsline {paragraph}{Workflow Run Preparation.}{55}{paragraph*.10}%
+\contentsline {paragraph}{Workflow Step Execution Loop.}{56}{paragraph*.11}%
+\contentsline {subsubsection}{\numberline {4.3.6}PostgreSQL Persistence and Table Models}{57}{subsubsection.4.3.6}%
+\contentsline {subsubsection}{\numberline {4.3.7}Docker-Based Deployment Implementation}{58}{subsubsection.4.3.7}%
+\contentsline {subsubsection}{\numberline {4.3.8}Observability Implementation}{59}{subsubsection.4.3.8}%
+\contentsline {subsection}{\numberline {4.4}Implementation of SLM-Evals Pipeline}{60}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1} Environment and MLflow Setup}{60}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Evaluation Dataset and prompt Registration}{61}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Baseline Output Generation}{63}{subsubsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.4}Multi-Layer Evaluation Implementation}{65}{subsubsection.4.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.5}Result Storage and Visualization}{67}{subsubsection.4.4.5}%
+\contentsline {subsubsection}{\numberline {4.4.6}Results Interpretation}{69}{subsubsection.4.4.6}%
+\contentsline {subsubsection}{\numberline {4.4.7}Prompt Enhancement Experiment}{70}{subsubsection.4.4.7}%
+\contentsline {subsection}{\numberline {4.5}Results and Discussion}{71}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}VIP Platform Results}{71}{subsubsection.4.5.1}%
+\contentsline {paragraph}{Main platform interfaces :}{71}{paragraph*.12}%
+\contentsline {paragraph}{Agent Creation and Deployment Validation : }{73}{paragraph*.13}%
+\contentsline {paragraph}{Workflow Execution Scenario: }{80}{paragraph*.14}%
+\contentsline {subsection}{\numberline {4.6}Chapter Summary}{83}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Conclusion and Perspectives}{84}{section.5}%
+\contentsline {subsection}{\numberline {5.1}General Conclusion}{84}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Current Limitations}{85}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Perspectives for Future Work}{86}{subsection.5.3}%

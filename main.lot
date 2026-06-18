@@ -5,5 +5,5 @@
 \contentsline {table}{\numberline {5}{\ignorespaces Main architectural principles of VIP}}{28}{table.5}%
 \contentsline {table}{\numberline {6}{\ignorespaces Main components of the VIP platform}}{31}{table.6}%
 \contentsline {table}{\numberline {7}{\ignorespaces Implemented agent roles in the VIP financial workflow}}{51}{table.7}%
-\contentsline {table}{\numberline {8}{\ignorespaces MLflow environment configuration for the SLM-Evals pipeline}}{60}{table.8}%
-\contentsline {table}{\numberline {9}{\ignorespaces Golden dataset and baseline prompt configuration}}{61}{table.9}%
+\contentsline {table}{\numberline {8}{\ignorespaces MLflow environment configuration for the SLM-Evals pipeline}}{61}{table.8}%
+\contentsline {table}{\numberline {9}{\ignorespaces Golden dataset and baseline prompt configuration}}{62}{table.9}%
