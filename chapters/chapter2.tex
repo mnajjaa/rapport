@@ -2,7 +2,7 @@
 
 % --- State of the Art and Gap Analysis ---
 \newpage
-\section{State of the Art}
+\section{State of the Art and Project Specifications}
 
 \titleformat{\paragraph}[block]
     {\normalfont\fontsize{12}{15}\bfseries}
@@ -38,7 +38,7 @@ AI agents can either be single or multi depending on the design structure.
 
 A single agent is an agent design where one LLM handles the whole task. It reasons, plans, and calls the required tools when needed. Most AI agents start as single-agent systems because they are simpler, easier to maintain, and usually enough for many tasks.
 
-A multi-agent system uses specialised agents to solve different parts of a task. It often has a central agent, usually called an \textbf{orchestrator}, \textbf{supervisor}, or \textbf{planner}, that coordinates the other agents and decides when each one should act. Each specialised agent can have its own role, tools, and reasoning logic, making the system more modular and suitable for complex workflows.
+A multi-agent system uses specialized agents to solve different parts of a task. It often has a central agent, usually called an \textbf{orchestrator}, \textbf{supervisor}, or \textbf{planner}, that coordinates the other agents and decides when each one should act. Each specialized agent can have its own role, tools, and reasoning logic, making the system more modular and suitable for complex workflows.
 
 \begin{figure}[H]
     \centering
@@ -53,7 +53,7 @@ A single-agent design works well for simple tasks that require limited tool use.
 
 However, a single agent can become overloaded when the task requires many tools, multi-step reasoning, different responsibilities, or verification before the final response is returned to the user. Common issues include overloaded prompting, poor tool routing, unclear agent responsibilities, and reduced reliability due to too much complexity in one agent.
 
-A \textbf{multi-agent system} is a better choice when the task may overwhelm a single-agent design and when specialised agents with clear roles, their own tools, and separate responsibilities are needed.
+A \textbf{multi-agent system} is a better choice when the task may overwhelm a single-agent design and when specialized agents with clear roles, their own tools, and separate responsibilities are needed.
 
 For example, a \textbf{software engineering agent} may work better as a multi-agent system:
 
@@ -76,12 +76,12 @@ Multi-agent systems make the workflow more modular and give each stage a clear r
 A simple rule is:
 
 \begin{quote}
-\textit{Use a single agent when the task is simple, has fewer steps, and needs only a few tools. Use a multi-agent system when the task requires specialised roles, multi-step reasoning, stronger verification, or coordination across different tools and workflows.}
+\textit{Use a single agent when the task is simple, has fewer steps, and needs only a few tools. Use a multi-agent system when the task requires specialized roles, multi-step reasoning, stronger verification, or coordination across different tools and workflows.}
 \end{quote}
 
-In this context, VIP supports both Single-Agent Systems (SAS) and Multi-Agent Systems (MAS). Simple use cases can be handled by one configurable agent, while complex workflows can be distributed across coordinated specialised agents with clear responsibilities.
+In this context, VIP supports both Single-Agent Systems (SAS) and Multi-Agent Systems (MAS). Simple use cases can be handled by one configurable agent, while complex workflows can be distributed across coordinated specialized agents with clear responsibilities.
 
-\subsection{Preliminary Study and Project Specifications of the VIP Project}
+\subsection{VIP Project Specifications}
 
 \subsubsection{Problem Statement}
 
@@ -121,7 +121,7 @@ From a technical perspective, the VIP project aims to provide a modular platform
 
 These objectives are not limited to model performance. They also concern the way agents are generated, connected, monitored, and maintained throughout their lifecycle. Therefore, the main technical objectives of VIP are to enable configuration-driven agent creation, standardize agent communication through schemas, support multiple LLM and SLM providers, and ensure traceability during execution.
 
-The model evaluation aspect is supported by the SLM-evals second project, which is presented separately in Section 2.4.
+The model evaluation aspect is supported by the SLM-Evals second project, which is presented separately in Section 2.4.
 
 The main technical objectives of VIP are:
 
@@ -230,7 +230,7 @@ These criteria allow us to evaluate whether each platform is workflow-centric, a
 
 \paragraph{n8n}
 
-n8n is a workflow automation platform based on a visual node-based editor. It allows users to connect services, APIs, and automation steps through graphical workflows. In the context of AI, n8n provides an AI Agent node. According to the official documentation, an AI agent in n8n receives data, makes decisions, and acts in its environment by using external tools and APIs. The documentation also specifies that at least one tool sub-node must be connected to the AI Agent node.
+n8n is a workflow automation platform based on a visual node-based editor. It allows users to connect services, APIs, and automation steps through graphical workflows. n8n provides an AI Agent node that can use connected tools to execute tasks inside workflows~\cite{n8n_ai_agent}. According to the official documentation, an AI agent in n8n receives data, makes decisions, and acts in its environment by using external tools and APIs. The documentation also specifies that at least one tool sub-node must be connected to the AI Agent node.
 
 n8n is relevant to VIP because it demonstrates the value of visual workflow composition and low-code automation. However, it remains mainly workflow-centric. The main object in n8n is the workflow, while in VIP the main object is the agent lifecycle: configuration, generation, deployment, execution, monitoring, and versioning. n8n provides useful enterprise features such as source control, log streaming, security settings, and insights, and it also supports deployment and monitoring configurations such as Docker, queue mode, OpenTelemetry, and scaling options. Nevertheless, VIP requires a more explicit agent contract, stronger schema enforcement, and independent agent containers generated from configuration.
 
@@ -238,7 +238,7 @@ The main lesson for VIP is that n8n is strong for visual workflows, integration,
 
 \paragraph{CrewAI}
 
-CrewAI represents the category of code-first multi-agent frameworks. It is designed around the concept of a crew, which is a collaborative group of agents working together to achieve a set of tasks. Each crew defines the strategy for task execution, agent collaboration, and the overall workflow. CrewAI supports attributes such as agents, tasks, process type, memory, callbacks, planning, and knowledge sources.
+CrewAI represents the category of code-first multi-agent frameworks. CrewAI structures multi-agent collaboration around crews, agents, tasks, and processes~\cite{crewai_crews}. It is designed around the concept of a crew, which is a collaborative group of agents working together to achieve a set of tasks. Each crew defines the strategy for task execution, agent collaboration, and the overall workflow. CrewAI supports attributes such as agents, tasks, process type, memory, callbacks, planning, and knowledge sources.
 
 CrewAI is close to VIP from a multi-agent perspective because both approaches rely on task decomposition and specialized agents. CrewAI also supports YAML configuration as a recommended way to define crews, agents, and tasks, which is aligned with the configuration-driven philosophy of VIP. However, CrewAI is mainly a framework used inside a Python runtime, while VIP aims to provide a complete platform where agents are generated, containerized, registered, orchestrated, and monitored as independent services.
 
@@ -248,7 +248,7 @@ The main lesson for VIP is that CrewAI is strong for explaining multi-agent coll
 
 \paragraph{Dify}
 
-Dify represents the category of LLM application development platforms. Its official documentation describes it as an open-source platform for building agentic workflows. It allows users to define processes visually, connect tools and data sources, and deploy AI applications.
+Dify represents the category of LLM application development platforms. Dify is presented as an open-source platform for building LLM applications and agentic workflows~\cite{dify_intro}. It allows users to define processes visually, connect tools and data sources, and deploy AI applications.
 
 Dify is relevant to VIP because it focuses on simplifying the development of LLM-based applications through visual workflows and integration with external tools and data. Compared with n8n, Dify is more oriented toward AI applications. Compared with CrewAI, it is less code-first and more product-oriented. However, VIP has a more infrastructure-oriented vision: each agent is treated as a deployable unit with explicit input/output schemas, selected tools, MLflow-managed artifacts, and container-level isolation.
 

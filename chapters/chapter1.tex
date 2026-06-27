@@ -77,33 +77,20 @@ How can we design a modular, secure, observable, and cost-optimized AI agent orc
 
 \subsection{Objectives}
 
-Based on the problem statement, the objectives of the project are divided into functional and non-functional objectives.
+The main objective of this project is to design and implement a modular AI agentic platform capable of creating, deploying, orchestrating, monitoring, and evaluating intelligent agents in a controlled environment.
 
-\paragraph{Functional Objectives}
+More specifically, the project aims to:
+
 \begin{itemize}
-    \item Enable dynamic agent creation from declarative YAML or JSON configuration files.
-
-    \item Provide a visual workflow builder for composing and managing multi-agent execution pipelines.
-
-    \item Offer a unified interface for selecting models, prompts, schemas, providers, and tools without modifying the source code.
-
-    \item Support reusable multi-agent pipelines that can combine specialized agents into structured workflows.
-
-    \item Integrate SLM-evals results into the provider selection process to compare LLM and SLM options before deployment.
+    \item design a configuration-driven Agent Factory capable of generating specialized agents without modifying the reusable runtime source code;
+    \item deploy generated agents as independent containerized FastAPI services;
+    \item provide a workflow orchestration layer able to coordinate multiple agents through standardized runtime contracts;
+    \item ensure reliable communication between agents using input and output schemas, validation layers, and payload adaptation mechanisms;
+    \item integrate governance and traceability mechanisms through MLflow, PostgreSQL, Docker, and Laminar;
+    \item develop the SLM-Evals pipeline as a complementary evaluation framework for comparing LLM and SLM providers according to quality, latency, cost, and schema compliance.
 \end{itemize}
 
-\paragraph{Non-functional Objectives}
-\begin{itemize}
-    \item Reduce vendor lock-in and operational cost by evaluating multiple providers, including proprietary LLM APIs and local SLM alternatives.
-
-    \item Optimize deployment costs through containerized, configurable, and reusable agent services.
-
-    \item Ensure observability and traceability by monitoring execution traces, token usage, latency, and estimated cost.
-
-    \item Preserve modularity and scalability by allowing agents, tools, providers, and workflows to evolve independently.
-
-    \item Strengthen security and provider independence by limiting hard-coded provider dependencies and supporting controlled configuration management.
-\end{itemize}
+The detailed functional and non-functional requirements derived from these objectives are presented in Chapter~\ref{chap:state-of-the-art}.
 
 \subsection{Technology Choices}
 
@@ -132,27 +119,6 @@ The project relies on a modular technology stack selected to support agent gener
     \label{fig:nextjs_logo}
 \end{figure}
 
-\begin{itemize}
-    \item \textbf{LangChain:} library used to construct LLM-driven agents, connect tools, and manage prompt-based application logic.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.18\textwidth]{figures/langchain_logo.png}
-    \caption{Logo of LangChain}
-    \label{fig:langchain_logo}
-\end{figure}
-
-\begin{itemize}
-    \item \textbf{LangGraph:} library used to define graph-based orchestration logic for stateful multi-agent workflows.
-\end{itemize}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.18\textwidth]{figures/langgraph_logo.png}
-    \caption{Logo of LangGraph}
-    \label{fig:langgraph_logo}
-\end{figure}
 
 \begin{itemize}
     \item \textbf{Jupyter Notebook:} interactive environment used during prototyping, experimentation, SLM-evals, and prompt engineering.
@@ -292,7 +258,7 @@ Several methodological approaches were considered in order to structure the deve
 
 \subsubsection{Scrum Agile Methodology}
 
-Scrum is an Agile framework based on iterative and incremental development. The official Scrum Guide describes Scrum as an iterative and incremental approach used to optimize predictability and control risk. It supports progressive delivery by organizing work into short cycles, reviewing progress regularly, and adapting the next development steps according to feedback.
+Scrum is an Agile framework based on iterative and incremental development~\cite{scrumguide2020}. The official Scrum Guide describes Scrum as an iterative and incremental approach used to optimize predictability and control risk. It supports progressive delivery by organizing work into short cycles, reviewing progress regularly, and adapting the next development steps according to feedback.
 
 Scrum was considered because the project required frequent adjustments, progressive development, and regular validation of features such as agent creation, workflow orchestration, prompt management, and observability dashboards.
 
@@ -300,7 +266,7 @@ However, Scrum alone was not sufficient for this internship because the project 
 
 \subsubsection{IBM Data Science Methodology -- The Foundational Methodology}
 
-The IBM Data Science Methodology was considered as the foundational methodology because it provides the macro lifecycle of the project. The CognitiveClass data science methodology is structured around phases that move from business understanding and analytic approach to data requirements, collection, understanding, preparation, modeling, evaluation, deployment, and feedback. This structure makes it suitable for organizing an AI-oriented project from problem definition to operational feedback.
+The IBM Data Science Methodology was considered as the foundational methodology because it provides the macro lifecycle of the project~\cite{ibm_datascience_methodology}. The CognitiveClass data science methodology is structured around phases that move from business understanding and analytic approach to data requirements, collection, understanding, preparation, modeling, evaluation, deployment, and feedback. This structure makes it suitable for organizing an AI-oriented project from problem definition to operational feedback.
 
 The methodology consists of 10 stages organized in a circular workflow:
 
@@ -383,7 +349,7 @@ This methodology is relevant for the VIP project because it supports a structure
 
 While the IBM Data Science Methodology provides the overall project structure, it does not fully describe the specific lifecycle of AI agents. The VIP platform required a more agent-specific perspective because agents are generated from configuration, connected to tools, deployed as services, monitored, and improved after execution. For this reason, ADLC was used as a complementary framework.
 
-IBM defines ADLC as a structured lifecycle for building, deploying, optimizing, and managing AI agents through distinct phases and iterative loops. In the context of VIP, this perspective is relevant because agents must remain reliable, observable, auditable, and aligned with business requirements after deployment.
+IBM defines ADLC as a structured lifecycle for building, deploying, optimizing, and managing AI agents through distinct phases and iterative loops~\cite{ibm_adlc}. In the context of VIP, this perspective is relevant because agents must remain reliable, observable, auditable, and aligned with business requirements after deployment.
 
 In this report, the ADLC perspective is summarized through the following phases:
 
@@ -534,4 +500,4 @@ The project officially started on December 1, 2025 and is scheduled to end on Ma
 
 This chapter introduced the context of the internship by presenting the motivation behind enterprise AI agent orchestration, the host company Value Digital Services, and the objectives of the VIP project. It also clarified the main problem addressed by the project, namely the need for a modular, observable, cost-optimized, and provider-independent platform for creating and managing AI agents. The chapter then summarized the selected technologies, including FastAPI, Next.js, LangChain, LangGraph, Docker, MLflow, PostgreSQL, Laminar, and the LLM/SLM providers evaluated through SLM-evals, before presenting the methodological approach and the project timeline.
 
-The next chapter focuses on the state of the art. It reviews existing agent frameworks, LLM providers, orchestration approaches, and evaluation methods in order to position the proposed solution with respect to current tools and practices.
+The next chapter presents the state of the art and project specifications. It introduces the main concepts related to AI agents and multi-agent orchestration, compares existing platforms, formalizes the VIP requirements, and explains the motivation of the SLM-Evals evaluation project.

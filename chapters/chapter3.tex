@@ -351,7 +351,7 @@ This storage layer acts as the application-level registry of the platform. It al
 \subsubsection{MLflow-Based Prompt and Schema Management}
 
 
-MLflow is used in VIP as a registry and artifact lookup mechanism for prompts and schemas. Generated agents do not embed prompt or schema content directly inside their runtime code. Instead, they store references to these resources through URIs.
+MLflow is used in VIP as a registry and artifact lookup mechanism for prompts and schemas. MLflow provides prompt management and versioning capabilities that support reproducibility in LLM and agent applications~\cite{mlflow_prompt_registry}. Generated agents do not embed prompt or schema content directly inside their runtime code. Instead, they store references to these resources through URIs.
 
 For prompts, the generated agent configuration contains a prompt URI. At runtime, the agent loads the prompt from MLflow using this reference. This makes it possible to change the prompt version used by an agent without modifying the reusable runtime code.
 
@@ -410,7 +410,7 @@ All agent invocations are performed through REST-style HTTP calls. This keeps co
 
 \subsubsection{Docker Image Optimization Strategy}
 
-Because each generated agent is deployed as a separate container, image size and runtime cleanliness are important deployment concerns. VIP addresses this by combining selective dependency resolution with a multi-stage Docker build strategy.
+Because each generated agent is deployed as a separate container, image size and runtime cleanliness are important deployment concerns. VIP addresses this by combining selective dependency resolution with a multi-stage Docker build strategy. Docker multi-stage builds allow separating build dependencies from the final runtime image~\cite{docker_multistage}.
 
 A multi-stage Docker build is a container image construction strategy where the build process is divided into separate stages. The first stage is used to install build dependencies and prepare the application artifacts, while the final stage keeps only the runtime elements required to execute the application. This avoids carrying unnecessary build tools, temporary files, and intermediate artifacts inside the final image.
 

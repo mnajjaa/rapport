@@ -118,7 +118,6 @@ The main implementation files involved in the Agent Factory are:
 
 After validation, the builder assembles a controlled runtime artifact from \texttt{agent\_core/} instead of copying the full repository. It then copies only the selected tools, prepares dependency files, writes the generated \texttt{agent\_config.yaml}, builds the Docker image, and starts the generated container. Once the service is running, the \texttt{/manifest} endpoint is used to confirm that the generated agent exposes the expected runtime contract.
 
-Figure~\ref{fig:agent_factory_implementation_pipeline} summarizes the implemented Agent Factory pipeline.
 
 \begin{figure}[H]
     \centering
@@ -127,7 +126,9 @@ Figure~\ref{fig:agent_factory_implementation_pipeline} summarizes the implemente
     \label{fig:agent_factory_implementation_pipeline}
 \end{figure}
 
-Figure 39 summarizes the implemented Agent Factory pipeline. The process starts from a declarative agent specification containing the provider, model, prompt reference, schema references, and selected tools. The Builder API validates this specification, resolves the required artifacts, assembles the reusable runtime scaffold, prepares the Docker packaging files, and starts the generated container. The final result is an independent FastAPI agent service exposing the standard runtime endpoints required by the orchestrator.    \subsubsection{Generated Agent Runtime Implementation}
+Figure 39 summarizes the implemented Agent Factory pipeline. The process starts from a declarative agent specification containing the provider, model, prompt reference, schema references, and selected tools. The Builder API validates this specification, resolves the required artifacts, assembles the reusable runtime scaffold, prepares the Docker packaging files, and starts the generated container. The final result is an independent FastAPI agent service exposing the standard runtime endpoints required by the orchestrator.
+
+\subsubsection{Generated Agent Runtime Implementation}
 
 \label{sec:generated-agent-runtime-implementation}
 
@@ -137,8 +138,6 @@ The generated runtime mainly contains the FastAPI entry point, the reusable agen
 
 Each generated agent exposes two main endpoints. The \texttt{/run} endpoint executes the agent using a standard request envelope composed of a \texttt{trace\_id}, a \texttt{payload}, and optional \texttt{metadata}. The \texttt{/manifest} endpoint exposes the runtime contract of the service, including its identity, version, input schema, and output schema. This endpoint allows the builder and the orchestrator to verify that the running container exposes the expected contract before execution.
 
-Figure~\ref{fig:generated_agent_runtime} summarizes the runtime behavior of a generated agent.
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{figures/Canonical agent runtime contract.png}
@@ -147,6 +146,7 @@ Figure~\ref{fig:generated_agent_runtime} summarizes the runtime behavior of a ge
 \end{figure}
 
 Figure 40 presents the runtime contract implemented by every generated agent. The orchestrator first calls /manifest to retrieve the agent metadata, endpoint, version, and input/output schemas. It then calls /run using a standardized request envelope containing the trace identifier, payload, and metadata. The agent returns a standardized JSON response containing the execution status, result, token usage, and latency. This contract allows the orchestrator to invoke generated agents without depending on their internal implementation.
+
 \subsubsection{Validation Layers: Pydantic and JSON Schema}
 \label{sec:validation-layers}
 
@@ -274,7 +274,7 @@ The frontend provides an observability interface connected to Laminar through th
 This implementation improves debugging and auditability by making agent execution, tool usage, workflow steps, and runtime errors visible during platform operation.
 
 \subsection{Implementation of SLM-Evals Pipeline}
-After presenting the motivation behind the SLM-Evals second project in the previous chapters, this section focuses on its practical implementation and obtained results. The pipeline was implemented through four notebooks covering environment setup, golden dataset creation, prompt registration, baseline generation, multi-layer evaluation, result visualization, and prompt enhancement.
+After presenting the motivation behind the SLM-Evals second project in the previous chapters, this section focuses on its practical implementation and obtained results. The pipeline was implemented through four notebooks covering environment setup, golden dataset creation, Prompt Registration, baseline generation, multi-layer evaluation, result visualization, and prompt enhancement.
 
 MLflow was used as the central component for tracking experiments, registering prompts, storing dataset metadata, logging generation runs, and saving evaluation artifacts. The evaluation compared small language models on a structured financial report generation task using the same input data, reference output, prompt version, and execution protocol.
 
@@ -282,7 +282,7 @@ MLflow was used as the central component for tracking experiments, registering p
 
 The first implementation step consisted of preparing the execution environment and configuring MLflow as the central tracking tool of the SLM-Evals pipeline. The setup notebook validated the required environment variables for the different model providers, including Phi-4 through an Azure OpenAI-compatible endpoint and Llama 3.1 through Groq.
 
-MLflow was then initialized using the local tracking server available at \texttt{http://127.0.0.1:5000}. The main experiment was created under the name \texttt{phi4\_vs\_Llama3-1\_baseline}, with experiment ID \texttt{4}. This experiment served as the shared workspace for all following steps, including prompt registration, dataset creation, baseline generation, evaluation runs, and artifact logging.
+MLflow was then initialized using the local tracking server available at \texttt{http://127.0.0.1:5000}. The main experiment was created under the name \texttt{phi4\_vs\_Llama3-1\_baseline}, with experiment ID \texttt{4}. This experiment served as the shared workspace for all following steps, including Prompt Registration, dataset creation, baseline generation, evaluation runs, and artifact logging.
 
 A bootstrap run was also created in order to store the initial configuration and metadata. This run logged the notebook role, the number of runs, the RAGAS configuration, judge model information, and package versions. This setup ensured that the evaluation process remained traceable and reproducible across the different notebooks.
 
@@ -317,7 +317,7 @@ The setup notebook ends with a validation summary confirming that the MLflow exp
     \label{fig:slm_mlflow_setup_summary}
 \end{figure}
 
-\subsubsection{Evaluation Dataset and prompt Registration}
+\subsubsection{Evaluation Dataset and Prompt Registration}
 
 
 After configuring the MLflow experiment, the next step consisted of creating the reference evaluation dataset and registering the baseline prompt. This step was implemented in Notebook 01 and served as the foundation for the following generation and evaluation notebooks.
@@ -796,6 +796,8 @@ This chapter presented the implementation, evaluation, and results of the projec
 
 The chapter also presented the implemented financial document intelligence workflow, composed of four agents: extractor, mapper, generator, and sanitizer. The interface screenshots validated the main platform flow, from intelligent application creation and agent configuration to workflow execution, Docker deployment, MLflow artifact traceability, and Laminar trace inspection.
 
-In addition, the chapter described the SLM-Evals pipeline implemented through four notebooks. This pipeline covered MLflow setup, golden dataset creation, prompt registration, baseline generation, multi-layer evaluation, result visualization, and prompt enhancement. The evaluation compared Phi-4 and Llama 3.1 on a structured financial report generation task.
+In addition, the chapter described the SLM-Evals pipeline implemented through four notebooks. This pipeline covered MLflow setup, golden dataset creation, Prompt Registration, baseline generation, multi-layer evaluation, result visualization, and prompt enhancement. The evaluation compared Phi-4 and Llama 3.1 on a structured financial report generation task.
+
+A synthesis table was also added to relate the implemented results to the initial project objectives, showing which objectives were achieved and which aspects remain future work.
 
 Overall, this chapter showed that VIP can create configurable agents, deploy them as independent services, compose them into workflows, execute a complete multi-agent scenario, and provide runtime observability. It also showed that SLM-Evals supports reproducible model comparison and helps guide provider selection for financial AI workflows.

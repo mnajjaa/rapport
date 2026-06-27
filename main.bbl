@@ -1,0 +1,209 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{scrumguide2020}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=ee6f08fcba839e09471a0bc69152b6a5}{%
+           family={Schwaber},
+           familyi={S\bibinitperiod},
+           given={Ken},
+           giveni={K\bibinitperiod}}}%
+        {{hash=6e3f26f6f816a26c6ab36bc7a899bcde}{%
+           family={Sutherland},
+           familyi={S\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{fullhash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{fullhashraw}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{bibnamehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{authorbibnamehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{authornamehash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{authorfullhash}{303ea1dc92fd8c772eac56316b2074ef}
+      \strng{authorfullhashraw}{303ea1dc92fd8c772eac56316b2074ef}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://scrumguides.org/}}
+      \field{note}{Accessed: 2026}
+      \field{title}{The Scrum Guide}
+      \field{year}{2020}
+    \endentry
+    \entry{ibm_datascience_methodology}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=b4d9d4aa314acc29681e88b105ab5efc}{%
+           family={{Cognitive Class}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{b4d9d4aa314acc29681e88b105ab5efc}
+      \strng{fullhash}{b4d9d4aa314acc29681e88b105ab5efc}
+      \strng{fullhashraw}{b4d9d4aa314acc29681e88b105ab5efc}
+      \strng{bibnamehash}{b4d9d4aa314acc29681e88b105ab5efc}
+      \strng{authorbibnamehash}{b4d9d4aa314acc29681e88b105ab5efc}
+      \strng{authornamehash}{b4d9d4aa314acc29681e88b105ab5efc}
+      \strng{authorfullhash}{b4d9d4aa314acc29681e88b105ab5efc}
+      \strng{authorfullhashraw}{b4d9d4aa314acc29681e88b105ab5efc}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://cognitiveclass.ai/courses/data-science-methodology-2}}
+      \field{note}{Accessed: 2026}
+      \field{title}{Data Science Methodology}
+    \endentry
+    \entry{ibm_adlc}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=cbf44511d041dc6d1dd73cc0c033122c}{%
+           family={{IBM}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{fullhash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{fullhashraw}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{bibnamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorbibnamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authornamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorfullhash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorfullhashraw}{cbf44511d041dc6d1dd73cc0c033122c}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.ibm.com/think/topics/agent-development-lifecycle-adlc}}
+      \field{note}{Accessed: 2026}
+      \field{title}{What is the Agent Development Lifecycle (ADLC)?}
+    \endentry
+    \entry{n8n_ai_agent}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=5877e26c078d6409fde54d508bf25721}{%
+           family={{n8n}},
+           familyi={n\bibinitperiod}}}%
+      }
+      \strng{namehash}{5877e26c078d6409fde54d508bf25721}
+      \strng{fullhash}{5877e26c078d6409fde54d508bf25721}
+      \strng{fullhashraw}{5877e26c078d6409fde54d508bf25721}
+      \strng{bibnamehash}{5877e26c078d6409fde54d508bf25721}
+      \strng{authorbibnamehash}{5877e26c078d6409fde54d508bf25721}
+      \strng{authornamehash}{5877e26c078d6409fde54d508bf25721}
+      \strng{authorfullhash}{5877e26c078d6409fde54d508bf25721}
+      \strng{authorfullhashraw}{5877e26c078d6409fde54d508bf25721}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/}}
+      \field{note}{Accessed: 2026}
+      \field{title}{AI Agent Node Documentation}
+    \endentry
+    \entry{crewai_crews}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=c5ee2b8bad3fe1d83575495fbd93ecfa}{%
+           family={{CrewAI}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{c5ee2b8bad3fe1d83575495fbd93ecfa}
+      \strng{fullhash}{c5ee2b8bad3fe1d83575495fbd93ecfa}
+      \strng{fullhashraw}{c5ee2b8bad3fe1d83575495fbd93ecfa}
+      \strng{bibnamehash}{c5ee2b8bad3fe1d83575495fbd93ecfa}
+      \strng{authorbibnamehash}{c5ee2b8bad3fe1d83575495fbd93ecfa}
+      \strng{authornamehash}{c5ee2b8bad3fe1d83575495fbd93ecfa}
+      \strng{authorfullhash}{c5ee2b8bad3fe1d83575495fbd93ecfa}
+      \strng{authorfullhashraw}{c5ee2b8bad3fe1d83575495fbd93ecfa}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.crewai.com/en/concepts/crews}}
+      \field{note}{Accessed: 2026}
+      \field{title}{Crews Documentation}
+    \endentry
+    \entry{dify_intro}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=c3ac4641185247f8760c5f1a8a47f5ae}{%
+           family={{Dify}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{c3ac4641185247f8760c5f1a8a47f5ae}
+      \strng{fullhash}{c3ac4641185247f8760c5f1a8a47f5ae}
+      \strng{fullhashraw}{c3ac4641185247f8760c5f1a8a47f5ae}
+      \strng{bibnamehash}{c3ac4641185247f8760c5f1a8a47f5ae}
+      \strng{authorbibnamehash}{c3ac4641185247f8760c5f1a8a47f5ae}
+      \strng{authornamehash}{c3ac4641185247f8760c5f1a8a47f5ae}
+      \strng{authorfullhash}{c3ac4641185247f8760c5f1a8a47f5ae}
+      \strng{authorfullhashraw}{c3ac4641185247f8760c5f1a8a47f5ae}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.dify.ai/en/use-dify/getting-started/introduction}}
+      \field{note}{Accessed: 2026}
+      \field{title}{Dify Documentation: Introduction}
+    \endentry
+    \entry{mlflow_prompt_registry}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=c8d3451e7307fb1b46769ec23ea7906a}{%
+           family={{MLflow}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{c8d3451e7307fb1b46769ec23ea7906a}
+      \strng{fullhash}{c8d3451e7307fb1b46769ec23ea7906a}
+      \strng{fullhashraw}{c8d3451e7307fb1b46769ec23ea7906a}
+      \strng{bibnamehash}{c8d3451e7307fb1b46769ec23ea7906a}
+      \strng{authorbibnamehash}{c8d3451e7307fb1b46769ec23ea7906a}
+      \strng{authornamehash}{c8d3451e7307fb1b46769ec23ea7906a}
+      \strng{authorfullhash}{c8d3451e7307fb1b46769ec23ea7906a}
+      \strng{authorfullhashraw}{c8d3451e7307fb1b46769ec23ea7906a}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://mlflow.org/prompt-registry}}
+      \field{note}{Accessed: 2026}
+      \field{title}{Prompt Registry for LLM and Agent Applications}
+    \endentry
+    \entry{docker_multistage}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=c5fd214cdd0d2b3b4272e73b022ba5c2}{%
+           family={{Docker}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \strng{fullhash}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \strng{fullhashraw}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \strng{bibnamehash}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \strng{authorbibnamehash}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \strng{authornamehash}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \strng{authorfullhash}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \strng{authorfullhashraw}{c5fd214cdd0d2b3b4272e73b022ba5c2}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.docker.com/build/building/multi-stage/}}
+      \field{note}{Accessed: 2026}
+      \field{title}{Multi-stage Builds}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
