@@ -230,32 +230,13 @@ These criteria allow us to evaluate whether each platform is workflow-centric, a
 
 \paragraph{n8n}
 
-n8n is a workflow automation platform based on a visual node-based editor. It allows users to connect services, APIs, and automation steps through graphical workflows. n8n provides an AI Agent node that can use connected tools to execute tasks inside workflows~\cite{n8n_ai_agent}. According to the official documentation, an AI agent in n8n receives data, makes decisions, and acts in its environment by using external tools and APIs. The documentation also specifies that at least one tool sub-node must be connected to the AI Agent node.
-
-n8n is relevant to VIP because it demonstrates the value of visual workflow composition and low-code automation. However, it remains mainly workflow-centric. The main object in n8n is the workflow, while in VIP the main object is the agent lifecycle: configuration, generation, deployment, execution, monitoring, and versioning. n8n provides useful enterprise features such as source control, log streaming, security settings, and insights, and it also supports deployment and monitoring configurations such as Docker, queue mode, OpenTelemetry, and scaling options. Nevertheless, VIP requires a more explicit agent contract, stronger schema enforcement, and independent agent containers generated from configuration.
-
-The main lesson for VIP is that n8n is strong for visual workflows, integration, and automation. VIP should therefore learn from its ease of use while remaining different in its core focus: agent generation, schema control, and containerized runtime management.
-
+n8n is an open-source workflow automation platform based on a visual node editor. It enables users to connect services, APIs, and AI capabilities through low-code workflows, making automation accessible while supporting integration with external tools. Although n8n provides AI agent functionality and enterprise deployment features, its architecture remains primarily workflow-oriented. In contrast, VIP focuses on the complete agent lifecycle, including configuration, generation, deployment, monitoring, and governance. Consequently, n8n mainly demonstrates the benefits of visual workflow composition and ease of use, which inspired part of the VIP design.
 \paragraph{CrewAI}
 
-CrewAI represents the category of code-first multi-agent frameworks. CrewAI structures multi-agent collaboration around crews, agents, tasks, and processes~\cite{crewai_crews}. It is designed around the concept of a crew, which is a collaborative group of agents working together to achieve a set of tasks. Each crew defines the strategy for task execution, agent collaboration, and the overall workflow. CrewAI supports attributes such as agents, tasks, process type, memory, callbacks, planning, and knowledge sources.
-
-CrewAI is close to VIP from a multi-agent perspective because both approaches rely on task decomposition and specialized agents. CrewAI also supports YAML configuration as a recommended way to define crews, agents, and tasks, which is aligned with the configuration-driven philosophy of VIP. However, CrewAI is mainly a framework used inside a Python runtime, while VIP aims to provide a complete platform where agents are generated, containerized, registered, orchestrated, and monitored as independent services.
-
-This distinction is important because VIP's architecture separates build-time and runtime responsibilities. The builder receives an agent specification and produces a standalone artifact containing runtime code, selected tools, dependencies, Dockerfile, compose file, and manifest. This makes VIP closer to an operational platform than to a pure development framework.
-
-The main lesson for VIP is that CrewAI is strong for explaining multi-agent collaboration through agents, roles, tasks, and processes. VIP goes further by adding Dockerized independent services, MLflow governance, schema contracts, and orchestration over HTTP.
-
+CrewAI is a code-first framework for developing collaborative multi-agent systems. It organizes applications around specialized agents, tasks, and execution processes, allowing agents to cooperate in solving complex problems. Its configuration-driven approach aligns with the philosophy adopted in VIP. However, CrewAI mainly provides a development framework, whereas VIP extends this concept into a complete platform capable of generating, deploying, orchestrating, and monitoring containerized agents. Thus, CrewAI primarily serves as a reference for multi-agent collaboration within the VIP architecture.
 \paragraph{Dify}
 
-Dify represents the category of LLM application development platforms. Dify is presented as an open-source platform for building LLM applications and agentic workflows~\cite{dify_intro}. It allows users to define processes visually, connect tools and data sources, and deploy AI applications.
-
-Dify is relevant to VIP because it focuses on simplifying the development of LLM-based applications through visual workflows and integration with external tools and data. Compared with n8n, Dify is more oriented toward AI applications. Compared with CrewAI, it is less code-first and more product-oriented. However, VIP has a more infrastructure-oriented vision: each agent is treated as a deployable unit with explicit input/output schemas, selected tools, MLflow-managed artifacts, and container-level isolation.
-
-This difference is aligned with VIP's objective of reducing fragmented AI initiatives. The internal platform vision highlights the need to move away from isolated workflows, fragmented models, and unscalable deployments toward a unified and auditable agent-centric platform.
-
-The main lesson for VIP is that Dify is strong for LLM application creation, visual configuration, and AI workflow building. VIP should keep more control over agent runtime, schemas, observability, and deployment while learning from Dify's platform-oriented user experience.
-
+Dify is an open-source platform for building LLM-based applications through visual workflows and integrated AI services. It simplifies the creation of conversational applications by combining prompts, tools, knowledge bases, and external integrations within a user-friendly interface. Unlike Dify, VIP adopts an infrastructure-oriented approach in which each agent is an independently deployable service with explicit schemas, governance, and observability. Therefore, Dify mainly highlights the importance of usability and rapid application development while reinforcing VIP's emphasis on operational control and enterprise deployment.
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
@@ -329,7 +310,7 @@ Unlike LLMs, SLMs are not necessarily designed to solve every possible language 
 
 The motivation behind SLM-Evals is to determine whether smaller models can achieve acceptable quality for financial analysis tasks while reducing cost and latency. In the VIP context, this is important because each agent may not need the most powerful model available. For example, an extraction agent, a mapper agent, or a summarizer agent may perform well with a smaller model if the task is structured and supported by clear prompts and schemas.
 
-This project therefore aims to compare models not only from a quality perspective, but also from an engineering and business perspective. A model that produces slightly lower quality but is cheaper, faster, and easier to deploy may be more suitable for some VIP agents. Recent research on Phi-3, for example, shows that a 3.8B-parameter model can reach competitive results on benchmarks such as MMLU and MT-Bench while remaining small enough for local or lightweight deployment scenarios.
+This project therefore aims to compare models not only from a quality perspective, but also from an engineering and business perspective. A model that produces slightly lower quality but is cheaper, faster, and easier to deploy may be more suitable for some VIP agents. Recent research on Phi-3, for example, shows that a 3.8B-parameter model can reach competitive results.
 
 Therefore, the objective is not to prove that SLMs are always better than LLMs, but to identify when they are sufficient for a given task.
 

@@ -76,12 +76,12 @@ The architecture is organized around two main operational responsibilities. The 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/Container-view.png}
+    \includegraphics[width=0.9\textwidth]{figures/Container-view1.png}
     \caption{Container view of the VIP platform}
     \label{fig:vip-container-view}
 \end{figure}
 
-This illustrates the main containers of the VIP platform. The platform user interacts with the system through the Next.js frontend, which communicates with the FastAPI backend. The backend coordinates agent creation through the Agent Factory and workflow execution through the orchestration layer. During agent creation, the selected provider, model, prompts, schemas, and tools are included in the generated agent configuration. At runtime, the generated agents operate as independent containers and can be orchestrated through the workflow execution layer. PostgreSQL stores platform metadata, MLflow manages prompts and schemas, Laminar collects observability data, and LLM/SLM providers are used for model inference.
+This illustrates the main containers of the VIP platform. The platform user interacts with the system through the Next.js frontend, which communicates with the FastAPI backend. The backend coordinates agent creation through the Agent Factory and workflow execution through the orchestration layer. During agent creation, the selected provider, model, prompts, schemas, and tools are included in the generated agent configuration. At runtime, the generated agents operate as independent containers and can be orchestrated through the workflow execution layer. PostgreSQL stores platform metadata, MLflow manages prompts and schemas, Langfuse collects observability data.
 
 \subsubsection{Main Platform Components}
 
@@ -116,7 +116,7 @@ PostgreSQL & Stores platform metadata such as agents, tools, workflows, and conf
 \hline
 MLflow & Versions prompts, schemas, and related artifacts. \\
 \hline
-Laminar & Collects traces, latency, token usage, cost, and execution metrics. \\
+Langfuse & Collects traces, latency, token usage, cost, and execution metrics. \\
 \hline
 LLM / SLM Providers & Provide model inference during agent execution. \\
 \hline
@@ -431,28 +431,29 @@ This optimization is combined with the dependency resolution strategy introduced
 
 Observability is an important part of the VIP platform because generated agents and workflows are executed across multiple independent services. In this context, monitoring a single service is not sufficient. The platform must be able to follow a request across the backend, the orchestrator, the generated agents, and the tools used during execution.
 
-The observability architecture of VIP is mainly based on Laminar. Laminar is used to collect and store traces, spans, latency information, token usage, model-related information, and error details from the runtime layer. Custom Python logs are also used for local debugging, while OpenTelemetry is used to propagate trace context between services.
+The observability architecture of VIP is mainly based on Langfuse. Langfuse is used to collect and store traces, spans, latency information, token usage, model-related information, and error details from the runtime layer. Custom Python logs are also used for local debugging, while OpenTelemetry is used to propagate trace context between services.
 
-\subsubsection{Laminar-Based Observability Design}
+\subsubsection{Langfuse-Based Observability Design}
 
-During the first phase of the project, TraceAI was evaluated as a possible observability solution. However, this integration is not active in the current runtime. The platform later moved toward Laminar as the main observability solution because it can be deployed locally as a self-hosted Docker stack and provides access to traces, spans, metrics, execution runs, and a dedicated dashboard.
+During the first phase of the project, TraceAI was evaluated as a possible observability solution. However, this integration is not active in the current runtime. The platform later moved toward Langfuse as the main observability solution because it can be deployed locally as a self-hosted Docker stack and provides access to traces, spans, metrics, execution runs, and a dedicated dashboard.
 
-In the current architecture, Laminar is integrated mainly at the runtime layer. Generated agents initialize Laminar when they start, and they create spans for request handling, agent execution, tool execution, and model calls. The orchestrator also initializes Laminar and creates spans around workflow runs, workflow steps, and calls to generated agent endpoints.
+In the current architecture, Langfuse
+ is integrated mainly at the runtime layer. Generated agents initialize Langfuse when they start, and they create spans for request handling, agent execution, tool execution, and model calls. The orchestrator also initializes Langfuse and creates spans around workflow runs, workflow steps, and calls to generated agent endpoints.
 
-The frontend backend does not emit Laminar spans directly. Instead, it queries Laminar data and exposes it to the frontend observability dashboard. This separation makes Laminar the main observability backend, while the frontend acts mainly as a visualization layer.
+The frontend backend does not emit Langfuse spans directly. Instead, it queries Langfuse data and exposes it to the frontend observability dashboard. This separation makes Langfuse the main observability backend, while the frontend acts mainly as a visualization layer.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/observability.png}
-    \caption{Laminar observability data flow in VIP}
-    \label{fig:laminar_observability_data_flow}
+    \includegraphics[width=0.9\textwidth]{figures/Langfuse-observability.png}
+    \caption{Langfuse observability data flow in VIP}
+    \label{fig:langfuse_observability_data_flow}
 \end{figure}
 
 \subsubsection{Execution Tracing Across Workflows}
 
 VIP uses a logical correlation identifier, called \texttt{trace\_id}, to connect the different parts of a workflow execution. When a workflow is launched from the user interface, a trace identifier is created and sent with the execution request. If no identifier is provided, the backend can generate one before forwarding the request to the runtime orchestrator.
 
-The orchestrator receives this \texttt{trace\_id} and propagates it across the workflow execution. For each workflow step, the same identifier is passed to the target generated agent through the agent runtime request. The generated agent then records this identifier as part of its Laminar span attributes, allowing orchestrator spans, agent spans, tool spans, and execution responses to be correlated.
+The orchestrator receives this \texttt{trace\_id} and propagates it across the workflow execution. For each workflow step, the same identifier is passed to the target generated agent through the agent runtime request. The generated agent then records this identifier as part of its Langfuse span attributes, allowing orchestrator spans, agent spans, tool spans, and execution responses to be correlated.
 
 This tracing mechanism is important because it allows the platform to understand where a workflow execution spends time, which agent was invoked, whether a step failed, and how the final response was produced.
 
@@ -488,40 +489,61 @@ This tracing mechanism is important because it allows the platform to understand
         \draw[tracearrow] (tool) -- node[tracelabel, right] {tool span / model span} (response);
 
         \node[tracelabel, below=0.45cm of response] {
-            All spans are correlated in Laminar using \texttt{vif.trace\_id}
+            All spans are correlated in Langfuse using \texttt{vif.trace\_id}
         };
     \end{tikzpicture}
     \caption{Execution tracing across VIP workflows}
     \label{fig:execution_tracing_across_vip_workflows}
 \end{figure}
 
-\subsubsection{Token, Cost, and Latency Monitoring}
-
-VIP monitors several execution metrics that are important for operating agentic AI systems. Latency helps evaluate the responsiveness of generated agents and workflows. Token usage helps estimate model consumption and compare different executions. Cost monitoring supports financial control, especially when several agents and providers are used inside the same platform.
-
-In the current implementation, generated agents directly produce token usage and latency metrics. Each agent measures the execution time of the request and extracts token usage from the model response when this information is available. These metrics are returned in the agent runtime response and aggregated by the orchestrator at workflow level.
-
-Cost is handled differently. The generated agent does not manually calculate cost in its own response. Instead, cost information is obtained from Laminar trace data when the model instrumentation is able to capture it. As a result, token usage and latency are produced by the runtime execution path, while cost depends on the observability data available in Laminar.
-
-These metrics are displayed in the frontend observability dashboard through backend endpoints that query Laminar. The dashboard can show information such as total runs, successful and failed runs, average latency, error rate, token usage, estimated cost, recent traces, and trace spans.
-
-\subsubsection{Logs and Runtime Monitoring}
-
-In addition to Laminar traces, VIP uses custom Python logs for local debugging and runtime inspection. Generated agents write logs inside their containers, typically under a local log file such as \texttt{logs/app.log}. The orchestrator also writes its own logs, for example under \texttt{logs/orchestrator.log}.
-
-The same logs are also available through Docker stdout because the runtime loggers use console handlers. This means that developers can inspect runtime behavior either by reading log files inside the containers or by using Docker logging commands.
-
-These logs complement Laminar but are not equivalent to structured traces. Laminar stores structured spans, attributes, outputs, status, latency, errors, and model-related information, while Python and Docker logs remain useful for development debugging.
+Each workflow execution generates a hierarchical trace composed of multiple spans, where each span corresponds to an individual agent invocation or tool execution. This hierarchical representation facilitates debugging, performance analysis, and root-cause identification.
 
 
-The observability and monitoring architecture improves the operational control of VIP by making agent and workflow executions traceable across services. Laminar provides structured traces and metrics, custom logs support local debugging, and trace identifiers allow executions to be correlated across the backend, orchestrator, generated agents, tools, and model calls.
+\subsubsection{Observability Metrics (Langfuse)}
 
+The VIP platform integrates Langfuse as its observability layer to monitor and analyze the execution of AI agents and multi-agent workflows. Unlike traditional software systems, agentic AI systems rely on probabilistic language models, which introduce non-deterministic behavior. As a result, classical logging alone is not sufficient to understand runtime execution. Observability is therefore required to ensure traceability, debugging capability, performance monitoring, and cost control.
+
+Langfuse provides a unified observability model based on execution traces, spans, and runtime metrics. Each workflow execution generates a structured trace that captures the full lifecycle of an agent request, including intermediate steps, tool invocations, model calls, and final outputs. These traces allow fine-grained inspection of system behavior across distributed components.
+
+\paragraph{Monitored Metrics}
+
+The following metrics are collected during agent execution:
+
+\begin{itemize}
+    \item \textbf{Execution latency:} measures the response time of individual agents and complete workflows.
+    \item \textbf{Token usage:} records input and output token consumption for each model invocation.
+    \item \textbf{Estimated cost:} derived from token usage and model pricing information when available.
+    \item \textbf{Execution traces:} provide an end-to-end representation of workflow execution.
+    \item \textbf{Spans:} represent individual steps within an execution trace, such as agent calls or tool usage.
+    \item \textbf{Tool invocations:} record external API or tool calls performed by agents.
+    \item \textbf{Prompt version:} identifies the exact prompt template used during execution.
+    \item \textbf{Model version:} specifies the language model and configuration used for inference.
+    \item \textbf{Input/Output payloads:} store structured request and response data for debugging and reproducibility.
+    \item \textbf{Execution status:} indicates whether an operation succeeded or failed.
+    \item \textbf{Error information:} captures exceptions and failure reasons for diagnostic purposes.
+\end{itemize}
+
+\paragraph{Runtime Monitoring and Data Flow}
+
+During execution, each generated agent emits observability events that are collected by Langfuse. These events are automatically associated with the corresponding execution trace and aggregated at workflow level by the orchestrator. This enables both local and global monitoring of system behavior.
+
+The collected metrics are exposed through backend endpoints and visualized in the VIP dashboard. This allows users to analyze recent executions, inspect traces, monitor performance trends, and evaluate system reliability.
+
+\paragraph{Logging vs Structured Observability}
+
+In addition to Langfuse, the platform uses traditional runtime logging for local debugging. Generated agents and the orchestrator produce logs stored inside container environments and exposed through Docker stdout. These logs are primarily used for development and low-level inspection.
+
+However, logs are not equivalent to structured observability data. While logs provide unstructured runtime information, Langfuse provides structured traces, spans, and metadata that allow systematic analysis of execution behavior. Both approaches are complementary: logging supports debugging during development, while Langfuse ensures production-grade observability.
+
+\paragraph{Conclusion}
+
+The integration of Langfuse significantly improves the operational control of the VIP platform. It enables full traceability of agent executions, supports performance and cost monitoring, and provides a structured foundation for debugging and optimization across distributed AI workflows.
 
 \subsection{Chapter Summary}
 
 This chapter presented the system design and architecture of the VIP platform. It first introduced the architectural vision of VIP as a unified agentic hub designed to manage agents, workflows, providers, schemas, deployment, and observability in a controlled way.
 
-The chapter then described the global architecture through the system context view, container view, and main platform components. These views showed how the frontend, backend, Agent Factory, generated agents, orchestrator, PostgreSQL, MLflow, Laminar, Docker environment, and LLM/SLM providers interact to support the lifecycle of configurable agents.
+The chapter then described the global architecture through the system context view, container view, and main platform components. These views showed how the frontend, backend, Agent Factory, generated agents, orchestrator, PostgreSQL, MLflow, langfuse, Docker environment, and LLM/SLM providers interact to support the lifecycle of configurable agents.
 
 The agent lifecycle and Agent Factory architecture were then detailed. In VIP, agents are created from declarative configurations defining the provider, model, prompts, tools, and input/output schemas. The Agent Factory transforms these configurations into runnable agent services by assembling the reusable Agent Core, selecting the required tools, resolving dependencies, and preparing the generated runtime structure.
 
@@ -531,6 +553,6 @@ The data and governance layer clarified the roles of PostgreSQL, MLflow, and pro
 
 The deployment architecture presented the physical execution model of VIP, where generated agents run as independent Dockerized FastAPI services connected through a shared Docker bridge network. It also introduced the use of multi-stage Docker builds and tailored dependency files to reduce final image size.
 
-Finally, the observability architecture showed how Laminar, trace identifiers, token usage, latency metrics, cost information, and runtime logs support operational monitoring across the orchestrator, generated agents, tools, and model calls.
+Finally, the observability architecture showed how Langfuse, trace identifiers, token usage, latency metrics, cost information, and runtime logs support operational monitoring across the orchestrator, generated agents, tools, and model calls.
 
 Overall, this chapter defined VIP as a modular, configurable, containerized, and observable agentic AI platform. The next chapter focuses on the implementation details of the main components, including the Agent Factory, generated agent runtime, workflow execution, observability integration, and the SLM-Evals evaluation pipeline.

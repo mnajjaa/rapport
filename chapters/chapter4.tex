@@ -23,7 +23,8 @@ This section presents the technical environment used to implement the VIP platfo
     \label{fig:vip-implementation}
 \end{figure}
 
-This figure summarizes the main implementation stack of VIP. The frontend was developed with Next.js, while FastAPI was used for backend services, orchestration endpoints, and generated agent runtimes. PostgreSQL stores platform metadata such as agents, workflows, configuration snapshots, and runtime information. MLflow manages prompt and schema references, Docker supports containerized execution, and Laminar provides observability through traces, spans, latency, token usage, and model-call monitoring.
+This figure summarizes the main implementation stack of VIP. The frontend was developed with Next.js, while FastAPI was used for backend services, orchestration endpoints, and generated agent runtimes. PostgreSQL stores platform metadata such as agents, workflows, configuration snapshots, and runtime information. MLflow manages prompt and schema references, Docker supports containerized execution, and Langfuse provides observability through traces, spans, latency, token usage, and 
+-call monitoring.
 \vspace{0.4cm}
 The platform was developed and tested locally before being executed through Docker containers. This environment made it possible to validate agent generation, container execution, workflow orchestration, service-to-service communication, and observability integration. The following sections describe how these components were implemented, starting with the VIP platform and then moving to the SLM-Evals evaluation pipeline.
 
@@ -263,13 +264,13 @@ Figure~\ref{fig:docker_deployment_flow} summarizes the Docker-based deployment f
 
 \label{sec:observability-implementation}
 
-The VIP platform uses Laminar as the active observability layer. TraceAI remains only as legacy code, while Laminar is initialized in the generated agent runtime and in the orchestrator. The builder itself is not directly traced, but it injects the required \texttt{LMNR\_*} environment variables into generated agent containers.
+The VIP platform uses Langfuse as the active observability layer. TraceAI remains only as legacy code, while Langfuse is initialized in the generated agent runtime and in the orchestrator. The builder itself is not directly traced, but it injects the required \texttt{LMNR\_*} environment variables into generated agent containers.
 
 Observability is applied during agent and workflow execution. Generated agents trace \texttt{/run} calls, agent execution, tool execution, and model calls through the OpenAI-compatible instrumentation. The orchestrator traces workflow runs, dynamic workflow execution, workflow steps, and HTTP calls made to generated agents.
 
 The main metadata captured includes the \texttt{trace\_id}, latency, token usage when available, agent name, workflow name, step index, tool name, execution status, and error information. Logs are also written to files such as \texttt{logs/app.log}, \texttt{logs/orchestrator.log}, and \texttt{logs/builder.log}, in addition to Docker and process standard output.
 
-The frontend provides an observability interface connected to Laminar through the backend observability routes and services. This allows the user to inspect traces and execution metrics related to agents and workflows.
+The frontend provides an observability interface connected to Langfuse through the backend observability routes and services. This allows the user to inspect traces and execution metrics related to agents and workflows.
 
 This implementation improves debugging and auditability by making agent execution, tool usage, workflow steps, and runtime errors visible during platform operation.
 
@@ -280,7 +281,7 @@ MLflow was used as the central component for tracking experiments, registering p
 
 \subsubsection{ Environment and MLflow Setup}
 
-The first implementation step consisted of preparing the execution environment and configuring MLflow as the central tracking tool of the SLM-Evals pipeline. The setup notebook validated the required environment variables for the different model providers, including Phi-4 through an Azure OpenAI-compatible endpoint and Llama 3.1 through Groq.
+The first implementation step consisted of preparing the execution environment and configuring MLflow as the central tracking tool of the SLM-Evals pipeline. The setup notebook validated the required environment variables for the different model providers, including Model A (name omitted for confidentiality reasons) through an Azure OpenAI-compatible endpoint and Llama 3.1 through Groq.
 
 MLflow was then initialized using the local tracking server available at \texttt{http://127.0.0.1:5000}. The main experiment was created under the name \texttt{phi4\_vs\_Llama3-1\_baseline}, with experiment ID \texttt{4}. This experiment served as the shared workspace for all following steps, including Prompt Registration, dataset creation, baseline generation, evaluation runs, and artifact logging.
 
@@ -295,7 +296,7 @@ A bootstrap run was also created in order to store the initial configuration and
 \hline
 MLflow tracking URI & \texttt{http://127.0.0.1:5000} \\
 \hline
-Experiment name & \texttt{phi4\_vs\_Llama3-1\_baseline} \\
+Experiment name & \texttt{Model-A\_vs\_Llama3-1\_baseline} \\
 \hline
 Experiment ID & \texttt{4} \\
 \hline
@@ -391,7 +392,7 @@ This setup ensured that all models were evaluated under the same conditions. Eac
 \subsubsection{Baseline Output Generation}
 
 
-The second notebook implemented the baseline generation phase. It reused the golden BIAT case and the baseline prompt registered in Notebook 01, then executed the same financial analysis task with two small language models. The first model was Phi-4, accessed through an Azure OpenAI-compatible endpoint, while the second model was Llama 3.1, accessed through Groq.
+The second notebook implemented the baseline generation phase. It reused the golden BIAT case and the baseline prompt registered in Notebook 01, then executed the same financial analysis task with two small language models. The first model was Model A (name omitted for confidentiality reasons), accessed through an Azure OpenAI-compatible endpoint, while the second model was Llama 3.1, accessed through Groq.
 
 The same input data and the same prompt version were used for both models. This ensured that the comparison focused on the generated outputs rather than differences in input preparation or prompt design.
 
@@ -400,8 +401,8 @@ The generation protocol was configured as follows:
 \begin{itemize}
     \item Golden case: \texttt{test\_case\_004}, corresponding to BIAT financial data.
     \item Prompt: \texttt{financial\_analysis\_baseline}, version \texttt{11}.
-    \item Models: Phi-4 and Llama 3.1.
-    \item Providers: Azure OpenAI-compatible endpoint for Phi-4 and Groq for Llama 3.1.
+    \item Models: Model A and Llama 3.1.
+    \item Providers: Azure OpenAI-compatible endpoint for Model A and Groq for Llama 3.1.
     \item Temperatures: \texttt{0.0}, \texttt{0.1}, \texttt{0.3}, \texttt{0.5}, and \texttt{0.7}.
     \item Total outputs: ten generated reports, with five outputs per model.
     \item Maximum generation length: \texttt{1200} tokens.
@@ -507,7 +508,7 @@ The main artifacts produced during this phase were:
     
     \item \texttt{judge\_section\_scores\_test\_case\_004\_nb4.csv}, storing section-level judge scores.
     
-    \item \texttt{radar\_comparison\_test\_case\_004.png}, visualizing the comparison between Phi-4 and Llama 3.1.
+    \item \texttt{radar\_comparison\_test\_case\_004.png}, visualizing the comparison between Model A and Llama 3.1.
     
     \item \texttt{judge\_eval\_test\_case\_004\_openai\_gpt-oss-20b.json}, storing the cached judge evaluation results.
 \end{itemize}
@@ -516,7 +517,7 @@ The main MLflow evaluation run was identified by the run ID \texttt{44c74a49b669
 
 A radar chart was also generated to provide a visual comparison between the two evaluated models. This chart summarized the main evaluation dimensions and made it easier to identify the relative strengths of each model. The visualization was not used alone to select the best model, but rather as a supporting tool for interpreting the metric values.
 
-Since the goal of this section is to document implementation and result tracking, the interpretation of the winner is not discussed here. The final comparison between Phi-4 and Llama 3.1 is presented in the next subsection.
+Since the goal of this section is to document implementation and result tracking, the interpretation of the winner is not discussed here. The final comparison between Model A (14B-class reasoning LLM, name omitted for confidentiality) and Llama 3.1 is presented in the next subsection.
 
 \begin{figure}[H]
     \centering
@@ -530,7 +531,7 @@ Figure~\ref{fig:slm_mlflow_evaluation_artifacts} shows the artifacts saved by th
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{figures/radar_comparison_test_case_004.png}
-    \caption{Radar chart comparing Phi-4 and Llama 3.1 across evaluation dimensions}
+    \caption{Radar chart comparing Model A and Llama 3.1 across evaluation dimensions}
     \label{fig:slm_radar_comparison}
 \end{figure}
 
@@ -543,9 +544,9 @@ Figure~\ref{fig:slm_radar_comparison} provides a visual comparison of the two ev
 
 The aggregated comparison showed that both evaluated models were able to generate structured financial reports following the eight required sections. The structure score was equal to \texttt{1.0} for both models, which confirms that the baseline prompt successfully enforced the expected report format.
    
-   The final composite score ranked Llama 3.1 slightly ahead of Phi-4, with a score of \texttt{0.648} compared with \texttt{0.643} for Phi-4. However, this difference is very small and should be interpreted carefully. The composite score includes an efficiency component, while the two models were served through different providers and infrastructures. Therefore, the final ranking should not be understood as a pure model-quality ranking.
+   The final composite score ranked Llama 3.1 slightly ahead of Model A (14B-class reasoning LLM, name omitted for confidentiality), with a score of \texttt{0.648} compared with \texttt{0.643} for Model A (14B-class reasoning LLM, name omitted for confidentiality). However, this difference is very small and should be interpreted carefully. The composite score includes an efficiency component, while the two models were served through different providers and infrastructures. Therefore, the final ranking should not be understood as a pure model-quality ranking.
    
-   When focusing on output quality and financial correctness, Phi-4 showed stronger results on several important dimensions. It achieved better deterministic similarity scores, higher domain numerical accuracy, higher RAGAS mean score, and a higher judge quality score. This indicates that Phi-4 produced reports that were closer to the reference answer and more reliable from a financial analysis perspective.
+   When focusing on output quality and financial correctness, Model A showed stronger results on several important dimensions. It achieved better deterministic similarity scores, higher domain numerical accuracy, higher RAGAS mean score, and a higher judge quality score. This indicates that Model A produced reports that were closer to the reference answer and more reliable from a financial analysis perspective.
 
 Llama 3.1 remained a relevant candidate because it produced complete structured reports and obtained a competitive final score. However, its weaker numerical accuracy and judge quality suggest that it may require prompt improvement or additional validation before being used for more sensitive financial analysis tasks.
 
@@ -554,16 +555,16 @@ The main findings can be summarized as follows:
 \begin{itemize}
     \item Both models respected the expected report structure, with a structure score of \texttt{1.0}.
     
-    \item Llama 3.1 obtained the highest final composite score, with \texttt{0.648}, compared with \texttt{0.643} for Phi-4.
+    \item Llama 3.1 obtained the highest final composite score, with \texttt{0.648}, compared with \texttt{0.643} for Model A (14B-class reasoning LLM, name omitted for confidentiality).
     
-    \item Phi-4 obtained stronger quality-oriented results, especially in judge quality, numerical accuracy, RAGAS mean score, and reference-based similarity metrics.
+    \item Model A obtained stronger quality-oriented results, especially in judge quality, numerical accuracy, RAGAS mean score, and reference-based similarity metrics.
     
     \item The final score difference was very small, so the result should be interpreted as a trade-off rather than a clear superiority of one model.
     
     \item Since provider latency can influence efficiency, latency was not used as the main criterion for choosing the better model.
 \end{itemize}
 
-Overall, the evaluation showed that Phi-4 was more reliable for financial report quality, while Llama 3.1 remained competitive in the global pipeline score. For a financial analysis use case, the quality-oriented metrics are more important than raw execution speed. Therefore, Phi-4 appears to be the stronger baseline for financial reasoning, while Llama 3.1 may require prompt enhancement to improve numerical accuracy and reasoning quality.
+Overall, the evaluation showed that Model A was more reliable for financial report quality, while Llama 3.1 remained competitive in the global pipeline score. For a financial analysis use case, the quality-oriented metrics are more important than raw execution speed. Therefore, Model A appears to be the stronger baseline for financial reasoning, while Llama 3.1 may require prompt enhancement to improve numerical accuracy and reasoning quality.
 
 These results remain directional because the evaluation was performed on a single golden case. A larger dataset containing several banks, reporting periods, and financial situations would be required to draw stronger conclusions about the general performance of each model.
 
@@ -774,13 +775,13 @@ The execution was also visible through the observability interface. The trace vi
     \label{fig:vip_workflow_observability_trace}
 \end{figure}
 
-From the VIP observability interface, the user can open the corresponding execution trace in Laminar for deeper inspection. The Laminar trace view provides more detailed runtime information, including the execution timeline, nested spans, involved agent calls, tool executions, model call details, token usage, duration, input payloads, output payloads, and trace attributes.
+From the VIP observability interface, the user can open the corresponding execution trace in Langfuse for deeper inspection. The Langfuse trace view provides more detailed runtime information, including the execution timeline, nested spans, involved agent calls, tool executions, model call details, token usage, duration, input payloads, output payloads, and trace attributes.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{figures/vip_laminar_trace_details.png}
-    \caption{Detailed workflow trace inspection in Laminar}
-    \label{fig:vip_laminar_trace_details}
+    \caption{Detailed workflow trace inspection in Langfuse}
+    \label{fig:vip_langfuse_trace_details}
 \end{figure}
 
 This detailed trace view complements the VIP observability page by allowing developers to inspect each execution step more precisely and identify where time, tool calls, or model calls occurred during the workflow.
@@ -792,11 +793,11 @@ This scenario confirms that VIP can create configurable agents, deploy them as D
 
 \subsection{Chapter Summary}
 
-This chapter presented the implementation, evaluation, and results of the project. It first described the VIP implementation environment, then detailed the main platform components, including the Agent Factory, generated agent runtime, validation layers, workflow orchestration, PostgreSQL persistence, Docker deployment, and Laminar observability.
+This chapter presented the implementation, evaluation, and results of the project. It first described the VIP implementation environment, then detailed the main platform components, including the Agent Factory, generated agent runtime, validation layers, workflow orchestration, PostgreSQL persistence, Docker deployment, and Langfuse observability.
 
-The chapter also presented the implemented financial document intelligence workflow, composed of four agents: extractor, mapper, generator, and sanitizer. The interface screenshots validated the main platform flow, from intelligent application creation and agent configuration to workflow execution, Docker deployment, MLflow artifact traceability, and Laminar trace inspection.
+The chapter also presented the implemented financial document intelligence workflow, composed of four agents: extractor, mapper, generator, and sanitizer. The interface screenshots validated the main platform flow, from intelligent application creation and agent configuration to workflow execution, Docker deployment, MLflow artifact traceability, and Langfuse trace inspection.
 
-In addition, the chapter described the SLM-Evals pipeline implemented through four notebooks. This pipeline covered MLflow setup, golden dataset creation, Prompt Registration, baseline generation, multi-layer evaluation, result visualization, and prompt enhancement. The evaluation compared Phi-4 and Llama 3.1 on a structured financial report generation task.
+In addition, the chapter described the SLM-Evals pipeline implemented through four notebooks. This pipeline covered MLflow setup, golden dataset creation, Prompt Registration, baseline generation, multi-layer evaluation, result visualization, and prompt enhancement. The evaluation compared Model A (name omitted for confidentiality reasons) and Llama 3.1 on a structured financial report generation task.
 
 A synthesis table was also added to relate the implemented results to the initial project objectives, showing which objectives were achieved and which aspects remain future work.
 

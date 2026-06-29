@@ -47,7 +47,7 @@ VIP provides a unified environment for agent creation, workflow orchestration, o
 
 This platform directly addresses the gaps identified in existing solutions by combining support for multiple LLM providers and open-source models with a modular architecture, declarative configuration management, and built-in observability. This design reduces dependency on a single proprietary provider, simplifies agent creation and deployment, and makes agent behavior easier to trace, evaluate, and improve over time.
 
-Alongside VIP, I developed the \textbf{SLM-evals} side project, a reproducible evaluation pipeline for benchmarking LLM and SLM providers. It compares OpenAI, Groq, Phi-4, Llama 3.1, and other alternatives under controlled prompts and golden datasets, while tracking latency, token usage, and layered evaluation metrics. The results of this pipeline guide the choice of models for the \textit{LLM-provider} layer and support VIP's objective of maintaining provider flexibility while selecting models that fit performance, cost, and reliability requirements.
+Alongside VIP, I developed the \textbf{SLM-evals} side project, a reproducible evaluation pipeline for benchmarking LLM and SLM providers. It compares OpenAI, Groq, Llama 4, Llama 3.1, and other alternatives under controlled prompts and golden datasets, while tracking latency, token usage, and layered evaluation metrics. The results of this pipeline guide the choice of models for the \textit{LLM-provider} layer and support VIP's objective of maintaining provider flexibility while selecting models that fit performance, cost, and reliability requirements.
 
 \vspace{1em}
 
@@ -86,7 +86,7 @@ More specifically, the project aims to:
     \item deploy generated agents as independent containerized FastAPI services;
     \item provide a workflow orchestration layer able to coordinate multiple agents through standardized runtime contracts;
     \item ensure reliable communication between agents using input and output schemas, validation layers, and payload adaptation mechanisms;
-    \item integrate governance and traceability mechanisms through MLflow, PostgreSQL, Docker, and Laminar;
+    \item integrate governance and traceability mechanisms through MLflow, PostgreSQL, Docker, and Langfuse.
     \item develop the SLM-Evals pipeline as a complementary evaluation framework for comparing LLM and SLM providers according to quality, latency, cost, and schema compliance.
 \end{itemize}
 
@@ -154,16 +154,7 @@ The project relies on a modular technology stack selected to support agent gener
     \label{fig:groq_logo}
 \end{figure}
 
-\begin{itemize}
-    \item \textbf{Microsoft Phi-4:} small language model considered for cost-efficient and potentially self-hosted inference.
-\end{itemize}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.18\textwidth]{figures/phi4_logo.png}
-    \caption{Logo of Microsoft Phi-4}
-    \label{fig:phi4_logo}
-\end{figure}
 
 \begin{itemize}
     \item \textbf{Meta Llama :} open-weight LLM used as an alternative provider option for flexible deployment and benchmarking.
@@ -240,14 +231,14 @@ The project relies on a modular technology stack selected to support agent gener
 
 \subsubsection{Observability and Monitoring}
 \begin{itemize}
-    \item \textbf{Laminar:} used to capture execution traces, token usage, latency, and cost metrics across agents.
+    \item \textbf{Langfuse:} open-source observability platform used to monitor AI workflows. It captures execution traces, spans, token usage, latency, estimated cost, tool invocations, prompt versions, model versions, input/output payloads, and runtime metadata, enabling debugging, performance analysis, and operational monitoring across generated agents.
 \end{itemize}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.18\textwidth]{figures/laminar_logo.png}
-    \caption{Logo of Laminar}
-    \label{fig:laminar_logo}
+    \includegraphics[width=0.18\textwidth]{figures/langfuse.png}
+    \caption{Logo of Langfuse}
+    \label{fig:Langfuse_logo}
 \end{figure}
 
 \subsection{Methodology}
@@ -494,10 +485,98 @@ This hybrid methodology was therefore chosen because it provides a balance betwe
 \end{figure}
 
 \subsection{Project Timeline}
-The project officially started on December 1, 2025 and is scheduled to end on May 31, 2026, spanning a duration of six months. This timeframe was organized to support a structured and progressive approach, covering onboarding, research, design, development, integration, observability, and testing phases.
+The internship officially started on December 1, 2025 and lasted six months, ending in May 2026. The work progressed through onboarding, analysis, design, implementation, evaluation, testing, documentation, and final presentation preparation.
+
+\begin{figure}[H]
+    \centering
+    \begin{ganttchart}[
+        x unit=0.32cm,
+        y unit chart=0.42cm,
+        hgrid style/.style={draw=gray!18},
+        vgrid style/.style={draw=gray!18},
+        title height=1,
+        title label font=\scriptsize\bfseries,
+        title/.append style={fill=gray!15, draw=gray!35},
+        group height=0.28,
+        group peaks height=0.16,
+        group label font=\scriptsize\bfseries,
+        group label node/.append style={align=right, text width=5.85cm},
+        group/.append style={fill=gray!45, draw=gray!60},
+        bar height=0.48,
+        bar label font=\scriptsize,
+        bar label node/.append style={align=right, text width=5.85cm},
+        bar/.append style={fill=gray!25, draw=gray!55},
+        milestone height=0.45,
+        milestone label font=\scriptsize\itshape,
+        milestone label node/.append style={align=right, text width=5.85cm},
+        milestone/.append style={fill=gray!65, draw=gray!80},
+        canvas/.append style={draw=none}
+    ]{1}{24}
+        \gantttitle{2025}{4}
+        \gantttitle{2026}{20} \\
+        \gantttitle{Dec.}{4}
+        \gantttitle{Jan.}{4}
+        \gantttitle{Feb.}{4}
+        \gantttitle{Mar.}{4}
+        \gantttitle{Apr.}{4}
+        \gantttitle{May}{4} \\
+
+        \ganttgroup{Phase 1 --- Onboarding and Discovery}{1}{8} \\
+        \ganttgroup{Phase 2 --- Analysis and Architecture}{5}{10} \\
+        \ganttgroup{Phase 3 --- VIP Platform Development}{8}{15} \\
+        \ganttgroup{Phase 4 --- Platform Integration}{12}{18} \\
+        \ganttgroup{Phase 5 --- SLM-Evals Project}{16}{20} \\
+        \ganttgroup{Phase 6 --- Validation and Delivery}{17}{24} \\
+    \end{ganttchart}
+
+    \vspace{0.25cm}
+    \begin{minipage}{0.95\textwidth}
+        \scriptsize
+        \raggedright
+        \setlength{\parindent}{0pt}
+        \textbf{Phase 1 --- Onboarding and Discovery}\\
+        Internship onboarding\\
+        Django training\\
+        Technology discovery\\
+        Existing platform analysis\\[0.08cm]
+
+        \textbf{Phase 2 --- Analysis and Architecture}\\
+        Literature review\\
+        Requirements analysis\\
+        Architecture design\\[0.08cm]
+
+        \textbf{Phase 3 --- VIP Platform Development}\\
+        Agent Factory implementation\\
+        LLM integration\\
+        Generated agent runtime\\
+        Docker deployment\\[0.08cm]
+
+        \textbf{Phase 4 --- Platform Integration}\\
+        Workflow orchestration\\
+        MLflow integration\\
+        PostgreSQL persistence\\
+        Observability\\
+        Frontend integration\\[0.08cm]
+
+        \textbf{Phase 5 --- SLM-Evals Project}\\
+        Evaluation pipeline implementation\\
+        Benchmark experiments\\
+        Prompt optimization\\
+        Result analysis\\[0.08cm]
+
+        \textbf{Phase 6 --- Validation and Delivery}\\
+        Final testing\\
+        Debugging\\
+        Technical documentation\\
+        Thesis writing\\
+        Presentation preparation
+    \end{minipage}
+    \caption{Project timeline of the internship activities.}
+    \label{fig:project_timeline}
+\end{figure}
 
 \subsection{Summary}
 
-This chapter introduced the context of the internship by presenting the motivation behind enterprise AI agent orchestration, the host company Value Digital Services, and the objectives of the VIP project. It also clarified the main problem addressed by the project, namely the need for a modular, observable, cost-optimized, and provider-independent platform for creating and managing AI agents. The chapter then summarized the selected technologies, including FastAPI, Next.js, LangChain, LangGraph, Docker, MLflow, PostgreSQL, Laminar, and the LLM/SLM providers evaluated through SLM-evals, before presenting the methodological approach and the project timeline.
+This chapter introduced the context of the internship by presenting the motivation behind enterprise AI agent orchestration, the host company Value Digital Services, and the objectives of the VIP project. It also clarified the main problem addressed by the project, namely the need for a modular, observable, cost-optimized, and provider-independent platform for creating and managing AI agents. The chapter then summarized the selected technologies, including FastAPI, Next.js, Docker, MLflow, PostgreSQL, Langfuse, and the LLM/SLM providers evaluated through SLM-evals, before presenting the methodological approach and the project timeline.
 
 The next chapter presents the state of the art and project specifications. It introduces the main concepts related to AI agents and multi-agent orchestration, compares existing platforms, formalizes the VIP requirements, and explains the motivation of the SLM-Evals evaluation project.
